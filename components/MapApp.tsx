@@ -3,15 +3,15 @@ import {useEffect,useMemo,useRef,useState} from "react";
 import maplibregl,{Map as MLMap} from "maplibre-gl";
 type Place={id:number;name:string;category_slug:string;category_name:string;prefecture_name:string;municipality_name:string;address:string;longitude:number;latitude:number;official_url:string|null;data_date:string|null;aggregate_count?:number};
 const iconPaths:Record<string,string>={
- aquarium:"M3 12c4-5 9-6 14-3l4-3v12l-4-3c-5 3-10 2-14-3Zm7-2a1 1 0 1 0 0 .01",
- zoo:"M7 10c-3-1-4-5-1-7 2 0 4 2 4 5m7 2c3-1 4-5 1-7-2 0-4 2-4 5M8 12c0-3 2-5 4-5s4 2 4 5v5c0 3-8 3-8 0v-5Zm2 3h4",
- "roadside-station":"M4 19V7h16v12M7 7V4h10v3M7 11h10M8 15h3m2 0h3",
- airport:"M2 16l20-7-2-2-8 2-4-6-2 1 2 7-4 2 1 2 7-1-2 5 2 1 5-6",
- shelter:"M3 11 12 3l9 8v9h-6v-6H9v6H3v-9Zm7 0h4",
- "world-heritage":"M4 20h16M6 17h12M7 8h10v9H7V8Zm2 0V5h6v3m-4 3h2v3h-2v-3",
- "national-park":"M3 20 9 9l3 5 3-8 6 14H3Zm7-11 2-4 2 4"
+ aquarium:"M3 12c3.5-4 8-5 12-2l4-3v10l-4-3c-4 3-8.5 2-12-2Zm4-1a1 1 0 1 0 0 .01M19 5c1-1 2-1 2-2m-3 1c0-1 1-2 2-2",
+ zoo:"M8 8C5 7 4 4 6 3c2 0 3 2 3 4m6 1c3-1 4-4 2-5-2 0-3 2-3 4M7 12c0-3 2-5 5-5s5 2 5 5v4c0 4-10 4-10 0v-4Zm3 2h.01M14 14h.01M10 17c1 1 3 1 4 0",
+ "roadside-station":"M3 19h18M5 19V9l7-5 7 5v10M9 19v-5h6v5M4 8h5M15 8h5M6 5v3m12-3v3",
+ airport:"M2 15l8-3 3-8 2 1-1 7 6 2c1 .4 2 1 2 2l-8-1-4 5-2-1 2-5-6 2-2-1Z",
+ shelter:"M3 11l9-8 9 8v9h-6v-6H9v6H3v-9Zm9-1v7m-3-4h6",
+ "world-heritage":"M4 20h16M6 17h12V9H6v8Zm2-8 4-5 4 5M10 13h4v4M5 9h14",
+ "national-park":"M2 20 8 10l3 5 4-9 7 14H2Zm5-10 2-5 2 5M6 20c3-3 9-3 12 0"
 };
-function CategoryIcon({slug}:{slug:string}){return <svg className="catIcon" viewBox="0 0 24 24" aria-hidden="true"><path d={iconPaths[slug]} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+function CategoryIcon({slug}:{slug:string}){return <span className={"catIconWrap "+slug}><svg className="catIcon" viewBox="0 0 24 24" aria-hidden="true"><path d={iconPaths[slug]} fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/></svg></span>}
 const cats=[{slug:"aquarium",name:"水族館",count:86,aliases:["水族館","アクアリウム","イルカ"]},{slug:"zoo",name:"動物園",count:91,aliases:["動物園","サファリ","どうぶつ"]},{slug:"roadside-station",name:"道の駅",count:1234,aliases:["道の駅","みちのえき"]},{slug:"airport",name:"空港",count:97,aliases:["空港","エアポート"]},{slug:"shelter",name:"避難場所",count:null,aliases:["避難場所","避難所","防災"]},{slug:"world-heritage",name:"世界遺産",count:27,aliases:["世界遺産","ユネスコ","文化遺産","自然遺産"]},{slug:"national-park",name:"国立公園",count:35,aliases:["国立公園","自然公園","ナショナルパーク"]}];
 export default function MapApp(){
  const node=useRef<HTMLDivElement>(null),map=useRef<MLMap|null>(null),placeIndex=useRef<Map<number,Place>>(new Map());
