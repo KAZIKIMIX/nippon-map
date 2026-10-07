@@ -4,6 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "にっぽんマップ｜日本の「どこ？」が、一目でわかる。",
+  icons: { icon: [{ url: "/brand-mark.webp", type: "image/webp" }], apple: "/brand-mark.webp" },
   description: "全国の施設・スポットを地図で探せるビジュアル検索サービス",
 };
 
