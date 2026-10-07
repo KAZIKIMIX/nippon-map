@@ -2,7 +2,7 @@
 import {useEffect,useMemo,useRef,useState} from "react";
 import maplibregl,{Map as MLMap} from "maplibre-gl";
 type Place={id:number;name:string;category_slug:string;category_name:string;prefecture_name:string;municipality_name:string;address:string;longitude:number;latitude:number;official_url:string|null;data_date:string|null;aggregate_count?:number};
-const cats=[{slug:"aquarium",name:"水族館",count:86,aliases:["水族館","アクアリウム","イルカ"]},{slug:"zoo",name:"動物園",count:91,aliases:["動物園","サファリ","どうぶつ"]},{slug:"roadside-station",name:"道の駅",count:1234,aliases:["道の駅","みちのえき"]},{slug:"airport",name:"空港",count:97,aliases:["空港","エアポート"]},{slug:"shelter",name:"避難場所",count:null,aliases:["避難場所","避難所","防災"]}];
+const cats=[{slug:"aquarium",name:"水族館",count:86,aliases:["水族館","アクアリウム","イルカ"]},{slug:"zoo",name:"動物園",count:91,aliases:["動物園","サファリ","どうぶつ"]},{slug:"roadside-station",name:"道の駅",count:1234,aliases:["道の駅","みちのえき"]},{slug:"airport",name:"空港",count:97,aliases:["空港","エアポート"]},{slug:"shelter",name:"避難場所",count:null,aliases:["避難場所","避難所","防災"]},{slug:"world-heritage",name:"世界遺産",count:27,aliases:["世界遺産","ユネスコ","文化遺産","自然遺産"]},{slug:"national-park",name:"国立公園",count:35,aliases:["国立公園","自然公園","ナショナルパーク"]}];
 export default function MapApp(){
  const node=useRef<HTMLDivElement>(null),map=useRef<MLMap|null>(null),placeIndex=useRef<Map<number,Place>>(new Map());
  const [places,setPlaces]=useState<Place[]>([]),[cat,setCat]=useState<string|null>(null),[prefecture,setPrefecture]=useState<string|null>(null),[selected,setSelected]=useState<Place|null>(null),[q,setQ]=useState(""),[loaded,setLoaded]=useState(false),[notice,setNotice]=useState(""),[error,setError]=useState("");
