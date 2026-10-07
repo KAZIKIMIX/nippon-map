@@ -1,7 +1,7 @@
 "use client";
 import {useEffect,useMemo,useRef,useState} from "react";
 import maplibregl,{Map as MLMap} from "maplibre-gl";
-type Place={id:number;name:string;category_slug:string;category_name:string;prefecture_name:string;municipality_name:string;address:string;longitude:number;latitude:number};
+type Place={id:number;name:string;category_slug:string;category_name:string;prefecture_name:string;municipality_name:string;address:string;longitude:number;latitude:number;official_url:string|null;data_date:string|null};
 const cats=[{slug:"airport",name:"空港"},{slug:"roadside-station",name:"道の駅"},{slug:"aquarium",name:"水族館"},{slug:"shelter",name:"避難場所"}];
 export default function MapApp(){
  const node=useRef<HTMLDivElement>(null),map=useRef<MLMap|null>(null),placeIndex=useRef<Map<number,Place>>(new Map());
