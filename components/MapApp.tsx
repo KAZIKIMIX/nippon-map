@@ -4,10 +4,10 @@ import maplibregl,{GeoJSONSource,Map as MLMap,MapLayerMouseEvent} from "maplibre
 type Place={id:number;name:string;category_slug:string;category_name:string;prefecture_name:string;municipality_name:string;address:string;longitude:number;latitude:number};
 const cats=[{slug:"airport",name:"空港"},{slug:"roadside-station",name:"道の駅"},{slug:"aquarium",name:"水族館"},{slug:"shelter",name:"避難場所"}];
 export default function MapApp(){
- const node=useRef<HTMLDivElement>(null),map=useRef<MLMap|null>(null);
+ const node=useRef<HTMLDivElement>(null),map=useRef<MLMap|null>(null),placeIndex=useRef<Map<number,Place>>(new Map());
  const [places,setPlaces]=useState<Place[]>([]),[cat,setCat]=useState("airport"),[selected,setSelected]=useState<Place|null>(null),[q,setQ]=useState(""),[loaded,setLoaded]=useState(false);
  useEffect(()=>{let alive=true;setLoaded(false);fetch(`/api/places?category=${encodeURIComponent(cat)}`).then(r=>r.json()).then(d=>{if(alive){setPlaces(d.places||[]);setLoaded(true)}}).catch(()=>alive&&setLoaded(true));return()=>{alive=false}},[cat]);
- const shown=useMemo(()=>places.filter(p=>!q||`${p.name}${p.prefecture_name}${p.municipality_name}`.includes(q)),[places,q]);
+ const shown=useMemo(()=>places.filter(p=>!q||`${p.name}${p.prefecture_name}${p.municipality_name}`.includes(q)),[places,q]);\n useEffect(()=>{placeIndex.current=new Map(places.map(p=>[p.id,p]));},[places]);
  const ranking=useMemo(()=>Object.entries(shown.reduce<Record<string,number>>((a,p)=>{const n=p.prefecture_name||"地域未設定";a[n]=(a[n]||0)+1;return a;},{})).sort((a,b)=>b[1]-a[1]),[shown]);
  useEffect(()=>{if(!node.current||map.current)return;const m=new maplibregl.Map({container:node.current,style:"https://tiles.openfreemap.org/styles/liberty",center:[137.5,37.2],zoom:4.2});map.current=m;m.addControl(new maplibregl.NavigationControl({showCompass:false}),"bottom-right");m.on("load",()=>{
   m.addSource("places",{type:"geojson",data:{type:"FeatureCollection",features:[]},cluster:true,clusterMaxZoom:12,clusterRadius:45});
@@ -15,7 +15,7 @@ export default function MapApp(){
   m.addLayer({id:"cluster-count",type:"symbol",source:"places",filter:["has","point_count"],layout:{"text-field":["get","point_count_abbreviated"],"text-size":12},paint:{"text-color":"#fff"}});
   m.addLayer({id:"unclustered",type:"circle",source:"places",filter:["!",["has","point_count"]],paint:{"circle-radius":6,"circle-color":"#2563eb","circle-stroke-width":2,"circle-stroke-color":"#fff"}});
   m.on("click","clusters",async(e:MapLayerMouseEvent)=>{const f=m.queryRenderedFeatures(e.point,{layers:["clusters"]})[0];if(!f)return;const id=f.properties?.cluster_id;const src=m.getSource("places") as GeoJSONSource;const z=await src.getClusterExpansionZoom(id);const c=(f.geometry as GeoJSON.Point).coordinates;m.easeTo({center:[c[0],c[1]],zoom:z});});
-  m.on("click","unclustered",(e:MapLayerMouseEvent)=>{const id=Number(e.features?.[0]?.properties?.id);const p=places.find(x=>x.id===id);if(p)setSelected(p);});
+  m.on("click","unclustered",(e:MapLayerMouseEvent)=>{const id=Number(e.features?.[0]?.properties?.id);const p=placeIndex.current.get(id);if(p)setSelected(p);});
   ["clusters","unclustered"].forEach(id=>{m.on("mouseenter",id,()=>m.getCanvas().style.cursor="pointer");m.on("mouseleave",id,()=>m.getCanvas().style.cursor="");});
  });return()=>{m.remove();map.current=null}},[]);
  useEffect(()=>{const m=map.current;if(!m)return;const update=()=>{const src=m.getSource("places") as GeoJSONSource|undefined;if(!src)return;src.setData({type:"FeatureCollection",features:shown.map(p=>({type:"Feature",geometry:{type:"Point",coordinates:[p.longitude,p.latitude]},properties:{id:p.id}}))});};m.isStyleLoaded()?update():m.once("load",update);},[shown]);
