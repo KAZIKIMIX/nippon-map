@@ -1,6 +1,6 @@
 "use client";
 import {useEffect,useMemo,useRef,useState} from "react";
-import maplibregl,{GeoJSONSource,Map as MLMap,MapLayerMouseEvent} from "maplibre-gl";
+import maplibregl,{GeoJSONSource,Map as MLMap} from "maplibre-gl";
 type Place={id:number;name:string;category_slug:string;category_name:string;prefecture_name:string;municipality_name:string;address:string;longitude:number;latitude:number};
 const cats=[{slug:"airport",name:"空港"},{slug:"roadside-station",name:"道の駅"},{slug:"aquarium",name:"水族館"},{slug:"shelter",name:"避難場所"}];
 export default function MapApp(){
@@ -14,8 +14,8 @@ export default function MapApp(){
   m.addLayer({id:"clusters",type:"circle",source:"places",filter:["has","point_count"],paint:{"circle-radius":["step",["get","point_count"],18,100,24,1000,30],"circle-color":"#2563eb","circle-opacity":0.86}});
   m.addLayer({id:"cluster-count",type:"symbol",source:"places",filter:["has","point_count"],layout:{"text-field":["get","point_count_abbreviated"],"text-size":12},paint:{"text-color":"#fff"}});
   m.addLayer({id:"unclustered",type:"circle",source:"places",filter:["!",["has","point_count"]],paint:{"circle-radius":6,"circle-color":"#2563eb","circle-stroke-width":2,"circle-stroke-color":"#fff"}});
-  m.on("click","clusters",async(e:MapLayerMouseEvent)=>{const f=m.queryRenderedFeatures(e.point,{layers:["clusters"]})[0];if(!f)return;const id=f.properties?.cluster_id;const src=m.getSource("places") as GeoJSONSource;const z=await src.getClusterExpansionZoom(id);const c=(f.geometry as GeoJSON.Point).coordinates;m.easeTo({center:[c[0],c[1]],zoom:z});});
-  m.on("click","unclustered",(e:MapLayerMouseEvent)=>{const id=Number(e.features?.[0]?.properties?.id);const p=placeIndex.current.get(id);if(p)setSelected(p);});
+  m.on("click","clusters",async(e)=>{const f=m.queryRenderedFeatures(e.point,{layers:["clusters"]})[0];if(!f)return;const id=f.properties?.cluster_id;const src=m.getSource("places") as GeoJSONSource;const z=await src.getClusterExpansionZoom(id);const c=(f.geometry as {coordinates:number[]}).coordinates;m.easeTo({center:[c[0],c[1]],zoom:z});});
+  m.on("click","unclustered",(e)=>{const id=Number(e.features?.[0]?.properties?.id);const p=placeIndex.current.get(id);if(p)setSelected(p);});
   ["clusters","unclustered"].forEach(id=>{m.on("mouseenter",id,()=>m.getCanvas().style.cursor="pointer");m.on("mouseleave",id,()=>m.getCanvas().style.cursor="");});
  });return()=>{m.remove();map.current=null}},[]);
  useEffect(()=>{const m=map.current;if(!m)return;const update=()=>{const src=m.getSource("places") as GeoJSONSource|undefined;if(!src)return;src.setData({type:"FeatureCollection",features:shown.map(p=>({type:"Feature",geometry:{type:"Point",coordinates:[p.longitude,p.latitude]},properties:{id:p.id}}))});};m.isStyleLoaded()?update():m.once("load",update);},[shown]);
