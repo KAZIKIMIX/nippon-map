@@ -7,7 +7,8 @@ export default function MapApp(){
  const node=useRef<HTMLDivElement>(null),map=useRef<MLMap|null>(null),placeIndex=useRef<Map<number,Place>>(new Map());
  const [places,setPlaces]=useState<Place[]>([]),[cat,setCat]=useState("airport"),[selected,setSelected]=useState<Place|null>(null),[q,setQ]=useState(""),[loaded,setLoaded]=useState(false);
  useEffect(()=>{let alive=true;setLoaded(false);fetch(`/api/places?category=${encodeURIComponent(cat)}`).then(r=>r.json()).then(d=>{if(alive){setPlaces(d.places||[]);setLoaded(true)}}).catch(()=>alive&&setLoaded(true));return()=>{alive=false}},[cat]);
- const shown=useMemo(()=>places.filter(p=>!q||`${p.name}${p.prefecture_name}${p.municipality_name}`.includes(q)),[places,q]);\n useEffect(()=>{placeIndex.current=new Map(places.map(p=>[p.id,p]));},[places]);
+ const shown=useMemo(()=>places.filter(p=>!q||`${p.name}${p.prefecture_name}${p.municipality_name}`.includes(q)),[places,q]);
+ useEffect(()=>{placeIndex.current=new Map(places.map(p=>[p.id,p]));},[places]);
  const ranking=useMemo(()=>Object.entries(shown.reduce<Record<string,number>>((a,p)=>{const n=p.prefecture_name||"地域未設定";a[n]=(a[n]||0)+1;return a;},{})).sort((a,b)=>b[1]-a[1]),[shown]);
  useEffect(()=>{if(!node.current||map.current)return;const m=new maplibregl.Map({container:node.current,style:"https://tiles.openfreemap.org/styles/liberty",center:[137.5,37.2],zoom:4.2});map.current=m;m.addControl(new maplibregl.NavigationControl({showCompass:false}),"bottom-right");m.on("load",()=>{
   m.addSource("places",{type:"geojson",data:{type:"FeatureCollection",features:[]},cluster:true,clusterMaxZoom:12,clusterRadius:45});
