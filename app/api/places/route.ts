@@ -34,5 +34,5 @@ export async function GET(req:NextRequest){
  const db=createClient(url,key);
  if(summary){const {data,error}=await db.rpc("get_public_place_prefecture_counts",{p_category_slug:category});if(error)return NextResponse.json({summary:[],error:error.message},{status:500});return NextResponse.json({summary:data||[]})}
  const places:unknown[]=[];for(let from=0;;from+=PAGE){const {data,error}=await db.rpc("get_public_places_by_category_and_prefecture",{p_category_slug:category,p_prefecture_name:prefecture||null}).range(from,from+PAGE-1);if(error)return NextResponse.json({places:[],error:error.message},{status:500});const batch=data||[];places.push(...batch);if(batch.length<PAGE)break}
- return NextResponse.json({places});
+ return NextResponse.json({places,...(category==="toilet"?{source:"葛飾区・宇都宮市 公衆トイレ一覧（CC BY）",notice:"葛飾区・宇都宮市の公衆トイレ公開データ（CC BY）を加工して掲載しています。取得日：2026年10月7日。全国の全施設を網羅するものではありません。座標欠損・異常のあるデータは掲載していません。"}:category==="park"?{notice:"公園データは開園状況を確認中です。確認済みの施設から順次掲載します。"}:{})});
 }
