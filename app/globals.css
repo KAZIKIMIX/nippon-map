@@ -17,3 +17,5 @@
 @media(max-width:900px){.catIconWrap{width:26px;height:26px;flex-basis:26px;border-radius:8px}.catIconWrap .catIcon{width:17px;height:17px}}
 
 .catIconWrap.railway{background:#e8f1ff}.catIconWrap.museum{background:#f3ebff}
+
+.catIconWrap.park{background:#e7f8e9}.catIconWrap.toilet{background:#e9f5f6}
