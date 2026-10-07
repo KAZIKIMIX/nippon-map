@@ -15,3 +15,5 @@
 
 .catIconWrap{width:28px;height:28px;display:grid;place-items:center;border-radius:9px;background:#eef5ff;flex:0 0 28px}.catIconWrap .catIcon{width:18px;height:18px}.catIconWrap.aquarium{background:#e8f6ff}.catIconWrap.zoo{background:#fff1df}.catIconWrap.roadside-station{background:#eaf3ff}.catIconWrap.airport{background:#f0ebff}.catIconWrap.shelter{background:#e6f8ef}.catIconWrap.world-heritage{background:#fff0eb}.catIconWrap.national-park{background:#e9f8e8}.chips .active .catIconWrap{background:rgba(255,255,255,.18)}.chips .active .catIcon{color:#fff}
 @media(max-width:900px){.catIconWrap{width:26px;height:26px;flex-basis:26px;border-radius:8px}.catIconWrap .catIcon{width:17px;height:17px}}
+
+.catIconWrap.railway{background:#e8f1ff}.catIconWrap.museum{background:#f3ebff}
