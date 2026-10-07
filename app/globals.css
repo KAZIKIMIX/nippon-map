@@ -9,3 +9,6 @@
  .maplibregl-ctrl-bottom-right{bottom:72px}
 }
 @media(max-width:480px){.brand small{display:none}.chips button small{display:none}.left{max-height:142px}.label b{display:none}.detail{max-height:62dvh}.facts{margin:14px 0}}
+
+.catIcon{width:18px;height:18px;flex:0 0 18px;color:#1769ff}.chips button{min-height:38px;padding:7px 12px 7px 9px;font-weight:700;transition:border-color .15s,background .15s,transform .15s}.chips button:hover{border-color:#a9c7ff;background:#f7faff}.chips .active{box-shadow:0 5px 14px #1769ff22}.chips .active .catIcon{color:#fff}.chips button span{white-space:nowrap}
+@media(max-width:900px){.catIcon{width:17px;height:17px;flex-basis:17px}.chips button{min-height:36px;padding:6px 10px 6px 8px}}
