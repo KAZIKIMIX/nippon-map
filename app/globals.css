@@ -49,3 +49,7 @@
 @media(max-width:900px){.facilityResults{max-height:150px}.workspace.hasSelection .left{max-height:62px;overflow:hidden}.workspace.hasSelection .left>.search{margin:0}.workspace.hasSelection .left>:not(.search){display:none}.workspace.hasSelection .detail{max-height:min(58dvh,calc(100dvh - 170px))}}
 
 .moreResults{display:block;width:100%;margin:-4px 0 12px;padding:10px 12px;border:1px solid #ded6c9;border-radius:10px;background:#f0ebe2;color:#253d50;font-size:12px;font-weight:700;cursor:pointer}.moreResults:hover{background:#e7e3d9;border-color:#253d50}.moreResults:focus-visible{outline:2px solid #253d50;outline-offset:2px}
+
+
+/* Keep mobile search controls available while browsing results. */
+@media(max-width:900px){.left>.search{position:sticky;top:0;z-index:2;background:#faf6ed;box-shadow:0 8px 0 #faf6ed}.workspace.hasSelection .left>.search{box-shadow:none}}
