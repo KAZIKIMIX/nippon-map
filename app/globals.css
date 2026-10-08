@@ -33,3 +33,6 @@
 
 /* Indigo and ivory theme */
 .search input{background:transparent;color:#253d50}.eyebrow{color:#a94c38}.label{background:rgba(250,246,237,.96)}.detail>a+a{background:#b65b45}.reportLink{color:#253d50}.reportLink.danger{background:#f7e5dd;color:#9b382b}.chips .active:hover{background:#253d50;color:#faf6ed}.facilityResults button{background:#faf6ed;border-color:#ded6c9}.reportModal input,.reportModal select,.reportModal textarea{background:#faf6ed}.catIconWrap.castle{background:#f1e7dc}.catIconWrap.lighthouse{background:#e5edef}.catIconWrap.hot-spring{background:#f5e2db}
+
+.mobileCategorySelect{display:none}.placePhoto figcaption a{display:inline!important}.castlePhoto{object-fit:contain;height:220px;background:#f0ebe2}.detail>p.placeNotice{font-size:11px;line-height:1.6;color:#68757c;background:#f0ebe2;border-radius:8px;padding:10px}
+@media(max-width:900px){.mobileCategorySelect{display:block;width:100%;height:40px;margin-bottom:8px;border:1px solid #ded6c9;border-radius:10px;background:#faf6ed;color:#253d50;padding:0 10px;font-size:13px}.left{max-height:190px}.chips button{min-height:44px}.close{width:40px;height:40px;font-size:22px}.castlePhoto{height:180px}.placePhoto{margin-bottom:14px}.detail{max-height:calc(100dvh - 270px)}.facilityResults{max-height:110px;overflow:auto}}
