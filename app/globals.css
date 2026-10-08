@@ -38,3 +38,6 @@
 @media(max-width:900px){.mobileCategorySelect{display:block;width:100%;height:40px;margin-bottom:8px;border:1px solid #ded6c9;border-radius:10px;background:#faf6ed;color:#253d50;padding:0 10px;font-size:13px}.left{max-height:190px}.chips button{min-height:44px}.close{width:40px;height:40px;font-size:22px}.castlePhoto{height:180px}.placePhoto{margin-bottom:14px}.detail{max-height:calc(100dvh - 270px)}.facilityResults{max-height:110px;overflow:auto}}
 
 .sourceCredit{font-size:10px;line-height:1.7;color:#68757c;margin:8px 0 12px}.sourceCredit a{color:#526a79;text-decoration:underline;text-underline-offset:2px}.stationDetails{background:#f0ebe2;border-radius:10px;padding:12px;margin:12px 0}.stationDetails p{font-size:12px;line-height:1.7;margin:0 0 8px;overflow-wrap:anywhere}.stationDetails p span{display:block;font-size:10px;color:#68757c}.stationDetails small{font-size:10px;line-height:1.5;color:#68757c}
+
+/* Keep the detail close control above the positioned photo. */
+.detail>.close{z-index:2;background:#faf6ed;color:#253d50;box-shadow:0 2px 8px #253d5026}
