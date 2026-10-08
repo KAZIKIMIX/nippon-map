@@ -41,3 +41,9 @@
 
 /* Keep the detail close control above the positioned photo. */
 .detail>.close{z-index:2;background:#faf6ed;color:#253d50;box-shadow:0 2px 8px #253d5026}
+
+
+/* Search results with facility previews. */
+.search input{min-width:0;flex:1}.clearSearch{border:0;background:#f0ebe2;color:#253d50;width:30px;height:30px;flex:0 0 30px;border-radius:50%;cursor:pointer;font-size:19px}.clearSearch:hover{background:#e4ddd0}.clearSearch:focus-visible,.facilityResults button:focus-visible{outline:2px solid #253d50;outline-offset:2px}
+.resultCount{font-size:11px;color:#68757c;margin:0 0 8px}.facilityResults button{display:grid;grid-template-columns:48px minmax(0,1fr);align-items:center;justify-content:initial;padding:8px;gap:10px;min-height:66px}.resultVisual{width:48px;height:48px;background:#f0ebe2;border-radius:10px;overflow:hidden;display:grid;place-items:center;flex:0 0 48px}.resultVisual>img{display:block;width:48px;height:48px;object-fit:cover}.resultCopy{min-width:0;display:grid;gap:4px}.resultName{font-size:12px;font-weight:700;line-height:1.5;overflow-wrap:anywhere}.resultCopy small{line-height:1.4}.facilityResults button.selectedResult{border-color:#253d50;background:#e9eeed;box-shadow:inset 3px 0 #253d50}.selectedBadge{justify-self:start;color:#253d50;background:#dbe5e3;font-size:9px;font-weight:700;border-radius:4px;padding:2px 5px}.resultCredits{font-size:9px;line-height:1.6;color:#68757c;margin:-4px 0 12px}.resultCredits summary{cursor:pointer;text-decoration:underline;text-underline-offset:2px}.resultCredits ul{padding-left:14px;margin:6px 0}.resultCredits li{margin:6px 0;overflow-wrap:anywhere}.resultCredits a{color:#526a79}
+@media(max-width:900px){.facilityResults{max-height:150px}.workspace.hasSelection .left{max-height:62px;overflow:hidden}.workspace.hasSelection .left>.search{margin:0}.workspace.hasSelection .left>:not(.search){display:none}.workspace.hasSelection .detail{max-height:min(58dvh,calc(100dvh - 170px))}}
