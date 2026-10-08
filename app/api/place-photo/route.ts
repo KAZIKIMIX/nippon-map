@@ -44,6 +44,7 @@ const photos = [
   {"names":["世田谷美術館"],"category":"museum","photo":{"url":"/place-photos/setagaya-art.webp","credit":"Wiiii / Wikimedia Commons","license":"CC BY-SA 3.0","license_url":"https://creativecommons.org/licenses/by-sa/3.0/","source_url":"https://commons.wikimedia.org/wiki/File:Setagaya_Art_Museum.jpg","changes":"2009年撮影 · 縮小・WebP変換"}},
   {"names":["大田区立郷土博物館"],"category":"museum","photo":{"url":"/place-photos/ota-folk.webp","credit":"Suikotei / Wikimedia Commons","license":"CC BY 4.0","license_url":"https://creativecommons.org/licenses/by/4.0/","source_url":"https://commons.wikimedia.org/wiki/File:Folk_Museum_of_Ota_City_20250713.jpg","changes":"2025年撮影 · 縮小・WebP変換"}},
   {"names":["杉並区立郷土博物館"],"category":"museum","photo":{"url":"/place-photos/suginami-history.webp","credit":"江戸村のとくぞう / Wikimedia Commons","license":"CC BY-SA 4.0","license_url":"https://creativecommons.org/licenses/by-sa/4.0/","source_url":"https://commons.wikimedia.org/wiki/File:Suginami_Museums-1.jpg","changes":"2018年撮影 · 縮小・WebP変換"}},
+  {"names":["世田谷文学館"],"category":"museum","photo":{"url":"/place-photos/setagaya-literature.webp","credit":"江戸村のとくぞう / Wikimedia Commons","license":"CC BY-SA 4.0","license_url":"https://creativecommons.org/licenses/by-sa/4.0/","source_url":"https://commons.wikimedia.org/wiki/File:Setagaya_bungakukan_230113a.jpg","changes":"2023年撮影 · 縮小・WebP変換"}},
 ];
 
 export function GET(request: NextRequest) {

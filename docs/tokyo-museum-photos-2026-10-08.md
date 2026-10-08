@@ -38,3 +38,15 @@ Wikimedia画像配信のHTTP429が発生。一度再取得しても制限が続�
 - 青梅市立美術館：File:Ome Municipal Museum of Art.JPG（あばさー、2016、Public domain）
 
 既存写真・ロゴ・アイコン・ピン画像に変更なし。施設数は変更なし。
+
+
+## 追記：世田谷文学館
+
+2026年10月8日、取得制限の解除後に1施設を追加。博物館・美術館15施設中9施設が写真付き。
+
+- 写真： https://commons.wikimedia.org/wiki/File:Setagaya_bungakukan_230113a.jpg
+- 撮影者：江戸村のとくぞう
+- 撮影日：2023年1月13日
+- ライセンス：CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
+- 加工：EXIF向き補正、最大1200pxへの縮小、WebP変換。色・構図は変更なし。
+- 残り6施設は次回以降に追加。
