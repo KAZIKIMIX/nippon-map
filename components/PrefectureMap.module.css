@@ -12,3 +12,6 @@
 .mapScroll svg{overflow:hidden}
 .mapScroll a:focus-visible path{stroke:#253d50;stroke-width:2.5}
 @media(pointer:coarse){.mapScroll .enabled:hover path{transform:none;filter:none}.zoomControls button{min-height:44px}.prefGrid a{min-height:44px}}
+
+.regionSummary{font-size:12px;font-weight:700;color:#253d50;margin:12px 0 4px;text-align:center}
+@media(prefers-reduced-motion:reduce){.wrap *, .wrap *::before, .wrap *::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
