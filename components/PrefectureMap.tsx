@@ -4,7 +4,7 @@ import styles from "./PrefectureMap.module.css";
 type Geometry={type:"Polygon"|"MultiPolygon";coordinates:number[][][]|number[][][][]};
 type Feature={properties:{name:string};geometry:Geometry};
 type Collection={features:Feature[]};
-const source="https://raw.githubusercontent.com/kyodo-official/japan-choropleth/main/data/geojson/prefectures.geojson";
+const source="/data/prefectures.geojson";
 function project(point:number[]){const [lon,lat]=point;return [(lon-122)*17.3,(46-lat)*25.5];}
 function draw(geometry:Geometry){const polygons=geometry.type==="Polygon"?[geometry.coordinates as number[][][]]:geometry.coordinates as number[][][][];
  return polygons.map(poly=>poly.map(ring=>ring.map((p,i)=>{const [x,y]=project(p);return (i?"L":"M")+x.toFixed(1)+","+y.toFixed(1)}).join(" ")+"Z").join(" ")).join(" ");
@@ -18,6 +18,6 @@ export default function PrefectureMap({category,counts}:{category:string;counts:
  return <section className={styles.wrap} aria-label="日本地図から都道府県を選ぶ">
  <div className={styles.heading}><div><h3>日本地図から地域を選ぶ</h3><p>都道府県にカーソルを合わせると拡大します。クリック・タップで掲載施設の一覧へ。</p></div><div className={styles.selection} aria-live="polite">{active?active+" · "+(counts[active]||0)+"件":"都道府県を選択"}</div></div>
  {shapes.length?<div className={styles.mapScroll}><svg viewBox="0 0 570 570" role="group" aria-label="都道府県を選択できる日本地図">{shapes.map(({name,path})=><a key={name} href={counts[name]?"/guides/"+category+"/"+encodeURIComponent(name):undefined} aria-label={name+" 掲載"+(counts[name]||0)+"件"} onMouseEnter={()=>setActive(name)} onMouseLeave={()=>setActive(null)} onFocus={()=>setActive(name)} onBlur={()=>setActive(null)} className={counts[name]?styles.enabled:styles.disabled} tabIndex={counts[name]?0:-1}><path d={path} vectorEffect="non-scaling-stroke"/><title>{name}：{counts[name]||0}件</title></a>)}</svg></div>:<p className={styles.status}>{error?"地図を読み込めませんでした。下の地域一覧から選択してください。":"日本地図を読み込んでいます…"}</p>}
- <p className={styles.credit}>地図境界データ：<a href="https://github.com/kyodo-official/japan-choropleth" target="_blank" rel="noopener noreferrer">共同通信 japan-choropleth</a>。掲載のない地域は選択できません。</p>
+ <p className={styles.credit}>地図境界データ：<a href="https://github.com/kyodo-official/japan-choropleth" target="_blank" rel="noopener noreferrer">共同通信 japan-choropleth</a>を簡略化して使用。掲載のない地域は選択できません。</p>
  </section>;
 }
