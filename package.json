@@ -9,7 +9,8 @@
     "check:map": "node scripts/check-prefecture-geojson.cjs",
     "check:production": "node scripts/smoke-production.cjs",
     "check:types": "tsc --noEmit",
-    "check:regions": "node scripts/check-guide-regions.cjs"
+    "check:regions": "node scripts/check-guide-regions.cjs",
+    "check:seo": "node scripts/check-production-seo.cjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.76.1",
