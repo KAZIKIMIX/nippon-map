@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "check:map": "node scripts/check-prefecture-geojson.cjs"
+    "check:map": "node scripts/check-prefecture-geojson.cjs",
+    "check:production": "node scripts/smoke-production.cjs",
+    "check:types": "tsc --noEmit"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.76.1",
