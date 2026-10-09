@@ -21,7 +21,10 @@ export async function generateMetadata({params}:Props):Promise<Metadata>{
 export default async function PrefectureGuide({params}:Props){
  const {category,name,places,guide}=await resolve(params);
  const mapQuery=new URLSearchParams({category,prefecture:name});
- return <div className={styles.page}>
+ const base="https://nippon-map.vercel.app";
+ const pageUrl=base+"/guides/"+category+"/"+encodeURIComponent(name);
+ const structuredData={"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":pageUrl+"#webpage",name:name+"の"+guide.name+"一覧",url:pageUrl,inLanguage:"ja",description:name+"の"+guide.name+"を掲載中。掲載件数："+places.length+"件。"},{"@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"トップ",item:base+"/"},{"@type":"ListItem",position:2,name:guide.name+"のガイド",item:base+"/guides/"+category},{"@type":"ListItem",position:3,name:name,item:pageUrl}]}]};
+ return <div className={styles.page}><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData)}}/>
  <header className={styles.header}><a className={styles.brand} href="/"><img src="/brand-mark.webp" width={36} height={36} alt=""/><strong>にっぽんマップ</strong></a><a href={"/map?"+mapQuery.toString()}>地図を開く ↗</a></header>
  <main className={styles.main}>
  <nav className={styles.breadcrumb} aria-label="パンくず"><a href="/">トップ</a> / <a href={"/guides/"+category}>{guide.name}のガイド</a> / <span>{name}</span></nav>
