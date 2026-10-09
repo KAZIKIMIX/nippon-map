@@ -14,7 +14,8 @@ export default async function GuidePage({params}:Props){
  const {category}=await params;if(!isGuideCategory(category))notFound();
  const guide=guideCategories[category],places=await getGuidePlaces(category),groups=groupGuidePlaces(places);
  const limit=category==="roadside-station"?4:Infinity;
- return <div className={styles.page}><GuidePageView category={category}/>
+ const structuredData={"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://nippon-map.vercel.app/guides/"+category+"#webpage",name:guide.title,description:guide.intro,url:"https://nippon-map.vercel.app/guides/"+category,inLanguage:"ja",isPartOf:{"@type":"WebSite",name:"にっぽんマップ",url:"https://nippon-map.vercel.app/"}},{"@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"トップ",item:"https://nippon-map.vercel.app/"},{"@type":"ListItem",position:2,name:guide.name+"のガイド",item:"https://nippon-map.vercel.app/guides/"+category}]}]};
+ return <div className={styles.page}><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData)}}/><GuidePageView category={category}/>
  <header className={styles.header}><a className={styles.brand} href="/"><img src="/brand-mark.webp" width={36} height={36} alt=""/><strong>にっぽんマップ</strong><small>BETA</small></a><a href={"/map?category="+category}>地図を開く ↗</a></header>
  <main className={styles.main}>
  <nav className={styles.breadcrumb} aria-label="パンくず"><a href="/">トップ</a><span aria-hidden="true"> / </span><span>{guide.name}のガイド</span></nav>
