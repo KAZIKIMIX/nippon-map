@@ -1,3 +1,4 @@
+export const dynamic="force-dynamic";
 import type {Metadata} from "next";
 import {notFound} from "next/navigation";
 import {guideCategories,isGuideCategory,prefectureOrder} from "../../../../lib/guide-categories";
