@@ -10,7 +10,8 @@
     "check:production": "node scripts/smoke-production.cjs",
     "check:types": "tsc --noEmit",
     "check:regions": "node scripts/check-guide-regions.cjs",
-    "check:seo": "node scripts/check-production-seo.cjs"
+    "check:seo": "node scripts/check-production-seo.cjs",
+    "check:interactions": "node scripts/check-map-interactions.cjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.76.1",
