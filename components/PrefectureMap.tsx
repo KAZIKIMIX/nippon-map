@@ -29,7 +29,7 @@ export default function PrefectureMap({category,counts}:{category:string;counts:
  const activeRegionNames=regionNames.filter(name=>(counts[name]||0)>0);
  const activeRegionCount=activeRegionNames.reduce((sum,name)=>sum+(counts[name]||0),0);
  const visiblePrefectures=(normalizedQuery?prefectureOrder:regionNames).filter(name=>(counts[name]||0)>0&&name.includes(normalizedQuery));
- const selected=focused||active;
+ const selected=(focused||active)&&regionNames.includes(focused||active||"")?(focused||active):null;
  const selectedCount=selected?(counts[selected]||0):0;
  const focusRegion=useCallback((name:string)=>{setFocused(name);setActive(name)},[]);
  const reset=()=>{setRegion("all");setActive(null);setFocused(null);setQuery("")};
