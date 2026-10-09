@@ -10,7 +10,7 @@ export function readSharedMap(search: string, categories: readonly string[]): Sh
  return {category, prefecture: category && rawPrefecture && prefectures.has(rawPrefecture) ? rawPrefecture : null, query: category ? (params.get("q") || "").slice(0,100) : "", placeId: category && id && Number.isSafeInteger(id) ? id : null};
 }
 export function createSharedMapUrl(origin: string, state: SharedMapState): string {
- const url = new URL("/", origin);
+ const url = new URL("/map", origin);
  if (state.category) {
   url.searchParams.set("category", state.category);
   if (state.prefecture) url.searchParams.set("prefecture", state.prefecture);
