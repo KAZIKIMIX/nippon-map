@@ -24,6 +24,7 @@ export default async function Home({searchParams}:{searchParams:Promise<LandingP
  </div>
  </section>
  <CategoryDirectory/>
+ <section className={styles.guides} aria-labelledby="guides-title"><div><p className={styles.eyebrow}>地域からじっくり探す</p><h2 id="guides-title">お出かけ先を、一覧から。</h2><p>掲載施設と地域別の件数を確認して、地図へ。</p></div><div className={styles.guideLinks}>{[["aquarium","水族館"],["zoo","動物園"],["roadside-station","道の駅"]].map(([slug,name])=><a key={slug} href={"/guides/"+slug}><img src={"/category-assets/"+slug+".webp"} width={44} height={44} alt=""/><span>{name}のガイド</span><span aria-hidden="true">→</span></a>)}</div></section>
  <section className={styles.steps} aria-labelledby="steps-title"><div><p className={styles.eyebrow}>HOW TO EXPLORE</p><h2 id="steps-title">探し方は、3ステップ。</h2></div>
  <ol><li><span>01</span><h3>カテゴリを選ぶ</h3><p>水族館、道の駅、温泉など、気になるジャンルから。</p></li><li><span>02</span><h3>地域を絞る</h3><p>都道府県を選んだり、施設名・地域名で検索。</p></li><li><span>03</span><h3>場所をチェック</h3><p>地点を選んで住所や公式サイトを確認。リンクの共有もできます。</p></li></ol></section>
  <section className={styles.about}><h2>旅にも、日常にも。</h2><p>日本各地の施設・スポットを、公開データや公式情報をもとに掲載しています。掲載範囲とデータの更新時点はカテゴリごとに異なります。営業状況や利用条件は、各施設・自治体の公式情報でご確認ください。</p><a href="/map">地図から探してみる <span aria-hidden="true">→</span></a></section>
