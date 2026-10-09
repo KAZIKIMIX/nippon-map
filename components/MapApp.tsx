@@ -36,7 +36,7 @@ export default function MapApp(){
  const pendingSharedPlace=useRef<number|null>(null);
  const dialogCloseRef=useRef<HTMLButtonElement>(null);
  const dialogPreviousFocus=useRef<HTMLElement|null>(null);
- useEffect(()=>{if(!reportOpen)return;dialogPreviousFocus.current=document.activeElement instanceof HTMLElement?document.activeElement:null;dialogCloseRef.current?.focus();const onKeyDown=(event:KeyboardEvent)=>{if(event.key==="Escape"){event.preventDefault();setReportOpen(false);return}if(event.key!=="Tab")return;const dialog=dialogCloseRef.current?.closest('[role="dialog"]');if(!dialog)return;const elements=Array.from(dialog.querySelectorAll<HTMLElement>('button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),a[href]')).filter(el=>el.getClientRects().length>0);if(!elements.length)return;const first=elements[0],last=elements[elements.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}};document.addEventListener("keydown",onKeyDown);return()=>{document.removeEventListener("keydown",onKeyDown);dialogPreviousFocus.current?.focus()};},[reportOpen]);
+
  const [shareMessage,setShareMessage]=useState("");
  const [shareFallback,setShareFallback]=useState("");
  const [categoryCounts,setCategoryCounts]=useState<Record<string,number>>({});
@@ -63,6 +63,7 @@ export default function MapApp(){
  const node=useRef<HTMLDivElement>(null),map=useRef<MLMap|null>(null),placeIndex=useRef<Map<number,Place>>(new Map());
  const selectedPlaceId=useRef<number|null>(null);
  const [places,setPlaces]=useState<Place[]>([]),[cat,setCategory]=useState<string|null>(null),[prefecture,setPrefecture]=useState<string|null>(null),[selected,setSelected]=useState<Place|null>(null),[q,setQ]=useState(""),[loaded,setLoaded]=useState(false),[notice,setNotice]=useState(""),[error,setError]=useState(""),[reportOpen,setReportOpen]=useState(false),[reportType,setReportType]=useState<"add"|"update"|"closure">("add"),[reportMsg,setReportMsg]=useState("");
+ useEffect(()=>{if(!reportOpen)return;dialogPreviousFocus.current=document.activeElement instanceof HTMLElement?document.activeElement:null;dialogCloseRef.current?.focus();const onKeyDown=(event:KeyboardEvent)=>{if(event.key==="Escape"){event.preventDefault();setReportOpen(false);return}if(event.key!=="Tab")return;const dialog=dialogCloseRef.current?.closest('[role="dialog"]');if(!dialog)return;const elements=Array.from(dialog.querySelectorAll<HTMLElement>('button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),a[href]')).filter(el=>el.getClientRects().length>0);if(!elements.length)return;const first=elements[0],last=elements[elements.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}};document.addEventListener("keydown",onKeyDown);return()=>{document.removeEventListener("keydown",onKeyDown);dialogPreviousFocus.current?.focus()};},[reportOpen]);
  useEffect(()=>{
   const state=readSharedMap(window.location.search,cats.map(c=>c.slug));
   pendingSharedPlace.current=state.placeId;
