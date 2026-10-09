@@ -13,9 +13,9 @@ export default function GuidePlaceFinder({places,category,prefecture}:Props){
  const cities=useMemo(()=>[...new Set(places.map(p=>p.municipality_name).filter((name):name is string=>Boolean(name)))].sort((a,b)=>a.localeCompare(b,"ja")),[places]);
  const filtered=useMemo(()=>places.filter(p=>(!city||p.municipality_name===city)&&(!query.trim()||[p.name,p.address,p.municipality_name].some(v=>(v||"").normalize("NFKC").toLocaleLowerCase("ja").includes(query.trim().normalize("NFKC").toLocaleLowerCase("ja"))))).sort((a,b)=>sort==="city"?(a.municipality_name||"").localeCompare(b.municipality_name||"","ja")||a.name.localeCompare(b.name,"ja"):a.name.localeCompare(b.name,"ja")),[places,city,query,sort]);
  const reset=()=>{setCity("");setQuery("");setSort("name");setVisibleLimit(40)};
- const mapQuery=query.trim()||city;
  const mapParams=new URLSearchParams({category,prefecture});
- if(mapQuery)mapParams.set("q",mapQuery);
+ if(query.trim())mapParams.set("q",query.trim());
+ if(city)mapParams.set("city",city);
  return <section className={styles.finder} aria-label="施設の絞り込み">
  <div className={styles.controls}><label>施設名・住所で検索<input type="search" placeholder="施設名・住所を入力" value={query} onChange={e=>{setQuery(e.target.value);setVisibleLimit(40)}} aria-controls="guide-results"/></label><label>市区町村<select value={city} onChange={e=>{setCity(e.target.value);setVisibleLimit(40)}} aria-controls="guide-results"><option value="">すべての市区町村</option>{cities.map(name=><option key={name} value={name}>{name}</option>)}</select></label><label>並び順<select value={sort} onChange={e=>{handleSortChange(e.target.value);setVisibleLimit(40)}} aria-controls="guide-results"><option value="name">施設名順</option><option value="city">市区町村順</option></select></label><button type="button" onClick={reset}>条件をクリア</button></div>
  <div className={styles.summary} role="status" aria-live="polite" aria-atomic="true"><strong>{filtered.length.toLocaleString()}</strong> 件表示 / {places.length.toLocaleString()} 件掲載 <a href={"/map?"+mapParams.toString()}>この地域を地図で見る →</a></div>
