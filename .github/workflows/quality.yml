@@ -24,6 +24,7 @@ jobs:
       - run: npm run check:map
       - run: npm run check:regions
       - run: npm run check:interactions
+      - run: npm run check:responsive
       - run: npm run check:types
       - run: npm run build
         env:
