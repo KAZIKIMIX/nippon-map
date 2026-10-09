@@ -25,4 +25,6 @@ assert.match(pref,/prefectureOrder\.slice\(39\)/,"Kyushu should include Fukuoka"
 assert.match(detail,/getGuidePlaces\(category,name\)/,"Prefecture guide should query only selected prefecture");
 assert.match(data,/p_prefecture_name:prefecture/,"Database query must filter prefecture");
 assert.ok(share.includes("prefecture")&&share.includes("place"),"Share module must preserve prefecture and place");
+assert.ok(map.includes('setQ(e.target.value);setCityFilter("");setSelected(null)'),"Editing map search must clear hidden municipality filter");
+assert.ok(map.includes('setQ("");setCityFilter("");setSelected(null)'),"Clearing map search must clear municipality filter");
 console.log("Map and guide state contract checks passed");
