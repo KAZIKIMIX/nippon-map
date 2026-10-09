@@ -10,7 +10,7 @@ async function resolve(params:Props["params"]){
  const {category,prefecture}=await params;
  const name=prefecture;
  if(!isGuideCategory(category)||!prefectureOrder.includes(name))notFound();
- const places=(await getGuidePlaces(category)).filter(p=>p.prefecture_name===name);
+ const places=await getGuidePlaces(category,name);
  if(!places.length)notFound();
  return {category,name,places,guide:guideCategories[category]};
 }
