@@ -23,7 +23,7 @@ const iconPaths:Record<string,string>={
  "hot-spring":"M4 15c-3 7 19 7 16 0M8 4c-4 4 4 4 0 8m4-9c-4 4 4 4 0 8m4-7c-4 4 4 4 0 8",
  toilet:"M8 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm8 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM5 10h6l-1 5H9v6H7v-6H6l-1-5Zm8 0h6l1 5h-2v6h-4v-6h-2l1-5Z"
 };
-const originalCategories=new Set(["aquarium","zoo","roadside-station","airport","shelter","world-heritage","national-park","castle","lighthouse","hot-spring"]);
+const originalCategories=new Set(["aquarium","zoo","roadside-station","airport","shelter","world-heritage","national-park","castle","lighthouse","hot-spring","railway","museum","park","toilet"]);
 function CategoryIcon({slug}:{slug:string}){if(originalCategories.has(slug))return <span className={"catIconWrap originalIcon "+slug}><img src={"/category-assets/"+slug+".webp"} width={32} height={32} alt="" /></span>;return <span className={"catIconWrap "+slug}><svg className="catIcon" viewBox="0 0 24 24" aria-hidden="true"><path d={iconPaths[slug]} fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/></svg></span>}
 function ResultThumbnail({place}:{place:Place}){
  const [failed,setFailed]=useState(false);
