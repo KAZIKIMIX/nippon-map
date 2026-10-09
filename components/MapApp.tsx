@@ -64,7 +64,7 @@ export default function MapApp(){
  useEffect(()=>{
   if(!loaded||!pendingSharedPlace.current||places.length===0)return;
   const place=places.find(p=>p.id===pendingSharedPlace.current);
-  if(place){setSelected(place);setQ("");}
+  if(place)setSelected(place);
   pendingSharedPlace.current=null;
  },[loaded,places]);
  useEffect(()=>{setShareMessage("");setShareFallback("");},[cat,prefecture,q,selected]);
