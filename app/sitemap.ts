@@ -1,3 +1,4 @@
+export const dynamic="force-dynamic";
 import type {MetadataRoute} from "next";
 import {guideCategories,groupGuidePlaces} from "../lib/guide-categories";
 import {getGuidePlaces} from "../lib/guide-data";
