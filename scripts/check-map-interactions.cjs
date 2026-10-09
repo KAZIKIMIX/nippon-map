@@ -14,7 +14,9 @@ assert.match(map,/normalize\("NFKC"\)/,"Map search must normalize full-width cha
 assert.match(map,/p\.address/,"Map search must include address");
 assert.match(map,/setResultLimit\(8\)/,"Map search result pagination must reset");
 assert.match(finder,/setVisibleLimit\(40\)/,"Guide pagination must reset on filters");
-assert.ok(finder.includes('if(mapQuery)mapParams.set("q",mapQuery)')&&finder.includes('mapParams.toString()'),"Guide map navigation must retain search query or municipality");
+assert.ok(finder.includes('if(query.trim())mapParams.set("q",query.trim())')&&finder.includes('if(city)mapParams.set("city",city)'),"Guide must retain both keyword and municipality");
+assert.ok(map.includes('setCityFilter(state.city||"")')&&map.includes('p.municipality_name===cityFilter'),"Map must restore and apply municipality filter");
+assert.ok(share.includes('params.get("city")')&&share.includes('url.searchParams.set("city"'),"Shared URLs must preserve municipality");
 assert.ok(finder.includes('setCity("")')&&finder.includes('setQuery("")')&&finder.includes('setSort("name")'),"Clear filters must restore defaults");
 assert.match(finder,/new URLSearchParams\(\{category,prefecture,place:String\(p\.id\)\}\)/,"Guide place links must retain filters");
 assert.match(pref,/setRegion\("all"\)/,"Map reset must restore national view");
