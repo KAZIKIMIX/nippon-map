@@ -33,6 +33,6 @@ export default async function PrefectureGuide({params}:Props){
  <section className={styles.directory}><h2>掲載施設（{places.length.toLocaleString()}件）</h2><GuidePlaceFinder places={places} category={category} prefecture={name}/></section>
  <section className={styles.tips}><h2>訪問前に確認したいこと</h2><ul>{guide.tips.map(tip=><li key={tip}>{tip}</li>)}</ul></section>
  <p className={styles.note}>掲載範囲と情報の更新時点は施設ごとに異なります。営業状況や利用条件は各施設の公式情報でご確認ください。</p>
- <p><a href={"/guides/"+category}>← {guide.name}の都道府県一覧に戻る</a></p>
+ <nav aria-label="関連する地域とガイド"><p><a href={"/guides/"+category}>← {guide.name}の都道府県一覧に戻る</a></p><p>{(Object.keys(guideCategories) as (keyof typeof guideCategories)[]).filter(other=>other!==category).map(other=><a key={other} href={"/guides/"+other+"/"+encodeURIComponent(name)} style={{display:"inline-block",marginRight:18,marginBottom:10}}>{name}の{guideCategories[other].name}を探す →</a>)}</p></nav>
  </main><footer className={styles.footer}><a href="/">にっぽんマップ</a></footer></div>;
 }
