@@ -10,7 +10,7 @@ export default function GuidePlaceFinder({places,category,prefecture}:Props){
  const [query,setQuery]=useState("");
  const [sort,setSort]=useState<"name"|"city">("name");
  const handleSortChange=(value:string)=>setSort(value==="city"?"city":"name");
- const cities=useMemo(()=>[...new Set(places.map(p=>p.municipality_name).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"ja")),[places]);
+ const cities=useMemo(()=>[...new Set(places.map(p=>p.municipality_name).filter((name):name is string=>Boolean(name)))].sort((a,b)=>a.localeCompare(b,"ja")),[places]);
  const filtered=useMemo(()=>places.filter(p=>(!city||p.municipality_name===city)&&(!query.trim()||[p.name,p.address,p.municipality_name].some(v=>(v||"").normalize("NFKC").toLocaleLowerCase("ja").includes(query.trim().normalize("NFKC").toLocaleLowerCase("ja"))))).sort((a,b)=>sort==="city"?(a.municipality_name||"").localeCompare(b.municipality_name||"","ja")||a.name.localeCompare(b.name,"ja"):a.name.localeCompare(b.name,"ja")),[places,city,query,sort]);
  const reset=()=>{setCity("");setQuery("");setSort("name");setVisibleLimit(40)};
  return <section className={styles.finder} aria-label="施設の絞り込み">
