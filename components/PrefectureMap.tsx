@@ -28,13 +28,13 @@ export default function PrefectureMap({category,counts}:{category:string;counts:
  const regionShapes=region==="all"?shapes:shapes.filter(shape=>regionNames.includes(shape.name));
  const activeRegionNames=regionNames.filter(name=>(counts[name]||0)>0);
  const activeRegionCount=activeRegionNames.reduce((sum,name)=>sum+(counts[name]||0),0);
- const visiblePrefectures=(normalizedQuery?prefectureOrder:regionNames).filter(name=>name.includes(normalizedQuery));
+ const visiblePrefectures=(normalizedQuery?prefectureOrder:regionNames).filter(name=>name.normalize("NFKC").includes(normalizedQuery));
  const selected=(focused||active)&&regionNames.includes(focused||active||"")?(focused||active):null;
  const selectedCount=selected?(counts[selected]||0):0;
  const focusRegion=useCallback((name:string)=>{setFocused(name);setActive(name)},[]);
  const reset=()=>{setRegion("all");setActive(null);setFocused(null);setQuery("")};
  return <section className={styles.wrap} aria-label="日本地図から都道府県を選ぶ">
- <div className={styles.heading}><div><h3>日本地図から地域を選ぶ</h3><p>都道府県をクリック・タップすると施設一覧へ移動します。地域ボタンで表示範囲を切り替えられます。</p></div><div className={styles.selection} aria-live="polite">{selected?selected+" · "+selectedCount+"件":"掲載中 "+totalRegions+"都道府県"}</div></div>
+ <div className={styles.heading}><div><h3>日本地図から地域を選ぶ</h3><p>都道府県をクリック・タップすると施設一覧へ移動します。小さい地域は下の一覧からも選べます。</p></div><div className={styles.selection} aria-live="polite">{selected?selected+" · "+selectedCount+"件":"掲載中 "+totalRegions+"都道府県"}</div></div>
  <div className={styles.legend}><span className={styles.legendAvailable}/>掲載あり <span className={styles.legendUnavailable}/>掲載なし <span className={styles.legendHint}>色のついた都道府県を選択できます</span></div>
  <div className={styles.zoomControls} role="group" aria-label="地図の表示範囲">{([{key:"all",label:"日本全体"},{key:"east",label:"北海道〜長野"},{key:"west",label:"岐阜〜高知"},{key:"south",label:"九州・沖縄"}] as const).map(item=><button key={item.key} type="button" className={region===item.key?styles.zoomActive:undefined} aria-pressed={region===item.key} onClick={()=>{setRegion(item.key);setActive(null);setFocused(null);setQuery("")}}>{item.label}</button>)}<button type="button" className={styles.resetButton} onClick={reset}>リセット ↺</button></div>
  <p className={styles.regionSummary} aria-live="polite">{region==="all"?"日本全体":region==="east"?"北海道〜長野":region==="west"?"岐阜〜高知":"九州・沖縄"}：掲載 {activeRegionNames.length} 都道府県・{activeRegionCount.toLocaleString()} 件</p>
