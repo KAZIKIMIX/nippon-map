@@ -38,6 +38,7 @@ export default function MapApp(){
  const dialogCloseRef=useRef<HTMLButtonElement>(null);
  const dialogPreviousFocus=useRef<HTMLElement|null>(null);
 
+ const [cityFilter,setCityFilter]=useState("");
  const [shareMessage,setShareMessage]=useState("");
  const [shareFallback,setShareFallback]=useState("");
  const [categoryCounts,setCategoryCounts]=useState<Record<string,number>>({});
@@ -68,7 +69,7 @@ export default function MapApp(){
  useEffect(()=>{
   const state=readSharedMap(window.location.search,cats.map(c=>c.slug));
   pendingSharedPlace.current=state.placeId;
-  setCategory(state.category);setPrefecture(state.prefecture);setQ(state.query);
+  setCategory(state.category);setPrefecture(state.prefecture);setQ(state.query);setCityFilter(state.city||"");
  },[]);
  useEffect(()=>{
   if(!loaded||!pendingSharedPlace.current||places.length===0)return;
@@ -78,20 +79,20 @@ export default function MapApp(){
  },[loaded,places]);
  useEffect(()=>{if(cat)trackUsage("category_select",cat);},[cat]);
  useEffect(()=>{if(selected&&!selected.aggregate_count)trackUsage("place_open",selected.category_slug);},[selected?.id]);
- useEffect(()=>{setShareMessage("");setShareFallback("");},[cat,prefecture,q,selected]);
+ useEffect(()=>{setShareMessage("");setShareFallback("");},[cat,prefecture,q,cityFilter,selected]);
  async function shareMap(){
-  const url=createSharedMapUrl(window.location.origin,{category:cat,prefecture,query:q,placeId:selected?.id??null});
+  const url=createSharedMapUrl(window.location.origin,{category:cat,prefecture,query:q,city:cityFilter,placeId:selected?.id??null});
   try{await navigator.clipboard.writeText(url);trackUsage("share_copy",cat);setShareFallback("");setShareMessage("リンクをコピーしました。SNSやメッセージに貼り付けて共有できます。");}
   catch{setShareFallback(url);setShareMessage("下のリンクを選択してコピーしてください。");}
  }
- function setCat(value:string|null){if(value===cat)return;setCategory(value);setPlaces([]);setSelected(null);setNotice("");setSourceCredits([]);setError("");setLoaded(!value)}
+ function setCat(value:string|null){if(value===cat)return;setCategory(value);setCityFilter("");setPlaces([]);setSelected(null);setNotice("");setSourceCredits([]);setError("");setLoaded(!value)}
  useEffect(()=>{let alive=true;setStationDetails(null);if(selected?.category_slug!=="railway")return;fetch("/api/place-details?id="+selected.id).then(r=>r.ok?r.json():null).then(d=>{if(alive)setStationDetails(d?.details||null)}).catch(()=>{});return()=>{alive=false}},[selected]);
  useEffect(()=>{let alive=true;setPhoto(null);setPhotoFailed(false);if(!selected){setPhotoLoading(false);return}setPhotoLoading(true);fetch("/api/place-photo?v=20261008g&name="+encodeURIComponent(selected.name)+"&category="+encodeURIComponent(selected.category_slug)).then(r=>{if(!r.ok)throw new Error("photo unavailable");return r.json()}).then(d=>{if(alive)setPhoto(d.photo?{...d.photo,placeId:selected.id}:null)}).catch(()=>{if(alive)setPhoto(null)}).finally(()=>{if(alive)setPhotoLoading(false)});return()=>{alive=false}},[selected]);
  useEffect(()=>{const m=map.current;if(m?.getLayer("unclustered"))m.setLayoutProperty("unclustered","icon-size",["case",["==",["get","id"],selected?.id??0],1.15,.85])},[selected]);
  useEffect(()=>{let alive=true;if(!cat){setPlaces([]);setLoaded(true);setNotice("");setSourceCredits([]);setError("");return()=>{alive=false}}setLoaded(false);setPlaces([]);setNotice("");setSourceCredits([]);setSelected(null);setError("");const qs=cat==="shelter"&&!prefecture?`category=shelter&summary=1`:`category=${encodeURIComponent(cat)}${prefecture?"&prefecture="+encodeURIComponent(prefecture):""}`;fetch(`/api/places?${qs}`).then(r=>r.json()).then(d=>{if(!alive)return;if(d.summary){setPlaces(d.summary.map((x:{prefecture_name:string;place_count:number;longitude:number;latitude:number},i:number)=>({id:-(i+1),name:x.prefecture_name,category_slug:"shelter",category_name:"指定緊急避難場所",prefecture_name:x.prefecture_name,municipality_name:"",address:"都道府県を選択すると地点を表示します",longitude:x.longitude,latitude:x.latitude,official_url:null,data_date:null,aggregate_count:Number(x.place_count)})))}else setPlaces(d.places||[]);setNotice(d.notice||"");setSourceCredits(d.source_credits||[]);setError(d.error||"");setLoaded(true)}).catch(()=>{if(alive){setPlaces([]);setError("データを取得できませんでした。時間をおいて再度お試しください。");setLoaded(true)}});return()=>{alive=false}},[cat,prefecture]);
  const [resultLimit,setResultLimit]=useState(8);
- const normalizedQ=q.trim().normalize("NFKC").toLocaleLowerCase("ja"); const shown=useMemo(()=>places.filter(p=>!normalizedQ||[p.name,p.prefecture_name,p.municipality_name,p.address].some(value=>(value||"").normalize("NFKC").toLocaleLowerCase("ja").includes(normalizedQ))),[places,normalizedQ]); const categoryMatches=useMemo(()=>!cat&&normalizedQ?cats.filter(c=>c.aliases.some(a=>a.includes(normalizedQ)||normalizedQ.includes(a))):[],[cat,normalizedQ]);
- useEffect(()=>setResultLimit(8),[normalizedQ,cat,prefecture]);
+ const normalizedQ=q.trim().normalize("NFKC").toLocaleLowerCase("ja"); const shown=useMemo(()=>places.filter(p=>(!cityFilter||p.municipality_name===cityFilter)&&(!normalizedQ||[p.name,p.prefecture_name,p.municipality_name,p.address].some(value=>(value||"").normalize("NFKC").toLocaleLowerCase("ja").includes(normalizedQ)))),[places,normalizedQ,cityFilter]); const categoryMatches=useMemo(()=>!cat&&normalizedQ?cats.filter(c=>c.aliases.some(a=>a.includes(normalizedQ)||normalizedQ.includes(a))):[],[cat,normalizedQ]);
+ useEffect(()=>setResultLimit(8),[normalizedQ,cat,prefecture,cityFilter]);
  const resultRows=shown.slice(0,resultLimit);
  useEffect(()=>{placeIndex.current=new Map(places.map(p=>[p.id,p]));},[places]);
  useEffect(()=>{selectedPlaceId.current=selected?.id??null},[selected]);
