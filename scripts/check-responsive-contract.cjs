@@ -12,4 +12,9 @@ assert.match(css,/prefers-reduced-motion:reduce/,"Reduced-motion accessibility m
 assert.match(css,/overscroll-behavior:contain/,"Mobile detail scrolling isolation missing");
 assert.match(finder,/@media/,"Guide finder responsive styling missing");
 assert.match(map,/mapError/,"Map error fallback missing");
+assert.match(map,/aria-modal="true"/,"Report dialog must be announced as modal");
+assert.match(map,/aria-labelledby="report-dialog-title"/,"Report dialog must have an accessible name");
+assert.match(map,/dialogCloseRef\.current\?\.focus\(\)/,"Dialog must receive keyboard focus");
+assert.match(map,/event\.key==="Escape"/,"Escape must close dialog");
+assert.match(map,/dialogPreviousFocus\.current\?\.focus\(\)/,"Focus must return after dialog closes");
 console.log("Responsive CSS and accessibility contracts passed");
