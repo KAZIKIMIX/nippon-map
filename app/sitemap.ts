@@ -10,5 +10,5 @@ export default async function sitemap():Promise<MetadataRoute.Sitemap>{
    for(const group of groups)paths.push("/guides/"+category+"/"+encodeURIComponent(group.prefecture));
   }catch{ /* Keep the base sitemap available during a temporary data outage. */ }
  }
- return paths.map(path=>({url:base+path,lastModified:"2026-10-09"}));
+ return [...new Set(paths)].map(path=>({url:base+path,changeFrequency:path==="/"?("weekly" as const):("monthly" as const),priority:path==="/"?1:path.split("/").length===3?0.8:0.6}));
 }
