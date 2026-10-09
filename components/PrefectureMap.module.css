@@ -15,3 +15,5 @@
 
 .regionSummary{font-size:12px;font-weight:700;color:#253d50;margin:12px 0 4px;text-align:center}
 @media(prefers-reduced-motion:reduce){.wrap *, .wrap *::before, .wrap *::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+.prefGrid .noCoverage{display:flex;justify-content:space-between;align-items:center;gap:5px;padding:11px 10px;border:1px dashed #d9d3c8;background:#f5f1e9;color:#68757b;border-radius:9px;font-size:12px}.noCoverage small{font-size:10px;white-space:nowrap;color:#7b868b}
