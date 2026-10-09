@@ -17,4 +17,7 @@ assert.match(map,/aria-labelledby="report-dialog-title"/,"Report dialog must hav
 assert.match(map,/dialogCloseRef\.current\?\.focus\(\)/,"Dialog must receive keyboard focus");
 assert.match(map,/event\.key==="Escape"/,"Escape must close dialog");
 assert.match(map,/dialogPreviousFocus\.current\?\.focus\(\)/,"Focus must return after dialog closes");
+assert.match(map,/if\(reportSubmitting\.current\)return/,"Duplicate report requests must be blocked");
+assert.match(map,/finally\{reportSubmitting\.current=false\}/,"Report submission lock must release after failure or success");
+assert.match(map,/role="status" aria-live="polite"/,"Report result should be announced to assistive technology");
 console.log("Responsive CSS and accessibility contracts passed");
