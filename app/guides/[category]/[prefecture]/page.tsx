@@ -16,7 +16,7 @@ async function resolve(params:Props["params"]){
 export async function generateMetadata({params}:Props):Promise<Metadata>{
  const {category,name,places,guide}=await resolve(params);
  const title=name+"の"+guide.name+"一覧（掲載"+places.length+"件）｜にっぽんマップ";
- const description=name+"で掲載中の"+guide.name+places.length+"件を一覧で確認。住所や公式サイトを調べ、地図で場所を探せます。掲載施設の網羅を保証するものではありません。";
+ const description=name+"の"+guide.name+"を"+places.length+"件掲載。施設名・市区町村で絞り込み、地図上の位置を確認できます。掲載施設の網羅は保証していません。";
  return {title,description,alternates:{canonical:"/guides/"+category+"/"+encodeURIComponent(name)},robots:{index:true,follow:true}};
 }
 export default async function PrefectureGuide({params}:Props){
