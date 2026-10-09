@@ -1,4 +1,14 @@
 import type {MetadataRoute} from "next";
-export default function sitemap():MetadataRoute.Sitemap {
- return ["/","/guides/aquarium","/guides/zoo","/guides/roadside-station"].map(path=>({url:"https://nippon-map.vercel.app"+path,lastModified:"2026-10-09"}));
+import {guideCategories,groupGuidePlaces} from "../lib/guide-categories";
+import {getGuidePlaces} from "../lib/guide-data";
+const base="https://nippon-map.vercel.app";
+export default async function sitemap():Promise<MetadataRoute.Sitemap>{
+ const paths=["/","/guides/aquarium","/guides/zoo","/guides/roadside-station"];
+ for(const category of Object.keys(guideCategories) as (keyof typeof guideCategories)[]){
+  try{
+   const groups=groupGuidePlaces(await getGuidePlaces(category));
+   for(const group of groups)paths.push("/guides/"+category+"/"+encodeURIComponent(group.prefecture));
+  }catch{ /* Keep the base sitemap available during a temporary data outage. */ }
+ }
+ return paths.map(path=>({url:base+path,lastModified:"2026-10-09"}));
 }
