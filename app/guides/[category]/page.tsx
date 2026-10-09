@@ -3,6 +3,7 @@ import {notFound} from "next/navigation";
 import {guideCategories,isGuideCategory,groupGuidePlaces,safeOfficialUrl} from "../../../lib/guide-categories";
 import {getGuidePlaces} from "../../../lib/guide-data";
 import GuidePageView from "../../../components/GuidePageView";
+import PrefectureMap from "../../../components/PrefectureMap";
 import styles from "./guide.module.css";
 type Props={params:Promise<{category:string}>};
 export async function generateMetadata({params}:Props):Promise<Metadata>{
@@ -21,7 +22,7 @@ export default async function GuidePage({params}:Props){
  <nav className={styles.breadcrumb} aria-label="パンくず"><a href="/">トップ</a><span aria-hidden="true"> / </span><span>{guide.name}のガイド</span></nav>
  <section className={styles.intro}><div><p className={styles.eyebrow}>地域別ガイド</p><h1>{guide.title}</h1><p>{guide.intro}</p><a className={styles.primary} href={"/map?category="+category}>{guide.name}を地図で見る <span aria-hidden="true">↗</span></a></div><img src={"/category-assets/"+category+".webp"} width={128} height={128} alt=""/></section>
  <div className={styles.stats}><p>掲載中 <strong>{places.length.toLocaleString()}</strong> 件</p><p>掲載地域 <strong>{groups.length}</strong> 都道府県</p><span>本サイトの掲載件数です。全施設の網羅を保証するものではありません。</span></div>
- <section className={styles.directory} aria-labelledby="regions-title"><h2 id="regions-title">都道府県から探す</h2><p>地域を開くと、掲載施設の{category==="roadside-station"?"例（最大4件）":"一覧"}を確認できます。</p><nav aria-label="都道府県の一覧"><ul>{groups.map(group=><li key={group.prefecture}><a href={"#pref-"+group.prefecture}>{group.prefecture}（{group.places.length.toLocaleString()}件）</a></li>)}</ul></nav>
+ <section className={styles.directory} aria-labelledby="regions-title"><h2 id="regions-title">都道府県から探す</h2><p>地域を開くと、掲載施設の{category==="roadside-station"?"例（最大4件）":"一覧"}を確認できます。</p><PrefectureMap category={category} counts={Object.fromEntries(groups.map(group=>[group.prefecture,group.places.length]))}/>
  <div className={styles.regions}>{groups.map((group,index)=><details key={group.prefecture} id={"pref-"+group.prefecture} open={index===0}><summary><span>{group.prefecture}</span><span>{group.places.length.toLocaleString()}件 <span aria-hidden="true">＋</span></span></summary><p><a href={"/guides/"+category+"/"+encodeURIComponent(group.prefecture)}>{group.prefecture}の{guide.name}一覧ページを見る →</a></p><ul>{group.places.slice(0,limit).map(place=>{
  const official=safeOfficialUrl(place.official_url);
  const query=new URLSearchParams({category,prefecture:group.prefecture,place:String(place.id)});
