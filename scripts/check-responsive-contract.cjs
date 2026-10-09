@@ -1,0 +1,15 @@
+const assert=require("node:assert/strict");
+const fs=require("node:fs");
+const css=fs.readFileSync("app/globals.css","utf8");
+const finder=fs.readFileSync("components/GuidePlaceFinder.module.css","utf8");
+const map=fs.readFileSync("components/MapApp.tsx","utf8");
+assert.match(css,/@media\(max-width:900px\)/,"Mobile breakpoint missing");
+assert.match(css,/100dvh/,"Dynamic mobile viewport support missing");
+assert.match(css,/min-height:44px/,"Mobile tap targets missing");
+assert.match(css,/font-size:16px/,"Mobile input font zoom prevention missing");
+assert.match(css,/:focus-visible/,"Keyboard focus indicator missing");
+assert.match(css,/prefers-reduced-motion:reduce/,"Reduced-motion accessibility missing");
+assert.match(css,/overscroll-behavior:contain/,"Mobile detail scrolling isolation missing");
+assert.match(finder,/@media/,"Guide finder responsive styling missing");
+assert.match(map,/mapError/,"Map error fallback missing");
+console.log("Responsive CSS and accessibility contracts passed");
