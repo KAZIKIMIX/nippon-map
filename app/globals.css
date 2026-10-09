@@ -53,3 +53,9 @@
 
 /* Keep mobile search controls available while browsing results. */
 @media(max-width:900px){.left>.search{position:sticky;top:0;z-index:2;background:#faf6ed;box-shadow:0 8px 0 #faf6ed}.workspace.hasSelection .left>.search{box-shadow:none}}
+
+/* Responsive and keyboard usability improvements without changing approved icon artwork. */
+:where(button,a,input,select,textarea,summary):focus-visible{outline:3px solid #b65b45;outline-offset:3px}
+@media(max-width:900px){.workspace{min-height:0}.left{max-height:min(190px,36dvh)}.detail{overflow-y:auto;overscroll-behavior:contain}.search input{font-size:16px}.mobileCategorySelect{font-size:16px}.facilityResults button,.moreResults,.contribute,.reportLink{min-height:44px}.modalClose,.clearSearch{min-width:44px;min-height:44px}.label{pointer-events:none}}
+@media(max-width:380px){header{padding-inline:10px}.brand{gap:6px}.brand strong{font-size:12px}.left{left:8px;width:calc(100% - 16px)}.detail{left:6px;right:6px;padding:16px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
