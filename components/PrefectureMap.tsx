@@ -18,7 +18,7 @@ export default function PrefectureMap({category,counts}:{category:string;counts:
  const [active,setActive]=useState<string|null>(null);
  const [region,setRegion]=useState<"all"|"east"|"west"|"south">("all");
  const [query,setQuery]=useState("");
- const regions=useMemo(()=>({all:prefectureOrder,east:prefectureOrder.slice(0,23),west:prefectureOrder.slice(23,40),south:prefectureOrder.slice(40)}),[]);
+ const regions=useMemo(()=>({all:prefectureOrder,east:prefectureOrder.slice(0,23),west:prefectureOrder.slice(23,39),south:prefectureOrder.slice(39)}),[]);
  const regionNames=regions[region];
  const totalRegions=Object.values(counts).filter(n=>n>0).length;
  useEffect(()=>{const controller=new AbortController();setError(false);fetch(source,{signal:controller.signal}).then(r=>{if(!r.ok)throw Error("map unavailable");return r.json() as Promise<Collection>}).then(data=>{if(!Array.isArray(data.features)||data.features.length!==47||new Set(data.features.map(f=>f.properties.name)).size!==47)throw Error("invalid map data");setFeatures(data.features)}).catch(()=>{if(!controller.signal.aborted)setError(true)});return()=>controller.abort()},[retry]);
