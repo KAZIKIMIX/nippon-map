@@ -17,3 +17,6 @@
 @media(prefers-reduced-motion:reduce){.wrap *, .wrap *::before, .wrap *::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 
 .prefGrid .noCoverage{display:flex;justify-content:space-between;align-items:center;gap:5px;padding:11px 10px;border:1px dashed #d9d3c8;background:#f5f1e9;color:#68757b;border-radius:9px;font-size:12px}.noCoverage small{font-size:10px;white-space:nowrap;color:#7b868b}
+
+/* Keep narrow screens usable without overflowing the map or controls. */
+.wrap{min-width:0;overflow-wrap:anywhere}.mapScroll{min-width:0}.mapScroll svg{max-width:100%}.zoomControls button{min-height:44px}.quickHeading input{min-height:44px}@media(max-width:640px){.wrap{margin:14px 0 20px}.quickHeading input{font-size:16px}.prefGrid a,.prefGrid .noCoverage{min-width:0;overflow-wrap:anywhere}.selectedPanel a{min-height:44px;display:flex;align-items:center;justify-content:center}}
