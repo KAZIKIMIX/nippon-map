@@ -1,6 +1,6 @@
 import {createClient} from "@supabase/supabase-js";
 import {NextRequest,NextResponse} from "next/server";
-const allowedCategories=new Set(["airport","roadside-station","aquarium","shelter","zoo","world-heritage","national-park","railway","museum","park","toilet","castle","lighthouse","hot-spring"]);
+const allowedCategories=new Set(["airport","roadside-station","aquarium","shelter","zoo","world-heritage","national-park","railway","museum","park","toilet","castle","lighthouse","hot-spring","botanical-garden","campsite","observation-deck","theme-park","factory-tour","horse-racing","velodrome","sightseeing"]);
 const allowedTypes=new Set(["add","update","closure"]);
 const clean=(v:unknown,max=500)=>typeof v==="string"?v.trim().slice(0,max):"";
 export async function POST(req:NextRequest){

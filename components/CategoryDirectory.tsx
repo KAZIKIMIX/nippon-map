@@ -3,7 +3,7 @@ import {useEffect,useRef,useState} from "react";
 import {mapCategories} from "../lib/map-categories";
 import {trackUsage} from "../lib/usage-client";
 import styles from "../app/landing.module.css";
-const descriptions:Record<string,string>={
+const descriptions:Record<string,string>={"botanical-garden":"花と植物に会いに","campsite":"自然の中で過ごす休日","observation-deck":"高い場所から景色を眺める","theme-park":"遊びに出かける一日","factory-tour":"ものづくりの現場を知る","horse-racing":"レースと場内散策を楽しむ","velodrome":"自転車レースの会場を探す","sightseeing":"旅先の名所を見つける",
  aquarium:"水の生きものに会いに",zoo:"動物たちに会いに","roadside-station":"ドライブの寄り道に",airport:"空の旅の入口を探す",shelter:"自治体の避難場所を確認","world-heritage":"日本の文化と自然を巡る","national-park":"自然の風景を探す",railway:"旅の出発駅・到着駅を探す",museum:"アートと学びの寄り道",park:"日常のひと休みに",toilet:"外出先で場所を確認",castle:"歴史を感じる場所へ",lighthouse:"海辺の景色を探す","hot-spring":"温泉地でひと息"
 };
 export default function CategoryDirectory(){
@@ -24,3 +24,4 @@ export default function CategoryDirectory(){
  <p className={styles.coverage}>一部のカテゴリは地域限定・順次追加中です。掲載範囲は地図ページで確認できます。</p>
  </section>;
 }
+
