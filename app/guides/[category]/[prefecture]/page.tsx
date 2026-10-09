@@ -17,7 +17,7 @@ export async function generateMetadata({params}:Props):Promise<Metadata>{
  const {category,name,places,guide}=await resolve(params);
  const title=name+"の"+guide.name+"一覧（掲載"+places.length+"件）｜にっぽんマップ";
  const description=name+"の"+guide.name+"を"+places.length+"件掲載。施設名・市区町村で絞り込み、地図上の位置を確認できます。掲載施設の網羅は保証していません。";
- return {title,description,alternates:{canonical:"/guides/"+category+"/"+encodeURIComponent(name)},robots:{index:true,follow:true}};
+ return {title,description,alternates:{canonical:"/guides/"+category+"/"+encodeURIComponent(name)},robots:{index:true,follow:true},openGraph:{title,description,url:"/guides/"+category+"/"+encodeURIComponent(name),type:"website"},twitter:{card:"summary",title,description}};
 }
 export default async function PrefectureGuide({params}:Props){
  const {category,name,places,guide}=await resolve(params);
