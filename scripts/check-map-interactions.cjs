@@ -40,4 +40,8 @@ assert.ok(detailsApi.includes(".map(x=>x.slice(0,160))"),"Railway route labels m
 assert.ok(share.includes("state.placeId <= 999999999999999"),"Generated shared place IDs must match accepted length");
 assert.ok(detailsApi.includes("catch{return NextResponse.json({details:null},{status:503})}"),"Place details must handle database exceptions");
 assert.ok(detailsApi.includes("x.trim().length>0")&&detailsApi.includes("x.trim().slice(0,160)"),"Railway metadata must omit empty labels and trim whitespace");
+const placesApi=read("app/api/places/route.ts");
+assert.ok(placesApi.includes("Invalid prefecture"),"Places API must reject invalid prefecture");
+assert.ok(placesApi.includes("lat<20||lat>46||lon<122||lon>154"),"Shelter summary must exclude out-of-range coordinates");
+assert.ok(placesApi.includes("p.latitude>=20&&p.latitude<=46"),"Shelter detail must exclude out-of-range coordinates");
 console.log("Map and guide state contract checks passed");
