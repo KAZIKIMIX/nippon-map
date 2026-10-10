@@ -29,4 +29,5 @@ assert.ok(map.includes('setQ(e.target.value);setCityFilter("");setSelected(null)
 assert.ok(map.includes('setQ("");setCityFilter("");setSelected(null)'),"Clearing map search must clear municipality filter");
 assert.ok(map.includes("if(!loaded||!pendingSharedPlace.current||!cat)return;"),"Shared place restoration must finish on empty or failed category loads");
 assert.ok(map.includes("if(!r.ok)throw new Error(`Places request failed: ${r.status}`)"),"Map places loader must reject HTTP error responses");
+assert.ok(map.includes("[cat,prefecture,placesRetry]")&&map.includes("setPlacesRetry(n=>n+1)"),"Failed place loads must have a working retry action");
 console.log("Map and guide state contract checks passed");
