@@ -23,11 +23,11 @@ export async function GET(req:NextRequest){
    const rows=await shelterRows();
    if(summary||!prefecture){
     const m=new Map<string,{place_count:number,longitude:number,latitude:number}>();
-    for(const r of rows){const p=prefOf(r[2]||"");const lat=Number(r[14]),lon=Number(r[15]);if(!p||!Number.isFinite(lat)||!Number.isFinite(lon))continue;const x=m.get(p)||{place_count:0,longitude:0,latitude:0};x.place_count++;x.longitude+=lon;x.latitude+=lat;m.set(p,x)}
+    for(const r of rows){const p=prefOf(r[2]||"");const lat=Number(r[14]),lon=Number(r[15]);if(!p||!Number.isFinite(lat)||!Number.isFinite(lon)||lat<20||lat>46||lon<122||lon>154)continue;const x=m.get(p)||{place_count:0,longitude:0,latitude:0};x.place_count++;x.longitude+=lon;x.latitude+=lat;m.set(p,x)}
     const data=[...m].map(([prefecture_name,x])=>({prefecture_name,place_count:x.place_count,longitude:x.longitude/x.place_count,latitude:x.latitude/x.place_count}));
     return NextResponse.json({summary:data,source:"国土地理院 指定緊急避難場所データ",notice:"国土地理院公開データ。最新でない場合や未掲載の場合があります。最新情報は各市町村で確認してください。"});
    }
-   const places=rows.filter(r=>prefOf(r[2]||"")===prefecture).map((r,i)=>({id:-(i+1),name:r[3],category_slug:"shelter",category_name:"指定緊急避難場所",prefecture_name:prefecture,municipality_name:(r[2]||"").slice(prefecture.length),address:r[4],latitude:Number(r[14]),longitude:Number(r[15]),official_url:null,data_date:null,hazards:{flood:r[5]==="1",landslide:r[6]==="1",storm_surge:r[7]==="1",earthquake:r[8]==="1",tsunami:r[9]==="1",fire:r[10]==="1",inland_flood:r[11]==="1",volcano:r[12]==="1"}})).filter(p=>Number.isFinite(p.latitude)&&Number.isFinite(p.longitude));
+   const places=rows.filter(r=>prefOf(r[2]||"")===prefecture).map((r,i)=>({id:-(i+1),name:r[3],category_slug:"shelter",category_name:"指定緊急避難場所",prefecture_name:prefecture,municipality_name:(r[2]||"").slice(prefecture.length),address:r[4],latitude:Number(r[14]),longitude:Number(r[15]),official_url:null,data_date:null,hazards:{flood:r[5]==="1",landslide:r[6]==="1",storm_surge:r[7]==="1",earthquake:r[8]==="1",tsunami:r[9]==="1",fire:r[10]==="1",inland_flood:r[11]==="1",volcano:r[12]==="1"}})).filter(p=>Number.isFinite(p.latitude)&&Number.isFinite(p.longitude)&&p.latitude>=20&&p.latitude<=46&&p.longitude>=122&&p.longitude<=154);
    return NextResponse.json({places,source:"国土地理院 指定緊急避難場所データ",notice:"最新でない場合や未掲載の場合があります。最新情報は各市町村で確認してください。"});
   }catch(e){return NextResponse.json({places:[],summary:[],error:e instanceof Error?e.message:"Shelter data error"},{status:502})}
  }
