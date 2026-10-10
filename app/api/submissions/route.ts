@@ -15,6 +15,7 @@ export async function POST(req:NextRequest){
  if(b.evidence_url!=null&&typeof b.evidence_url!=="string")return NextResponse.json({error:"根拠URLを確認してください。"},{status:400});
  if(b.contact_email!=null&&typeof b.contact_email!=="string")return NextResponse.json({error:"メールアドレスを確認してください。"},{status:400});
  const idText=b.place_id==null||b.place_id===""?null:typeof b.place_id==="number"||typeof b.place_id==="string"?String(b.place_id):"";const rawId=idText===null?null:/^[1-9]\d{0,14}$/.test(idText)?Number(idText):NaN;if(rawId!==null&&(!Number.isSafeInteger(rawId)||rawId<=0))return NextResponse.json({error:"施設IDを確認してください。"},{status:400});const place_id=rawId;
+ if(submission_type!=="add"&&place_id===null)return NextResponse.json({error:"施設IDを確認してください。"},{status:400});
  const db=createClient(url,key);let error;try{({error}=await db.from("place_submissions").insert({submission_type,place_id,category_slug,name,prefecture_name:clean(b.prefecture_name,40)||null,address:clean(b.address,300)||null,evidence_url:evidence_url||null,note:clean(b.note,1200)||null,contact_email:contact_email||null,status:"pending"}))}catch{return NextResponse.json({error:"送信できませんでした。時間をおいて再度お試しください。"},{status:503})}
  if(error)return NextResponse.json({error:"送信できませんでした。"},{status:500});
  return NextResponse.json({ok:true,status:"pending"});
