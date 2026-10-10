@@ -7,7 +7,7 @@ export async function GET(request: NextRequest) {
   const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
   if (!url || !key) return NextResponse.json({ details: null }, { status: 500 });
   const db = createClient(url, key);
-  const { data, error } = await db.from("places").select("metadata").eq("id", id).eq("is_active", true).maybeSingle();
+  let data, error;try{({data,error}=await db.from("places").select("metadata").eq("id", id).eq("is_active", true).maybeSingle())}catch{return NextResponse.json({details:null},{status:503})}
   if (error) return NextResponse.json({ details: null }, { status: 500 });
   const metadata = data?.metadata;
   if (!metadata || !Array.isArray(metadata.routes)) return NextResponse.json({ details: null });
