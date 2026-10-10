@@ -6,14 +6,14 @@ export function readSharedMap(search: string, categories: readonly string[]): Sh
  const category = rawCategory && categories.includes(rawCategory) ? rawCategory : null;
  const rawPrefecture = params.get("prefecture");
  const rawId = params.get("place");
- const id = rawId && /^[1-9]\d*$/.test(rawId) ? Number(rawId) : null;
+ const id = rawId && /^[1-9]\d{0,14}$/.test(rawId) ? Number(rawId) : null;
  return {category, prefecture: category && rawPrefecture && prefectures.has(rawPrefecture) ? rawPrefecture : null, query: category ? (params.get("q") || "").slice(0,100) : "", placeId: category && id && Number.isSafeInteger(id) ? id : null, city: category ? (params.get("city") || "").slice(0,100) : ""};
 }
 export function createSharedMapUrl(origin: string, state: SharedMapState): string {
  const url = new URL("/map", origin);
  if (state.category) {
   url.searchParams.set("category", state.category);
-  if (state.prefecture) url.searchParams.set("prefecture", state.prefecture);
+  if (state.prefecture && prefectures.has(state.prefecture)) url.searchParams.set("prefecture", state.prefecture);
   if (state.query.trim()) url.searchParams.set("q", state.query.trim().slice(0,100));
   if (state.city?.trim()) url.searchParams.set("city", state.city.trim().slice(0,100));
   if (state.placeId && Number.isSafeInteger(state.placeId) && state.placeId > 0) url.searchParams.set("place", String(state.placeId));
