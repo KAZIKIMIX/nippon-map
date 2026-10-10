@@ -7,6 +7,7 @@ export async function POST(req:NextRequest){
  const url=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
  if(!url||!key)return NextResponse.json({error:"Database configuration is missing"},{status:500});
  let b:Record<string,unknown>;try{const parsed:unknown=await req.json();if(!parsed||typeof parsed!=="object"||Array.isArray(parsed))throw new Error("Invalid payload");b=parsed as Record<string,unknown>}catch{return NextResponse.json({error:"Invalid request"},{status:400})}
+ if(["submission_type","category_slug","name"].some(field=>typeof b[field]!=="string"))return NextResponse.json({error:"入力内容を確認してください。"},{status:400});
  const submission_type=clean(b.submission_type,20),category_slug=clean(b.category_slug,50),name=clean(b.name,160);
  if(!allowedTypes.has(submission_type)||!allowedCategories.has(category_slug)||!name)return NextResponse.json({error:"入力内容を確認してください。"},{status:400});
  const evidence_url=clean(b.evidence_url,500);if(evidence_url){try{const u=new URL(evidence_url);if(!["http:","https:"].includes(u.protocol))throw new Error()}catch{return NextResponse.json({error:"根拠URLを確認してください。"},{status:400})}}
