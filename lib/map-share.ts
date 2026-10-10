@@ -16,7 +16,7 @@ export function createSharedMapUrl(origin: string, state: SharedMapState): strin
   if (state.prefecture && prefectures.has(state.prefecture)) url.searchParams.set("prefecture", state.prefecture);
   if (state.query.trim()) url.searchParams.set("q", state.query.trim().slice(0,100));
   if (state.city?.trim()) url.searchParams.set("city", state.city.trim().slice(0,100));
-  if (state.placeId && Number.isSafeInteger(state.placeId) && state.placeId > 0) url.searchParams.set("place", String(state.placeId));
+  if (state.placeId && Number.isSafeInteger(state.placeId) && state.placeId > 0 && state.placeId <= 999999999999999) url.searchParams.set("place", String(state.placeId));
  }
  return url.toString();
 }
