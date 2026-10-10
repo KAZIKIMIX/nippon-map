@@ -30,7 +30,7 @@ export async function GET(req:NextRequest){
    }
    const places=rows.filter(r=>prefOf(r[2]||"")===prefecture&&Boolean(r[14]?.trim())&&Boolean(r[15]?.trim())).map((r,i)=>({id:-(i+1),name:r[3],category_slug:"shelter",category_name:"指定緊急避難場所",prefecture_name:prefecture,municipality_name:(r[2]||"").slice(prefecture.length),address:r[4],latitude:Number(r[14]),longitude:Number(r[15]),official_url:null,data_date:null,hazards:{flood:r[5]==="1",landslide:r[6]==="1",storm_surge:r[7]==="1",earthquake:r[8]==="1",tsunami:r[9]==="1",fire:r[10]==="1",inland_flood:r[11]==="1",volcano:r[12]==="1"}})).filter(p=>Number.isFinite(p.latitude)&&Number.isFinite(p.longitude)&&p.latitude>=20&&p.latitude<=46&&p.longitude>=122&&p.longitude<=154);
    return NextResponse.json({places,source:"国土地理院 指定緊急避難場所データ",notice:"最新でない場合や未掲載の場合があります。最新情報は各市町村で確認してください。"});
-  }catch(e){return NextResponse.json({places:[],summary:[],error:e instanceof Error?e.message:"Shelter data error"},{status:502})}
+  }catch{return NextResponse.json({places:[],summary:[],error:"避難場所データを取得できませんでした。"},{status:502})}
  }
  if(!url||!key)return NextResponse.json({places:[],error:"Database configuration is missing"},{status:500});
  let db;try{db=createClient(url,key)}catch{return NextResponse.json({places:[],error:"Database configuration is invalid"},{status:503})}
