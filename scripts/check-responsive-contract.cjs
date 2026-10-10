@@ -35,4 +35,5 @@ assert.match(submissions,/submission_type!=="add"&&place_id===null/,"Updates and
 assert.match(submissions,/try\{const db=createClient\(url,key\)/,"Submission database client initialization must be protected");
 assert.ok(submissions.includes('["submission_type","category_slug","name"].some'),"Required submission fields must be strings");
 assert.ok(submissions.includes('submission_type==="add"&&place_id!==null'),"New facility reports must not include a place ID");
+assert.ok(submissions.includes("u.username||u.password"),"Evidence URL credentials must be rejected");
 console.log("Responsive CSS and accessibility contracts passed");
