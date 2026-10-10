@@ -31,4 +31,5 @@ assert.match(submissions,/typeof b\.contact_email!=="string"/,"Contact emails mu
 assert.match(submissions,/\["prefecture_name","address","note"\]/,"Optional submission text fields must be validated");
 assert.match(submissions,/\^\[1-9\]/,"Submission IDs must use a strict positive digit pattern");
 assert.match(submissions,/Number\.isSafeInteger\(rawId\)/,"Submission IDs must be safe integers");
+assert.match(submissions,/submission_type!=="add"&&place_id===null/,"Updates and closures must reference a facility");
 console.log("Responsive CSS and accessibility contracts passed");
