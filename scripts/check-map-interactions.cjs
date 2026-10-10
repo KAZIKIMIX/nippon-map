@@ -45,4 +45,6 @@ assert.ok(placesApi.includes("Invalid prefecture"),"Places API must reject inval
 assert.ok(placesApi.includes("lat<20||lat>46||lon<122||lon>154"),"Shelter summary must exclude out-of-range coordinates");
 assert.ok(placesApi.includes("p.latitude>=20&&p.latitude<=46"),"Shelter detail must exclude out-of-range coordinates");
 assert.ok(map.includes("if(place&&(!cityFilter||place.municipality_name===cityFilter)")&&map.includes("[loaded,places,cat,cityFilter,normalizedQ]"),"Shared place restoration must respect visible map filters");
+assert.ok(placesApi.includes("!r[14]?.trim()||!r[15]?.trim()"),"Shelter summary must reject empty coordinates");
+assert.ok(placesApi.includes("Boolean(r[14]?.trim())&&Boolean(r[15]?.trim())"),"Shelter details must reject empty coordinates");
 console.log("Map and guide state contract checks passed");
