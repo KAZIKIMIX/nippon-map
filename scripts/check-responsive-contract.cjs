@@ -20,4 +20,8 @@ assert.match(map,/dialogPreviousFocus\.current\?\.focus\(\)/,"Focus must return 
 assert.match(map,/if\(reportSubmitting\.current\)return/,"Duplicate report requests must be blocked");
 assert.match(map,/finally\{reportSubmitting\.current=false\}/,"Report submission lock must release after failure or success");
 assert.match(map,/role="status" aria-live="polite"/,"Report result should be announced to assistive technology");
+const submissions=fs.readFileSync("app/api/submissions/route.ts","utf8");
+assert.match(submissions,/Array\.isArray\(parsed\)/,"Submission API must reject JSON arrays");
+assert.match(submissions,/施設IDを確認してください/,"Submission API must validate place IDs");
+assert.match(submissions,/メールアドレスを確認してください/,"Submission API must validate optional email");
 console.log("Responsive CSS and accessibility contracts passed");
