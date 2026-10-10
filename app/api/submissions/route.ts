@@ -9,6 +9,7 @@ export async function POST(req:NextRequest){
  let b:Record<string,unknown>;try{const parsed:unknown=await req.json();if(!parsed||typeof parsed!=="object"||Array.isArray(parsed))throw new Error("Invalid payload");b=parsed as Record<string,unknown>}catch{return NextResponse.json({error:"Invalid request"},{status:400})}
  if(["submission_type","category_slug","name"].some(field=>typeof b[field]!=="string"))return NextResponse.json({error:"入力内容を確認してください。"},{status:400});
  const submission_type=clean(b.submission_type,20),category_slug=clean(b.category_slug,50),name=clean(b.name,160);
+ if((b.name as string).trim().length>160)return NextResponse.json({error:"施設名は160文字以内で入力してください。"},{status:400});
  if(!allowedTypes.has(submission_type)||!allowedCategories.has(category_slug)||!name)return NextResponse.json({error:"入力内容を確認してください。"},{status:400});
  const evidence_url=clean(b.evidence_url,2000);if(evidence_url.length>500)return NextResponse.json({error:"根拠URLは500文字以内で入力してください。"},{status:400});if(evidence_url){try{const u=new URL(evidence_url);if(!["http:","https:"].includes(u.protocol)||!u.hostname||u.username||u.password)throw new Error()}catch{return NextResponse.json({error:"根拠URLを確認してください。"},{status:400})}}
  const contact_email=clean(b.contact_email,1000);if(contact_email&&(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact_email)||contact_email.length>254))return NextResponse.json({error:"メールアドレスを確認してください。"},{status:400});
