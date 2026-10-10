@@ -72,7 +72,7 @@ export default function MapApp(){
   setCategory(state.category);setPrefecture(state.prefecture);setQ(state.query);setCityFilter(state.city||"");
  },[]);
  useEffect(()=>{
-  if(!loaded||!pendingSharedPlace.current||places.length===0)return;
+  if(!loaded||!pendingSharedPlace.current||!cat)return;
   const place=places.find(p=>p.id===pendingSharedPlace.current);
   if(place)setSelected(place);
   pendingSharedPlace.current=null;
