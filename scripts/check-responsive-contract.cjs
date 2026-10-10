@@ -26,4 +26,7 @@ assert.match(submissions,/施設IDを確認してください/,"Submission API m
 assert.match(submissions,/メールアドレスを確認してください/,"Submission API must validate optional email");
 assert.match(submissions,/catch\{return NextResponse\.json\(\{error:"送信できませんでした。時間をおいて再度お試しください。"/,"Submission DB exceptions must return controlled errors");
 assert.match(submissions,/typeof b\.place_id==="number"/,"Submission IDs must reject non-string non-number inputs");
+assert.match(submissions,/typeof b\.evidence_url!=="string"/,"Evidence URLs must reject non-string values");
+assert.match(submissions,/typeof b\.contact_email!=="string"/,"Contact emails must reject non-string values");
+assert.match(submissions,/\["prefecture_name","address","note"\]/,"Optional submission text fields must be validated");
 console.log("Responsive CSS and accessibility contracts passed");
