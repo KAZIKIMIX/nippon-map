@@ -33,4 +33,5 @@ assert.match(submissions,/\^\[1-9\]/,"Submission IDs must use a strict positive 
 assert.match(submissions,/Number\.isSafeInteger\(rawId\)/,"Submission IDs must be safe integers");
 assert.match(submissions,/submission_type!=="add"&&place_id===null/,"Updates and closures must reference a facility");
 assert.match(submissions,/try\{const db=createClient\(url,key\)/,"Submission database client initialization must be protected");
+assert.ok(submissions.includes('["submission_type","category_slug","name"].some'),"Required submission fields must be strings");
 console.log("Responsive CSS and accessibility contracts passed");
