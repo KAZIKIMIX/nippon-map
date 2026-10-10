@@ -8,7 +8,7 @@ const prefs=["北海道","青森県","岩手県","宮城県","秋田県","山形
 function csvRows(s:string){const out:string[][]=[];let row:string[]=[],v="",q=false;for(let i=0;i<s.length;i++){const ch=s[i];if(q){if(ch==='"'&&s[i+1]==='"'){v+='"';i++}else if(ch==='"')q=false;else v+=ch}else if(ch==='"')q=true;else if(ch===","){row.push(v);v=""}else if(ch==="\n"){row.push(v.replace(/\r$/,""));out.push(row);row=[];v=""}else v+=ch}if(v||row.length){row.push(v);out.push(row)}return out}
 function prefOf(s:string){return prefs.find(p=>s.startsWith(p))||""}
 async function shelterRows(){
- const r=await fetch(GSI,{next:{revalidate:86400}});
+ const r=await fetch(GSI,{next:{revalidate:86400},signal:AbortSignal.timeout(15000)});
  if(!r.ok)throw new Error("GSI shelter data unavailable");
  const text=(await r.text()).replace(/^\uFEFF/,"");
  return csvRows(text).slice(1);
