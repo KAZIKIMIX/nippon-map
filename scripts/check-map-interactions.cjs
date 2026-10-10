@@ -27,4 +27,5 @@ assert.match(data,/p_prefecture_name:prefecture/,"Database query must filter pre
 assert.ok(share.includes("prefecture")&&share.includes("place"),"Share module must preserve prefecture and place");
 assert.ok(map.includes('setQ(e.target.value);setCityFilter("");setSelected(null)'),"Editing map search must clear hidden municipality filter");
 assert.ok(map.includes('setQ("");setCityFilter("");setSelected(null)'),"Clearing map search must clear municipality filter");
+assert.ok(map.includes("if(!loaded||!pendingSharedPlace.current||!cat)return;"),"Shared place restoration must finish on empty or failed category loads");
 console.log("Map and guide state contract checks passed");
