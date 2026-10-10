@@ -29,4 +29,6 @@ assert.match(submissions,/typeof b\.place_id==="number"/,"Submission IDs must re
 assert.match(submissions,/typeof b\.evidence_url!=="string"/,"Evidence URLs must reject non-string values");
 assert.match(submissions,/typeof b\.contact_email!=="string"/,"Contact emails must reject non-string values");
 assert.match(submissions,/\["prefecture_name","address","note"\]/,"Optional submission text fields must be validated");
+assert.match(submissions,/\^\[1-9\]/,"Submission IDs must use a strict positive digit pattern");
+assert.match(submissions,/Number\.isSafeInteger\(rawId\)/,"Submission IDs must be safe integers");
 console.log("Responsive CSS and accessibility contracts passed");
