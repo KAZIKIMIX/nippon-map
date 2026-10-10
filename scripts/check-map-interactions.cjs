@@ -50,4 +50,8 @@ assert.ok(placesApi.includes("Boolean(r[14]?.trim())&&Boolean(r[15]?.trim())"),"
 assert.ok(detailsApi.includes("db=createClient(url,key)}catch"),"Place details must handle database client initialization errors");
 assert.ok(placesApi.includes("db=createClient(url,key)}catch"),"Places API must handle database client initialization errors");
 assert.ok(placesApi.includes("施設件数を取得できませんでした。")&&placesApi.includes("施設データを取得できませんでした。"),"Places RPC failures must return controlled responses");
+assert.ok(!placesApi.includes("error:error.message"),"Places API must not expose internal database errors");
+assert.ok(placesApi.includes("AbortSignal.timeout(15000)"),"External shelter fetch must time out");
+assert.ok(placesApi.includes("text.length>30000000"),"External shelter CSV must be size limited");
+assert.ok(placesApi.includes("!Array.isArray(batch)"),"Paginated place results must be validated");
 console.log("Map and guide state contract checks passed");
