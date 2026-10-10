@@ -47,4 +47,5 @@ assert.ok(placesApi.includes("p.latitude>=20&&p.latitude<=46"),"Shelter detail m
 assert.ok(map.includes("if(place&&(!cityFilter||place.municipality_name===cityFilter)")&&map.includes("[loaded,places,cat,cityFilter,normalizedQ]"),"Shared place restoration must respect visible map filters");
 assert.ok(placesApi.includes("!r[14]?.trim()||!r[15]?.trim()"),"Shelter summary must reject empty coordinates");
 assert.ok(placesApi.includes("Boolean(r[14]?.trim())&&Boolean(r[15]?.trim())"),"Shelter details must reject empty coordinates");
+assert.ok(detailsApi.includes("db=createClient(url,key)}catch"),"Place details must handle database client initialization errors");
 console.log("Map and guide state contract checks passed");
