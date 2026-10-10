@@ -39,4 +39,5 @@ assert.ok(detailsApi.includes("coordinate_note.slice(0,500)"),"Railway coordinat
 assert.ok(detailsApi.includes(".map(x=>x.slice(0,160))"),"Railway route labels must be bounded");
 assert.ok(share.includes("state.placeId <= 999999999999999"),"Generated shared place IDs must match accepted length");
 assert.ok(detailsApi.includes("catch{return NextResponse.json({details:null},{status:503})}"),"Place details must handle database exceptions");
+assert.ok(detailsApi.includes("x.trim().length>0")&&detailsApi.includes("x.trim().slice(0,160)"),"Railway metadata must omit empty labels and trim whitespace");
 console.log("Map and guide state contract checks passed");
