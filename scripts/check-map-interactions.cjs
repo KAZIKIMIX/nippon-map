@@ -48,4 +48,5 @@ assert.ok(map.includes("if(place&&(!cityFilter||place.municipality_name===cityFi
 assert.ok(placesApi.includes("!r[14]?.trim()||!r[15]?.trim()"),"Shelter summary must reject empty coordinates");
 assert.ok(placesApi.includes("Boolean(r[14]?.trim())&&Boolean(r[15]?.trim())"),"Shelter details must reject empty coordinates");
 assert.ok(detailsApi.includes("db=createClient(url,key)}catch"),"Place details must handle database client initialization errors");
+assert.ok(placesApi.includes("db=createClient(url,key)}catch"),"Places API must handle database client initialization errors");
 console.log("Map and guide state contract checks passed");
