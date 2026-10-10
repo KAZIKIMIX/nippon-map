@@ -24,4 +24,6 @@ const submissions=fs.readFileSync("app/api/submissions/route.ts","utf8");
 assert.match(submissions,/Array\.isArray\(parsed\)/,"Submission API must reject JSON arrays");
 assert.match(submissions,/施設IDを確認してください/,"Submission API must validate place IDs");
 assert.match(submissions,/メールアドレスを確認してください/,"Submission API must validate optional email");
+assert.match(submissions,/catch\{return NextResponse\.json\(\{error:"送信できませんでした。時間をおいて再度お試しください。"/,"Submission DB exceptions must return controlled errors");
+assert.match(submissions,/typeof b\.place_id==="number"/,"Submission IDs must reject non-string non-number inputs");
 console.log("Responsive CSS and accessibility contracts passed");
