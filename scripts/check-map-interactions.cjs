@@ -30,4 +30,11 @@ assert.ok(map.includes('setQ("");setCityFilter("");setSelected(null)'),"Clearing
 assert.ok(map.includes("if(!loaded||!pendingSharedPlace.current||!cat)return;"),"Shared place restoration must finish on empty or failed category loads");
 assert.ok(map.includes("if(!r.ok)throw new Error(`Places request failed: ${r.status}`)"),"Map places loader must reject HTTP error responses");
 assert.ok(map.includes("[cat,prefecture,placesRetry]")&&map.includes("setPlacesRetry(n=>n+1)"),"Failed place loads must have a working retry action");
+const photoApi=read("app/api/place-photo/route.ts");
+const detailsApi=read("app/api/place-details/route.ts");
+assert.ok(share.includes("prefectures.has(state.prefecture)"),"Shared map URL must reject invalid prefectures");
+assert.ok(share.includes("\\d{0,14}"),"Shared map IDs must have a length bound");
+assert.ok(photoApi.includes(".trim().slice(0,160)"),"Photo lookup names must be bounded");
+assert.ok(detailsApi.includes("coordinate_note.slice(0,500)"),"Railway coordinate notes must be bounded");
+assert.ok(detailsApi.includes(".map(x=>x.slice(0,160))"),"Railway route labels must be bounded");
 console.log("Map and guide state contract checks passed");
