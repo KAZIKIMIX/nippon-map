@@ -54,4 +54,6 @@ assert.ok(!placesApi.includes("error:error.message"),"Places API must not expose
 assert.ok(placesApi.includes("AbortSignal.timeout(15000)"),"External shelter fetch must time out");
 assert.ok(placesApi.includes("text.length>30000000"),"External shelter CSV must be size limited");
 assert.ok(placesApi.includes("!Array.isArray(batch)"),"Paginated place results must be validated");
+assert.ok(placesApi.includes("!Array.isArray(data)"),"Prefecture summaries must validate their response shape");
+assert.ok(!placesApi.includes("e instanceof Error?e.message"),"Shelter fetch errors must not leak upstream details");
 console.log("Map and guide state contract checks passed");
