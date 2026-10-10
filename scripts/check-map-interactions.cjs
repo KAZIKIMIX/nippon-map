@@ -37,4 +37,6 @@ assert.ok(share.includes("\\d{0,14}"),"Shared map IDs must have a length bound")
 assert.ok(photoApi.includes(".trim().slice(0,160)"),"Photo lookup names must be bounded");
 assert.ok(detailsApi.includes("coordinate_note.slice(0,500)"),"Railway coordinate notes must be bounded");
 assert.ok(detailsApi.includes(".map(x=>x.slice(0,160))"),"Railway route labels must be bounded");
+assert.ok(share.includes("state.placeId <= 999999999999999"),"Generated shared place IDs must match accepted length");
+assert.ok(detailsApi.includes("catch{return NextResponse.json({details:null},{status:503})}"),"Place details must handle database exceptions");
 console.log("Map and guide state contract checks passed");
