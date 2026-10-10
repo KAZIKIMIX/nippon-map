@@ -37,4 +37,8 @@ assert.ok(submissions.includes('["submission_type","category_slug","name"].some'
 assert.ok(submissions.includes('submission_type==="add"&&place_id!==null'),"New facility reports must not include a place ID");
 assert.ok(submissions.includes("u.username||u.password"),"Evidence URL credentials must be rejected");
 assert.ok(map.includes('place_id:reportType==="add"?null:(selected?.id||null)'),"New facility form must omit existing place ID");
+assert.ok(submissions.includes("contact_email.length>254"),"Contact emails must enforce length limits");
+assert.ok(submissions.includes("evidence_url.length>500"),"Evidence URLs must reject overlong inputs");
+assert.ok(submissions.includes("(b.name as string).trim().length>160"),"Facility names must enforce length limits");
+assert.ok(submissions.includes('["prefecture_name",40],["address",300],["note",1200]'),"Report metadata must enforce per-field limits");
 console.log("Responsive CSS and accessibility contracts passed");
