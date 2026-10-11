@@ -18,16 +18,17 @@ export async function GET(req:NextRequest){
  if(!url||!key)return NextResponse.json({error:"Database unavailable"},{status:503});
  const latDelta=radius/110.574,lonDelta=radius/(111.32*Math.max(Math.cos(latitude*Math.PI/180),0.01));
  const db=createClient(url,key);
+ const crossesDateLine=longitude-lonDelta < -180||longitude+lonDelta > 180;
  try{
   const PAGE_SIZE=500,MAX_PAGES=20;
   type NearbyRow={id:number;name:string;prefecture_name:string;municipality_name:string;address:string;latitude:number;longitude:number;official_url:string|null;data_date:string|null;categories:{slug:string;name:string}|{slug:string;name:string}[]};
   const rows:NearbyRow[]=[];
   let limited=false;
   for(let page=0;page<MAX_PAGES;page++){
-   const {data,error}=await db.from("places").select("id,name,prefecture_name,municipality_name,address,latitude,longitude,official_url,data_date,categories!inner(slug,name)")
-    .eq("is_active",true).gte("latitude",Math.max(-90,latitude-latDelta)).lte("latitude",Math.min(90,latitude+latDelta))
-    .gte("longitude",Math.max(-180,longitude-lonDelta)).lte("longitude",Math.min(180,longitude+lonDelta))
-    .in("categories.slug",category?[category]:[...allowed]).order("id",{ascending:true})
+   let query=db.from("places").select("id,name,prefecture_name,municipality_name,address,latitude,longitude,official_url,data_date,categories!inner(slug,name)")
+    .eq("is_active",true).gte("latitude",Math.max(-90,latitude-latDelta)).lte("latitude",Math.min(90,latitude+latDelta));
+   if(!crossesDateLine)query=query.gte("longitude",longitude-lonDelta).lte("longitude",longitude+lonDelta);
+   const {data,error}=await query.in("categories.slug",category?[category]:[...allowed]).order("id",{ascending:true})
     .range(page*PAGE_SIZE,(page+1)*PAGE_SIZE-1).abortSignal(AbortSignal.timeout(10000));
    if(error)throw error;
    rows.push(...(data||[]) as NearbyRow[]);
