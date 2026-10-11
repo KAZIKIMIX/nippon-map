@@ -36,7 +36,7 @@ export async function POST(req:NextRequest){
   }catch{return NextResponse.json({error:"施設情報を確認できませんでした。"},{status:503})}
  }
  let error;try{const db=createClient(url,key);({error}=await db.from("place_submissions").insert({submission_type,place_id,category_slug,name,prefecture_name:clean(b.prefecture_name,40)||null,address:clean(b.address,300)||null,evidence_url:evidence_url||null,note:clean(b.note,1200)||null,contact_email:contact_email||null,status:"pending"}).abortSignal(AbortSignal.timeout(15000)))}catch{return NextResponse.json({error:"送信できませんでした。時間をおいて再度お試しください。"},{status:503})}
- if(error)return NextResponse.json({error:"送信できませんでした。時間をおいて再度お試しください。"},{status:503});
+ if(error){if(error.code==="23505")return NextResponse.json({error:"同じ内容の報告は確認待ちです。重複送信は不要です。"},{status:409});return NextResponse.json({error:"送信できませんでした。時間をおいて再度お試しください。"},{status:503});}
  return NextResponse.json({ok:true,status:"pending"});
 }
 
