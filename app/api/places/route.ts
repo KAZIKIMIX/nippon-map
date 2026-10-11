@@ -11,6 +11,7 @@ function prefOf(s:string){return prefs.find(p=>s.startsWith(p))||""}
 async function shelterRows(){
  const r=await fetch(GSI,{next:{revalidate:86400},signal:AbortSignal.timeout(15000)});
  if(!r.ok)throw new Error("GSI shelter data unavailable");
+ const length=Number(r.headers.get("content-length"));if(Number.isFinite(length)&&length>30000000)throw new Error("Shelter data is too large");
  const text=(await r.text()).replace(/^\uFEFF/,"");
  if(text.length>30000000)throw new Error("Shelter data is too large");
  return csvRows(text).slice(1);
