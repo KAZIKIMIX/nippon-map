@@ -45,7 +45,7 @@ const placesApi=read("app/api/places/route.ts");
 assert.ok(placesApi.includes("Invalid prefecture"),"Places API must reject invalid prefecture");
 assert.ok(placesApi.includes("lat<20||lat>46||lon<122||lon>154"),"Shelter summary must exclude out-of-range coordinates");
 assert.ok(placesApi.includes("p.latitude>=20&&p.latitude<=46"),"Shelter detail must exclude out-of-range coordinates");
-assert.ok(map.includes("if(place&&(!cityFilter||place.municipality_name===cityFilter)")&&map.includes("[loaded,places,cat,cityFilter,normalizedQ]"),"Shared place restoration must respect visible map filters");
+assert.ok(map.includes("if(place&&place.category_slug===cat&&(!cityFilter||place.municipality_name===cityFilter)")&&map.includes("[loaded,places,cat,prefecture,cityFilter,normalizedQ]"),"Shared place restoration must respect visible map filters");
 assert.ok(placesApi.includes("!r[14]?.trim()||!r[15]?.trim()"),"Shelter summary must reject empty coordinates");
 assert.ok(placesApi.includes("Boolean(r[14]?.trim())&&Boolean(r[15]?.trim())"),"Shelter details must reject empty coordinates");
 assert.ok(detailsApi.includes("db=createClient(url,key)}catch"),"Place details must handle database client initialization errors");
@@ -72,3 +72,4 @@ assert.ok(data.includes("Array.isArray(row)"),"Guide rows must be objects rather
 assert.ok(placesApi.includes("Shelter data is empty")&&placesApi.includes("if(parsed.length<2||parsed[0].length<16)"),"Shelter CSV must contain data records");
 assert.ok(placesApi.includes("parsed[0].length<16")&&placesApi.includes("row.length>=16"),"Shelter CSV must validate header and row column counts");
 console.log("Map and guide state contract checks passed");
+
