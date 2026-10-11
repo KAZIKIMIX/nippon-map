@@ -37,7 +37,8 @@ export async function GET(req:NextRequest){
    const {data,error}=await query.in("categories.slug",category?[category]:[...allowed]).order("id",{ascending:true})
     .range(page*PAGE_SIZE,(page+1)*PAGE_SIZE-1).abortSignal(deadline);
    if(error)throw error;
-   rows.push(...(data||[]) as NearbyRow[]);
+   if(!Array.isArray(data)||data.some(row=>!row||typeof row!=="object"||Array.isArray(row)||typeof row.id!=="number"||!Number.isFinite(row.latitude)||!Number.isFinite(row.longitude)))throw new Error("Invalid nearby result");
+   rows.push(...data as NearbyRow[]);
    if((data||[]).length<PAGE_SIZE)break;
    if(page===MAX_PAGES-1)limited=true;
   }
