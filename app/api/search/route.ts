@@ -22,9 +22,10 @@ export async function GET(req:NextRequest){
   const PAGE_SIZE=500,MAX_PAGES=20;
   type SearchRow={id:number;name:string;name_kana:string|null;prefecture_name:string|null;municipality_name:string|null;address:string|null;latitude:number;longitude:number;official_url:string|null;data_date:string|null;categories:{slug:string;name:string}|{slug:string;name:string}[]};
   const data:SearchRow[]=[];
+  const deadline=AbortSignal.timeout(15000);
   let capped=false;
   for(let page=0;page<MAX_PAGES;page++){
-   const {data:batch,error}=await db.from("places").select("id,name,name_kana,prefecture_name,municipality_name,address,latitude,longitude,official_url,data_date,categories!inner(slug,name)").eq("is_active",true).in("categories.slug",mapCategories.map(c=>c.slug)).or(or).order("id",{ascending:true}).range(page*PAGE_SIZE,(page+1)*PAGE_SIZE-1).abortSignal(AbortSignal.timeout(10000));
+   const {data:batch,error}=await db.from("places").select("id,name,name_kana,prefecture_name,municipality_name,address,latitude,longitude,official_url,data_date,categories!inner(slug,name)").eq("is_active",true).in("categories.slug",mapCategories.map(c=>c.slug)).or(or).order("id",{ascending:true}).range(page*PAGE_SIZE,(page+1)*PAGE_SIZE-1).abortSignal(deadline);
    if(error)throw error;
    data.push(...(batch||[]) as SearchRow[]);
    if((batch||[]).length<PAGE_SIZE)break;
