@@ -11,7 +11,7 @@ export const getGuidePlaces=cache(async(category:GuideCategory,prefecture:string
   if(error)throw new Error("掲載一覧を取得できませんでした。");
   if(data!=null&&!Array.isArray(data))throw new Error("掲載一覧を取得できませんでした。");
   const rows=(data||[]) as GuidePlace[];
-  if(rows.length>1000)throw new Error("掲載一覧を取得できませんでした。");
+  if(rows.length>1000||rows.some(row=>!row||typeof row!=="object"))throw new Error("掲載一覧を取得できませんでした。");
   places.push(...rows);
   if(rows.length<1000)return places;
  }
