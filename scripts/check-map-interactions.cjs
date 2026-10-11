@@ -56,4 +56,6 @@ assert.ok(placesApi.includes("text.length>30000000"),"External shelter CSV must 
 assert.ok(placesApi.includes("!Array.isArray(batch)"),"Paginated place results must be validated");
 assert.ok(placesApi.includes("!Array.isArray(data)"),"Prefecture summaries must validate their response shape");
 assert.ok(!placesApi.includes("e instanceof Error?e.message"),"Shelter fetch errors must not leak upstream details");
+assert.ok(placesApi.includes("const MAX_PAGES=20")&&placesApi.includes("施設データが上限を超えました。"),"Places API must bound pagination without silently truncating");
+assert.ok(detailsApi.includes(".abortSignal(AbortSignal.timeout(15000))"),"Place detail requests must time out");
 console.log("Map and guide state contract checks passed");
