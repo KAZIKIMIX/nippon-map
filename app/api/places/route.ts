@@ -15,7 +15,7 @@ async function shelterRows(){
  const text=(await r.text()).replace(/^\uFEFF/,"");
  if(text.length>30000000)throw new Error("Shelter data is too large");
  if(!text.trim())throw new Error("Shelter data is empty");
- const parsed=csvRows(text);if(parsed.length<2)throw new Error("Shelter data has no records");
+ const parsed=csvRows(text);if(parsed.length<2||parsed[0].length<16)throw new Error("Shelter data has no valid header");
  return parsed.slice(1);
 }
 export async function GET(req:NextRequest){
