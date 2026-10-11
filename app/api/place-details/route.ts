@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export const dynamic = "force-dynamic";
 export async function GET(request: NextRequest) {
   const id = request.nextUrl.searchParams.get("id");
-  if (!id || !/^[1-9]\d{0,14}$/.test(id)) return NextResponse.json({ details: null }, { status: 400 });
+  if (!id || !/^[1-9]\d{0,14}$/.test(id)) return NextResponse.json({ details: null, error: "Invalid place ID" }, { status: 400 });
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
   if (!url || !key) return NextResponse.json({ details: null, error:"Database unavailable" }, { status: 503 });
