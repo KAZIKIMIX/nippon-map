@@ -34,7 +34,7 @@ export async function GET(req:NextRequest){
    if((batch||[]).length<PAGE_SIZE)break;
    if(page===MAX_PAGES-1)capped=true;
   }
-  const normalized=(value:string)=>normalizeKana(String(value||""));
+  const normalized=(value:string|null|undefined)=>normalizeKana(String(value||""));
   const rows=(data||[]).map(row=>{const category=Array.isArray(row.categories)?row.categories[0]:row.categories;return {id:row.id,name:row.name,name_kana:row.name_kana,prefecture_name:row.prefecture_name,municipality_name:row.municipality_name,address:row.address,latitude:row.latitude,longitude:row.longitude,official_url:row.official_url,data_date:row.data_date,category_slug:category?.slug||"",category_name:category?.name||""}});
   const unique=[...new Map(rows.map(row=>[row.id,row])).values()];
   const matches=unique.filter(row=>{const fields=[row.name,row.name_kana,row.prefecture_name,row.municipality_name,row.address].map(normalized);return normalizedTerms.every(term=>fields.some(value=>value.includes(term)))});
