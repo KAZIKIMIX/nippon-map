@@ -25,21 +25,23 @@ export async function GET(req:NextRequest){
   const PAGE_SIZE=500,MAX_PAGES=20;
   type NearbyRow={id:number;name:string;prefecture_name:string;municipality_name:string;address:string;latitude:number;longitude:number;official_url:string|null;data_date:string|null;categories:{slug:string;name:string}|{slug:string;name:string}[]};
   const rows:NearbyRow[]=[];
+  const selectedCategories=category?[category]:[...allowed];
+  const selectColumns="id,name,prefecture_name,municipality_name,address,latitude,longitude,official_url,data_date,categories!inner(slug,name)";
   const deadline=AbortSignal.timeout(15000);
   let limited=false;
   for(let page=0;page<MAX_PAGES;page++){
-   let query=db.from("places").select("id,name,prefecture_name,municipality_name,address,latitude,longitude,official_url,data_date,categories!inner(slug,name)")
+   let query=db.from("places").select(selectColumns)
     .eq("is_active",true).gte("latitude",Math.max(-90,latitude-latDelta)).lte("latitude",Math.min(90,latitude+latDelta));
    if(!crossesDateLine)query=query.gte("longitude",longitude-lonDelta).lte("longitude",longitude+lonDelta);
    else if(lonDelta<180){const west=longitude-lonDelta,east=longitude+lonDelta;
     query=west < -180?query.or(`longitude.gte.${west+360},longitude.lte.${east}`):query.or(`longitude.gte.${west},longitude.lte.${east-360}`);
    }
-   const {data,error}=await query.in("categories.slug",category?[category]:[...allowed]).order("id",{ascending:true})
+   const {data,error}=await query.in("categories.slug",selectedCategories).order("id",{ascending:true})
     .range(page*PAGE_SIZE,(page+1)*PAGE_SIZE-1).abortSignal(deadline);
    if(error)throw error;
    if(!Array.isArray(data)||data.some(row=>!row||typeof row!=="object"||Array.isArray(row)||typeof row.id!=="number"||!Number.isFinite(row.latitude)||!Number.isFinite(row.longitude)))throw new Error("Invalid nearby result");
    rows.push(...data as NearbyRow[]);
-   if((data||[]).length<PAGE_SIZE)break;
+   if(data.length<PAGE_SIZE)break;
    if(page===MAX_PAGES-1)limited=true;
   }
   const places=rows.map(row=>{
