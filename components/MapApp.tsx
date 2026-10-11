@@ -100,7 +100,7 @@ export default function MapApp(){
  const [resultLimit,setResultLimit]=useState(8);
  const shown=useMemo(()=>places.filter(p=>(!cityFilter||p.municipality_name===cityFilter)&&(!normalizedQ||[p.name,p.prefecture_name,p.municipality_name,p.address].some(value=>(value||"").normalize("NFKC").toLocaleLowerCase("ja").includes(normalizedQ)))),[places,normalizedQ,cityFilter]); const categoryMatches=useMemo(()=>!cat&&normalizedQ?cats.filter(c=>c.aliases.some(a=>a.includes(normalizedQ)||normalizedQ.includes(a))):[],[cat,normalizedQ]);
  useEffect(()=>setResultLimit(8),[normalizedQ,cat,prefecture,cityFilter]);
- const searchRows=normalizedQ?globalResults:shown;
+ const searchRows=useMemo(()=>{if(!normalizedQ)return shown;const rank=(p:Place)=>{const name=(p.name||"").normalize("NFKC").toLocaleLowerCase("ja");const city=(p.municipality_name||"").normalize("NFKC").toLocaleLowerCase("ja");const pref=(p.prefecture_name||"").normalize("NFKC").toLocaleLowerCase("ja");return name===normalizedQ?0:name.startsWith(normalizedQ)?1:name.includes(normalizedQ)?2:city===normalizedQ?3:pref===normalizedQ?4:city.includes(normalizedQ)?5:pref.includes(normalizedQ)?6:7};return [...globalResults].sort((a,b)=>rank(a)-rank(b)||a.name.localeCompare(b.name,"ja"))},[normalizedQ,globalResults,shown]);
   const resultRows=searchRows.slice(0,resultLimit);
  useEffect(()=>{placeIndex.current=new Map((normalizedQ?globalResults:places).map(p=>[p.id,p]));},[places,globalResults,normalizedQ]);
  useEffect(()=>{selectedPlaceId.current=selected?.id??null},[selected]);
