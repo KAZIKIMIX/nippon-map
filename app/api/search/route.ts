@@ -35,8 +35,8 @@ export async function GET(req:NextRequest){
    if(page===MAX_PAGES-1)capped=true;
   }
   const normalized=(value:string|null|undefined)=>normalizeKana(String(value||""));
-  const rows=(data||[]).map(row=>{const category=Array.isArray(row.categories)?row.categories[0]:row.categories;return {id:row.id,name:row.name,name_kana:row.name_kana,prefecture_name:row.prefecture_name,municipality_name:row.municipality_name,address:row.address,latitude:row.latitude,longitude:row.longitude,official_url:row.official_url,data_date:row.data_date,category_slug:category?.slug||"",category_name:category?.name||""}});
-  const unique=[...new Map(rows.map(row=>[row.id,row])).values()];
+  const rows=data.map(row=>{const category=Array.isArray(row.categories)?row.categories[0]:row.categories;return {id:row.id,name:row.name,name_kana:row.name_kana,prefecture_name:row.prefecture_name,municipality_name:row.municipality_name,address:row.address,latitude:row.latitude,longitude:row.longitude,official_url:row.official_url,data_date:row.data_date,category_slug:category?.slug||"",category_name:category?.name||""}});
+  const unique=[...new Map(rows.map(row=>[row.id,row] as const)).values()];
   const matches=unique.filter(row=>{const fields=[row.name,row.name_kana,row.prefecture_name,row.municipality_name,row.address].map(normalized);return normalizedTerms.every(term=>fields.some(value=>value.includes(term)))});
   const score=(row:typeof matches[number])=>{const name=normalized(row.name),kana=normalized(row.name_kana),query=normalized(safe);return name===query||kana===query?0:name.startsWith(query)||kana.startsWith(query)?1:name.includes(query)||kana.includes(query)?2:normalizedTerms.every(t=>name.includes(t)||kana.includes(t))?3:4};
   matches.sort((a,b)=>score(a)-score(b)||a.name.localeCompare(b.name,"ja")||a.id-b.id);
