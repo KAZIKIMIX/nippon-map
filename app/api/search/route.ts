@@ -4,11 +4,12 @@ import {NextRequest,NextResponse} from "next/server";
 export const dynamic="force-dynamic";
 export async function GET(req:NextRequest){
  const q=(req.nextUrl.searchParams.get("q")||"").trim().normalize("NFKC");
- if(q.length<1||q.length>80)return NextResponse.json({places:[]});
+ if(!q)return NextResponse.json({places:[],has_more:false,partial:false,limit:100});
+ if(q.length>80)return NextResponse.json({places:[],error:"検索語は80文字以内で入力してください。",has_more:false,partial:false,limit:100},{status:400});
  const url=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
- if(!url||!key)return NextResponse.json({places:[],error:"Database configuration missing"},{status:503});
+ if(!url||!key)return NextResponse.json({places:[],error:"検索サービスを利用できません。時間をおいて再度お試しください。",has_more:false,partial:false,limit:100},{status:503});
  const safe=q.replace(/[%,()_"\\]/g,"").replace(/\\s+/g," ").trim();
- if(!safe)return NextResponse.json({places:[]});
+ if(!safe)return NextResponse.json({places:[],has_more:false,partial:false,limit:100});
  const normalizeKana=(v:string)=>v.normalize("NFKC").replace(/[\u3041-\u3096]/g,ch=>String.fromCharCode(ch.charCodeAt(0)+96)).toLocaleLowerCase("ja");
  const terms=safe.split(" ").filter(Boolean).slice(0,5);
  const toHiragana=(v:string)=>v.normalize("NFKC").replace(/[\u30A1-\u30F6]/g,ch=>String.fromCharCode(ch.charCodeAt(0)-96));
@@ -26,6 +27,6 @@ export async function GET(req:NextRequest){
   const score=(row:typeof matches[number])=>{const name=normalized(row.name),kana=normalized(row.name_kana),query=normalized(safe);return name===query||kana===query?0:name.startsWith(query)||kana.startsWith(query)?1:name.includes(query)||kana.includes(query)?2:terms.every(t=>name.includes(normalized(t))||kana.includes(normalized(t)))?3:4};
   matches.sort((a,b)=>score(a)-score(b)||a.name.localeCompare(b.name,"ja")||a.id-b.id);
   return NextResponse.json({places:matches.slice(0,100),has_more:matches.length>100||rows.length===501,limit:100,partial:rows.length===501},{headers:{"Cache-Control":"public, max-age=15, s-maxage=30"}});
- }catch{return NextResponse.json({places:[],error:"検索データを取得できませんでした。"},{status:503})}
+ }catch{return NextResponse.json({places:[],error:"検索データを取得できませんでした。",has_more:false,partial:false,limit:100},{status:503})}
 }
 
