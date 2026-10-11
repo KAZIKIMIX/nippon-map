@@ -44,7 +44,7 @@ export async function GET(req:NextRequest){
    if(data.length<PAGE_SIZE)break;
    if(page===MAX_PAGES-1)limited=true;
   }
-  const places=rows.map(row=>{
+  const places=[...new Map(rows.map(row=>[row.id,row] as const)).values()].map(row=>{
    const c=Array.isArray(row.categories)?row.categories[0]:row.categories;
    const {categories:unused,...place}=row;
    void unused;
