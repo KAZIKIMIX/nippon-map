@@ -62,4 +62,6 @@ assert.ok(data.includes("!Array.isArray(data)"),"Guide results must reject malfo
 assert.ok(placesApi.includes('r.headers.get("content-length")'),"Shelter downloads must reject oversized bodies before buffering");
 assert.ok(data.includes("rows.length>1000")&&data.includes('typeof row!=="object"'),"Guide data must reject oversized or malformed rows");
 assert.ok(placesApi.includes("batch.length>PAGE")&&placesApi.includes('typeof row!=="object"'),"Public places must reject malformed batches");
+assert.ok(detailsApi.includes('typeof metadata!=="object"'),"Facility detail metadata must be an object");
+assert.ok(placesApi.includes("data.some(row=>"),"Prefecture summaries must reject malformed rows");
 console.log("Map and guide state contract checks passed");
