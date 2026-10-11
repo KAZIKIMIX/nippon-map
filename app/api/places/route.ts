@@ -16,7 +16,7 @@ async function shelterRows(){
  if(text.length>30000000)throw new Error("Shelter data is too large");
  if(!text.trim())throw new Error("Shelter data is empty");
  const parsed=csvRows(text);if(parsed.length<2||parsed[0].length<16)throw new Error("Shelter data has no valid header");
- return parsed.slice(1);
+ return parsed.slice(1).filter(row=>row.length>=16);
 }
 export async function GET(req:NextRequest){
  const url=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
