@@ -73,3 +73,16 @@ assert.ok(placesApi.includes("Shelter data is empty")&&placesApi.includes("if(pa
 assert.ok(placesApi.includes("parsed[0].length<16")&&placesApi.includes("row.length>=16"),"Shelter CSV must validate header and row column counts");
 console.log("Map and guide state contract checks passed");
 
+
+const searchApi=read("app/api/search/route.ts");
+const nearbyApi=read("app/api/nearby/route.ts");
+assert.ok(searchApi.includes("q.length>80"),"Search must reject excessively long queries");
+assert.ok(searchApi.includes("terms.length>5"),"Search must reject more than five tokens");
+assert.ok(searchApi.includes("MAX_PAGES=20"),"Search must bound candidate pagination");
+assert.ok(searchApi.includes("abortSignal(deadline)"),"Search must apply a shared pagination deadline");
+assert.ok(searchApi.includes("toHiragana"),"Search must support reverse kana normalization");
+assert.ok(nearbyApi.includes("duplicatedParams"),"Nearby must reject duplicate query parameters");
+assert.ok(nearbyApi.includes("invalidNumeric"),"Nearby must reject blank numeric parameters");
+assert.ok(nearbyApi.includes("crossesDateLine"),"Nearby must handle antimeridian bounding boxes");
+assert.ok(nearbyApi.includes("abortSignal(deadline)"),"Nearby must apply a shared pagination deadline");
+assert.ok(map.includes("setSearchRetry(n=>n+1)"),"Search failure must allow retry");
