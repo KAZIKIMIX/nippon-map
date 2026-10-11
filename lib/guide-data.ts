@@ -7,7 +7,8 @@ export const getGuidePlaces=cache(async(category:GuideCategory,prefecture:string
  const db=createClient(url,key,{auth:{persistSession:false,autoRefreshToken:false},global:{fetch:(input,init)=>fetch(input,{...init,signal:AbortSignal.timeout(15000),next:{revalidate:600}})}});
  const places:GuidePlace[]=[];
  for(let offset=0;offset<20000;offset+=1000){
-  const {data,error}=await db.rpc("get_public_places_by_category_and_prefecture",{p_category_slug:category,p_prefecture_name:prefecture}).order("id",{ascending:true}).range(offset,offset+999);
+  let data,error;
+  try{({data,error}=await db.rpc("get_public_places_by_category_and_prefecture",{p_category_slug:category,p_prefecture_name:prefecture}).order("id",{ascending:true}).range(offset,offset+999))}catch{throw new Error("掲載一覧を取得できませんでした。")}
   if(error)throw new Error("掲載一覧を取得できませんでした。");
   if(data!=null&&!Array.isArray(data))throw new Error("掲載一覧を取得できませんでした。");
   const rows=(data||[]) as GuidePlace[];
