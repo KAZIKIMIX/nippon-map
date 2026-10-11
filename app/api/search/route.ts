@@ -30,7 +30,8 @@ export async function GET(req:NextRequest){
   for(let page=0;page<MAX_PAGES;page++){
    const {data:batch,error}=await db.from("places").select("id,name,name_kana,prefecture_name,municipality_name,address,latitude,longitude,official_url,data_date,categories!inner(slug,name)").eq("is_active",true).in("categories.slug",mapCategories.map(c=>c.slug)).or(or).order("id",{ascending:true}).range(page*PAGE_SIZE,(page+1)*PAGE_SIZE-1).abortSignal(deadline);
    if(error)throw error;
-   data.push(...(batch||[]) as SearchRow[]);
+   if(!Array.isArray(batch)||batch.some(row=>!row||typeof row!=="object"||Array.isArray(row)||typeof row.id!=="number"||typeof row.name!=="string"))throw new Error("Invalid search result");
+   data.push(...batch as SearchRow[]);
    if((batch||[]).length<PAGE_SIZE)break;
    if(page===MAX_PAGES-1)capped=true;
   }
