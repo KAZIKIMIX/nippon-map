@@ -66,4 +66,7 @@ assert.ok(detailsApi.includes('typeof metadata!=="object"'),"Facility detail met
 assert.ok(placesApi.includes("data.some(row=>"),"Prefecture summaries must reject malformed rows");
 assert.ok(data.includes("try{({data,error}=await db.rpc(")&&data.includes('catch{throw new Error("掲載一覧を取得できませんでした。")}'),"Guide RPC must handle network exceptions");
 assert.ok(detailsApi.includes('if (error) return NextResponse.json({ details: null }, { status: 503 })'),"Facility detail database errors must be retryable");
+assert.ok(placesApi.includes("data.some(row=>")&&placesApi.includes("Array.isArray(row)"),"Prefecture summaries and places must reject array rows");
+assert.ok(data.includes("Array.isArray(row)"),"Guide rows must be objects rather than arrays");
+assert.ok(placesApi.includes("Shelter data is empty")&&placesApi.includes("Shelter data has no records"),"Shelter CSV must contain data records");
 console.log("Map and guide state contract checks passed");
