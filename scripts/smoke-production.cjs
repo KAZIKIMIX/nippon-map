@@ -7,6 +7,7 @@ const routes=[{path:"/api/places?category=airport&prefecture=invalid",expected:4
 const startedAt=Date.now();
 console.log("Smoke target:",target.origin,"cases:",routes.length);
 const routePaths=routes.map(item=>item.path);
+if(!routes.length)throw new Error("Smoke suite must not be empty");
 if(new Set(routePaths).size!==routePaths.length)throw new Error("Duplicate smoke test paths");
 if(routes.some(item=>!item.path.startsWith("/")||![200,400,404].includes(item.expected)))throw new Error("Invalid smoke test definition");
 if(routes.some(item=>item.path.startsWith("//")||item.path.includes("#")))throw new Error("Smoke test paths must be relative and fragment-free");
