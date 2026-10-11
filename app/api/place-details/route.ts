@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
   if (!url || !key) return NextResponse.json({ details: null }, { status: 500 });
   let db;try{db=createClient(url,key)}catch{return NextResponse.json({details:null},{status:503})}
   let data, error;try{({data,error}=await db.from("places").select("metadata").eq("id", id).eq("is_active", true).abortSignal(AbortSignal.timeout(15000)).maybeSingle())}catch{return NextResponse.json({details:null},{status:503})}
-  if (error) return NextResponse.json({ details: null }, { status: 500 });
+  if (error) return NextResponse.json({ details: null }, { status: 503 });
   const metadata = data?.metadata;
   if(metadata!==null&&metadata!==undefined&&(typeof metadata!=="object"||Array.isArray(metadata)))return NextResponse.json({details:null});
   if (!metadata || !Array.isArray(metadata.routes)) return NextResponse.json({ details: null });
