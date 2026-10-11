@@ -23,6 +23,7 @@ assert.match(pref,/setRegion\("all"\)/,"Map reset must restore national view");
 assert.match(pref,/setRetry\(n=>n\+1\)/,"Failed map should support retry");
 assert.match(pref,/prefectureOrder\.slice\(39\)/,"Kyushu should include Fukuoka");
 assert.match(detail,/getGuidePlaces\(category,name\)/,"Prefecture guide should query only selected prefecture");
+assert.ok(detail.includes("decodeURIComponent(prefecture)"),"Prefecture guide must decode encoded Japanese route parameters");
 assert.match(data,/p_prefecture_name:prefecture/,"Database query must filter prefecture");
 assert.ok(share.includes("prefecture")&&share.includes("place"),"Share module must preserve prefecture and place");
 assert.ok(map.includes('setQ(e.target.value);setCityFilter("");setSelected(null)'),"Editing map search must clear hidden municipality filter");
