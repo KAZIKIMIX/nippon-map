@@ -73,6 +73,7 @@ export default function MapApp(){
   setCategory(state.category);setPrefecture(state.prefecture);setQ(state.query);setCityFilter(state.city||"");
  },[]);
  useEffect(()=>{
+ const normalizedQ=q.trim().normalize("NFKC").toLocaleLowerCase("ja");
   if(!loaded||!pendingSharedPlace.current||!cat)return;
   const place=places.find(p=>p.id===pendingSharedPlace.current);
   if(place&&(!cityFilter||place.municipality_name===cityFilter)&&(!normalizedQ||[place.name,place.prefecture_name,place.municipality_name,place.address].some(value=>(value||"").normalize("NFKC").toLocaleLowerCase("ja").includes(normalizedQ))))setSelected(place);
@@ -92,7 +93,7 @@ export default function MapApp(){
  useEffect(()=>{const m=map.current;if(m?.getLayer("unclustered"))m.setLayoutProperty("unclustered","icon-size",["case",["==",["get","id"],selected?.id??0],1.15,.85])},[selected]);
  useEffect(()=>{let alive=true;if(!cat){setPlaces([]);setLoaded(true);setNotice("");setSourceCredits([]);setError("");return()=>{alive=false}}setLoaded(false);setPlaces([]);setNotice("");setSourceCredits([]);setSelected(null);setError("");const qs=cat==="shelter"&&!prefecture?`category=shelter&summary=1`:`category=${encodeURIComponent(cat)}${prefecture?"&prefecture="+encodeURIComponent(prefecture):""}`;fetch(`/api/places?${qs}`).then(async r=>{if(!r.ok)throw new Error(`Places request failed: ${r.status}`);return r.json()}).then(d=>{if(!alive)return;if(d.summary){setPlaces(d.summary.map((x:{prefecture_name:string;place_count:number;longitude:number;latitude:number},i:number)=>({id:-(i+1),name:x.prefecture_name,category_slug:"shelter",category_name:"指定緊急避難場所",prefecture_name:x.prefecture_name,municipality_name:"",address:"都道府県を選択すると地点を表示します",longitude:x.longitude,latitude:x.latitude,official_url:null,data_date:null,aggregate_count:Number(x.place_count)})))}else setPlaces(d.places||[]);setNotice(d.notice||"");setSourceCredits(d.source_credits||[]);setError(d.error||"");setLoaded(true)}).catch(()=>{if(alive){setPlaces([]);setError("データを取得できませんでした。時間をおいて再度お試しください。");setLoaded(true)}});return()=>{alive=false}},[cat,prefecture,placesRetry]);
  const [resultLimit,setResultLimit]=useState(8);
- const normalizedQ=q.trim().normalize("NFKC").toLocaleLowerCase("ja"); const shown=useMemo(()=>places.filter(p=>(!cityFilter||p.municipality_name===cityFilter)&&(!normalizedQ||[p.name,p.prefecture_name,p.municipality_name,p.address].some(value=>(value||"").normalize("NFKC").toLocaleLowerCase("ja").includes(normalizedQ)))),[places,normalizedQ,cityFilter]); const categoryMatches=useMemo(()=>!cat&&normalizedQ?cats.filter(c=>c.aliases.some(a=>a.includes(normalizedQ)||normalizedQ.includes(a))):[],[cat,normalizedQ]);
+ const shown=useMemo(()=>places.filter(p=>(!cityFilter||p.municipality_name===cityFilter)&&(!normalizedQ||[p.name,p.prefecture_name,p.municipality_name,p.address].some(value=>(value||"").normalize("NFKC").toLocaleLowerCase("ja").includes(normalizedQ)))),[places,normalizedQ,cityFilter]); const categoryMatches=useMemo(()=>!cat&&normalizedQ?cats.filter(c=>c.aliases.some(a=>a.includes(normalizedQ)||normalizedQ.includes(a))):[],[cat,normalizedQ]);
  useEffect(()=>setResultLimit(8),[normalizedQ,cat,prefecture,cityFilter]);
  const resultRows=shown.slice(0,resultLimit);
  useEffect(()=>{placeIndex.current=new Map(places.map(p=>[p.id,p]));},[places]);
