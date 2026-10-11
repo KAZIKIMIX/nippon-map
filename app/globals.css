@@ -63,3 +63,9 @@
 /* Detail close control: compact rounded square aligned within the sheet */
 .detail>.close{top:12px;right:12px;display:grid;place-items:center;width:36px;height:36px;padding:0;border:1px solid #e4ddd0;border-radius:11px;background:#faf6ed;color:#253d50;box-shadow:0 2px 6px #253d501a;line-height:1;font-size:22px}
 @media(max-width:900px){.detail>.close{top:12px;right:12px;width:40px;height:40px;border-radius:12px}}
+
+/* Search-result sharing is a secondary action; retain the approved category artwork. */
+.searchResultItem{display:flex;align-items:stretch;gap:6px;min-width:0}
+.searchResultItem>.selectedResult,.searchResultItem>button:first-child{flex:1;min-width:0}
+.searchResultItem>.moreResults{flex:0 0 auto;width:auto;min-width:64px;margin:0 0 8px;padding:8px 10px;align-self:stretch;white-space:nowrap}
+@media(max-width:900px){.searchResultItem>.moreResults{min-height:44px;padding-inline:8px}}
