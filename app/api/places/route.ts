@@ -14,6 +14,7 @@ async function shelterRows(){
  const lengthHeader=r.headers.get("content-length");const length=lengthHeader===null?null:Number(lengthHeader);if(length!==null&&Number.isFinite(length)&&length>30000000)throw new Error("Shelter data is too large");
  const text=(await r.text()).replace(/^\uFEFF/,"");
  if(text.length>30000000)throw new Error("Shelter data is too large");
+ if(!text.trim())throw new Error("Shelter data is empty");
  return csvRows(text).slice(1);
 }
 export async function GET(req:NextRequest){
