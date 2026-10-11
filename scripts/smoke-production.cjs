@@ -9,7 +9,7 @@ console.log("Smoke target:",target.origin,"cases:",routes.length);
 const routePaths=routes.map(item=>item.path);
 if(!routes.length)throw new Error("Smoke suite must not be empty");
 if(new Set(routePaths).size!==routePaths.length)throw new Error("Duplicate smoke test paths");
-if(routes.some(item=>typeof item.path!=="string"||!item.path.startsWith("/")||![200,400,404].includes(item.expected)))throw new Error("Invalid smoke test definition");
+if(routes.some(item=>!item||typeof item.path!=="string"||!item.path.startsWith("/")||![200,400,404].includes(item.expected)))throw new Error("Invalid smoke test definition");
 if(routes.some(item=>item.path.startsWith("//")||item.path.includes("#")))throw new Error("Smoke test paths must be relative and fragment-free");
 if(routes.some(item=>item.path.includes("..")||item.path.includes("\\")||/[\r\n]/.test(item.path)))throw new Error("Unsafe smoke test path");
 if(routes.some(item=>new URL(item.path,BASE).origin!==target.origin))throw new Error("Smoke test must remain on configured origin");
