@@ -9,6 +9,7 @@ export const getGuidePlaces=cache(async(category:GuideCategory,prefecture:string
  for(let offset=0;offset<20000;offset+=1000){
   const {data,error}=await db.rpc("get_public_places_by_category_and_prefecture",{p_category_slug:category,p_prefecture_name:prefecture}).order("id",{ascending:true}).range(offset,offset+999);
   if(error)throw new Error("掲載一覧を取得できませんでした。");
+  if(data!=null&&!Array.isArray(data))throw new Error("掲載一覧を取得できませんでした。");
   const rows=(data||[]) as GuidePlace[];places.push(...rows);
   if(rows.length<1000)return places;
  }
