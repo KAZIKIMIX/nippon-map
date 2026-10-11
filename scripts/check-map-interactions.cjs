@@ -91,4 +91,14 @@ assert.ok(searchApi.includes("value:string|null|undefined"),"Nullable search fie
 assert.ok(searchApi.includes("Array.isArray(batch)"),"Search must validate database page shape");
 assert.ok(nearbyApi.includes("Array.isArray(data)"),"Nearby must validate database page shape");
 assert.ok(searchApi.includes('queries.length>1'),"Search must reject duplicate query parameters");
+assert.ok(searchApi.includes("const selectedCategories=mapCategories.map(c=>c.slug)"),"Search must reuse category selection across pages");
+assert.ok(searchApi.includes("const selectColumns="),"Search must reuse its projection across pages");
+assert.ok(searchApi.includes("const queryNormalized=normalizeKana(safe)"),"Search must normalize ranking query once");
+assert.ok(searchApi.includes("if(batch.length<PAGE_SIZE)break"),"Search must stop pagination after a short page");
+assert.ok(nearbyApi.includes("const selectedCategories=category?[category]:[...allowed]"),"Nearby must reuse category selection");
+assert.ok(nearbyApi.includes("const selectColumns="),"Nearby must reuse its projection across pages");
+assert.ok(nearbyApi.includes("if(data.length<PAGE_SIZE)break"),"Nearby must stop pagination after a short page");
+assert.ok(nearbyApi.includes("new Map(rows.map(row=>[row.id,row] as const))"),"Nearby must deduplicate places before sorting");
+assert.ok(searchApi.includes("const deadline=AbortSignal.timeout(15000)"),"Search must enforce a request-wide time budget");
+assert.ok(nearbyApi.includes("const deadline=AbortSignal.timeout(15000)"),"Nearby must enforce a request-wide time budget");
 console.log("Map, guide, search and nearby state contract checks passed");
