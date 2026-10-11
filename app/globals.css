@@ -69,3 +69,6 @@
 .searchResultItem>.selectedResult,.searchResultItem>button:first-child{flex:1;min-width:0}
 .searchResultItem>.moreResults{flex:0 0 auto;width:auto;min-width:64px;margin:0 0 8px;padding:8px 10px;align-self:stretch;white-space:nowrap}
 @media(max-width:900px){.searchResultItem>.moreResults{min-height:44px;padding-inline:8px}}
+
+/* Anti-spam field is not displayed or focusable to visitors. */
+.submissionTrap{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important}
