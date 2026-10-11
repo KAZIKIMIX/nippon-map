@@ -8,7 +8,7 @@ import GuidePlaceFinder from "../../../../components/GuidePlaceFinder";
 type Props={params:Promise<{category:string;prefecture:string}>};
 async function resolve(params:Props["params"]){
  const {category,prefecture}=await params;
- const name=prefecture;
+ const name=decodeURIComponent(prefecture);
  if(!isGuideCategory(category)||!prefectureOrder.includes(name))notFound();
  const places=await getGuidePlaces(category,name);
  if(!places.length)notFound();
