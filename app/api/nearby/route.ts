@@ -28,6 +28,9 @@ export async function GET(req:NextRequest){
    let query=db.from("places").select("id,name,prefecture_name,municipality_name,address,latitude,longitude,official_url,data_date,categories!inner(slug,name)")
     .eq("is_active",true).gte("latitude",Math.max(-90,latitude-latDelta)).lte("latitude",Math.min(90,latitude+latDelta));
    if(!crossesDateLine)query=query.gte("longitude",longitude-lonDelta).lte("longitude",longitude+lonDelta);
+   else if(lonDelta<180){const west=longitude-lonDelta,east=longitude+lonDelta;
+    query=west < -180?query.or(`longitude.gte.${west+360},longitude.lte.${east}`):query.or(`longitude.gte.${west},longitude.lte.${east-360}`);
+   }
    const {data,error}=await query.in("categories.slug",category?[category]:[...allowed]).order("id",{ascending:true})
     .range(page*PAGE_SIZE,(page+1)*PAGE_SIZE-1).abortSignal(AbortSignal.timeout(10000));
    if(error)throw error;
