@@ -1,0 +1,8 @@
+const fs=require('node:fs'),ts=require('typescript'),assert=require('node:assert/strict');
+function compile(path,customRequire=require){const output=ts.transpileModule(fs.readFileSync(path,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020,jsx:ts.JsxEmit.ReactJSX}}).outputText;const m={exports:{}};new Function('exports','module','require',output)(m.exports,m,customRequire);return m.exports;}
+const categories=compile('lib/guide-categories.ts');
+for(const url of ['javascript:alert(1)','data:text/html,test','https://user:password@example.com/','https://user@example.com/'])assert.equal(categories.safeOfficialUrl(url),null);
+assert.equal(categories.safeOfficialUrl('https://example.com/path'),'https://example.com/path');
+const name='</script><script>alert(1)</script>';
+const page=compile('app/guides/[category]/[prefecture]/page.tsx',module=>module.endsWith('/lib/guide-categories')?categories:module.endsWith('/lib/guide-data')?{getGuidePlaces:async()=>[{id:1,name,category_slug:'zoo',prefecture_name:'東京都',municipality_name:'',address:'',official_url:null}]}:module.endsWith('.css')?{default:{}}:module.endsWith('/components/GuidePlaceFinder')?{default:()=>null}:require(module));
+(async()=>{const element=await page.default({params:Promise.resolve({category:'zoo',prefecture:'東京都'})});const script=element.props.children.find(child=>child&&child.type==='script');const text=script.props.dangerouslySetInnerHTML.__html;assert.ok(!text.includes('<'));assert.equal(JSON.parse(text)['@graph'][1].itemListElement[0].name,name);console.log('Security rendering tests passed: safe external URLs and script-breaking facility names.');})().catch(error=>{console.error(error);process.exit(1)});

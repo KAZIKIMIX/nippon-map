@@ -12,4 +12,5 @@ export function groupGuidePlaces(places:GuidePlace[]){
  for(const p of places){const pref=p.prefecture_name||"地域未設定";const rows=groups.get(pref)||[];rows.push(p);groups.set(pref,rows);}
  return [...groups].sort(([a],[b])=>{const ia=prefectureOrder.indexOf(a),ib=prefectureOrder.indexOf(b);return (ia<0?99:ia)-(ib<0?99:ib);}).map(([prefecture,rows])=>({prefecture,places:rows}));
 }
-export function safeOfficialUrl(value:string|null):string|null{if(!value)return null;try{const url=new URL(value);return ["http:","https:"].includes(url.protocol)?url.href:null;}catch{return null;}}
+export function safeOfficialUrl(value:string|null):string|null{if(!value)return null;try{const url=new URL(value);return ["http:","https:"].includes(url.protocol)&&!url.username&&!url.password?url.href:null;}catch{return null;}}
+

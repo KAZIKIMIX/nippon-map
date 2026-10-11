@@ -17,7 +17,7 @@ export default async function GuidePage({params}:Props){
  const guide=guideCategories[category],places=await getGuidePlaces(category),groups=groupGuidePlaces(places);
  const limit=4;
  const structuredData={"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://nippon-map.vercel.app/guides/"+category+"#webpage",name:guide.title,description:guide.intro,url:"https://nippon-map.vercel.app/guides/"+category,inLanguage:"ja",isPartOf:{"@type":"WebSite",name:"にっぽんマップ",url:"https://nippon-map.vercel.app/"}},{"@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"トップ",item:"https://nippon-map.vercel.app/"},{"@type":"ListItem",position:2,name:guide.name+"のガイド",item:"https://nippon-map.vercel.app/guides/"+category}]}]};
- return <div className={styles.page}><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData)}}/><GuidePageView category={category}/>
+ return <div className={styles.page}><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData).replace(/</g,"\\u003c")}}/><GuidePageView category={category}/>
  <header className={styles.header}><a className={styles.brand} href="/"><img src="/brand-mark.webp" width={36} height={36} alt=""/><strong>にっぽんマップ</strong><small>BETA</small></a><a href={"/map?category="+category}>地図を開く ↗</a></header>
  <main className={styles.main}>
  <nav className={styles.breadcrumb} aria-label="パンくず"><a href="/">トップ</a><span aria-hidden="true"> / </span><span>{guide.name}のガイド</span></nav>
@@ -35,3 +35,4 @@ export default async function GuidePage({params}:Props){
  <p className={styles.note}>本ページは、にっぽんマップで公開中の掲載データをもとに表示しています。名称・所在地・営業状況などが変更されている場合があります。最新情報は施設の公式サイトでご確認ください。地図ページでは施設の詳細を確認できます。掲載一覧は最大10分程度、更新の反映が遅れる場合があります。</p>
  </main><footer className={styles.footer}><a href="/">にっぽんマップ</a><a href="/privacy">プライバシー・利用計測の設定</a></footer></div>;
 }
+

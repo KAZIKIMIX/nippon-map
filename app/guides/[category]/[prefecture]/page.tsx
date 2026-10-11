@@ -26,7 +26,7 @@ export default async function PrefectureGuide({params}:Props){
  const base="https://nippon-map.vercel.app";
  const pageUrl=base+"/guides/"+category+"/"+encodeURIComponent(name);
  const structuredData={"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":pageUrl+"#webpage",name:name+"の"+guide.name+"一覧",url:pageUrl,inLanguage:"ja",description:name+"の"+guide.name+"を掲載中。掲載件数："+places.length+"件。"},{"@type":"ItemList",name:name+"の"+guide.name+"掲載施設",numberOfItems:places.length,itemListElement:places.map((place,index)=>({"@type":"ListItem",position:index+1,name:place.name,url:base+"/map?"+new URLSearchParams({category,prefecture:name,place:String(place.id)}).toString()}))},{"@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"トップ",item:base+"/"},{"@type":"ListItem",position:2,name:guide.name+"のガイド",item:base+"/guides/"+category},{"@type":"ListItem",position:3,name:name,item:pageUrl}]}]};
- return <div className={styles.page}><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData)}}/>
+ return <div className={styles.page}><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData).replace(/</g,"\\u003c")}}/>
  <header className={styles.header}><a className={styles.brand} href="/"><img src="/brand-mark.webp" width={36} height={36} alt=""/><strong>にっぽんマップ</strong></a><a href={"/map?"+mapQuery.toString()}>地図を開く ↗</a></header>
  <main className={styles.main}>
  <nav className={styles.breadcrumb} aria-label="パンくず"><a href="/">トップ</a> / <a href={"/guides/"+category}>{guide.name}のガイド</a> / <span>{name}</span></nav>
@@ -37,3 +37,4 @@ export default async function PrefectureGuide({params}:Props){
  <nav aria-label="関連する地域とガイド"><p><a href={"/guides/"+category}>← {guide.name}の都道府県一覧に戻る</a></p><p>{(Object.keys(guideCategories) as (keyof typeof guideCategories)[]).filter(other=>other!==category).map(other=><a key={other} href={"/guides/"+other} style={{display:"inline-block",marginRight:18,marginBottom:10}}>{guideCategories[other].name}の地域一覧を見る →</a>)}</p></nav>
  </main><footer className={styles.footer}><a href="/">にっぽんマップ</a></footer></div>;
 }
+
