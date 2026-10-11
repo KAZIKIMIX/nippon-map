@@ -12,7 +12,8 @@ export async function GET(req:NextRequest){
  const params=req.nextUrl.searchParams;
  const latitude=Number(params.get("lat")),longitude=Number(params.get("lon")),radius=Number(params.get("radius")||10);
  const category=params.get("category");
- if(!params.has("lat")||!params.has("lon")||!Number.isFinite(latitude)||!Number.isFinite(longitude)||Math.abs(latitude)>90||Math.abs(longitude)>180||!([5,10,30] as number[]).includes(radius)||category&&!allowed.has(category))
+ const invalidNumeric=["lat","lon","radius"].some(key=>params.has(key)&&!(params.get(key)||"").trim());
+ if(invalidNumeric||!params.has("lat")||!params.has("lon")||!Number.isFinite(latitude)||!Number.isFinite(longitude)||Math.abs(latitude)>90||Math.abs(longitude)>180||!([5,10,30] as number[]).includes(radius)||category&&!allowed.has(category))
   return NextResponse.json({error:"Invalid nearby search parameters"},{status:400});
  const url=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
  if(!url||!key)return NextResponse.json({error:"Database unavailable"},{status:503});
