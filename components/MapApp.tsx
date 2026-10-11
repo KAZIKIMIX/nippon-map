@@ -79,7 +79,7 @@ export default function MapApp(){
   if(!loaded||!pendingSharedPlace.current||!cat)return;
   const place=places.find(p=>p.id===pendingSharedPlace.current);
   if(place&&(!cityFilter||place.municipality_name===cityFilter)&&(!normalizedQ||[place.name,place.prefecture_name,place.municipality_name,place.address].some(value=>(value||"").normalize("NFKC").toLocaleLowerCase("ja").includes(normalizedQ))))setSelected(place);
-  pendingSharedPlace.current=null;
+  if(place)pendingSharedPlace.current=null;
  },[loaded,places,cat,cityFilter,normalizedQ]);
  useEffect(()=>{if(cat)trackUsage("category_select",cat);},[cat]);
  useEffect(()=>{if(selected&&!selected.aggregate_count)trackUsage("place_open",selected.category_slug);},[selected?.id]);
