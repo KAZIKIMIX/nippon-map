@@ -72,8 +72,8 @@ export default function MapApp(){
   pendingSharedPlace.current=state.placeId;
   setCategory(state.category);setPrefecture(state.prefecture);setQ(state.query);setCityFilter(state.city||"");
  },[]);
- useEffect(()=>{
  const normalizedQ=q.trim().normalize("NFKC").toLocaleLowerCase("ja");
+ useEffect(()=>{
   if(!loaded||!pendingSharedPlace.current||!cat)return;
   const place=places.find(p=>p.id===pendingSharedPlace.current);
   if(place&&(!cityFilter||place.municipality_name===cityFilter)&&(!normalizedQ||[place.name,place.prefecture_name,place.municipality_name,place.address].some(value=>(value||"").normalize("NFKC").toLocaleLowerCase("ja").includes(normalizedQ))))setSelected(place);
