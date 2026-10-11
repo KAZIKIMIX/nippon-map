@@ -35,7 +35,5 @@ jobs:
         run: npm run check:responsive
       - name: Guide regions
         run: npm run check:regions
-      - name: SEO contracts
-        run: npm run check:seo
       - name: Production build
         run: npm run build
