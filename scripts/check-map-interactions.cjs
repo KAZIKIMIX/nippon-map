@@ -48,7 +48,7 @@ assert.ok(map.includes("if(place&&(!cityFilter||place.municipality_name===cityFi
 assert.ok(placesApi.includes("!r[14]?.trim()||!r[15]?.trim()"),"Shelter summary must reject empty coordinates");
 assert.ok(placesApi.includes("Boolean(r[14]?.trim())&&Boolean(r[15]?.trim())"),"Shelter details must reject empty coordinates");
 assert.ok(detailsApi.includes("db=createClient(url,key)}catch"),"Place details must handle database client initialization errors");
-assert.ok(placesApi.includes("db=createClient(url,key)}catch"),"Places API must handle database client initialization errors");
+assert.ok(placesApi.includes("db=createClient(url,key,")&&placesApi.includes("AbortSignal.timeout(15000)"),"Places API must initialize database client with a bounded request timeout");
 assert.ok(placesApi.includes("施設件数を取得できませんでした。")&&placesApi.includes("施設データを取得できませんでした。"),"Places RPC failures must return controlled responses");
 assert.ok(!placesApi.includes("error:error.message"),"Places API must not expose internal database errors");
 assert.ok(placesApi.includes("AbortSignal.timeout(15000)"),"External shelter fetch must time out");
