@@ -64,4 +64,6 @@ assert.ok(data.includes("rows.length>1000")&&data.includes('typeof row!=="object
 assert.ok(placesApi.includes("batch.length>PAGE")&&placesApi.includes('typeof row!=="object"'),"Public places must reject malformed batches");
 assert.ok(detailsApi.includes('typeof metadata!=="object"'),"Facility detail metadata must be an object");
 assert.ok(placesApi.includes("data.some(row=>"),"Prefecture summaries must reject malformed rows");
+assert.ok(data.includes("try{({data,error}=await db.rpc(")&&data.includes('catch{throw new Error("掲載一覧を取得できませんでした。")}'),"Guide RPC must handle network exceptions");
+assert.ok(detailsApi.includes('if (error) return NextResponse.json({ details: null }, { status: 503 })'),"Facility detail database errors must be retryable");
 console.log("Map and guide state contract checks passed");
