@@ -4,9 +4,11 @@ const allowedCategories=new Set(["airport","roadside-station","aquarium","shelte
 const allowedTypes=new Set(["add","update","closure"]);
 const clean=(v:unknown,max=500)=>typeof v==="string"?v.trim().slice(0,max):"";
 export async function POST(req:NextRequest){
+ const origin=req.headers.get("origin");if(origin&&origin!==req.nextUrl.origin)return NextResponse.json({error:"Invalid origin"},{status:403});
+ const declared=Number(req.headers.get("content-length")||0);if(declared>12000)return NextResponse.json({error:"入力内容が大きすぎます。"},{status:413});
  const url=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
  if(!url||!key)return NextResponse.json({error:"Database configuration is missing"},{status:500});
- let b:Record<string,unknown>;try{const parsed:unknown=await req.json();if(!parsed||typeof parsed!=="object"||Array.isArray(parsed))throw new Error("Invalid payload");b=parsed as Record<string,unknown>}catch{return NextResponse.json({error:"Invalid request"},{status:400})}
+ let b:Record<string,unknown>;try{const text=await req.text();if(new TextEncoder().encode(text).length>12000)return NextResponse.json({error:"入力内容が大きすぎます。"},{status:413});const parsed:unknown=JSON.parse(text);if(!parsed||typeof parsed!=="object"||Array.isArray(parsed))throw new Error("Invalid payload");b=parsed as Record<string,unknown>}catch{return NextResponse.json({error:"Invalid request"},{status:400})}
  if(["submission_type","category_slug","name"].some(field=>typeof b[field]!=="string"))return NextResponse.json({error:"入力内容を確認してください。"},{status:400});
  const submission_type=clean(b.submission_type,20),category_slug=clean(b.category_slug,50),name=clean(b.name,160);
  if((b.name as string).trim().length>160)return NextResponse.json({error:"施設名は160文字以内で入力してください。"},{status:400});
@@ -24,3 +26,4 @@ export async function POST(req:NextRequest){
  if(error)return NextResponse.json({error:"送信できませんでした。時間をおいて再度お試しください。"},{status:503});
  return NextResponse.json({ok:true,status:"pending"});
 }
+
