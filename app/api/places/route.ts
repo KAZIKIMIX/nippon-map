@@ -15,7 +15,8 @@ async function shelterRows(){
  const text=(await r.text()).replace(/^\uFEFF/,"");
  if(text.length>30000000)throw new Error("Shelter data is too large");
  if(!text.trim())throw new Error("Shelter data is empty");
- return csvRows(text).slice(1);
+ const parsed=csvRows(text);if(parsed.length<2)throw new Error("Shelter data has no records");
+ return parsed.slice(1);
 }
 export async function GET(req:NextRequest){
  const url=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
