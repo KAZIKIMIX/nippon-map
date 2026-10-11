@@ -8,6 +8,9 @@ on:
     - cron: "0 0 * * *"
 permissions:
   contents: read
+concurrency:
+  group: quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   verify:
     runs-on: ubuntu-latest
@@ -19,13 +22,20 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '22'
-      - run: npm install --no-audit --no-fund
-      - run: npm run check:map
-      - run: npm run check:regions
-      - run: npm run check:interactions
-      - run: npm run check:responsive
-      - run: npm run check:types
-      - run: npm run build
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Map data checks
+        run: npm run check:map
+      - name: Guide region checks
+        run: npm run check:regions
+      - name: Interaction regression checks
+        run: npm run check:interactions
+      - name: Responsive layout checks
+        run: npm run check:responsive
+      - name: TypeScript checks
+        run: npm run check:types
+      - name: Production build
+        run: npm run build
         env:
           NEXT_TELEMETRY_DISABLED: '1'
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
@@ -41,5 +51,7 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '22'
-      - run: npm run check:production
-      - run: npm run check:seo
+      - name: Production smoke tests
+        run: npm run check:production
+      - name: Production SEO checks
+        run: npm run check:seo
