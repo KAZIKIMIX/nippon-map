@@ -7,14 +7,22 @@ export async function GET(req:NextRequest){
  if(q.length<1||q.length>80)return NextResponse.json({places:[]});
  const url=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
  if(!url||!key)return NextResponse.json({places:[],error:"Database configuration missing"},{status:503});
- const safe=q.replace(/[%,()_"\\]/g,"");
+ const safe=q.replace(/[%,()_"\\]/g,"").replace(/\\s+/g," ").trim();
  if(!safe)return NextResponse.json({places:[]});
+ const terms=safe.split(" ").filter(Boolean).slice(0,5);
  try{
   const db=createClient(url,key);
-  const {data,error}=await db.from("places").select("id,name,prefecture_name,municipality_name,address,latitude,longitude,official_url,data_date,categories!inner(slug,name)").eq("is_active",true).in("categories.slug",mapCategories.map(c=>c.slug)).or(["name.ilike.%"+safe+"%","prefecture_name.ilike.%"+safe+"%","municipality_name.ilike.%"+safe+"%","address.ilike.%"+safe+"%"].join(",")).order("name").order("id").limit(101).abortSignal(AbortSignal.timeout(10000));
+  const columns=["name","prefecture_name","municipality_name","address"];
+  const or=terms.flatMap(term=>columns.map(column=>column+".ilike.%"+term+"%")).join(",");
+  const {data,error}=await db.from("places").select("id,name,prefecture_name,municipality_name,address,latitude,longitude,official_url,data_date,categories!inner(slug,name)").eq("is_active",true).in("categories.slug",mapCategories.map(c=>c.slug)).or(or).order("name").order("id").limit(501).abortSignal(AbortSignal.timeout(10000));
   if(error)throw error;
-  const places=(data||[]).map(row=>{const category=Array.isArray(row.categories)?row.categories[0]:row.categories;return {id:row.id,name:row.name,prefecture_name:row.prefecture_name,municipality_name:row.municipality_name,address:row.address,latitude:row.latitude,longitude:row.longitude,official_url:row.official_url,data_date:row.data_date,category_slug:category?.slug||"",category_name:category?.name||""}});
-  return NextResponse.json({places:places.slice(0,100),has_more:places.length>100,limit:100},{headers:{"Cache-Control":"public, max-age=15, s-maxage=30"}});
+  const normalized=(value:string)=>String(value||"").normalize("NFKC").toLocaleLowerCase("ja");
+  const rows=(data||[]).map(row=>{const category=Array.isArray(row.categories)?row.categories[0]:row.categories;return {id:row.id,name:row.name,prefecture_name:row.prefecture_name,municipality_name:row.municipality_name,address:row.address,latitude:row.latitude,longitude:row.longitude,official_url:row.official_url,data_date:row.data_date,category_slug:category?.slug||"",category_name:category?.name||""}});
+  const unique=[...new Map(rows.map(row=>[row.id,row])).values()];
+  const matches=unique.filter(row=>terms.every(term=>[row.name,row.prefecture_name,row.municipality_name,row.address].some(value=>normalized(value).includes(normalized(term)))));
+  const score=(row:typeof matches[number])=>{const name=normalized(row.name),query=normalized(safe);return name===query?0:name.startsWith(query)?1:name.includes(query)?2:terms.every(t=>name.includes(normalized(t)))?3:4};
+  matches.sort((a,b)=>score(a)-score(b)||a.name.localeCompare(b.name,"ja")||a.id-b.id);
+  return NextResponse.json({places:matches.slice(0,100),has_more:matches.length>100||rows.length===501,limit:100,partial:rows.length===501},{headers:{"Cache-Control":"public, max-age=15, s-maxage=30"}});
  }catch{return NextResponse.json({places:[],error:"検索データを取得できませんでした。"},{status:503})}
 }
 
