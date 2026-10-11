@@ -3,7 +3,9 @@ import {mapCategories} from "../../../lib/map-categories";
 import {NextRequest,NextResponse} from "next/server";
 export const dynamic="force-dynamic";
 export async function GET(req:NextRequest){
- const q=(req.nextUrl.searchParams.get("q")||"").trim().normalize("NFKC");
+ const queries=req.nextUrl.searchParams.getAll("q");
+ if(queries.length>1)return NextResponse.json({places:[],error:"検索語の指定が重複しています。",has_more:false,partial:false,limit:100},{status:400});
+ const q=(queries[0]||"").trim().normalize("NFKC");
  if(!q)return NextResponse.json({places:[],has_more:false,partial:false,limit:100});
  if(q.length>80)return NextResponse.json({places:[],error:"検索語は80文字以内で入力してください。",has_more:false,partial:false,limit:100},{status:400});
  const url=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
