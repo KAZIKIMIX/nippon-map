@@ -26,6 +26,15 @@ export async function POST(req:NextRequest){
  if(submission_type!=="add"&&place_id===null)return NextResponse.json({error:"施設IDを確認してください。"},{status:400});
  if(submission_type==="add"&&place_id!==null)return NextResponse.json({error:"新規施設には施設IDを指定できません。"},{status:400});
  if(submission_type==="add"&&!clean(b.prefecture_name,40)&&!clean(b.address,300))return NextResponse.json({error:"新規施設には都道府県または住所を入力してください。"},{status:400});
+ if(typeof b.website!=="undefined"&&b.website!=="")return NextResponse.json({ok:true,status:"pending"});
+ if(submission_type!=="add"&&place_id!==null){
+  try{const verify=createClient(url,key);const {data,error:lookupError}=await verify.from("places").select("id,categories!inner(slug)").eq("id",place_id).eq("is_active",true).maybeSingle().abortSignal(AbortSignal.timeout(10000));
+   if(lookupError)return NextResponse.json({error:"施設情報を確認できませんでした。"},{status:503});
+   if(!data)return NextResponse.json({error:"対象施設が見つかりません。施設を選び直してください。"},{status:404});
+   const linked=Array.isArray(data.categories)?data.categories[0]:data.categories;
+   if(linked?.slug!==category_slug)return NextResponse.json({error:"施設カテゴリが一致しません。"},{status:400});
+  }catch{return NextResponse.json({error:"施設情報を確認できませんでした。"},{status:503})}
+ }
  let error;try{const db=createClient(url,key);({error}=await db.from("place_submissions").insert({submission_type,place_id,category_slug,name,prefecture_name:clean(b.prefecture_name,40)||null,address:clean(b.address,300)||null,evidence_url:evidence_url||null,note:clean(b.note,1200)||null,contact_email:contact_email||null,status:"pending"}).abortSignal(AbortSignal.timeout(15000)))}catch{return NextResponse.json({error:"送信できませんでした。時間をおいて再度お試しください。"},{status:503})}
  if(error)return NextResponse.json({error:"送信できませんでした。時間をおいて再度お試しください。"},{status:503});
  return NextResponse.json({ok:true,status:"pending"});
