@@ -71,7 +71,7 @@ assert.ok(placesApi.includes("data.some(row=>")&&placesApi.includes("Array.isArr
 assert.ok(data.includes("Array.isArray(row)"),"Guide rows must be objects rather than arrays");
 assert.ok(placesApi.includes("Shelter data is empty")&&placesApi.includes("if(parsed.length<2||parsed[0].length<16)"),"Shelter CSV must contain data records");
 assert.ok(placesApi.includes("parsed[0].length<16")&&placesApi.includes("row.length>=16"),"Shelter CSV must validate header and row column counts");
-console.log("Map and guide state contract checks passed");
+
 
 
 const searchApi=read("app/api/search/route.ts");
@@ -86,3 +86,9 @@ assert.ok(nearbyApi.includes("invalidNumeric"),"Nearby must reject blank numeric
 assert.ok(nearbyApi.includes("crossesDateLine"),"Nearby must handle antimeridian bounding boxes");
 assert.ok(nearbyApi.includes("abortSignal(deadline)"),"Nearby must apply a shared pagination deadline");
 assert.ok(map.includes("setSearchRetry(n=>n+1)"),"Search failure must allow retry");
+
+assert.ok(searchApi.includes("value:string|null|undefined"),"Nullable search fields must be accepted by normalizer");
+assert.ok(searchApi.includes("Array.isArray(batch)"),"Search must validate database page shape");
+assert.ok(nearbyApi.includes("Array.isArray(data)"),"Nearby must validate database page shape");
+assert.ok(searchApi.includes('queries.length>1'),"Search must reject duplicate query parameters");
+console.log("Map, guide, search and nearby state contract checks passed");
