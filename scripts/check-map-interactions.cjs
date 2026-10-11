@@ -58,4 +58,6 @@ assert.ok(placesApi.includes("!Array.isArray(data)"),"Prefecture summaries must 
 assert.ok(!placesApi.includes("e instanceof Error?e.message"),"Shelter fetch errors must not leak upstream details");
 assert.ok(placesApi.includes("const MAX_PAGES=20")&&placesApi.includes("施設データが上限を超えました。"),"Places API must bound pagination without silently truncating");
 assert.ok(detailsApi.includes(".abortSignal(AbortSignal.timeout(15000))"),"Place detail requests must time out");
+assert.ok(data.includes("!Array.isArray(data)"),"Guide results must reject malformed RPC responses");
+assert.ok(placesApi.includes('r.headers.get("content-length")'),"Shelter downloads must reject oversized bodies before buffering");
 console.log("Map and guide state contract checks passed");
