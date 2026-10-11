@@ -21,6 +21,17 @@ if (!base || !key || !ua) throw Error('SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY a
 if (!Number.isInteger(limit) || limit < 1 || limit > 10000) throw Error('Invalid --limit');
 if (apply && !args.includes('--reviewed')) throw Error('--apply requires --reviewed and a manually reviewed proposal file');
 const headers = {apikey:key,Authorization:`Bearer ${key}`};
+const validAddress = x => {
+  if (!x || x.approved !== true || x.prefecture_matches !== true ||
+      x.station_matches !== true || x.source_verified !== true ||
+      typeof x.source_url !== 'string' || !/^https:\/\//.test(x.source_url) ||
+      typeof x.proposed_address !== 'string' ||
+      typeof x.original_address !== 'string' ||
+      x.proposed_address === x.original_address ||
+      !x.proposed_address.startsWith(x.original_address) ||
+      x.proposed_address.length < x.original_address.length + 3) return false;
+  return true;
+};
 const sleep = ms => new Promise(r=>setTimeout(r,ms));
 async function request(url, options={}) {
   const r=await fetch(url,{...options,headers:{...headers,...options.headers}});
@@ -30,10 +41,10 @@ async function request(url, options={}) {
 async function main(){
   const output='railway-address-proposals.json';
   if(apply){
-    const proposals=JSON.parse(fs.readFileSync(output,'utf8')).filter(x=>x.approved===true && x.prefecture_matches===true && x.proposed_address && x.proposed_address!==x.original_address && x.proposed_address.startsWith(x.original_address));
+    const proposals=JSON.parse(fs.readFileSync(output,'utf8')).filter(validAddress);
     let updated=0;
     for(const x of proposals.slice(0,limit)){
-      const params=new URLSearchParams({id:`eq.${x.id}`,address:`eq.${x.original_address}`,category_id:`eq.${x.category_id}`,select:'id'});
+      const params=new URLSearchParams({id:`eq.${x.id}`,address:`eq.${x.original_address}`,category_id:`eq.${x.category_id}`,name:`eq.${x.name}`,prefecture_name:`eq.${x.original_address}`,is_active:'eq.true',select:'id'});
       const rows=await request(`${base}/rest/v1/places?${params}`,{method:'PATCH',headers:{'Content-Type':'application/json',Prefer:'return=representation'},body:JSON.stringify({address:x.proposed_address})});
       updated+=rows.length;
     }
@@ -66,7 +77,7 @@ async function main(){
       const road=address.road||'';
       const number=address.house_number||'';
       const proposed=[prefecture,city,district,road,number].filter(Boolean).join('');
-      proposals.push({id:p.id,category_id:categoryId,name:p.name,original_address:p.address,proposed_address:proposed,geocoder_display_name:geo.display_name||'',prefecture_matches:prefecture===p.prefecture_name,approved:false});
+      proposals.push({id:p.id,category_id:categoryId,name:p.name,original_address:p.address,proposed_address:proposed,geocoder_display_name:geo.display_name||'',prefecture_matches:prefecture===p.prefecture_name,station_matches:false,source_verified:false,source_url:'',approved:false});
       await sleep(1100);
     }
     offset+=batch.length;
