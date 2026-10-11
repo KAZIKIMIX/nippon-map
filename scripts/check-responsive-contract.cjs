@@ -41,4 +41,6 @@ assert.ok(submissions.includes("contact_email.length>254"),"Contact emails must 
 assert.ok(submissions.includes("evidence_url.length>500"),"Evidence URLs must reject overlong inputs");
 assert.ok(submissions.includes("(b.name as string).trim().length>160"),"Facility names must enforce length limits");
 assert.ok(submissions.includes('["prefecture_name",40],["address",300],["note",1200]'),"Report metadata must enforce per-field limits");
+assert.ok(submissions.includes(".abortSignal(AbortSignal.timeout(15000))"),"Submission writes must have a timeout");
+assert.ok(submissions.includes('"},{status:503}'),"Submission failures should be retryable");
 console.log("Responsive CSS and accessibility contracts passed");
