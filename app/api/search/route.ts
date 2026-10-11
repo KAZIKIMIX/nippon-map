@@ -9,14 +9,16 @@ export async function GET(req:NextRequest){
  if(!url||!key)return NextResponse.json({places:[],error:"Database configuration missing"},{status:503});
  const safe=q.replace(/[%,()_"\\]/g,"").replace(/\\s+/g," ").trim();
  if(!safe)return NextResponse.json({places:[]});
+ const normalizeKana=(v:string)=>v.normalize("NFKC").replace(/[\u3041-\u3096]/g,ch=>String.fromCharCode(ch.charCodeAt(0)+96)).toLocaleLowerCase("ja");
  const terms=safe.split(" ").filter(Boolean).slice(0,5);
+ const variants=[...new Set(terms.flatMap(term=>[term,normalizeKana(term)]))].filter(Boolean);
  try{
   const db=createClient(url,key);
   const columns=["name","prefecture_name","municipality_name","address"];
-  const or=terms.flatMap(term=>columns.map(column=>column+".ilike.%"+term+"%")).join(",");
+  const or=variants.flatMap(term=>columns.map(column=>column+".ilike.%"+term+"%")).join(",");
   const {data,error}=await db.from("places").select("id,name,prefecture_name,municipality_name,address,latitude,longitude,official_url,data_date,categories!inner(slug,name)").eq("is_active",true).in("categories.slug",mapCategories.map(c=>c.slug)).or(or).order("name").order("id").limit(501).abortSignal(AbortSignal.timeout(10000));
   if(error)throw error;
-  const normalized=(value:string)=>String(value||"").normalize("NFKC").toLocaleLowerCase("ja");
+  const normalized=(value:string)=>normalizeKana(String(value||""));
   const rows=(data||[]).map(row=>{const category=Array.isArray(row.categories)?row.categories[0]:row.categories;return {id:row.id,name:row.name,prefecture_name:row.prefecture_name,municipality_name:row.municipality_name,address:row.address,latitude:row.latitude,longitude:row.longitude,official_url:row.official_url,data_date:row.data_date,category_slug:category?.slug||"",category_name:category?.name||""}});
   const unique=[...new Map(rows.map(row=>[row.id,row])).values()];
   const matches=unique.filter(row=>terms.every(term=>[row.name,row.prefecture_name,row.municipality_name,row.address].some(value=>normalized(value).includes(normalized(term)))));
