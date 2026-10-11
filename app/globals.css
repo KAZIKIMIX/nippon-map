@@ -59,3 +59,7 @@
 @media(max-width:900px){.workspace{min-height:0}.left{max-height:min(190px,36dvh)}.detail{overflow-y:auto;overscroll-behavior:contain}.search input{font-size:16px}.mobileCategorySelect{font-size:16px}.facilityResults button,.moreResults,.contribute,.reportLink{min-height:44px}.modalClose,.clearSearch{min-width:44px;min-height:44px}.label{pointer-events:none}}
 @media(max-width:380px){header{padding-inline:10px}.brand{gap:6px}.brand strong{font-size:12px}.left{left:8px;width:calc(100% - 16px)}.detail{left:6px;right:6px;padding:16px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Detail close control: compact rounded square aligned within the sheet */
+.detail>.close{top:12px;right:12px;display:grid;place-items:center;width:36px;height:36px;padding:0;border:1px solid #e4ddd0;border-radius:11px;background:#faf6ed;color:#253d50;box-shadow:0 2px 6px #253d501a;line-height:1;font-size:22px}
+@media(max-width:900px){.detail>.close{top:12px;right:12px;width:40px;height:40px;border-radius:12px}}
