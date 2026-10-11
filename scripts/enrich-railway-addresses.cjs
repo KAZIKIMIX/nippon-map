@@ -30,7 +30,7 @@ async function request(url, options={}) {
 async function main(){
   const output='railway-address-proposals.json';
   if(apply){
-    const proposals=JSON.parse(fs.readFileSync(output,'utf8')).filter(x=>x.approved===true && x.proposed_address);
+    const proposals=JSON.parse(fs.readFileSync(output,'utf8')).filter(x=>x.approved===true && x.prefecture_matches===true && x.proposed_address && x.proposed_address!==x.original_address && x.proposed_address.startsWith(x.original_address));
     let updated=0;
     for(const x of proposals.slice(0,limit)){
       const params=new URLSearchParams({id:`eq.${x.id}`,address:`eq.${x.original_address}`,category_id:`eq.${x.category_id}`,select:'id'});
