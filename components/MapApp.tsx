@@ -42,6 +42,7 @@ export default function MapApp(){
 
  const [cityFilter,setCityFilter]=useState("");
  const [nearbyStatus,setNearbyStatus]=useState("");
+ const [nearbyLocation,setNearbyLocation]=useState<{latitude:number;longitude:number}|null>(null);
  
  const [placesRetry,setPlacesRetry]=useState(0);
  const [shareMessage,setShareMessage]=useState("");
@@ -68,6 +69,7 @@ export default function MapApp(){
  },[]);
 
  const node=useRef<HTMLDivElement>(null),map=useRef<MLMap|null>(null),placeIndex=useRef<Map<number,Place>>(new Map());
+ const locationMarker=useRef<maplibregl.Marker|null>(null);
  const selectedPlaceId=useRef<number|null>(null);
  const [places,setPlaces]=useState<Place[]>([]),[cat,setCategory]=useState<string|null>(null),[prefecture,setPrefecture]=useState<string|null>(null),[selected,setSelected]=useState<Place|null>(null),[q,setQ]=useState(""),[loaded,setLoaded]=useState(false),[notice,setNotice]=useState(""),[error,setError]=useState(""),[reportOpen,setReportOpen]=useState(false),[reportType,setReportType]=useState<"add"|"update"|"closure">("add"),[reportMsg,setReportMsg]=useState("");
  useEffect(()=>{if(!reportOpen)return;dialogPreviousFocus.current=document.activeElement instanceof HTMLElement?document.activeElement:null;dialogCloseRef.current?.focus();const onKeyDown=(event:KeyboardEvent)=>{if(event.key==="Escape"){event.preventDefault();setReportOpen(false);return}if(event.key!=="Tab")return;const dialog=dialogCloseRef.current?.closest('[role="dialog"]');if(!dialog)return;const elements=Array.from(dialog.querySelectorAll<HTMLElement>('button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),a[href]')).filter(el=>el.getClientRects().length>0);if(!elements.length)return;const first=elements[0],last=elements[elements.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}};document.addEventListener("keydown",onKeyDown);return()=>{document.removeEventListener("keydown",onKeyDown);dialogPreviousFocus.current?.focus()};},[reportOpen]);
@@ -94,10 +96,11 @@ export default function MapApp(){
   setNearbyStatus("現在地を確認しています…");
   navigator.geolocation.getCurrentPosition(position=>{
    const latitude=position.coords.latitude,longitude=position.coords.longitude;
-   setNearbyStatus("現在地を地図に表示しました。");
-   const m=map.current;if(m){m.stop();m.flyTo({center:[longitude,latitude],zoom:Math.max(m.getZoom(),12),duration:900,essential:true})}
+   setNearbyLocation({latitude,longitude});setNearbyStatus("現在地を地図に表示しました。");
+   const m=map.current;if(m){locationMarker.current?.remove();locationMarker.current=new maplibregl.Marker({color:"#2563eb"}).setLngLat([longitude,latitude]).addTo(m);m.stop();m.flyTo({center:[longitude,latitude],zoom:Math.max(m.getZoom(),12),duration:900,essential:true})}
   },error=>{setNearbyStatus(error.code===1?"位置情報が許可されていません。ブラウザの設定をご確認ください。":error.code===3?"現在地の取得がタイムアウトしました。もう一度お試しください。":"現在地を取得できませんでした。もう一度お試しください。")},{enableHighAccuracy:false,timeout:12000,maximumAge:60000});
  }
+ useEffect(()=>{if(!nearbyLocation||!map.current)return;const m=map.current;locationMarker.current?.remove();locationMarker.current=new maplibregl.Marker({color:"#2563eb"}).setLngLat([nearbyLocation.longitude,nearbyLocation.latitude]).addTo(m);return()=>{locationMarker.current?.remove();locationMarker.current=null}},[nearbyLocation]);
  async function shareMap(){
   const url=createSharedMapUrl(window.location.origin,{category:cat,prefecture,query:q,city:cityFilter,placeId:selected?.id??null});
   if(typeof navigator.share==="function"){
