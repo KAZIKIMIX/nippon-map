@@ -59,3 +59,10 @@ Use the current authoritative 5-digit municipality code mapping for all rows wit
 - Verified municipality_code vs prefecture_code prefix mismatches: **0**.
 - Total filled since original 10,713 missing: **10,430** (97.36%).
 - No municipality codes assigned to ambiguous/multi-jurisdiction facilities merely to make NULL count zero. Remaining cases require full-resolution N03 2026 geometry, specific source verification, and multi-municipality data modeling for large-area facilities.
+
+## Next full-resolution triage attempt — 2026-10-12
+- Started with 283 active places missing municipality_code.
+- Updated 7 records by manually reviewing address and localgovjp municipality code reference: 伊丹空港 (id 15, pref 27/code 27203), 中標津空港 (43/01692), 北大東空港 (86/47358), 道の駅小清水 (1303/01547), 道の駅かみしほろ (1360/01633), 道の駅なかとさ (2312/39401), 宇津ノ谷峠 (1916/22102). For 伊丹空港 also restored missing prefecture_code=27 based on the supplied address. 宇津ノ谷峠 municipality_name retains a dual-city label; code reflects its listed address in 静岡市駿河区, not all geographic coverage.
+- Updated 2 records using published government municipal code references: 道の駅ゆすはら (2293/39405; Kochi Prefecture document) and 浜松市動物園 (2559/22138; Hamamatsu City 2024 ward reorganization notice).
+- Final DB query: **274 missing**, **0 prefix mismatches**. Original missing 10,713; filled 10,439 (97.44%).
+- 274 are unresolved, not completed. In particular railway station coordinates have only prefecture-level addresses and blank municipality_name, so automatic name matching cannot fix them. Several national parks/world heritage sites are multi-jurisdictional and should not be assigned arbitrary single codes.
