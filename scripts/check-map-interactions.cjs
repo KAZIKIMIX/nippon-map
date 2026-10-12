@@ -7,6 +7,7 @@ const pref=read("components/PrefectureMap.tsx");
 const detail=read("app/guides/[category]/[prefecture]/page.tsx");
 const data=read("lib/guide-data.ts");
 const share=read("lib/map-share.ts");
+assert.ok(map.includes("activeMap.flyTo({center:[p.longitude,p.latitude]"),"Global search result clicks must immediately pan and zoom to the selected facility");
 assert.match(map,/readSharedMap\(window\.location\.search/,"Map deep links must restore filters");
 assert.match(map,/pendingSharedPlace\.current=state\.placeId/,"Map deep links must restore selected place");
 assert.match(map,/createSharedMapUrl\(/,"Map share must preserve state");
