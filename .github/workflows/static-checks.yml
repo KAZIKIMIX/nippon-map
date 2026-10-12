@@ -1,0 +1,28 @@
+name: Static contract checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+      - name: Verify region boundaries
+        run: npm run check:regions
+      - name: Verify map interactions
+        run: npm run check:interactions
+      - name: Verify responsive contracts
+        run: npm run check:responsive
+      - name: Verify SEO routing contracts
+        run: npm run check:seo-routing
