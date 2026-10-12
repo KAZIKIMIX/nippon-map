@@ -27,3 +27,11 @@ Use the current authoritative 5-digit municipality code mapping for all rows wit
 - Previously backfilled by known-name match: 95 rows. Total current backfilled in this campaign: **5,995**.
 - Live post-write checks: remaining missing municipality_code **4,718** (from 10,713); municipality code/prefecture prefix mismatch **0**; coded records without municipality_name **0**.
 - **Important:** these 5,900 are *provisional polygon-derived assignments*, not independently validated against full-resolution official polygons. Before calling them authoritative, compare to the original full-resolution 2026 N03 data and inspect edge/railway-station anomalies. Preserve metadata provenance for rollback.
+
+## Next batch — 2,208 further polygon-derived backfills
+- Executed live spatial joins for prefectures 30–47, except unavailable/empty source files 42 and 46. The earlier processing for 30–35 and 36–40 completed before tool-call limits; 41,43–45,47 were subsequently processed.
+- Same conservative criteria as previous batch: unique polygon containment, exclusion near simplified boundaries, reject municipality-name conflicts, provenance marker in metadata.
+- Verified current totals: **8,108** provisional polygon-derived rows + **95** exact-name-matched rows = **8,203** rows backfilled in campaign.
+- Remaining municipality_code NULL in active places: **2,510** (originally 10,713).
+- Current municipality_code / prefecture_code prefix mismatches: **0**.
+- Next priorities: empty/unavailable GeoJSON files (03,04,24,42,46), Hokkaido (01), boundary-adjacent and multi-municipality cases. These require alternate/full-resolution authoritative boundary sources, not guessed codes.
