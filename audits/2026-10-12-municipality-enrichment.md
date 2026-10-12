@@ -35,3 +35,10 @@ Use the current authoritative 5-digit municipality code mapping for all rows wit
 - Remaining municipality_code NULL in active places: **2,510** (originally 10,713).
 - Current municipality_code / prefecture_code prefix mismatches: **0**.
 - Next priorities: empty/unavailable GeoJSON files (03,04,24,42,46), Hokkaido (01), boundary-adjacent and multi-municipality cases. These require alternate/full-resolution authoritative boundary sources, not guessed codes.
+
+## Next batch — 1,513 further backfills (2026-10-12)
+- **376** active facilities filled via exact prefecture + municipality-name match to [code4fukui/localgovjp](https://github.com/code4fukui/localgovjp); 6-digit local government codes converted to 5-digit codes by dropping the check digit. Name spaces normalized only for comparison.
+- **1,137** filled via 2021 MLIT N03 polygons processed by [smartnews-smri/japan-topography](https://github.com/smartnews-smri/japan-topography), for 01 Hokkaido (395), 03 Iwate (157), 04 Miyagi (141), 24 Mie (216), 42 Nagasaki (111), 46 Kagoshima (117). Each candidate required unique polygon containment, boundary buffer exclusion (~0.0018 degrees), and confirmation that its 5-digit code and municipality name still exist in the current localgovjp reference. Name conflicts were rejected.
+- DB metadata provenance: code4fukui_localgovjp_name_exact or N03_2021_smri_polygon_current_code_validated.
+- Live post-write check: **997** active records still missing municipality_code (from original 10,713); 376 name-matched + 1,137 2021 polygon-derived + 8,108 2026 polygon-derived + 95 existing-code-matched = **9,716** campaign backfills. Prefecture code prefix mismatches: **0**.
+- Caveat: 2021 polygons are historical and simplified; matching the current code list reduces but does not eliminate geographic-change risk. 2026 simplified polygons are also provisional. Full-resolution 2026 polygon validation and review of near-border records are still necessary.
