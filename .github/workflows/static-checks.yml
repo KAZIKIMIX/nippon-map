@@ -28,3 +28,5 @@ jobs:
         run: npm run check:responsive
       - name: Verify SEO routing contracts
         run: npm run check:seo-routing
+      - name: Verify homepage discovery and business information
+        run: npm run check:landing
