@@ -21,3 +21,12 @@ Scope: 11,059 active places across 21 categories. Source: live Supabase SQL quer
 
 ## Operational note
 Vercel production deployments for commits 39725f5 and feaa5e5 showed ERROR. Attempt to fetch deployment build logs returned HTTP 403 for scope m011320011-6922. No speculative redeployment was attempted.
+
+## Final cross-category baseline recheck
+- Active facility names, addresses, prefecture names: 0 blank rows.
+- Nonempty official URL syntax: 0 malformed values (reachability unverified).
+- Coordinate presence and coarse geographic bounds: 0 failures.
+- Names with leading/trailing spaces: 0 after correction.
+- URL omissions are category-specific: railway 9,046 and public toilets 255; other active categories 0.
+- Municipality names absent: railway 8,810, national parks 35, world heritage 15.
+- Status: baseline NULL/blank/format scan finished; authoritative field-level accuracy remains unverified and is tracked as separate tasks.
