@@ -1,0 +1,17 @@
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const read = path => fs.readFileSync(path, "utf8");
+const robots = read("app/robots.ts");
+const sitemap = read("app/sitemap.ts");
+const map = read("app/map/page.tsx");
+const guide = read("lib/guide-categories.ts");
+assert.match(robots, /sitemap:\s*"https:\/\/nippon-map\.vercel\.app\/sitemap\.xml"/, "robots must point to production sitemap");
+assert.match(robots, /disallow:\s*\["\/api\/",\s*"\/mobile-preview\.html"\]/, "robots must block API and preview pages");
+assert.match(sitemap, /new Set\(paths\)/, "sitemap must de-duplicate URLs");
+assert.match(sitemap, /encodeURIComponent\(group\.prefecture\)/, "Japanese prefecture routes must be URL encoded");
+assert.match(sitemap, /getGuidePlaces\(category\)/, "sitemap must derive live guide locations");
+assert.match(map, /robots:\s*\{index:false,follow:true\}/, "interactive map must retain its intentional noindex directive");
+assert.match(guide, /aquarium/, "aquarium guide must be configured");
+assert.match(guide, /zoo/, "zoo guide must be configured");
+assert.match(guide, /roadside-station/, "roadside-station guide must be configured");
+console.log("SEO route contract checks passed");
