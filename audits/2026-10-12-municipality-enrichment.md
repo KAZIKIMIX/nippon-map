@@ -42,3 +42,12 @@ Use the current authoritative 5-digit municipality code mapping for all rows wit
 - DB metadata provenance: code4fukui_localgovjp_name_exact or N03_2021_smri_polygon_current_code_validated.
 - Live post-write check: **997** active records still missing municipality_code (from original 10,713); 376 name-matched + 1,137 2021 polygon-derived + 8,108 2026 polygon-derived + 95 existing-code-matched = **9,716** campaign backfills. Prefecture code prefix mismatches: **0**.
 - Caveat: 2021 polygons are historical and simplified; matching the current code list reduces but does not eliminate geographic-change risk. 2026 simplified polygons are also provisional. Full-resolution 2026 polygon validation and review of near-border records are still necessary.
+
+## Further continuation — 2026-10-12
+- Starting at 997 missing active municipality codes, **554 additional records were backfilled** in this run; **443 remain** according to the latest live SQL count.
+- 214 records: prefecture-matched localgovjp municipality name suffixes after accounting for district (郡) prefixes; metadata localgovjp_district_suffix_match.
+- 220 records: exactly one polygon in both simplified N03 2026 and 2021 layers, and same municipality code from both; metadata N03_2026_2021_polygon_agreement. Some prefecture batches were interrupted by per-call tool limits, and their successful partial updates are included in the live count.
+- 92 records: 2021 polygon single containment with a municipality code and name still present in the current localgovjp reference, in prefectures 01,03,04,24,42,46; metadata N03_2021_polygon_single_match_current_code. These are provisional because administrative boundaries can change.
+- 28 additional dual-year polygon agreement updates occurred in subsequent prefecture batches before tool limits interrupted processing; the 220 total dual-year count includes these.
+- Final live check: 443 remaining, municipality_code / prefecture_code prefix mismatch **0**.
+- **Do not force the remaining 443 records to a single municipality.** Some represent national parks and world heritage sites spanning municipalities, others are railway points near boundaries or simplified polygon gaps. The next step is high-resolution official N03 point-in-polygon with manual review of conflicts, and a multi-municipality relation for genuinely multi-area facilities.
