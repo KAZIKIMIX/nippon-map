@@ -66,3 +66,11 @@ Use the current authoritative 5-digit municipality code mapping for all rows wit
 - Updated 2 records using published government municipal code references: 道の駅ゆすはら (2293/39405; Kochi Prefecture document) and 浜松市動物園 (2559/22138; Hamamatsu City 2024 ward reorganization notice).
 - Final DB query: **274 missing**, **0 prefix mismatches**. Original missing 10,713; filled 10,439 (97.44%).
 - 274 are unresolved, not completed. In particular railway station coordinates have only prefecture-level addresses and blank municipality_name, so automatic name matching cannot fix them. Several national parks/world heritage sites are multi-jurisdictional and should not be assigned arbitrary single codes.
+
+## Continuation verification — 2026-10-12 (read-only)
+- Live active places: 11,059; municipality_code NULL: 274; prefecture prefix mismatches: 0.
+- Missing by category: railway 242, national parks 22, world heritage 10. All 242 missing railway rows have blank municipality_name and prefecture-only short address; simple exact station-name/prefecture matching to already-coded railway rows returned zero candidates.
+- Active railway records: 9,046 (earlier baseline 8,955 is outdated); airports 97; roadside stations 1,234.
+- Across all active categories, latitude/longitude SQL NULL count: 0 (this does not prove coordinate correctness).
+- Railway station same-name/same-prefecture groups exist; do not delete automatically, as operators and physical stations may differ.
+- No database writes were made in this continuation. Next: full-resolution official N03 spatial verification, multi-jurisdiction schema design, and separate railway duplicate assessment.
