@@ -51,3 +51,11 @@ Use the current authoritative 5-digit municipality code mapping for all rows wit
 - 28 additional dual-year polygon agreement updates occurred in subsequent prefecture batches before tool limits interrupted processing; the 220 total dual-year count includes these.
 - Final live check: 443 remaining, municipality_code / prefecture_code prefix mismatch **0**.
 - **Do not force the remaining 443 records to a single municipality.** Some represent national parks and world heritage sites spanning municipalities, others are railway points near boundaries or simplified polygon gaps. The next step is high-resolution official N03 point-in-polygon with manual review of conflicts, and a multi-municipality relation for genuinely multi-area facilities.
+
+## Latest continuation — 2026-10-12
+- Started from 443 active places missing municipality_code.
+- Continued 2026/2021 N03 simplified polygon agreement spatial joins across remaining prefectures; updated **160** more active places. Per-tool execution limits interrupted some prefecture batches; the DB count includes successful writes only.
+- Verified latest remaining **283**: railway 242, national-park 22, world-heritage 10, roadside-station 5, airport 3, zoo 1.
+- Verified municipality_code vs prefecture_code prefix mismatches: **0**.
+- Total filled since original 10,713 missing: **10,430** (97.36%).
+- No municipality codes assigned to ambiguous/multi-jurisdiction facilities merely to make NULL count zero. Remaining cases require full-resolution N03 2026 geometry, specific source verification, and multi-municipality data modeling for large-area facilities.
