@@ -3,7 +3,7 @@
 WITH reference AS (
  SELECT municipality_code,MIN(municipality_name) AS name
  FROM public.municipality_boundaries_staging
- WHERE source_year=(SELECT MAX(source_year FROM public.municipality_boundaries_staging))
+ WHERE source_year=(SELECT MAX(source_year) FROM public.municipality_boundaries_staging)
  GROUP BY municipality_code HAVING COUNT(DISTINCT municipality_name)=1
 )
 SELECT p.id,p.name,p.prefecture_name,p.municipality_code,r.name AS proposed_name
