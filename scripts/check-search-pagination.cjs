@@ -1,0 +1,16 @@
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const source=fs.readFileSync('app/api/search/route.ts','utf8');
+const pages=Number(source.match(/MAX_PAGES=(\d+)/)?.[1]);
+const size=Number(source.match(/PAGE_SIZE=(\d+)/)?.[1]);
+assert.ok(Number.isSafeInteger(pages)&&Number.isSafeInteger(size),'Search pagination constants required');
+assert.ok(pages*size>=11059,'Search must not silently omit currently indexed facilities');
+assert.match(source,/page<MAX_PAGES/,'Pagination must respect page cap');
+assert.match(source,/\.range\(page\*PAGE_SIZE,\(page\+1\)\*PAGE_SIZE-1\)/,'Pagination must use nonoverlapping pages');
+assert.match(source,/if\(page===MAX_PAGES-1\)capped=true/,'Search must disclose truncation');
+assert.match(source,/partial:capped/,'API response must report partial searches');
+assert.match(source,/\.eq\("is_active",true\)/,'Exclude inactive facilities');
+assert.match(source,/\.in\("categories.slug",selectedCategories\)/,'Exclude unsupported categories');
+assert.match(source,/AbortSignal\.timeout\(\d+\)/,'Bound database request time');
+assert.match(source,/matches\.sort\(/,'Rank results before truncating');
+console.log('PASS search pagination and safety contract');
