@@ -14,7 +14,8 @@
     "check:interactions": "node scripts/check-map-interactions.cjs",
     "check:responsive": "node scripts/check-responsive-contract.cjs",
     "check:seo-routing": "node scripts/check-seo-routing.cjs",
-    "check:landing": "node scripts/check-landing-experience.cjs"
+    "check:landing": "node scripts/check-landing-experience.cjs",
+    "check:search": "node scripts/check-search-pagination.cjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.76.1",
