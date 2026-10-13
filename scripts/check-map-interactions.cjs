@@ -37,6 +37,10 @@ assert.ok(map.includes("placesCache.current.get(qs)")&&map.includes("placesCache
 assert.ok(map.includes("attempt<2")&&map.includes("[429,502,503,504].includes(response.status)"),"Transient category fetch failures must be retried at most once");
 assert.ok(map.includes("Math.min(4,categories.length)")&&map.includes("cursor++"),"Category counts must use bounded concurrency");
 assert.ok(map.includes("施設データを読み込み中…"),"Category loading must have visible status feedback");
+assert.ok(map.includes('throw new Error("Invalid places response")')&&map.includes("Array.isArray(payload.places)")&&map.includes("Array.isArray(payload.summary)"),"Malformed facility API payloads must produce an error rather than silently clearing the map");
+assert.ok(map.includes("previousPlacesRetry.current!==placesRetry")&&map.includes("forceRefresh?null:placesCache.current.get(qs)"),"Manual retry must bypass cached category data");
+assert.ok(map.includes("if(!d.error&&(Array.isArray(d.places)||Array.isArray(d.summary)))"),"Only valid successful facility payloads may be cached");
+assert.ok(map.includes("d.summary?d.summary.map("), "Cached shelter summaries must restore map features");
 const photoApi=read("app/api/place-photo/route.ts");
 const detailsApi=read("app/api/place-details/route.ts");
 assert.ok(share.includes("prefectures.has(state.prefecture)"),"Shared map URL must reject invalid prefectures");
