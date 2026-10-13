@@ -72,3 +72,7 @@
 
 /* Anti-spam field is not displayed or focusable to visitors. */
 .submissionTrap{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important}
+
+/* Mobile viewport safety: preserve a usable map and sheet on devices with notches and home indicators. */
+@media(max-width:900px){.workspace{height:calc(100dvh - 56px)}.detail{bottom:max(8px,env(safe-area-inset-bottom));max-height:min(58dvh,calc(100dvh - 170px));overscroll-behavior:contain}.left{max-height:min(190px,36dvh)}.maplibregl-ctrl-bottom-right{right:max(8px,env(safe-area-inset-right))}.maplibregl-ctrl-bottom-left{left:max(8px,env(safe-area-inset-left))}}
+@media(max-width:900px) and (max-height:540px){.left{max-height:100px}.detail{max-height:calc(100dvh - 125px)}.label{display:none}}
