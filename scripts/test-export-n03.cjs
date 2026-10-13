@@ -30,7 +30,7 @@ r=spawnSync(process.execPath,['scripts/export-n03.cjs',input,input,'2025','https
 assert.notEqual(r.status,0);
 assert.ok(fs.existsSync(input));
 // Reject unclosed rings and impossible latitude values.
-fs.unlinkSync(output);
+assert.equal(fs.existsSync(output),false);
 const badPolygon={type:'Polygon',coordinates:[[[139,35],[140,35],[140,36],[139,36]]]};
 fs.writeFileSync(input,JSON.stringify({type:'FeatureCollection',features:[{...feature('13103','港区'),geometry:badPolygon}]}));
 r=spawnSync(process.execPath,['scripts/export-n03.cjs',input,output,'2026','https://example.go.jp/n03'],{encoding:'utf8'});
