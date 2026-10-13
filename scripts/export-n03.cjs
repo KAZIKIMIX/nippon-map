@@ -15,5 +15,7 @@ for(const f of data.features){
  rows.push([code,name,JSON.stringify(f.geometry),year,url].map(quote).join(','));
 }
 if(rows.length<2)throw Error('No polygons');
-fs.writeFileSync(output,rows.join('\n')+'\n');
+if(require('node:path').resolve(input)===require('node:path').resolve(output))throw Error('Input and output must differ');
+const temporary=output+'.tmp-'+process.pid;
+try{fs.writeFileSync(temporary,rows.join('\n')+'\n',{flag:'wx'});fs.renameSync(temporary,output)}finally{if(fs.existsSync(temporary))fs.unlinkSync(temporary)}
 console.log('Exported '+(rows.length-1)+' polygons for '+names.size+' municipalities');
