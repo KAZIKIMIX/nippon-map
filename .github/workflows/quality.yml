@@ -32,6 +32,12 @@ jobs:
         run: npm run check:interactions
       - name: Responsive layout checks
         run: npm run check:responsive
+      - name: SEO routing checks
+        run: npm run check:seo-routing
+      - name: Landing experience checks
+        run: npm run check:landing
+      - name: Search pagination checks
+        run: npm run check:search
       - name: TypeScript checks
         run: npm run check:types
       - name: Production build
