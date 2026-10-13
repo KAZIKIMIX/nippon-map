@@ -13,6 +13,7 @@ for(const f of data.features){
  const p=f.properties||{},code=String(p.N03_007||''),city=String(p.N03_004||''),district=String(p.N03_003||'');
  const ward=String(p.N03_005||'');
  const name=ward?city+ward:/[町村]$/.test(city)&&district?district+city:city;
+ if(!city.trim()||ward&&!city.trim())throw Error('Missing N03 municipality name for '+code);
  if(!/^[0-9]{5}$/.test(code)||!name||!geometryValid(f.geometry))throw Error('Invalid N03 feature');
  if(names.has(code)&&names.get(code)!==name)throw Error('Conflicting municipality name for '+code);
  names.set(code,name);
