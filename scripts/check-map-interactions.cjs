@@ -48,6 +48,8 @@ assert.ok(share.includes("state.placeId <= 999999999999999"),"Generated shared p
 assert.ok(detailsApi.includes("catch{return NextResponse.json({details:null},{status:503})}"),"Place details must handle database exceptions");
 assert.ok(detailsApi.includes("x.trim().length>0")&&detailsApi.includes("x.trim().slice(0,160)"),"Railway metadata must omit empty labels and trim whitespace");
 const placesApi=read("app/api/places/route.ts");
+assert.ok((placesApi.match(/Cache-Control/g)||[]).length===2&&placesApi.includes("public, s-maxage=60, stale-while-revalidate=300"),"Public facility and count APIs must apply bounded shared caching");
+assert.ok(placesApi.includes("if(!url||!key)return NextResponse.json")&&placesApi.includes("status:503"),"API errors must remain non-cacheable and report failure status");
 assert.ok(placesApi.includes("Invalid prefecture"),"Places API must reject invalid prefecture");
 assert.ok(placesApi.includes("lat<20||lat>46||lon<122||lon>154"),"Shelter summary must exclude out-of-range coordinates");
 assert.ok(placesApi.includes("p.latitude>=20&&p.latitude<=46"),"Shelter detail must exclude out-of-range coordinates");
