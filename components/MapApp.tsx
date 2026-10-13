@@ -26,7 +26,8 @@ const iconPaths:Record<string,string>={library:"M4 5c3-1 6-1 8 1v15c-2-2-5-2-8-1
  toilet:"M8 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm8 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM5 10h6l-1 5H9v6H7v-6H6l-1-5Zm8 0h6l1 5h-2v6h-4v-6h-2l1-5Z"
 };
 function distanceKm(a:{latitude:number;longitude:number},b:{latitude:number;longitude:number}){const lat=(b.latitude-a.latitude)*Math.PI/180,lon=(b.longitude-a.longitude)*Math.PI/180;const h=Math.sin(lat/2)**2+Math.cos(a.latitude*Math.PI/180)*Math.cos(b.latitude*Math.PI/180)*Math.sin(lon/2)**2;return 6371*2*Math.atan2(Math.sqrt(Math.max(0,h)),Math.sqrt(Math.max(0,1-h)))}
-const originalCategories=new Set(cats.map(c=>c.slug));
+// Library was added after the approved category asset set; render its generated icon instead of requesting nonexistent WebP assets.
+const originalCategories=new Set(cats.filter(c=>c.slug!=="library").map(c=>c.slug));
 function CategoryIcon({slug}:{slug:string}){if(originalCategories.has(slug))return <span className={"catIconWrap originalIcon "+slug}><img src={"/category-assets/"+slug+".webp"} width={32} height={32} alt="" /></span>;return <span className={"catIconWrap "+slug}><svg className="catIcon" viewBox="0 0 24 24" aria-hidden="true"><path d={iconPaths[slug]} fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/></svg></span>}
 function ResultThumbnail({place}:{place:Place}){
  const [failed,setFailed]=useState(false);
