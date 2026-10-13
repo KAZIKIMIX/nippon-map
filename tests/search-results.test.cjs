@@ -1,0 +1,14 @@
+const fs=require('node:fs'),ts=require('typescript'),assert=require('node:assert/strict');
+const output=ts.transpileModule(fs.readFileSync('lib/search-results.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText;
+const api={exports:{}};new Function('exports','module','require',output)(api.exports,api,require);
+const station={id:1,name:'東京駅',category_slug:'railway',prefecture_name:'東京都',municipality_name:'千代田区'};
+const zoo={id:2,name:'町田リス園',category_slug:'zoo',prefecture_name:'東京都',municipality_name:'町田市'};
+const park={id:3,name:'東京駅前公園',category_slug:'park',prefecture_name:'神奈川県',municipality_name:'横浜市'};
+assert.deepEqual(api.exports.rankGlobalSearchResults([park,zoo,station,station],'東京駅'),[station,park,zoo]);
+assert.equal(api.exports.rankGlobalSearchResults([station],'とうきょうえき')[0],station,'API reading matches must remain visible even without kana in the UI type');
+assert.equal(api.exports.matchesCategorySearch(['道の駅','みちのえき'],'ミチノエキ'),true);
+assert.equal(api.exports.matchesCategorySearch(['道の駅','みちのえき'],'みちのえき'),true);
+assert.equal(api.exports.matchesCategorySearch(['道の駅'],'東京駅'),false);
+assert.equal(api.exports.matchesCategorySearch(['道の駅'],''),false);
+assert.equal(api.exports.normalizeSearchText('ﾘｽ'),api.exports.normalizeSearchText('りす'));
+console.log('Global search result tests passed: cross-category/region retention, ranking, deduplication, reading matches and kana category suggestions.');

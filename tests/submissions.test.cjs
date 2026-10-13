@@ -4,7 +4,7 @@ let rows=[],fail=false;
 const output=ts.transpileModule(fs.readFileSync('app/api/submissions/route.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText;
 const api={exports:{}};new Function('exports','module','require',output)(api.exports,api,name=>name==='@supabase/supabase-js'?{createClient:()=>({from:()=>({insert:row=>({abortSignal:async()=>{rows.push(row);return {error:fail?{message:'private'}:null}}})})})}:require(name));
 process.env.NEXT_PUBLIC_SUPABASE_URL='https://example.supabase.co';process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY='test-public-key';
-const valid={submission_type:'add',category_slug:'zoo',name:'テスト施設'};
+const valid={submission_type:'add',category_slug:'zoo',name:'テスト施設',prefecture_name:'東京都'};
 const request=(body,headers={})=>new NextRequest('https://nippon-map.vercel.app/api/submissions',{method:'POST',headers:{origin:'https://nippon-map.vercel.app',...headers},body:typeof body==='string'?body:JSON.stringify(body)});
 (async()=>{
  assert.equal((await api.exports.POST(request(valid,{origin:'https://other.example'}))).status,403);
