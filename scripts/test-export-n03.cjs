@@ -29,5 +29,17 @@ assert.equal(fs.existsSync(output),false);
 r=spawnSync(process.execPath,['scripts/export-n03.cjs',input,input,'2025','https://example.go.jp/n03'],{encoding:'utf8'});
 assert.notEqual(r.status,0);
 assert.ok(fs.existsSync(input));
+// Reject unclosed rings and impossible latitude values.
+fs.unlinkSync(output);
+const badPolygon={type:'Polygon',coordinates:[[[139,35],[140,35],[140,36],[139,36]]]};
+fs.writeFileSync(input,JSON.stringify({type:'FeatureCollection',features:[{...feature('13103','港区'),geometry:badPolygon}]}));
+r=spawnSync(process.execPath,['scripts/export-n03.cjs',input,output,'2026','https://example.go.jp/n03'],{encoding:'utf8'});
+assert.notEqual(r.status,0);
+assert.equal(fs.existsSync(output),false);
+const impossible={type:'Polygon',coordinates:[[[139,95],[140,95],[140,96],[139,95]]]};
+fs.writeFileSync(input,JSON.stringify({type:'FeatureCollection',features:[{...feature('13103','港区'),geometry:impossible}]}));
+r=spawnSync(process.execPath,['scripts/export-n03.cjs',input,output,'2026','https://example.go.jp/n03'],{encoding:'utf8'});
+assert.notEqual(r.status,0);
+assert.equal(fs.existsSync(output),false);
 fs.rmSync(dir,{recursive:true,force:true});
 console.log('PASS N03 export: valid polygons, duplicate conflict, invalid code');
