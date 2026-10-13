@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "N03 municipality source manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "dataset",
+    "release_year",
+    "download_url",
+    "retrieved_at",
+    "sha256",
+    "coordinate_reference_system"
+  ],
+  "properties": {
+    "dataset": {
+      "const": "国土数値情報 N03 行政区域"
+    },
+    "release_year": {
+      "type": "integer",
+      "minimum": 2000,
+      "maximum": 2100
+    },
+    "download_url": {
+      "type": "string",
+      "pattern": "^https://"
+    },
+    "retrieved_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "coordinate_reference_system": {
+      "const": "EPSG:4326"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
