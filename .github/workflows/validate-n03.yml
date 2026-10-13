@@ -4,6 +4,7 @@ on:
     paths:
       - 'scripts/export-n03.cjs'
       - 'scripts/test-export-n03.cjs'
+      - 'scripts/test-check-n03-geojson.cjs'
       - 'scripts/check-n03-geojson.cjs'
       - '.github/workflows/validate-n03.yml'
   pull_request:
@@ -25,3 +26,5 @@ jobs:
           node-version: '22'
       - name: Test N03 export
         run: node scripts/test-export-n03.cjs
+      - name: Test N03 preflight
+        run: node scripts/test-check-n03-geojson.cjs
