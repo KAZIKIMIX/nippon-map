@@ -1,0 +1,27 @@
+name: Validate N03 importer
+on:
+  push:
+    paths:
+      - 'scripts/export-n03.cjs'
+      - 'scripts/test-export-n03.cjs'
+      - 'scripts/check-n03-geojson.cjs'
+      - '.github/workflows/validate-n03.yml'
+  pull_request:
+    paths:
+      - 'scripts/export-n03.cjs'
+      - 'scripts/test-export-n03.cjs'
+      - 'scripts/check-n03-geojson.cjs'
+      - '.github/workflows/validate-n03.yml'
+permissions:
+  contents: read
+jobs:
+  test-n03:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test N03 export
+        run: node scripts/test-export-n03.cjs
