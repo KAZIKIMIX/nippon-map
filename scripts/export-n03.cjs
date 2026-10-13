@@ -1,6 +1,7 @@
 // Validate N03 GeoJSON and export a CSV suitable for municipality_boundaries_staging.
 const fs=require('node:fs');
 const [input,output,year,url]=process.argv.slice(2);
+const crypto=require('node:crypto');
 if(!input||!output||!/^[0-9]{4}$/.test(year||'')||!/^https:\/\//.test(url||''))throw Error('Usage: node scripts/export-n03.cjs input.geojson output.csv YEAR https://source-url');
 const data=JSON.parse(fs.readFileSync(input,'utf8'));
 if(data.type!=='FeatureCollection'||!Array.isArray(data.features))throw Error('Expected FeatureCollection');
@@ -23,4 +24,5 @@ if(rows.length<2)throw Error('No polygons');
 if(require('node:path').resolve(input)===require('node:path').resolve(output))throw Error('Input and output must differ');
 const temporary=output+'.tmp-'+process.pid;
 try{fs.writeFileSync(temporary,rows.join('\n')+'\n',{flag:'wx'});fs.renameSync(temporary,output)}finally{if(fs.existsSync(temporary))fs.unlinkSync(temporary)}
-console.log('Exported '+(rows.length-1)+' polygons for '+names.size+' municipalities');
+const checksum=crypto.createHash('sha256').update(fs.readFileSync(input)).digest('hex');
+console.log(JSON.stringify({polygons:rows.length-1,municipalities:names.size,source_year:Number(year),source_url:url,input_sha256:checksum,output}));
