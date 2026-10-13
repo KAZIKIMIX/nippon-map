@@ -8,7 +8,8 @@ const quote=v=>'"'+String(v).replace(/"/g,'""')+'"';
 const names=new Map(),rows=['municipality_code,municipality_name,geometry_geojson,source_year,source_url'];
 for(const f of data.features){
  const p=f.properties||{},code=String(p.N03_007||''),city=String(p.N03_004||''),district=String(p.N03_003||'');
- const name=/[町村]$/.test(city)&&district?district+city:city;
+ const ward=String(p.N03_005||'');
+ const name=ward?city+ward:/[町村]$/.test(city)&&district?district+city:city;
  if(!/^[0-9]{5}$/.test(code)||!name||!['Polygon','MultiPolygon'].includes(f.geometry?.type))throw Error('Invalid N03 feature');
  if(names.has(code)&&names.get(code)!==name)throw Error('Conflicting municipality name for '+code);
  names.set(code,name);
