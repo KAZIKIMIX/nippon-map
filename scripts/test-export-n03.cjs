@@ -19,5 +19,9 @@ assert.equal(fs.existsSync(output),false);
 r=run([feature('','不明')]);
 assert.notEqual(r.status,0);
 assert.equal(fs.existsSync(output),false);
+// The exporter must never overwrite its input file.
+r=spawnSync(process.execPath,['scripts/export-n03.cjs',input,input,'2025','https://example.go.jp/n03'],{encoding:'utf8'});
+assert.notEqual(r.status,0);
+assert.ok(fs.existsSync(input));
 fs.rmSync(dir,{recursive:true,force:true});
 console.log('PASS N03 export: valid polygons, duplicate conflict, invalid code');
