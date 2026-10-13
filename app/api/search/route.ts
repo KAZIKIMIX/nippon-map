@@ -21,12 +21,12 @@ export async function GET(req:NextRequest){
   const db=createClient(url,key);
   const columns=["name","name_kana","prefecture_name","municipality_name","address"];
   const or=variants.flatMap(term=>columns.map(column=>column+".ilike.%"+term+"%")).join(",");
-  const PAGE_SIZE=500,MAX_PAGES=20;
+  const PAGE_SIZE=500,MAX_PAGES=40;
   type SearchRow={id:number;name:string;name_kana:string|null;prefecture_name:string|null;municipality_name:string|null;address:string|null;latitude:number;longitude:number;official_url:string|null;data_date:string|null;categories:{slug:string;name:string}|{slug:string;name:string}[]};
   const data:SearchRow[]=[];
   const selectedCategories=mapCategories.map(c=>c.slug);
   const selectColumns="id,name,name_kana,prefecture_name,municipality_name,address,latitude,longitude,official_url,data_date,categories!inner(slug,name)";
-  const deadline=AbortSignal.timeout(15000);
+  const deadline=AbortSignal.timeout(25000);
   const normalizedTerms=terms.map(term=>normalizeKana(term));
   let capped=false;
   for(let page=0;page<MAX_PAGES;page++){
