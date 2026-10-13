@@ -89,8 +89,8 @@ export default function MapApp(){
  },[]);
  useEffect(()=>{fetch("/api/places?category=roadside-station&summary=1").then(r=>r.json()).then(d=>{if(Array.isArray(d.summary))setPrefectureOptions(d.summary.map((x:{prefecture_name:string})=>x.prefecture_name).filter(Boolean).sort((a:string,b:string)=>a.localeCompare(b,"ja")))}).catch(()=>{})},[]);
  const cityOptions=useMemo(()=>[...new Set(places.map(p=>p.municipality_name).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"ja")),[places]);
- useEffect(()=>{if(!prefecture||!places.length||!map.current)return;const bounds=new maplibregl.LngLatBounds();let n=0;places.forEach(p=>{if(Number.isFinite(p.longitude)&&Number.isFinite(p.latitude)){bounds.extend([p.longitude,p.latitude]);n++}});if(n)map.current.fitBounds(bounds,{padding:55,maxZoom:11,duration:850});},[prefecture,places]);
- useEffect(()=>{if(!cityFilter||!map.current)return;const bounds=new maplibregl.LngLatBounds();let n=0;places.forEach(p=>{if(p.municipality_name===cityFilter){bounds.extend([p.longitude,p.latitude]);n++}});if(n)map.current.fitBounds(bounds,{padding:60,maxZoom:13,duration:850});},[cityFilter,places]);
+ useEffect(()=>{if(!prefecture||cityFilter||!places.length||!map.current)return;const bounds=new maplibregl.LngLatBounds();let n=0;places.forEach(p=>{if(Number.isFinite(p.longitude)&&Number.isFinite(p.latitude)){bounds.extend([p.longitude,p.latitude]);n++}});if(n){const m=map.current;m.stop();m.fitBounds(bounds,{padding:55,maxZoom:11,duration:850})}},[prefecture,places]);
+ useEffect(()=>{if(!cityFilter||!map.current)return;const bounds=new maplibregl.LngLatBounds();let n=0;places.forEach(p=>{if(p.municipality_name===cityFilter){bounds.extend([p.longitude,p.latitude]);n++}});if(n){const m=map.current;m.stop();m.fitBounds(bounds,{padding:60,maxZoom:13,duration:850})}},[cityFilter,places]);
  const normalizedQ=q.trim().normalize("NFKC").toLocaleLowerCase("ja");
  const normalizeSearch=(value:string)=>value.normalize("NFKC").replace(/[ぁ-ゖ]/g,ch=>String.fromCharCode(ch.charCodeAt(0)+96)).toLocaleLowerCase("ja");
   const [searchRetry,setSearchRetry]=useState(0);
