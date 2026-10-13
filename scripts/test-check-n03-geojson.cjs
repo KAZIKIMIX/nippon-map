@@ -9,5 +9,7 @@ assert.equal(run([valid]).status,0);
 assert.notEqual(run([{...valid,properties:{...valid.properties,N03_007:'bad'}}]).status,0);
 assert.notEqual(run([{...valid,geometry:{type:'Polygon',coordinates:[[[139,35],[140,35],[140,36],[139,36]]]}}]).status,0);
 assert.notEqual(run([valid,{...valid,properties:{N03_007:'13103',N03_004:'別名区'}}]).status,0);
+const ward={...valid,properties:{N03_007:'14101',N03_004:'横浜市',N03_005:'鶴見区'}};
+assert.notEqual(run([ward,{...ward,properties:{...ward.properties,N03_005:'神奈川区'}}]).status,0);
 fs.rmSync(dir,{recursive:true,force:true});
 console.log('PASS N03 preflight');
