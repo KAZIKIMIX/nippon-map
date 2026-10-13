@@ -1,7 +1,7 @@
 import {createClient} from "@supabase/supabase-js";
 import {NextRequest,NextResponse} from "next/server";
 export const dynamic="force-dynamic";
-const allowed=new Set(["airport","roadside-station","aquarium","shelter","zoo","world-heritage","national-park","railway","museum","park","toilet","castle","lighthouse","hot-spring","botanical-garden","campsite","observation-deck","theme-park","factory-tour","horse-racing","velodrome","sightseeing"]);
+const allowed=new Set(["library","airport","roadside-station","aquarium","shelter","zoo","world-heritage","national-park","railway","museum","park","toilet","castle","lighthouse","hot-spring","botanical-garden","campsite","observation-deck","theme-park","factory-tour","horse-racing","velodrome","sightseeing"]);
 const PAGE=1000;
 const MAX_PAGES=20;
 const GSI="https://hinanmap.gsi.go.jp/hinanjocp/defaultFtpData/csv/mergeFromCity_2.csv";
