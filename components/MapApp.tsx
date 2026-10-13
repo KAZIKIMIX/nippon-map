@@ -67,16 +67,29 @@ export default function MapApp(){
  const [photoFailed,setPhotoFailed]=useState(false);
  useEffect(()=>{
   let alive=true;
-  Promise.all(cats.filter(c=>c.slug!=="shelter").map(async c=>{
-   try{
-    const response=await fetch("/api/places?category="+encodeURIComponent(c.slug)+"&summary=1");
-    if(!response.ok)return null;
-    const data=await response.json();
-    if(data.error||!Array.isArray(data.summary))return null;
-    return [c.slug,data.summary.reduce((sum:number,row:{place_count:number})=>sum+Number(row.place_count),0)] as const;
-   }catch{return null}
-  })).then(entries=>{if(alive)setCategoryCounts(Object.fromEntries(entries.filter((entry):entry is readonly [string,number]=>entry!==null)))});
-  return()=>{alive=false};
+  const controller=new AbortController();
+  const categories=cats.filter(c=>c.slug!=="shelter");
+  let cursor=0;
+  const results:Record<string,number>={};
+  async function worker(){
+   while(alive&&!controller.signal.aborted){
+    const index=cursor++;
+    if(index>=categories.length)return;
+    const slug=categories[index].slug;
+    try{
+     const response=await fetch("/api/places?category="+encodeURIComponent(slug)+"&summary=1",{signal:controller.signal});
+     if(!response.ok)continue;
+     const data=await response.json();
+     if(data.error||!Array.isArray(data.summary))continue;
+     const count=data.summary.reduce((sum:number,row:{place_count:number})=>sum+Number(row.place_count),0);
+     if(!Number.isFinite(count))continue;
+     results[slug]=count;
+     if(alive)setCategoryCounts({...results});
+    }catch{if(controller.signal.aborted)return}
+   }
+  }
+  void Promise.all(Array.from({length:Math.min(4,categories.length)},()=>worker()));
+  return()=>{alive=false;controller.abort()};
  },[]);
 
  const node=useRef<HTMLDivElement>(null),map=useRef<MLMap|null>(null),placeIndex=useRef<Map<number,Place>>(new Map());
