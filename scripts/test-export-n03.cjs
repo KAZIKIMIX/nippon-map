@@ -12,6 +12,12 @@ let r=run([feature('01334','木古内町','上磯郡'),feature('13103','港区')
 assert.equal(r.status,0,r.stderr);
 const csv=fs.readFileSync(output,'utf8');
 assert.match(csv,/上磯郡木古内町/);assert.match(csv,/港区/);
+// Designated-city ward codes must include both city and ward names.
+fs.unlinkSync(output);
+fs.writeFileSync(input,JSON.stringify({type:'FeatureCollection',features:[{type:'Feature',properties:{N03_007:'14101',N03_004:'横浜市',N03_005:'鶴見区'},geometry:polygon}]}));
+let ward=spawnSync(process.execPath,['scripts/export-n03.cjs',input,output,'2026','https://example.go.jp/n03'],{encoding:'utf8'});
+assert.equal(ward.status,0,ward.stderr);
+assert.match(fs.readFileSync(output,'utf8'),/横浜市鶴見区/);
 fs.unlinkSync(output);
 r=run([feature('01334','木古内町','上磯郡'),feature('01334','異なる町','上磯郡')]);
 assert.notEqual(r.status,0);
