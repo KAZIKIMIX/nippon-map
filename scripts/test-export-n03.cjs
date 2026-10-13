@@ -10,6 +10,9 @@ const feature=(code,city,district='')=>({type:'Feature',properties:{N03_007:code
 function run(features){fs.writeFileSync(input,JSON.stringify({type:'FeatureCollection',features}));return spawnSync(process.execPath,['scripts/export-n03.cjs',input,output,'2025','https://example.go.jp/n03'],{encoding:'utf8'});}
 let r=run([feature('01334','木古内町','上磯郡'),feature('13103','港区')]);
 assert.equal(r.status,0,r.stderr);
+const summary=JSON.parse(r.stdout.trim());
+assert.equal(summary.polygons,2);
+assert.match(summary.input_sha256,/^[a-f0-9]{64}$/);
 const csv=fs.readFileSync(output,'utf8');
 assert.match(csv,/上磯郡木古内町/);assert.match(csv,/港区/);
 // Designated-city ward codes must include both city and ward names.
