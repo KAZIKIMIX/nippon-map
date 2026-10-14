@@ -1,5 +1,5 @@
 export const usageEvents = ["page_view","category_select","place_open","share_copy"] as const;
-export const usageCategories = ["aquarium","zoo","roadside-station","airport","shelter","world-heritage","national-park","railway","museum","park","toilet","castle","lighthouse","hot-spring","botanical-garden","campsite","observation-deck","theme-park","factory-tour","horse-racing","velodrome","sightseeing"] as const;
+export const usageCategories = ["library","aquarium","zoo","roadside-station","airport","shelter","world-heritage","national-park","railway","museum","park","toilet","castle","lighthouse","hot-spring","botanical-garden","campsite","observation-deck","theme-park","factory-tour","horse-racing","velodrome","sightseeing"] as const;
 export const usageSources = ["direct","x","instagram","search","other"] as const;
 export type UsageEvent = typeof usageEvents[number];
 export type UsagePayload = {event: UsageEvent; category: string|null; source: typeof usageSources[number]};

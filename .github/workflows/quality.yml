@@ -24,6 +24,8 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm install --no-audit --no-fund
+      - name: Functional unit tests
+        run: node --test tests/*.test.cjs
       - name: Map data checks
         run: npm run check:map
       - name: Guide region checks

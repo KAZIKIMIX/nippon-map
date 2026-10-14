@@ -5,6 +5,9 @@ function compile(path,customRequire=require){
  const module={exports:{}};new Function('exports','module','require',output)(module.exports,module,customRequire);return module.exports;
 }
 const events=compile('lib/usage-events.ts');
+assert.deepEqual(events.parseUsagePayload({event:'category_select',category:'library',source:'direct'}),{event:'category_select',category:'library',source:'direct'});
+const categories=compile('lib/map-categories.ts').mapCategories;
+assert.deepEqual(new Set(events.usageCategories),new Set(categories.map(c=>c.slug)), 'Every published category must be measurable');
 assert.deepEqual(events.parseUsagePayload({event:'place_open',category:'aquarium',source:'x'}),{event:'place_open',category:'aquarium',source:'x'});
 for(const value of [{event:'place_open',category:null,source:'x'},{event:'page_view',category:null,source:'direct',query:'private'},{event:'page_view',category:null,source:'invalid'}])assert.equal(events.parseUsagePayload(value),null);
 assert.equal(events.classifyUsageSource('https://google.com.evil.test/','https://nippon-map.vercel.app',null),'other');

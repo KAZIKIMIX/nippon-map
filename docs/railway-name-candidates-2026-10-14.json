@@ -1,0 +1,1215 @@
+[
+  {
+    "first_id": 11549,
+    "second_id": 11664,
+    "name": "ナゴヤドーム前矢田駅",
+    "prefecture_name": "愛知県",
+    "approximate_distance_m": "322.2",
+    "first_group": "005392",
+    "second_group": "005389",
+    "first_operators": [
+      "名古屋ガイドウェイバス"
+    ],
+    "second_operators": [
+      "名古屋市"
+    ],
+    "first_routes": [
+      "ガイドウェイバス志段味線"
+    ],
+    "second_routes": [
+      "4号線名城線"
+    ]
+  },
+  {
+    "first_id": 6512,
+    "second_id": 8891,
+    "name": "下島駅",
+    "prefecture_name": "長野県",
+    "approximate_distance_m": "44173.1",
+    "first_group": "002540",
+    "second_group": "003063",
+    "first_operators": [
+      "アルピコ交通"
+    ],
+    "second_operators": [
+      "東海旅客鉄道"
+    ],
+    "first_routes": [
+      "上高地線"
+    ],
+    "second_routes": [
+      "飯田線"
+    ]
+  },
+  {
+    "first_id": 9453,
+    "second_id": 10095,
+    "name": "両国駅",
+    "prefecture_name": "東京都",
+    "approximate_distance_m": "385.9",
+    "first_group": "003646",
+    "second_group": "003654",
+    "first_operators": [
+      "東京都"
+    ],
+    "second_operators": [
+      "東日本旅客鉄道"
+    ],
+    "first_routes": [
+      "12号線大江戸線"
+    ],
+    "second_routes": [
+      "総武線"
+    ]
+  },
+  {
+    "first_id": 5917,
+    "second_id": 8045,
+    "name": "中津駅",
+    "prefecture_name": "大阪府",
+    "approximate_distance_m": "440.2",
+    "first_group": "007026",
+    "second_group": "007016",
+    "first_operators": [
+      "阪急電鉄"
+    ],
+    "second_operators": [
+      "大阪市高速電気軌道"
+    ],
+    "first_routes": [
+      "宝塚線",
+      "神戸線"
+    ],
+    "second_routes": [
+      "1号線(御堂筋線)"
+    ]
+  },
+  {
+    "first_id": 4710,
+    "second_id": 8191,
+    "name": "今里駅",
+    "prefecture_name": "大阪府",
+    "approximate_distance_m": "881.0",
+    "first_group": "007342",
+    "second_group": "007284",
+    "first_operators": [
+      "近畿日本鉄道"
+    ],
+    "second_operators": [
+      "大阪市高速電気軌道"
+    ],
+    "first_routes": [
+      "大阪線"
+    ],
+    "second_routes": [
+      "5号線(千日前線)",
+      "8号線(今里筋線)"
+    ]
+  },
+  {
+    "first_id": 5967,
+    "second_id": 7960,
+    "name": "伊丹駅",
+    "prefecture_name": "兵庫県",
+    "approximate_distance_m": "739.7",
+    "first_group": "006714",
+    "second_group": "006709",
+    "first_operators": [
+      "阪急電鉄"
+    ],
+    "second_operators": [
+      "西日本旅客鉄道"
+    ],
+    "first_routes": [
+      "伊丹線"
+    ],
+    "second_routes": [
+      "福知山線"
+    ]
+  },
+  {
+    "first_id": 5697,
+    "second_id": 6877,
+    "name": "住吉駅",
+    "prefecture_name": "兵庫県",
+    "approximate_distance_m": "753.9",
+    "first_group": "007007",
+    "second_group": "006974",
+    "first_operators": [
+      "阪神電気鉄道"
+    ],
+    "second_operators": [
+      "神戸新交通",
+      "西日本旅客鉄道"
+    ],
+    "first_routes": [
+      "本線"
+    ],
+    "second_routes": [
+      "六甲アイランド線",
+      "東海道線"
+    ]
+  },
+  {
+    "first_id": 4287,
+    "second_id": 4420,
+    "name": "六地蔵駅",
+    "prefecture_name": "京都府",
+    "approximate_distance_m": "357.0",
+    "first_group": "006224",
+    "second_group": "006231",
+    "first_operators": [
+      "京都市",
+      "西日本旅客鉄道"
+    ],
+    "second_operators": [
+      "京阪電気鉄道"
+    ],
+    "first_routes": [
+      "奈良線",
+      "東西線"
+    ],
+    "second_routes": [
+      "宇治線"
+    ]
+  },
+  {
+    "first_id": 8648,
+    "second_id": 8902,
+    "name": "勝川駅",
+    "prefecture_name": "愛知県",
+    "approximate_distance_m": "352.6",
+    "first_group": "005284",
+    "second_group": "005280",
+    "first_operators": [
+      "JR東海交通事業"
+    ],
+    "second_operators": [
+      "東海旅客鉄道"
+    ],
+    "first_routes": [
+      "城北線"
+    ],
+    "second_routes": [
+      "中央線"
+    ]
+  },
+  {
+    "first_id": 4058,
+    "second_id": 4388,
+    "name": "十条駅",
+    "prefecture_name": "京都府",
+    "approximate_distance_m": "689.4",
+    "first_group": "006120",
+    "second_group": "006126",
+    "first_operators": [
+      "近畿日本鉄道"
+    ],
+    "second_operators": [
+      "京都市"
+    ],
+    "first_routes": [
+      "京都線"
+    ],
+    "second_routes": [
+      "烏丸線"
+    ]
+  },
+  {
+    "first_id": 8325,
+    "second_id": 11597,
+    "name": "千里中央駅",
+    "prefecture_name": "大阪府",
+    "approximate_distance_m": "258.4",
+    "first_group": "006598",
+    "second_group": "006587",
+    "first_operators": [
+      "大阪モノレール"
+    ],
+    "second_operators": [
+      "北大阪急行電鉄"
+    ],
+    "first_routes": [
+      "大阪モノレール線"
+    ],
+    "second_routes": [
+      "南北線"
+    ]
+  },
+  {
+    "first_id": 6026,
+    "second_id": 7605,
+    "name": "吹田駅",
+    "prefecture_name": "大阪府",
+    "approximate_distance_m": "715.6",
+    "first_group": "006798",
+    "second_group": "006779",
+    "first_operators": [
+      "阪急電鉄"
+    ],
+    "second_operators": [
+      "西日本旅客鉄道"
+    ],
+    "first_routes": [
+      "千里線"
+    ],
+    "second_routes": [
+      "東海道線"
+    ]
+  },
+  {
+    "first_id": 8999,
+    "second_id": 12188,
+    "name": "味美駅",
+    "prefecture_name": "愛知県",
+    "approximate_distance_m": "777.5",
+    "first_group": "005282",
+    "second_group": "005267",
+    "first_operators": [
+      "JR東海交通事業"
+    ],
+    "second_operators": [
+      "名古屋鉄道"
+    ],
+    "first_routes": [
+      "城北線"
+    ],
+    "second_routes": [
+      "小牧線"
+    ]
+  },
+  {
+    "first_id": 5365,
+    "second_id": 11675,
+    "name": "城野駅",
+    "prefecture_name": "福岡県",
+    "approximate_distance_m": "625.2",
+    "first_group": "008713",
+    "second_group": "008712",
+    "first_operators": [
+      "九州旅客鉄道"
+    ],
+    "second_operators": [
+      "北九州高速鉄道"
+    ],
+    "first_routes": [
+      "日田彦山線",
+      "日豊線"
+    ],
+    "second_routes": [
+      "小倉線"
+    ]
+  },
+  {
+    "first_id": 11851,
+    "second_id": 12042,
+    "name": "堀田駅",
+    "prefecture_name": "愛知県",
+    "approximate_distance_m": "440.4",
+    "first_group": "005640",
+    "second_group": "005628",
+    "first_operators": [
+      "名古屋市"
+    ],
+    "second_operators": [
+      "名古屋鉄道"
+    ],
+    "first_routes": [
+      "4号線名城線"
+    ],
+    "second_routes": [
+      "名古屋本線"
+    ]
+  },
+  {
+    "first_id": 5661,
+    "second_id": 7867,
+    "name": "塚口駅",
+    "prefecture_name": "兵庫県",
+    "approximate_distance_m": "846.8",
+    "first_group": "006820",
+    "second_group": "006830",
+    "first_operators": [
+      "阪急電鉄"
+    ],
+    "second_operators": [
+      "西日本旅客鉄道"
+    ],
+    "first_routes": [
+      "伊丹線",
+      "神戸線"
+    ],
+    "second_routes": [
+      "福知山線"
+    ]
+  },
+  {
+    "first_id": 5736,
+    "second_id": 5900,
+    "name": "大阪梅田駅",
+    "prefecture_name": "大阪府",
+    "approximate_distance_m": "471.1",
+    "first_group": "007048",
+    "second_group": "007071",
+    "first_operators": [
+      "阪急電鉄"
+    ],
+    "second_operators": [
+      "阪神電気鉄道"
+    ],
+    "first_routes": [
+      "宝塚線",
+      "神戸線"
+    ],
+    "second_routes": [
+      "本線"
+    ]
+  },
+  {
+    "first_id": 4164,
+    "second_id": 8028,
+    "name": "宇治駅",
+    "prefecture_name": "京都府",
+    "approximate_distance_m": "733.2",
+    "first_group": "006319",
+    "second_group": "006334",
+    "first_operators": [
+      "京阪電気鉄道"
+    ],
+    "second_operators": [
+      "西日本旅客鉄道"
+    ],
+    "first_routes": [
+      "宇治線"
+    ],
+    "second_routes": [
+      "奈良線"
+    ]
+  },
+  {
+    "first_id": 7743,
+    "second_id": 11122,
+    "name": "小杉駅",
+    "prefecture_name": "富山県",
+    "approximate_distance_m": "14839.3",
+    "first_group": "001896",
+    "second_group": "002024",
+    "first_operators": [
+      "あいの風とやま鉄道"
+    ],
+    "second_operators": [
+      "富山地方鉄道"
+    ],
+    "first_routes": [
+      "あいの風とやま鉄道線"
+    ],
+    "second_routes": [
+      "上滝線"
+    ]
+  },
+  {
+    "first_id": 5852,
+    "second_id": 6683,
+    "name": "尼崎駅",
+    "prefecture_name": "兵庫県",
+    "approximate_distance_m": "1989.6",
+    "first_group": "006981",
+    "second_group": "006918",
+    "first_operators": [
+      "阪神電気鉄道"
+    ],
+    "second_operators": [
+      "西日本旅客鉄道"
+    ],
+    "first_routes": [
+      "本線",
+      "阪神なんば線"
+    ],
+    "second_routes": [
+      "JR東西線",
+      "東海道線",
+      "福知山線"
+    ]
+  },
+  {
+    "first_id": 4326,
+    "second_id": 5681,
+    "name": "嵐山駅",
+    "prefecture_name": "京都府",
+    "approximate_distance_m": "717.6",
+    "first_group": "005931",
+    "second_group": "005967",
+    "first_operators": [
+      "京福電気鉄道"
+    ],
+    "second_operators": [
+      "阪急電鉄"
+    ],
+    "first_routes": [
+      "嵐山本線"
+    ],
+    "second_routes": [
+      "嵐山線"
+    ]
+  },
+  {
+    "first_id": 6616,
+    "second_id": 6909,
+    "name": "市場駅",
+    "prefecture_name": "兵庫県",
+    "approximate_distance_m": "1232.9",
+    "first_group": "006524",
+    "second_group": "006546",
+    "first_operators": [
+      "神戸電鉄"
+    ],
+    "second_operators": [
+      "西日本旅客鉄道"
+    ],
+    "first_routes": [
+      "粟生線"
+    ],
+    "second_routes": [
+      "加古川線"
+    ]
+  },
+  {
+    "first_id": 5880,
+    "second_id": 11333,
+    "name": "平岸駅",
+    "prefecture_name": "北海道",
+    "approximate_distance_m": "83325.1",
+    "first_group": "000285",
+    "second_group": "000120",
+    "first_operators": [
+      "札幌市"
+    ],
+    "second_operators": [
+      "北海道旅客鉄道"
+    ],
+    "first_routes": [
+      "南北線"
+    ],
+    "second_routes": [
+      "根室線"
+    ]
+  },
+  {
+    "first_id": 7023,
+    "second_id": 8427,
+    "name": "平野駅",
+    "prefecture_name": "大阪府",
+    "approximate_distance_m": "1116.5",
+    "first_group": "007505",
+    "second_group": "007546",
+    "first_operators": [
+      "西日本旅客鉄道"
+    ],
+    "second_operators": [
+      "大阪市高速電気軌道"
+    ],
+    "first_routes": [
+      "関西線"
+    ],
+    "second_routes": [
+      "2号線(谷町線)"
+    ]
+  },
+  {
+    "first_id": 3835,
+    "second_id": 4361,
+    "name": "弘明寺駅",
+    "prefecture_name": "神奈川県",
+    "approximate_distance_m": "476.8",
+    "first_group": "004761",
+    "second_group": "004756",
+    "first_operators": [
+      "横浜市"
+    ],
+    "second_operators": [
+      "京浜急行電鉄"
+    ],
+    "first_routes": [
+      "1号線"
+    ],
+    "second_routes": [
+      "本線"
+    ]
+  },
+  {
+    "first_id": 5607,
+    "second_id": 5982,
+    "name": "御影駅",
+    "prefecture_name": "兵庫県",
+    "approximate_distance_m": "1123.4",
+    "first_group": "006951",
+    "second_group": "007003",
+    "first_operators": [
+      "阪急電鉄"
+    ],
+    "second_operators": [
+      "阪神電気鉄道"
+    ],
+    "first_routes": [
+      "神戸線"
+    ],
+    "second_routes": [
+      "本線"
+    ]
+  },
+  {
+    "first_id": 5321,
+    "second_id": 11941,
+    "name": "志井駅",
+    "prefecture_name": "福岡県",
+    "approximate_distance_m": "2098.7",
+    "first_group": "008811",
+    "second_group": "008792",
+    "first_operators": [
+      "九州旅客鉄道"
+    ],
+    "second_operators": [
+      "北九州高速鉄道"
+    ],
+    "first_routes": [
+      "日田彦山線"
+    ],
+    "second_routes": [
+      "小倉線"
+    ]
+  },
+  {
+    "first_id": 11973,
+    "second_id": 12509,
+    "name": "日比野駅",
+    "prefecture_name": "愛知県",
+    "approximate_distance_m": "15362.6",
+    "first_group": "005579",
+    "second_group": "005483",
+    "first_operators": [
+      "名古屋市"
+    ],
+    "second_operators": [
+      "名古屋鉄道"
+    ],
+    "first_routes": [
+      "2号線名港線"
+    ],
+    "second_routes": [
+      "尾西線"
+    ]
+  },
+  {
+    "first_id": 9239,
+    "second_id": 9391,
+    "name": "早稲田駅",
+    "prefecture_name": "東京都",
+    "approximate_distance_m": "745.6",
+    "first_group": "003514",
+    "second_group": "003570",
+    "first_operators": [
+      "東京都"
+    ],
+    "second_operators": [
+      "東京地下鉄"
+    ],
+    "first_routes": [
+      "荒川線"
+    ],
+    "second_routes": [
+      "5号線東西線"
+    ]
+  },
+  {
+    "first_id": 11626,
+    "second_id": 12351,
+    "name": "明智駅",
+    "prefecture_name": "岐阜県",
+    "approximate_distance_m": "30673.0",
+    "first_group": "004725",
+    "second_group": "005100",
+    "first_operators": [
+      "名古屋鉄道"
+    ],
+    "second_operators": [
+      "明知鉄道"
+    ],
+    "first_routes": [
+      "広見線"
+    ],
+    "second_routes": [
+      "明知線"
+    ]
+  },
+  {
+    "first_id": 8919,
+    "second_id": 12284,
+    "name": "春日井駅",
+    "prefecture_name": "愛知県",
+    "approximate_distance_m": "4515.8",
+    "first_group": "005253",
+    "second_group": "005234",
+    "first_operators": [
+      "東海旅客鉄道"
+    ],
+    "second_operators": [
+      "名古屋鉄道"
+    ],
+    "first_routes": [
+      "中央線"
+    ],
+    "second_routes": [
+      "小牧線"
+    ]
+  },
+  {
+    "first_id": 5847,
+    "second_id": 5879,
+    "name": "春日野道駅",
+    "prefecture_name": "兵庫県",
+    "approximate_distance_m": "455.1",
+    "first_group": "007067",
+    "second_group": "007078",
+    "first_operators": [
+      "阪急電鉄"
+    ],
+    "second_operators": [
+      "阪神電気鉄道"
+    ],
+    "first_routes": [
+      "神戸線"
+    ],
+    "second_routes": [
+      "本線"
+    ]
+  },
+  {
+    "first_id": 4393,
+    "second_id": 7847,
+    "name": "木幡駅",
+    "prefecture_name": "京都府",
+    "approximate_distance_m": "302.2",
+    "first_group": "006247",
+    "second_group": "006254",
+    "first_operators": [
+      "京阪電気鉄道"
+    ],
+    "second_operators": [
+      "西日本旅客鉄道"
+    ],
+    "first_routes": [
+      "宇治線"
+    ],
+    "second_routes": [
+      "奈良線"
+    ]
+  },
+  {
+    "first_id": 8771,
+    "second_id": 9542,
+    "name": "東京駅",
+    "prefecture_name": "東京都",
+    "approximate_distance_m": "387.2",
+    "first_group": "003766",
+    "second_group": "003785",
+    "first_operators": [
+      "東京地下鉄",
+      "東日本旅客鉄道",
+      "東海旅客鉄道"
+    ],
+    "second_operators": [
+      "東日本旅客鉄道"
+    ],
+    "first_routes": [
+      "4号線丸ノ内線",
+      "東北新幹線",
+      "東北線",
+      "東海道新幹線",
+      "東海道線",
+      "総武線"
+    ],
+    "second_routes": [
+      "京葉線"
+    ]
+  },
+  {
+    "first_id": 7758,
+    "second_id": 8811,
+    "name": "柚木駅",
+    "prefecture_name": "静岡県",
+    "approximate_distance_m": "28824.8",
+    "first_group": "006092",
+    "second_group": "005508",
+    "first_operators": [
+      "静岡鉄道"
+    ],
+    "second_operators": [
+      "東海旅客鉄道"
+    ],
+    "first_routes": [
+      "静岡清水線"
+    ],
+    "second_routes": [
+      "身延線"
+    ]
+  },
+  {
+    "first_id": 8381,
+    "second_id": 12251,
+    "name": "桜川駅",
+    "prefecture_name": "大阪府",
+    "approximate_distance_m": "345.9",
+    "first_group": "007296",
+    "second_group": "007294",
+    "first_operators": [
+      "大阪市高速電気軌道"
+    ],
+    "second_operators": [
+      "阪神電気鉄道"
+    ],
+    "first_routes": [
+      "5号線(千日前線)"
+    ],
+    "second_routes": [
+      "阪神なんば線"
+    ]
+  },
+  {
+    "first_id": 11294,
+    "second_id": 11560,
+    "name": "植田駅",
+    "prefecture_name": "愛知県",
+    "approximate_distance_m": "58251.6",
+    "first_group": "007017",
+    "second_group": "005592",
+    "first_operators": [
+      "豊橋鉄道"
+    ],
+    "second_operators": [
+      "名古屋市"
+    ],
+    "first_routes": [
+      "渥美線"
+    ],
+    "second_routes": [
+      "3号線鶴舞線"
+    ]
+  },
+  {
+    "first_id": 9497,
+    "second_id": 12321,
+    "name": "武蔵小杉駅",
+    "prefecture_name": "神奈川県",
+    "approximate_distance_m": "393.4",
+    "first_group": "004297",
+    "second_group": "004301",
+    "first_operators": [
+      "東急電鉄",
+      "東日本旅客鉄道"
+    ],
+    "second_operators": [
+      "東日本旅客鉄道"
+    ],
+    "first_routes": [
+      "南武線",
+      "東横線"
+    ],
+    "second_routes": [
+      "東海道線"
+    ]
+  },
+  {
+    "first_id": 7646,
+    "second_id": 9173,
+    "name": "池袋駅",
+    "prefecture_name": "東京都",
+    "approximate_distance_m": "332.4",
+    "first_group": "003390",
+    "second_group": "003379",
+    "first_operators": [
+      "東京地下鉄",
+      "東日本旅客鉄道",
+      "東武鉄道",
+      "西武鉄道"
+    ],
+    "second_operators": [
+      "東京地下鉄"
+    ],
+    "first_routes": [
+      "4号線丸ノ内線",
+      "8号線有楽町線",
+      "山手線",
+      "東上本線",
+      "池袋線",
+      "赤羽線"
+    ],
+    "second_routes": [
+      "13号線副都心線"
+    ]
+  },
+  {
+    "first_id": 10033,
+    "second_id": 11319,
+    "name": "泉駅",
+    "prefecture_name": "福島県",
+    "approximate_distance_m": "98505.8",
+    "first_group": "001710",
+    "second_group": "001360",
+    "first_operators": [
+      "東日本旅客鉄道"
+    ],
+    "second_operators": [
+      "福島交通"
+    ],
+    "first_routes": [
+      "常磐線"
+    ],
+    "second_routes": [
+      "飯坂線"
+    ]
+  },
+  {
+    "first_id": 6245,
+    "second_id": 9045,
+    "name": "浅草駅",
+    "prefecture_name": "東京都",
+    "approximate_distance_m": "597.1",
+    "first_group": "003502",
+    "second_group": "003522",
+    "first_operators": [
+      "首都圏新都市鉄道"
+    ],
+    "second_operators": [
+      "東京地下鉄",
+      "東京都",
+      "東武鉄道"
+    ],
+    "first_routes": [
+      "常磐新線"
+    ],
+    "second_routes": [
+      "1号線浅草線",
+      "3号線銀座線",
+      "伊勢崎線"
+    ]
+  },
+  {
+    "first_id": 5828,
+    "second_id": 11887,
+    "name": "琴似駅",
+    "prefecture_name": "北海道",
+    "approximate_distance_m": "716.2",
+    "first_group": "000220",
+    "second_group": "000217",
+    "first_operators": [
+      "札幌市"
+    ],
+    "second_operators": [
+      "北海道旅客鉄道"
+    ],
+    "first_routes": [
+      "東西線"
+    ],
+    "second_routes": [
+      "函館線"
+    ]
+  },
+  {
+    "first_id": 5158,
+    "second_id": 5396,
+    "name": "白島駅",
+    "prefecture_name": "広島県",
+    "approximate_distance_m": "815.7",
+    "first_group": "007995",
+    "second_group": "008013",
+    "first_operators": [
+      "広島高速交通"
+    ],
+    "second_operators": [
+      "広島電鉄"
+    ],
+    "first_routes": [
+      "広島新交通1号線"
+    ],
+    "second_routes": [
+      "白島線"
+    ]
+  },
+  {
+    "first_id": 5798,
+    "second_id": 11623,
+    "name": "白石駅",
+    "prefecture_name": "北海道",
+    "approximate_distance_m": "1763.0",
+    "first_group": "000267",
+    "second_group": "000255",
+    "first_operators": [
+      "札幌市"
+    ],
+    "second_operators": [
+      "北海道旅客鉄道"
+    ],
+    "first_routes": [
+      "東西線"
+    ],
+    "second_routes": [
+      "函館線",
+      "千歳線"
+    ]
+  },
+  {
+    "first_id": 5249,
+    "second_id": 9338,
+    "name": "石川駅",
+    "prefecture_name": "青森県",
+    "approximate_distance_m": "1077.2",
+    "first_group": "000609",
+    "second_group": "000606",
+    "first_operators": [
+      "弘南鉄道"
+    ],
+    "second_operators": [
+      "東日本旅客鉄道"
+    ],
+    "first_routes": [
+      "大鰐線"
+    ],
+    "second_routes": [
+      "奥羽線"
+    ]
+  },
+  {
+    "first_id": 4696,
+    "second_id": 8945,
+    "name": "船津駅",
+    "prefecture_name": "三重県",
+    "approximate_distance_m": "66388.2",
+    "first_group": "007929",
+    "second_group": "008451",
+    "first_operators": [
+      "近畿日本鉄道"
+    ],
+    "second_operators": [
+      "東海旅客鉄道"
+    ],
+    "first_routes": [
+      "志摩線"
+    ],
+    "second_routes": [
+      "紀勢線"
+    ]
+  },
+  {
+    "first_id": 5666,
+    "second_id": 7667,
+    "name": "芦屋駅",
+    "prefecture_name": "兵庫県",
+    "approximate_distance_m": "805.1",
+    "first_group": "006936",
+    "second_group": "006908",
+    "first_operators": [
+      "阪神電気鉄道"
+    ],
+    "second_operators": [
+      "西日本旅客鉄道"
+    ],
+    "first_routes": [
+      "本線"
+    ],
+    "second_routes": [
+      "東海道線"
+    ]
+  },
+  {
+    "first_id": 5560,
+    "second_id": 7685,
+    "name": "西宮駅",
+    "prefecture_name": "兵庫県",
+    "approximate_distance_m": "887.2",
+    "first_group": "006894",
+    "second_group": "006881",
+    "first_operators": [
+      "阪神電気鉄道"
+    ],
+    "second_operators": [
+      "西日本旅客鉄道"
+    ],
+    "first_routes": [
+      "本線"
+    ],
+    "second_routes": [
+      "東海道線"
+    ]
+  },
+  {
+    "first_id": 4628,
+    "second_id": 6357,
+    "name": "谷山駅",
+    "prefecture_name": "鹿児島県",
+    "approximate_distance_m": "548.7",
+    "first_group": "010085",
+    "second_group": "010084",
+    "first_operators": [
+      "九州旅客鉄道"
+    ],
+    "second_operators": [
+      "鹿児島市"
+    ],
+    "first_routes": [
+      "指宿枕崎線"
+    ],
+    "second_routes": [
+      "谷山線"
+    ]
+  },
+  {
+    "first_id": 4627,
+    "second_id": 6143,
+    "name": "郡元駅",
+    "prefecture_name": "鹿児島県",
+    "approximate_distance_m": "762.8",
+    "first_group": "010066",
+    "second_group": "010069",
+    "first_operators": [
+      "九州旅客鉄道"
+    ],
+    "second_operators": [
+      "鹿児島市"
+    ],
+    "first_routes": [
+      "指宿枕崎線"
+    ],
+    "second_routes": [
+      "唐湊線",
+      "谷山線"
+    ]
+  },
+  {
+    "first_id": 7963,
+    "second_id": 11863,
+    "name": "野々市駅",
+    "prefecture_name": "石川県",
+    "approximate_distance_m": "2088.7",
+    "first_group": "002139",
+    "second_group": "002146",
+    "first_operators": [
+      "IRいしかわ鉄道"
+    ],
+    "second_operators": [
+      "北陸鉄道"
+    ],
+    "first_routes": [
+      "IRいしかわ鉄道線"
+    ],
+    "second_routes": [
+      "石川線"
+    ]
+  },
+  {
+    "first_id": 5686,
+    "second_id": 7406,
+    "name": "野田駅",
+    "prefecture_name": "大阪府",
+    "approximate_distance_m": "617.1",
+    "first_group": "007109",
+    "second_group": "007159",
+    "first_operators": [
+      "阪神電気鉄道"
+    ],
+    "second_operators": [
+      "西日本旅客鉄道"
+    ],
+    "first_routes": [
+      "本線"
+    ],
+    "second_routes": [
+      "大阪環状線"
+    ]
+  },
+  {
+    "first_id": 6620,
+    "second_id": 6980,
+    "name": "長田駅",
+    "prefecture_name": "兵庫県",
+    "approximate_distance_m": "1482.6",
+    "first_group": "007200",
+    "second_group": "007295",
+    "first_operators": [
+      "神戸電鉄"
+    ],
+    "second_operators": [
+      "神戸市"
+    ],
+    "first_routes": [
+      "有馬線"
+    ],
+    "second_routes": [
+      "山手線"
+    ]
+  },
+  {
+    "first_id": 8179,
+    "second_id": 11312,
+    "name": "難波駅",
+    "prefecture_name": "大阪府",
+    "approximate_distance_m": "550.0",
+    "first_group": "007305",
+    "second_group": "007356",
+    "first_operators": [
+      "大阪市高速電気軌道"
+    ],
+    "second_operators": [
+      "南海電気鉄道"
+    ],
+    "first_routes": [
+      "1号線(御堂筋線)",
+      "3号線(四つ橋線)",
+      "5号線(千日前線)"
+    ],
+    "second_routes": [
+      "南海本線"
+    ]
+  },
+  {
+    "first_id": 6866,
+    "second_id": 8178,
+    "name": "高井田駅",
+    "prefecture_name": "大阪府",
+    "approximate_distance_m": "13383.9",
+    "first_group": "007680",
+    "second_group": "007235",
+    "first_operators": [
+      "西日本旅客鉄道"
+    ],
+    "second_operators": [
+      "大阪市高速電気軌道"
+    ],
+    "first_routes": [
+      "関西線"
+    ],
+    "second_routes": [
+      "4号線(中央線)"
+    ]
+  },
+  {
+    "first_id": 10822,
+    "second_id": 12192,
+    "name": "黒沢駅",
+    "prefecture_name": "秋田県",
+    "approximate_distance_m": "52483.6",
+    "first_group": "000918",
+    "second_group": "000888",
+    "first_operators": [
+      "東日本旅客鉄道"
+    ],
+    "second_operators": [
+      "由利高原鉄道"
+    ],
+    "first_routes": [
+      "北上線"
+    ],
+    "second_routes": [
+      "鳥海山ろく線"
+    ]
+  }
+]
