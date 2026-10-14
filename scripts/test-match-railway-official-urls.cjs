@@ -7,7 +7,7 @@ const path=require('node:path');
 const {spawnSync}=require('node:child_process');
 const dir=fs.mkdtempSync(path.join(os.tmpdir(),'railway-match-'));
 try {
- const places=[{id:1,name:'鞍馬駅',prefecture_name:'京都府',municipality_name:'京都市左京区',official_url:null},{id:2,name:'県庁前駅',prefecture_name:'愛媛県',municipality_name:'松山市',official_url:null},{id:3,name:'鞍馬駅',prefecture_name:'京都府',municipality_name:'京都市左京区',official_url:'https://existing.example.jp'}];
+ const places=[{id:1,name:'鞍馬駅',prefecture_name:'京都府',municipality_name:'京都市左京区',official_url:null,metadata:{operators:['叡山電鉄']}},{id:2,name:'県庁前駅',prefecture_name:'愛媛県',municipality_name:'松山市',official_url:null,metadata:{operators:['伊予鉄道']}},{id:3,name:'鞍馬駅',prefecture_name:'京都府',municipality_name:'京都市左京区',official_url:'https://existing.example.jp'}];
  const official=[{name:'鞍馬駅',prefecture_name:'京都府',municipality_name:'京都市左京区',operator:'叡山電鉄',official_url:'https://eizandensha.co.jp/guide/station/kurama.html',verified_source:'operator_official'},{name:'県庁前駅',prefecture_name:'沖縄県',municipality_name:'那覇市',operator:'ゆいレール',official_url:'https://www.yui-rail.co.jp/routemap/kenchomae/',verified_source:'operator_official'}];
  const a=path.join(dir,'places.json'),b=path.join(dir,'official.json');
  fs.writeFileSync(a,JSON.stringify(places));fs.writeFileSync(b,JSON.stringify(official));
