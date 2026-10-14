@@ -8,6 +8,7 @@ const detail=read("app/guides/[category]/[prefecture]/page.tsx");
 const data=read("lib/guide-data.ts");
 const share=read("lib/map-share.ts");
 assert.ok(map.includes("activeMap.flyTo({center:[p.longitude,p.latitude]"),"Global search result clicks must immediately pan and zoom to the selected facility");
+assert.ok(map.includes("pendingSharedPlace.current=p.id;setMultiCats([]);setCategory(p.category_slug)"),"Global search must exit multi-category mode before selecting a single place");
 assert.match(map,/readSharedMap\(window\.location\.search/,"Map deep links must restore filters");
 assert.match(map,/pendingSharedPlace\.current=state\.placeId/,"Map deep links must restore selected place");
 assert.match(map,/createSharedMapUrl\(/,"Map share must preserve state");
