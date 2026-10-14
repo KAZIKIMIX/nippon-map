@@ -6,6 +6,7 @@ on:
       - '.github/workflows/production-health.yml'
       - 'scripts/smoke-production.cjs'
       - 'scripts/check-production-seo.cjs'
+      - 'scripts/check-production-latency.cjs'
       - 'components/MapApp.tsx'
       - 'app/api/**'
       - 'app/guides/**'
@@ -58,3 +59,5 @@ jobs:
         run: npm run check:production
       - name: Check sitemap URLs, canonical and structured data
         run: npm run check:seo
+      - name: Record API latency and cache headers
+        run: node scripts/check-production-latency.cjs
