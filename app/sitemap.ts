@@ -4,7 +4,7 @@ import {guideCategories,groupGuidePlaces} from "../lib/guide-categories";
 import {getGuidePlaces} from "../lib/guide-data";
 const base="https://nippon-map.vercel.app";
 export default async function sitemap():Promise<MetadataRoute.Sitemap>{
- const paths=["/","/for-business","/privacy","/terms","/kokodoko",...Object.keys(guideCategories).map(category=>"/guides/"+category)];
+ const paths=["/","/for-business","/privacy","/terms",...Object.keys(guideCategories).map(category=>"/guides/"+category)];
  for(const category of Object.keys(guideCategories) as (keyof typeof guideCategories)[]){
   try{
    const groups=groupGuidePlaces(await getGuidePlaces(category));
