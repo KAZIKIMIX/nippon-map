@@ -1,0 +1,4 @@
+place_id,station_name,prefecture,official_url,status,evidence
+3545,新横浜駅,神奈川県,https://www.jreast.co.jp/estation/station/info.aspx?StationCD=888,verified,official_page_station_name_and_prefecture
+3724,横浜駅,神奈川県,https://www.jreast.co.jp/estation/station/info.aspx?StationCD=1638,verified,official_page_station_name_and_prefecture
+3905,盛岡駅,岩手県,https://www.jreast.co.jp/estation/station/info.aspx?StationCd=1565,verified,official_page_station_name_and_prefecture
