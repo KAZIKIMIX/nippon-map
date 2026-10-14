@@ -1,0 +1,43 @@
+name: Database backup (manual)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Verify backup connection is configured
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: |
+          if [ -z "$SUPABASE_DB_URL" ]; then
+            echo "::error::Set repository secret SUPABASE_DB_URL to the Supabase Postgres connection string before running this workflow."
+            exit 1
+          fi
+      - name: Install PostgreSQL 17 client
+        run: |
+          sudo install -d /usr/share/postgresql-common/pgdg
+          sudo curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc
+          echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq postgresql-client-17
+      - name: Export database
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: |
+          mkdir -p backup
+          pg_dump --dbname="$SUPABASE_DB_URL" --format=custom --no-owner --no-acl --schema=public --file=backup/nippon-map-public.dump
+          pg_restore --list backup/nippon-map-public.dump > backup/restore-manifest.txt
+          test -s backup/nippon-map-public.dump
+          test -s backup/restore-manifest.txt
+          sha256sum backup/nippon-map-public.dump > backup/SHA256SUMS
+          echo "Backup archive and restore manifest created; production restore was not attempted."
+      - name: Upload encrypted-at-rest private Actions artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: nippon-map-db-backup
+          path: backup/
+          retention-days: 7
+          if-no-files-found: error
