@@ -1,11 +1,12 @@
 import {redirect} from "next/navigation";
 import CategoryDirectory from "../components/CategoryDirectory";
+import HomeVisitTracker from "../components/HomeVisitTracker";
 import {legacyMapPath,type LandingParams} from "../lib/landing-links";
 import styles from "./landing.module.css";
 export default async function Home({searchParams}:{searchParams:Promise<LandingParams>}) {
  const target=legacyMapPath(await searchParams);
  if(target)redirect(target);
- return <div className={styles.page}>
+ return <div className={styles.page}><HomeVisitTracker/>
  <a className={styles.skip} href="#categories">カテゴリ選択へ</a>
  <header className={styles.header}>
  <a className={styles.brand} href="/" aria-label="にっぽんマップ トップページ"><img src="/brand-mark.webp" width={40} height={40} alt=""/><strong>にっぽんマップ</strong><small>BETA</small></a>
