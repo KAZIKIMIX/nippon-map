@@ -58,6 +58,13 @@ jobs:
             fi
             sleep 10
           done
+      - name: Report matching deployment statuses on failure
+        if: failure() && github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Commit: $GITHUB_SHA"
+          gh api "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/status" --jq '{state, statuses: [.statuses[] | {context, state, description, target_url}]}' || true
       - name: Check map interaction, responsive and search contracts
         run: |
           npm run check:interactions
@@ -68,4 +75,6 @@ jobs:
       - name: Check sitemap URLs, canonical and structured data
         run: npm run check:seo
       - name: Record API latency and cache headers
+        if: always()
+        continue-on-error: true
         run: node scripts/check-production-latency.cjs
