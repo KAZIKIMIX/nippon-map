@@ -29,4 +29,4 @@ for(const p of places) {
  const status=urls.length===1 && operators.length===1 ? 'candidate_review' : compatible.length ? 'ambiguous' : candidates.length ? 'operator_mismatch' : 'not_found';
  results.push({id:p.id,name:p.name,prefecture_name:p.prefecture_name,municipality_name:p.municipality_name,status,candidate_url:status==='candidate_review'?urls[0]:null,operator:status==='candidate_review'?compatible[0].operator:null,candidate_count:compatible.length});
 }
-console.log(JSON.stringify({summary:{processed:results.length,candidate_review:results.filter(x=>x.status==='candidate_review').length,ambiguous:results.filter(x=>x.status==='ambiguous').length,not_found:results.filter(x=>x.status==='not_found').length},results},null,2));
+console.log(JSON.stringify({summary:{processed:results.length,candidate_review:results.filter(x=>x.status==='candidate_review').length,ambiguous:results.filter(x=>x.status==='ambiguous').length,operator_mismatch:results.filter(x=>x.status==='operator_mismatch').length,not_found:results.filter(x=>x.status==='not_found').length},results},null,2));
