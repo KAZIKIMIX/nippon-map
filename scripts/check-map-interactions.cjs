@@ -31,7 +31,7 @@ assert.ok(map.includes('setQ(e.target.value);setCityFilter("");setSelected(null)
 assert.ok(map.includes('setQ("");setCityFilter("");setSelected(null)'),"Clearing map search must clear municipality filter");
 assert.ok(map.includes("if(!loaded||!pendingSharedPlace.current||!cat)return;"),"Shared place restoration must finish on empty or failed category loads");
 assert.ok(map.includes("if(!response.ok)")&&map.includes("Places request failed: ${response.status}"),"Map places loader must reject HTTP error responses");
-assert.ok(map.includes("[cat,prefecture,placesRetry]")&&map.includes("setPlacesRetry(n=>n+1)"),"Failed place loads must have a working retry action");
+assert.ok((map.includes("[cat,prefecture,placesRetry]")||map.includes("[cat,prefecture,placesRetry,multiCats.join(\",\")]"))&&map.includes("setPlacesRetry(n=>n+1)"),"Failed place loads must have a working retry action");
 assert.ok(map.includes("const controller=new AbortController()")&&map.includes("controller.abort()")&&map.includes("clearTimeout(timer)"),"Category switching must cancel obsolete requests and debounce timers");
 assert.ok(map.includes("placesCache.current.get(qs)")&&map.includes("placesCache.current.set(qs")&&map.includes("Date.now()-cached.savedAt<180000"),"Category switching must reuse fresh cached results");
 assert.ok(map.includes("attempt<2")&&map.includes("[429,502,503,504].includes(response.status)"),"Transient category fetch failures must be retried at most once");
