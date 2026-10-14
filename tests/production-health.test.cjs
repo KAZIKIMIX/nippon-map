@@ -14,4 +14,15 @@ const seo=run('scripts/check-production-seo.cjs',"global.fetch=async()=>({status
 assert.equal(seo.error,undefined);
 assert.equal(seo.status,1);
 assert.match(seo.stderr,/Sitemap empty/);
-console.log('Monitoring failure tests passed: upstream outage and empty sitemap produce nonzero exits; no production requests.');
+const {verifySearchDetails}=require('../scripts/check-search-flow.cjs');
+const station={id:9542,name:'東京駅',category_slug:'railway',prefecture_name:'東京都',latitude:35.6777,longitude:139.7652};
+const response=body=>({status:200,headers:{get:()=> 'application/json'},json:async()=>body});
+(async()=>{
+ const calls=[];
+ const id=await verifySearchDetails('https://example.test',async url=>{calls.push(url);return response(url.includes('/api/search?')?{places:[station]}:{details:{routes:['京葉線'],operators:['東日本旅客鉄道']}})});
+ assert.equal(id,9542);assert.equal(calls.length,2);assert.match(calls[1],/id=9542$/);
+ await assert.rejects(verifySearchDetails('https://example.test',async()=>response({places:[]})),/missing from filtered search/);
+ await assert.rejects(verifySearchDetails('https://example.test',async url=>response(url.includes('/api/search?')?{places:[{...station,latitude:null}]}:{details:null})),/Invalid search latitude/);
+ await assert.rejects(verifySearchDetails('https://example.test',async url=>response(url.includes('/api/search?')?{places:[station]}:{details:null})),/station routes/);
+ console.log('Monitoring tests passed: outage, empty sitemap, empty search, invalid coordinates and missing details are detected; no production requests.');
+})().catch(error=>{console.error(error);process.exitCode=1});
