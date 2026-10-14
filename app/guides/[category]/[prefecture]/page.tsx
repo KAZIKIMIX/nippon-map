@@ -1,7 +1,7 @@
 export const dynamic="force-dynamic";
 import type {Metadata} from "next";
 import {notFound} from "next/navigation";
-import {guideCategories,isGuideCategory,prefectureOrder} from "../../../../lib/guide-categories";
+import {guideCategories,isGuideCategory,prefectureOrder,safeOfficialUrl} from "../../../../lib/guide-categories";
 import {getGuidePlaces} from "../../../../lib/guide-data";
 import styles from "../../[category]/guide.module.css";
 import GuidePlaceFinder from "../../../../components/GuidePlaceFinder";
@@ -24,7 +24,7 @@ export default async function PrefectureGuide({params}:Props){
  const {category,name,places,guide}=await resolve(params);
  const mapQuery=new URLSearchParams({category,prefecture:name});
  const missingAddresses=places.filter(place=>!place.address?.trim()).length;
- const missingOfficialUrls=places.filter(place=>!place.official_url?.trim()).length;
+ const missingOfficialUrls=places.filter(place=>!safeOfficialUrl(place.official_url)).length;
  const base="https://nippon-map.vercel.app";
  const pageUrl=base+"/guides/"+category+"/"+encodeURIComponent(name);
  const structuredData={"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":pageUrl+"#webpage",name:name+"の"+guide.name+"一覧",url:pageUrl,inLanguage:"ja",description:name+"の"+guide.name+"を掲載中。掲載件数："+places.length+"件。"},{"@type":"ItemList",name:name+"の"+guide.name+"掲載施設",numberOfItems:places.length,itemListElement:places.map((place,index)=>({"@type":"ListItem",position:index+1,name:place.name,url:base+"/map?"+new URLSearchParams({category,prefecture:name,place:String(place.id)}).toString()}))},{"@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"トップ",item:base+"/"},{"@type":"ListItem",position:2,name:guide.name+"のガイド",item:base+"/guides/"+category},{"@type":"ListItem",position:3,name:name,item:pageUrl}]}]};
