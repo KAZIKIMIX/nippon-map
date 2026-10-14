@@ -9,6 +9,7 @@ const descriptions:Record<string,string>={"botanical-garden":"花と植物に会
 export default function CategoryDirectory(){
  const [query,setQuery]=useState("");
  const [showAll,setShowAll]=useState(false);
+ const [selectedCategories,setSelectedCategories]=useState<string[]>([]);
  const featured=new Set(["aquarium","zoo","roadside-station","railway","airport","park","hot-spring","castle"]);
  const tracked=useRef(false);
  useEffect(()=>{if(!tracked.current){tracked.current=true;trackUsage("page_view");}},[]);
@@ -16,13 +17,14 @@ export default function CategoryDirectory(){
  const matches=mapCategories.filter(c=>!normalized||c.name.normalize("NFKC").toLowerCase().includes(normalized)||c.aliases.some(a=>a.normalize("NFKC").toLowerCase().includes(normalized)));
  const shown=normalized||showAll?matches:matches.filter(c=>featured.has(c.slug));
  return <section id="categories" className={styles.categories} aria-labelledby="categories-title">
- <div className={styles.sectionHead}><div><p className={styles.eyebrow}>FIND YOUR NEXT STOP</p><h2 id="categories-title">何を探しますか？</h2><p>カテゴリを選ぶと、その地点を地図に表示します。</p></div>
+ <div className={styles.sectionHead}><div><p className={styles.eyebrow}>FIND YOUR NEXT STOP</p><h2 id="categories-title">何を探しますか？</h2><p>複数のカテゴリを選んで、まとめて地図で探せます。</p></div>
  <div className={styles.searchBox}><label htmlFor="category-search">カテゴリを検索</label><div><span aria-hidden="true">⌕</span><input id="category-search" type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="水族館、道の駅、トイレ…" maxLength={100}/></div></div></div>
  {normalized&&<p className={styles.searchStatus} role="status" aria-live="polite">{matches.length}カテゴリが見つかりました</p>}
- <div className={styles.grid}>{shown.map(c=><a key={c.slug} href={"/map?category="+c.slug} className={styles.categoryCard}>
- <img src={"/category-assets/"+c.slug+".webp"} width={76} height={76} alt="" loading="lazy"/>
- <div><h3>{c.name}</h3><p>{descriptions[c.slug]}</p></div><span className={styles.cardArrow} aria-hidden="true">↗</span>
- </a>)}</div>
+ <div className={styles.grid}>{shown.map(c=><button type="button" key={c.slug} onClick={()=>setSelectedCategories(prev=>prev.includes(c.slug)?prev.filter(x=>x!==c.slug):[...prev,c.slug])} aria-pressed={selectedCategories.includes(c.slug)} className={styles.categoryCard} style={{textAlign:"left",cursor:"pointer",outline:selectedCategories.includes(c.slug)?"3px solid #2572a5":undefined,outlineOffset:"-3px"}}>
+ {c.slug==="library"?<span aria-hidden="true" style={{display:"inline-flex",width:76,height:76,alignItems:"center",justifyContent:"center",borderRadius:20,background:"#e4f3ff",fontSize:48}}>📚</span>:<img src={"/category-assets/"+c.slug+".webp"} width={76} height={76} alt="" loading="lazy"/>}
+ <div><h3>{c.name}</h3><p>{descriptions[c.slug]}</p></div><span className={styles.cardArrow} aria-hidden="true">{selectedCategories.includes(c.slug)?"✓":"＋"}</span>
+ </button>)}</div>
+ {selectedCategories.length>0&&<div style={{display:"flex",gap:12,alignItems:"center",flexWrap:"wrap",margin:"20px 0"}}><a href={"/map?categories="+encodeURIComponent(selectedCategories.join(","))} className={styles.showAllCategories}>{selectedCategories.length}カテゴリを地図で見る →</a><button type="button" className={styles.showAllCategories} onClick={()=>setSelectedCategories([])}>選択解除</button></div>}
  {!normalized&&!showAll&&<button type="button" className={styles.showAllCategories} onClick={()=>setShowAll(true)}>すべてのカテゴリを見る（{mapCategories.length}カテゴリ） <span aria-hidden="true">↓</span></button>}
  {!normalized&&showAll&&<button type="button" className={styles.showAllCategories} onClick={()=>{setShowAll(false);document.getElementById("categories")?.scrollIntoView({behavior:"smooth"})}}>おすすめカテゴリに戻す ↑</button>}
  {shown.length===0&&<div className={styles.noResults}><p>該当するカテゴリはありません。</p><button type="button" onClick={()=>setQuery("")}>すべてのカテゴリを表示</button></div>}
