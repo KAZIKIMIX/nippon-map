@@ -21,10 +21,12 @@ for(const p of places) {
  seen.add(p.id);
  const key=[norm(p.name),norm(p.prefecture_name),norm(p.municipality_name)].join('|');
  const candidates=catalogue.get(key)||[];
- const urls=[...new Set(candidates.map(s=>s.official_url))];
  // Only a unique official URL is safe; operator/line conflicts require manual review.
- const operators=[...new Set(candidates.map(s=>norm(s.operator)))];
- const status=urls.length===1 && operators.length===1 ? 'candidate_review' : candidates.length ? 'ambiguous' : 'not_found';
- results.push({id:p.id,name:p.name,prefecture_name:p.prefecture_name,municipality_name:p.municipality_name,status,candidate_url:status==='candidate_review'?urls[0]:null,operator:status==='candidate_review'?candidates[0].operator:null,candidate_count:candidates.length});
+ const placeOperators=Array.isArray(p.metadata?.operators)?p.metadata.operators.map(norm):Array.isArray(p.operators)?p.operators.map(norm):[];
+ const compatible=candidates.filter(s=>placeOperators.includes(norm(s.operator)));
+ const operators=[...new Set(compatible.map(s=>norm(s.operator)))];
+ const urls=[...new Set(compatible.map(s=>s.official_url))];
+ const status=urls.length===1 && operators.length===1 ? 'candidate_review' : compatible.length ? 'ambiguous' : candidates.length ? 'operator_mismatch' : 'not_found';
+ results.push({id:p.id,name:p.name,prefecture_name:p.prefecture_name,municipality_name:p.municipality_name,status,candidate_url:status==='candidate_review'?urls[0]:null,operator:status==='candidate_review'?compatible[0].operator:null,candidate_count:compatible.length});
 }
 console.log(JSON.stringify({summary:{processed:results.length,candidate_review:results.filter(x=>x.status==='candidate_review').length,ambiguous:results.filter(x=>x.status==='ambiguous').length,not_found:results.filter(x=>x.status==='not_found').length},results},null,2));
