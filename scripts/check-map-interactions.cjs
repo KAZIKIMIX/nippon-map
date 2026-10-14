@@ -43,6 +43,7 @@ assert.ok(map.includes("if(!d.error&&(Array.isArray(d.places)||Array.isArray(d.s
 assert.ok(map.includes("d.summary?d.summary.map("), "Cached shelter summaries must restore map features");
 assert.ok(map.includes("rankGlobalSearchResults(globalResults.filter(p=>(!cat||p.category_slug===cat)&&(!prefecture||p.prefecture_name===prefecture)&&(!cityFilter||p.municipality_name===cityFilter)),normalizedQ)"),"Global search must honor selected category and region");
 assert.ok(map.includes("(normalizedQ?searchRows:shown).filter(p=>"),"Map pins must match filtered search rows");
+assert.ok(map.includes('normalizedQ?searchRows.length+" 件"'),"Map search count must match filtered result rows rather than unfiltered global results");
 const photoApi=read("app/api/place-photo/route.ts");
 const detailsApi=read("app/api/place-details/route.ts");
 assert.ok(share.includes("prefectures.has(state.prefecture)"),"Shared map URL must reject invalid prefectures");
