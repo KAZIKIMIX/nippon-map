@@ -1,5 +1,11 @@
 name: Production health and SEO
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/production-health.yml'
+      - 'scripts/smoke-production.cjs'
+      - 'scripts/check-production-seo.cjs'
   workflow_dispatch:
   schedule:
     - cron: '17 2 * * *'

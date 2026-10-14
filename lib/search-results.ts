@@ -1,5 +1,9 @@
+// Official rename: https://www.city.uwajima.ehime.jp/soshiki/22/yasuragi-rename.html
+export function canonicalPlaceSearch(value:string):string{
+ return value.normalize("NFKC").replace(/津島[やヤ][すス][らラ][ぎギ][のノ]里/g,"津島熱田温泉");
+}
 export function normalizeSearchText(value:string):string{
- return value.normalize("NFKC").replace(/[ぁ-ゖ]/g,ch=>String.fromCharCode(ch.charCodeAt(0)+96)).toLocaleLowerCase("ja");
+ return canonicalPlaceSearch(value).replace(/[ぁ-ゖ]/g,ch=>String.fromCharCode(ch.charCodeAt(0)+96)).toLocaleLowerCase("ja");
 }
 type SearchResult={id:number;name:string;prefecture_name?:string|null;municipality_name?:string|null};
 // The API has already matched the query, including readings. Keep all categories

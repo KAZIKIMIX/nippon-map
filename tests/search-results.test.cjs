@@ -11,4 +11,7 @@ assert.equal(api.exports.matchesCategorySearch(['道の駅','みちのえき'],'
 assert.equal(api.exports.matchesCategorySearch(['道の駅'],'東京駅'),false);
 assert.equal(api.exports.matchesCategorySearch(['道の駅'],''),false);
 assert.equal(api.exports.normalizeSearchText('ﾘｽ'),api.exports.normalizeSearchText('りす'));
+assert.equal(api.exports.normalizeSearchText('津島やすらぎの里'),api.exports.normalizeSearchText('津島熱田温泉'));
+assert.equal(api.exports.canonicalPlaceSearch('津島ﾔｽﾗｷﾞﾉ里'),'津島熱田温泉');
+assert.equal(api.exports.canonicalPlaceSearch('別のやすらぎの里'),'別のやすらぎの里');
 console.log('Global search result tests passed: cross-category/region retention, ranking, deduplication, reading matches and kana category suggestions.');

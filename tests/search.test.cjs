@@ -3,7 +3,7 @@ const {NextRequest}=require('next/server');
 function compile(path,customRequire=require){const output=ts.transpileModule(fs.readFileSync(path,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText;const module={exports:{}};new Function('exports','module','require',output)(module.exports,module,customRequire);return module.exports;}
 let data=[],error=null,filters=[],ranges=[],from=0,to=499;
 const chain={select(){return this},eq(){return this},in(){return this},or(value){filters.push(value);return this},order(){return this},range(a,b){from=a;to=b;ranges.push([a,b]);return this},async abortSignal(){return {data:data.slice(from,to+1),error}}};
-const route=compile('app/api/search/route.ts',name=>name==='../../../lib/map-categories'?{mapCategories:[{slug:'zoo'},{slug:'railway'}]}:name==='@supabase/supabase-js'?{createClient:()=>({from:()=>chain})}:require(name));
+const route=compile('app/api/search/route.ts',name=>name==='../../../lib/search-results'?compile('lib/search-results.ts'):name==='../../../lib/map-categories'?{mapCategories:[{slug:'zoo'},{slug:'railway'}]}:name==='@supabase/supabase-js'?{createClient:()=>({from:()=>chain})}:require(name));
 process.env.NEXT_PUBLIC_SUPABASE_URL='https://example.supabase.co';process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY='test-public-key';
 const request=q=>new NextRequest('https://nippon-map.vercel.app/api/search?q='+encodeURIComponent(q));
 (async()=>{
@@ -18,6 +18,8 @@ const request=q=>new NextRequest('https://nippon-map.vercel.app/api/search?q='+e
  assert.equal((await (await route.GET(request('りす'))).json()).places[0].id,3);
  assert.equal((await (await route.GET(request('ﾘｽ'))).json()).places[0].id,3);
  await route.GET(request('東京%,(駅)'));assert.ok(filters.at(-1).includes('%東京駅%'));assert.ok(!filters.at(-1).includes('('));
+ data=[{id:2285,name:'津島熱田温泉',categories:{slug:'roadside-station',name:'道の駅'}}];
+ body=await (await route.GET(request('津島やすらぎの里'))).json();assert.equal(body.places[0].id,2285);assert.ok(filters.at(-1).includes('%津島熱田温泉%'));
  data=Array.from({length:501},(_,id)=>({id,name:'東京'+id,categories:{slug:'railway',name:'鉄道駅'}}));ranges=[];
  body=await (await route.GET(request('東京'))).json();assert.equal(body.places.length,100);assert.equal(body.has_more,true);assert.equal(body.partial,false);assert.deepEqual(ranges,[[0,499],[500,999]]);
  error={message:'private database details'};response=await route.GET(request('東京'));assert.equal(response.status,503);assert.ok(!JSON.stringify(await response.json()).includes('private'));
