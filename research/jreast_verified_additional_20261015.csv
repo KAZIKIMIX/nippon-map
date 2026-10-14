@@ -1,0 +1,6 @@
+place_id,station_name,prefecture,official_url,verification_status,verification_basis
+10917,新秋津駅,東京都,https://www.jreast.co.jp/estation/station/info.aspx?StationCd=855,verified,official_station_page_name_prefecture
+9468,上野駅,東京都,https://www.jreast.co.jp/estation/station/info.aspx?StationCD=204,verified,official_station_page_name_prefecture
+10704,君津駅,千葉県,https://www.jreast.co.jp/estation/station/info.aspx?StationCd=601,verified,official_station_page_name_prefecture
+9388,田浦駅,神奈川県,https://www.jreast.co.jp/estation/station/info.aspx?StationCd=929,verified,official_station_page_name_prefecture
+9461,駒込駅,東京都,https://www.jreast.co.jp/estation/station/info.aspx?StationCD=712,verified,official_station_page_name_prefecture
