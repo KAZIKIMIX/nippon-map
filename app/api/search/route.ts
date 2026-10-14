@@ -6,12 +6,12 @@ export const dynamic="force-dynamic";
 export async function GET(req:NextRequest){
  const queries=req.nextUrl.searchParams.getAll("q");
  if(queries.length>1)return NextResponse.json({places:[],error:"検索語の指定が重複しています。",has_more:false,partial:false,limit:100},{status:400});
- const q=canonicalPlaceSearch((queries[0]||"").trim());
+ const q=(queries[0]||"").trim().normalize("NFKC");
  if(!q)return NextResponse.json({places:[],has_more:false,partial:false,limit:100});
  if(q.length>80)return NextResponse.json({places:[],error:"検索語は80文字以内で入力してください。",has_more:false,partial:false,limit:100},{status:400});
  const url=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
  if(!url||!key)return NextResponse.json({places:[],error:"検索サービスを利用できません。時間をおいて再度お試しください。",has_more:false,partial:false,limit:100},{status:503});
- const safe=q.replace(/[%,()_"\\]/g,"").replace(/\s+/g," ").trim();
+ const safe=canonicalPlaceSearch(q).replace(/[%,()_"\\]/g,"").replace(/\s+/g," ").trim();
  if(!safe)return NextResponse.json({places:[],has_more:false,partial:false,limit:100});
  const normalizeKana=(v:string)=>v.normalize("NFKC").replace(/[\u3041-\u3096]/g,ch=>String.fromCharCode(ch.charCodeAt(0)+96)).toLocaleLowerCase("ja");
  const terms=safe.split(" ").filter(Boolean);

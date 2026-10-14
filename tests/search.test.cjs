@@ -9,6 +9,7 @@ const request=q=>new NextRequest('https://nippon-map.vercel.app/api/search?q='+e
 (async()=>{
  for(const q of ['', '%,()_"\\']){const response=await route.GET(request(q));assert.equal(response.status,200);assert.deepEqual((await response.json()).places,[]);}
  assert.equal((await route.GET(request('x'.repeat(81)))).status,400);
+ assert.equal((await route.GET(request('津島やすらぎの里'.repeat(11)))).status,400,'Apply the length limit before a renamed-place alias shortens the query');
  assert.equal((await route.GET(request('a b c d e f'))).status,400);
  assert.equal((await route.GET(new NextRequest('https://nippon-map.vercel.app/api/search?q=a&q=b'))).status,400);
  assert.equal(filters.length,0);
