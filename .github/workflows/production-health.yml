@@ -14,6 +14,9 @@ on:
       - 'app/robots.ts'
       - 'next.config.mjs'
       - 'package.json'
+      - 'scripts/check-map-interactions.cjs'
+      - 'scripts/check-responsive-contract.cjs'
+      - 'scripts/check-search-pagination.cjs'
   workflow_dispatch:
   schedule:
     - cron: '17 2 * * *'
@@ -55,6 +58,11 @@ jobs:
             fi
             sleep 10
           done
+      - name: Check map interaction, responsive and search contracts
+        run: |
+          npm run check:interactions
+          npm run check:responsive
+          npm run check:search
       - name: Check public API, map, guides and sitemap
         run: npm run check:production
       - name: Check sitemap URLs, canonical and structured data
