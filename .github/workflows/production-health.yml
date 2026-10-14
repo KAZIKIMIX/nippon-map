@@ -6,6 +6,13 @@ on:
       - '.github/workflows/production-health.yml'
       - 'scripts/smoke-production.cjs'
       - 'scripts/check-production-seo.cjs'
+      - 'components/MapApp.tsx'
+      - 'app/api/**'
+      - 'app/guides/**'
+      - 'app/sitemap.ts'
+      - 'app/robots.ts'
+      - 'next.config.mjs'
+      - 'package.json'
   workflow_dispatch:
   schedule:
     - cron: '17 2 * * *'
