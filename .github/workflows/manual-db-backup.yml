@@ -34,7 +34,13 @@ jobs:
           test -s backup/restore-manifest.txt
           sha256sum backup/nippon-map-public.dump > backup/SHA256SUMS
           echo "Backup archive and restore manifest created; production restore was not attempted."
-      - name: Upload encrypted-at-rest private Actions artifact
+      - name: Verify archive integrity and manifest entries
+        run: |
+          cd backup
+          sha256sum --check SHA256SUMS
+          grep -q 'TABLE DATA.*public.*places' restore-manifest.txt
+          grep -q 'TABLE DATA.*public.*categories' restore-manifest.txt
+      - name: Upload private Actions artifact
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: nippon-map-db-backup
