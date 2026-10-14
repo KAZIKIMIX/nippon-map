@@ -23,10 +23,10 @@ export async function GET(req:NextRequest){
   const columns=["name","name_kana","prefecture_name","municipality_name","address"];
   const or=variants.flatMap(term=>columns.map(column=>column+".ilike.%"+term+"%")).join(",");
   const PAGE_SIZE=500,MAX_PAGES=40;
-  type SearchRow={id:number;name:string;name_kana:string|null;prefecture_name:string|null;municipality_name:string|null;address:string|null;latitude:number;longitude:number;official_url:string|null;data_date:string|null;categories:{slug:string;name:string}|{slug:string;name:string}[]};
+  type SearchRow={id:number;name:string;name_kana:string|null;prefecture_name:string|null;municipality_name:string|null;address:string|null;latitude:number;longitude:number;official_url:string|null;data_date:string|null;station_routes?:unknown;categories:{slug:string;name:string}|{slug:string;name:string}[]};
   const data:SearchRow[]=[];
   const selectedCategories=mapCategories.map(c=>c.slug);
-  const selectColumns="id,name,name_kana,prefecture_name,municipality_name,address,latitude,longitude,official_url,data_date,categories!inner(slug,name)";
+  const selectColumns="id,name,name_kana,prefecture_name,municipality_name,address,latitude,longitude,official_url,data_date,station_routes:metadata->routes,categories!inner(slug,name)";
   const deadline=AbortSignal.timeout(25000);
   const normalizedTerms=terms.map(term=>normalizeKana(term));
   let capped=false;
@@ -39,7 +39,8 @@ export async function GET(req:NextRequest){
    if(page===MAX_PAGES-1)capped=true;
   }
   const normalized=(value:string|null|undefined)=>normalizeKana(String(value||""));
-  const rows=data.map(row=>{const category=Array.isArray(row.categories)?row.categories[0]:row.categories;return {id:row.id,name:row.name,name_kana:row.name_kana,prefecture_name:row.prefecture_name,municipality_name:row.municipality_name,address:row.address,latitude:row.latitude,longitude:row.longitude,official_url:row.official_url,data_date:row.data_date,category_slug:category?.slug||"",category_name:category?.name||""}});
+  const routeLabels=(value:unknown)=>Array.isArray(value)?[...new Set(value.filter((x):x is string=>typeof x==="string"&&x.trim().length>0).slice(0,50).map(x=>x.trim().slice(0,160)))]:[];
+  const rows=data.map(row=>{const category=Array.isArray(row.categories)?row.categories[0]:row.categories;return {id:row.id,name:row.name,name_kana:row.name_kana,prefecture_name:row.prefecture_name,municipality_name:row.municipality_name,address:row.address,latitude:row.latitude,longitude:row.longitude,official_url:row.official_url,data_date:row.data_date,category_slug:category?.slug||"",category_name:category?.name||"",station_routes:category?.slug==="railway"?routeLabels(row.station_routes):[]}});
   const unique=[...new Map(rows.map(row=>[row.id,row] as const)).values()];
   const queryNormalized=normalizeKana(safe);
   const matches=unique.filter(row=>{const fields=[row.name,row.name_kana,row.prefecture_name,row.municipality_name,row.address].map(normalized);return normalizedTerms.every(term=>fields.some(value=>value.includes(term)))});

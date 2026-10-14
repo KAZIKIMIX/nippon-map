@@ -21,6 +21,8 @@ const request=q=>new NextRequest('https://nippon-map.vercel.app/api/search?q='+e
  await route.GET(request('東京%,(駅)'));assert.ok(filters.at(-1).includes('%東京駅%'));assert.ok(!filters.at(-1).includes('('));
  data=[{id:2285,name:'津島熱田温泉',categories:{slug:'roadside-station',name:'道の駅'}}];
  body=await (await route.GET(request('津島やすらぎの里'))).json();assert.equal(body.places[0].id,2285);assert.ok(filters.at(-1).includes('%津島熱田温泉%'));
+ data=[{id:8771,name:'東京駅',station_routes:[' 東北線 ',null,'東北線',12,'京葉線'],categories:{slug:'railway',name:'鉄道駅'}},{id:9542,name:'東京駅',station_routes:['京葉線'],categories:{slug:'railway',name:'鉄道駅'}}];
+ body=await (await route.GET(request('東京駅'))).json();assert.deepEqual(body.places[0].station_routes,['東北線','京葉線']);assert.deepEqual(body.places[1].station_routes,['京葉線']);
  data=Array.from({length:501},(_,id)=>({id,name:'東京'+id,categories:{slug:'railway',name:'鉄道駅'}}));ranges=[];
  body=await (await route.GET(request('東京'))).json();assert.equal(body.places.length,100);assert.equal(body.has_more,true);assert.equal(body.partial,false);assert.deepEqual(ranges,[[0,499],[500,999]]);
  error={message:'private database details'};response=await route.GET(request('東京'));assert.equal(response.status,503);assert.ok(!JSON.stringify(await response.json()).includes('private'));
