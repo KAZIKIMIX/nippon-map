@@ -1,5 +1,7 @@
+const fs = require("node:fs");
 const { chromium, devices } = require("playwright");
 const assert = require("node:assert/strict");
+fs.mkdirSync("test-results", { recursive: true });
 const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
 (async () => {
   const browser = await chromium.launch({ headless: true });
@@ -9,6 +11,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       ["mobile", { ...devices["iPhone 13"], defaultBrowserType: undefined }],
     ]) {
       const page = await browser.newPage(options);
+      try {
       const errors = [];
       page.on("pageerror", error => errors.push(error.message));
       const response = await page.goto(BASE, { waitUntil: "domcontentloaded", timeout: 45000 });
@@ -49,7 +52,13 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       assert.equal(overflow, false, name + ": horizontal overflow");
       assert.deepEqual(errors, [], name + ": JavaScript errors");
       console.log(name + ": navigation, search result selection, category, zoom control click, layout PASS");
-      await page.close();
+      } catch (error) {
+        await page.screenshot({ path: `test-results/${name}-failure.png`, fullPage: true }).catch(() => {});
+        fs.writeFileSync(`test-results/${name}-error.txt`, String(error?.stack || error));
+        throw error;
+      } finally {
+        await page.close();
+      }
     }
   } finally {
     await browser.close();
