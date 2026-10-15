@@ -51,7 +51,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
         }
         assert.equal(await page.locator('.chips button').filter({ hasText: "鉄道駅" }).first().getAttribute("aria-pressed"), "true", name + ": rapid category switching selected the wrong category");
       }
-      await page.waitForFunction(() => !document.querySelector(".mapbox [role=status]"), { timeout: 45000 });
+      await page.waitForFunction(() => { const loading = document.querySelector(".mapbox [role=status]"); const selected = document.querySelector('select[aria-label="カテゴリを選ぶ"]'); const railwayChip = [...document.querySelectorAll(".chips button")].find(button => button.textContent?.includes("鉄道駅")); return !loading && (selected && getComputedStyle(selected).display !== "none" ? selected.value === "railway" : railwayChip?.getAttribute("aria-pressed") === "true"); }, { timeout: 45000 });
       assert.equal(await page.locator(".mapbox [role=alert]").count(), 0, name + ": map displays an error after rapid category switching");
       const railwayResponse = await page.request.get(BASE + "/api/places?category=railway");
       assert.equal(railwayResponse.ok(), true, name + ": railway category API failed");
