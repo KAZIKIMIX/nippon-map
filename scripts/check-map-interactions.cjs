@@ -7,7 +7,7 @@ const pref=read("components/PrefectureMap.tsx");
 const detail=read("app/guides/[category]/[prefecture]/page.tsx");
 const data=read("lib/guide-data.ts");
 const share=read("lib/map-share.ts");
-assert.ok(map.includes("activeMap.flyTo({center:[p.longitude,p.latitude]"),"Global search result clicks must immediately pan and zoom to the selected facility");
+assert.ok(map.includes("if(selected?.id===p.id){const activeMap=map.current")&&map.includes("activeMap.flyTo({center:[p.longitude,p.latitude]")&&map.includes("},[selected]);"),"New search result selection must use the selected-place flyTo effect, while repeat clicks can re-center");
 assert.ok(map.includes("pendingSharedPlace.current=p.id;setMultiCats([]);setCategory(p.category_slug)"),"Global search must exit multi-category mode before selecting a single place");
 assert.ok(map.includes("Promise.allSettled(multiCats.map(")&&map.includes("successful.flatMap(result=>result.value)"),"Multi-category map must preserve successful categories on partial fetch failures");
 assert.ok(map.includes('setError(successful.length!==results.length?'),"Successful multi-category retry must clear stale fetch errors");
