@@ -15,6 +15,7 @@ on:
       - 'next.config.mjs'
       - 'package.json'
       - 'scripts/check-map-interactions.cjs'
+      - 'scripts/check-live-map.cjs'
       - 'scripts/check-responsive-contract.cjs'
       - 'scripts/check-search-pagination.cjs'
   workflow_dispatch:
