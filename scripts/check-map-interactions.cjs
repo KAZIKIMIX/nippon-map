@@ -119,6 +119,5 @@ assert.ok(nearbyApi.includes("if(data.length<PAGE_SIZE)break"),"Nearby must stop
 assert.ok(nearbyApi.includes("new Map(rows.map(row=>[row.id,row] as const))"),"Nearby must deduplicate places before sorting");
 const searchTimeout=Number(searchApi.match(/const deadline=AbortSignal.timeout\((\d+)\)/)?.[1]);assert.ok(searchTimeout>0&&searchTimeout<=25000,"Search must enforce a request-wide time budget");
 assert.ok(nearbyApi.includes("const deadline=AbortSignal.timeout(15000)"),"Nearby must enforce a request-wide time budget");
-console.log("Map, guide, search and nearby state contract checks passed");
-
 assert.ok(map.includes("if(value===cat&&!leavingMultiCategory)return"),"Exiting multi-category mode must reset stale map filters even when category is unchanged");
+console.log("Map, guide, search and nearby state contract checks passed");
