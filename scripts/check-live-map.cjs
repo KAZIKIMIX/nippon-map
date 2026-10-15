@@ -18,11 +18,10 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       await search.fill("羽田");
       await page.waitForTimeout(1800);
       assert.equal(await search.inputValue(), "羽田", name + ": search failed");
-      const results = page.locator('.facilityResults button');
-      if (await results.count()) {
-        await results.first().click();
-        await page.waitForTimeout(800);
-      }
+      const results = page.locator('.facilityResults button[aria-label*="の詳細を地図で表示"]');
+      await results.first().waitFor({ timeout: 20000 });
+      await results.first().click();
+      assert.equal(await results.first().getAttribute("aria-pressed"), "true", name + ": selecting search result failed");
       const category = page.locator('select[aria-label="カテゴリを選ぶ"]');
       if (await category.isVisible()) {
         await category.selectOption("airport");
@@ -35,13 +34,15 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       if (await map.count()) {
         const box = await map.boundingBox();
         assert.ok(box && box.width > 100 && box.height > 100, name + ": map dimensions invalid");
-        await map.hover();
-        await page.mouse.wheel(0, -400);
+        const zoomIn = page.locator(".maplibregl-ctrl-zoom-in").first();
+        await zoomIn.waitFor({ timeout: 10000 });
+        await zoomIn.click();
+        await page.waitForTimeout(400);
       }
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 5);
       assert.equal(overflow, false, name + ": horizontal overflow");
       assert.deepEqual(errors, [], name + ": JavaScript errors");
-      console.log(name + ": navigation, search, selection attempt, category, zoom attempt, layout PASS");
+      console.log(name + ": navigation, search result selection, category, zoom control click, layout PASS");
       await page.close();
     }
   } finally {
