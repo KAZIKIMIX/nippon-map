@@ -36,6 +36,30 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
         await chip.click();
         assert.equal(await chip.getAttribute("aria-pressed"), "true", name + ": desktop category switch failed");
       }
+      // Rapid category changes must settle on the final selection without stale errors.
+      const categoryChoices = ["airport", "aquarium", "railway"];
+      if (await category.isVisible()) {
+        for (const slug of categoryChoices) await category.selectOption(slug);
+        assert.equal(await category.inputValue(), "railway", name + ": rapid category switching selected the wrong category");
+      } else {
+        for (const slug of ["空港", "水族館", "鉄道駅"]) {
+          const chip = page.locator('.chips button').filter({ hasText: slug }).first();
+          await chip.click();
+        }
+        assert.equal(await page.locator('.chips button').filter({ hasText: "鉄道駅" }).first().getAttribute("aria-pressed"), "true", name + ": rapid category switching selected the wrong category");
+      }
+      const railwayResponse = await page.request.get(BASE + "/api/places?category=railway");
+      assert.equal(railwayResponse.ok(), true, name + ": railway category API failed");
+      const railwayPayload = await railwayResponse.json();
+      assert.ok(Array.isArray(railwayPayload.places) && railwayPayload.places.length > 0, name + ": railway category returned no pins");
+      assert.ok(railwayPayload.places.every(p => Number.isFinite(p.latitude) && Number.isFinite(p.longitude)), name + ": railway category returned invalid pin coordinates");
+      const nearbyResponse = await page.request.get(BASE + "/api/nearby?lat=35.5494&lon=139.7798&radius=5&categories=airport,railway");
+      assert.equal(nearbyResponse.ok(), true, name + ": multi-category nearby API failed");
+      const nearbyPayload = await nearbyResponse.json();
+      assert.ok(Array.isArray(nearbyPayload.places), name + ": multi-category nearby API returned invalid data");
+      assert.ok(nearbyPayload.places.every(p => ["airport", "railway"].includes(p.category_slug)), name + ": multi-category nearby API returned an unselected category");
+      const invalidNearbyResponse = await page.request.get(BASE + "/api/nearby?lat=35.5494&lon=139.7798&radius=5&categories=airport,airport");
+      assert.equal(invalidNearbyResponse.status(), 400, name + ": nearby API accepted duplicate categories");
       const map = page.locator(".maplibregl-map").first();
       await map.waitFor({ timeout: 15000 });
       {
