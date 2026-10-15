@@ -127,3 +127,5 @@ assert.ok(map.includes('params.set("categories",multiCats.join(","))'),"Multi-ca
 assert.ok(nearbyApi.includes('const selectedCategories=category?[category]:categoryList!==null?categories:[...allowed]'),"Nearby API must filter selected categories before applying the 100-result limit");
 assert.ok(nearbyApi.includes('new Set(categories).size!==categories.length')&&nearbyApi.includes('categories.length>8'),"Nearby API must reject duplicate or excessive category selections");
 assert.ok(map.includes('m.on("sourcedata",update)')&&map.includes('m.off("sourcedata",update)'),"Map source updates must survive source initialization and clean up listeners");
+
+assert.ok(map.includes('setMapError("地図の読み込みに失敗しました。通信状況を確認してページを再読み込みしてください。")')&&map.includes('if(!m.getSource("places")&&!m.isStyleLoaded())'),"Map initialization errors must be visible rather than silently cleared");
