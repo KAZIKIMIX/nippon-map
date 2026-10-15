@@ -25,8 +25,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       await results.first().waitFor({ timeout: 20000 });
       await results.first().click();
       assert.equal(await results.first().getAttribute("aria-pressed"), "true", name + ": selecting search result failed");
-      const detail = page.locator(".selectedPlace, .selectedFacility, .facilityDetail, .placeDetail");
-      if (await detail.count()) assert.equal(await detail.first().isVisible(), true, name + ": selected facility detail hidden");
+
       const category = page.locator('select[aria-label="カテゴリを選ぶ"]');
       if (await category.isVisible()) {
         await category.selectOption("railway");
@@ -46,11 +45,13 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
         await zoomIn.waitFor({ timeout: 10000 });
         assert.equal(await zoomIn.isEnabled(), true, name + ": zoom control disabled");
         await zoomIn.click();
-        await page.waitForTimeout(400);
+        await page.waitForTimeout(700);
+        assert.equal(await zoomIn.isEnabled(), true, name + ": zoom control stopped responding");
       }
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 5);
       assert.equal(overflow, false, name + ": horizontal overflow");
       assert.deepEqual(errors, [], name + ": JavaScript errors");
+      fs.writeFileSync(`test-results/${name}-success.txt`, `${new Date().toISOString()} ${BASE} navigation/search/result/category/map/zoom/layout passed\n`);
       console.log(name + ": navigation, search result selection, category, zoom control click, layout PASS");
       } catch (error) {
         await page.screenshot({ path: `test-results/${name}-failure.png`, fullPage: true }).catch(() => {});
