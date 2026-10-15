@@ -23,10 +23,10 @@ export async function GET(req:NextRequest){
  const crossesDateLine=longitude-lonDelta < -180||longitude+lonDelta > 180;
  try{
   const PAGE_SIZE=500,MAX_PAGES=20;
-  type NearbyRow={id:number;name:string;prefecture_name:string;municipality_name:string;address:string;latitude:number;longitude:number;official_url:string|null;data_date:string|null;categories:{slug:string;name:string}|{slug:string;name:string}[]};
+  type NearbyRow={id:number;name:string;name_kana:string|null;prefecture_name:string;municipality_name:string;address:string;latitude:number;longitude:number;official_url:string|null;data_date:string|null;station_routes?:unknown;categories:{slug:string;name:string}|{slug:string;name:string}[]};
   const rows:NearbyRow[]=[];
   const selectedCategories=category?[category]:[...allowed];
-  const selectColumns="id,name,prefecture_name,municipality_name,address,latitude,longitude,official_url,data_date,categories!inner(slug,name)";
+  const selectColumns="id,name,name_kana,prefecture_name,municipality_name,address,latitude,longitude,official_url,data_date,station_routes:metadata->routes,categories!inner(slug,name)";
   const deadline=AbortSignal.timeout(15000);
   let limited=false;
   for(let page=0;page<MAX_PAGES;page++){
@@ -48,7 +48,7 @@ export async function GET(req:NextRequest){
    const c=Array.isArray(row.categories)?row.categories[0]:row.categories;
    const {categories:unused,...place}=row;
    void unused;
-   return {...place,category_slug:c?.slug||"",category_name:c?.name||"",distance_km:distanceKm(latitude,longitude,Number(row.latitude),Number(row.longitude))};
+   return {...place,category_slug:c?.slug||"",category_name:c?.name||"",station_routes:c?.slug==="railway"&&Array.isArray(row.station_routes)?row.station_routes.filter((route):route is string=>typeof route==="string"&&route.trim().length>0).slice(0,50):[],distance_km:distanceKm(latitude,longitude,Number(row.latitude),Number(row.longitude))};
   }).filter(row=>Number.isFinite(row.distance_km)&&row.distance_km<=radius).sort((a,b)=>a.distance_km-b.distance_km||a.id-b.id);
   if(places.length>100)limited=true;
   return NextResponse.json({places:places.slice(0,100),radius,limited},{headers:{"Cache-Control":"private, no-store"}});
