@@ -24,10 +24,10 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       assert.equal(await results.first().getAttribute("aria-pressed"), "true", name + ": selecting search result failed");
       const category = page.locator('select[aria-label="カテゴリを選ぶ"]');
       if (await category.isVisible()) {
-        await category.selectOption("airport");
-        assert.equal(await category.inputValue(), "airport", name + ": category switch failed");
+        await category.selectOption("railway");
+        assert.equal(await category.inputValue(), "railway", name + ": category switch failed");
       } else {
-        const chip = page.locator('.chips button').filter({ hasText: "空港" }).first();
+        const chip = page.locator('.chips button').filter({ hasText: "鉄道駅" }).first();
         await chip.waitFor({ timeout: 10000 });
         await chip.click();
         assert.equal(await chip.getAttribute("aria-pressed"), "true", name + ": desktop category switch failed");
