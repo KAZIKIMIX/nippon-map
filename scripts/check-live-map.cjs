@@ -22,6 +22,8 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       await results.first().waitFor({ timeout: 20000 });
       await results.first().click();
       assert.equal(await results.first().getAttribute("aria-pressed"), "true", name + ": selecting search result failed");
+      const detail = page.locator(".selectedPlace, .selectedFacility, .facilityDetail, .placeDetail");
+      if (await detail.count()) assert.equal(await detail.first().isVisible(), true, name + ": selected facility detail hidden");
       const category = page.locator('select[aria-label="カテゴリを選ぶ"]');
       if (await category.isVisible()) {
         await category.selectOption("railway");
