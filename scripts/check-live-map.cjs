@@ -25,6 +25,9 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       await results.first().waitFor({ timeout: 20000 });
       await results.first().click();
       assert.equal(await results.first().getAttribute("aria-pressed"), "true", name + ": selecting search result failed");
+      const detail = page.locator('aside.detail[aria-label="選択した施設の詳細"]');
+      assert.ok(await detail.isVisible(), name + ": selected facility detail panel is hidden");
+      assert.ok((await detail.innerText()).trim().length > 10, name + ": selected facility details are empty");
 
       const category = page.locator('select[aria-label="カテゴリを選ぶ"]');
       if (await category.isVisible()) {
@@ -48,6 +51,8 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
         }
         assert.equal(await page.locator('.chips button').filter({ hasText: "鉄道駅" }).first().getAttribute("aria-pressed"), "true", name + ": rapid category switching selected the wrong category");
       }
+      await page.waitForFunction(() => !document.querySelector(".mapbox [role=status]"), { timeout: 45000 });
+      assert.equal(await page.locator(".mapbox [role=alert]").count(), 0, name + ": map displays an error after rapid category switching");
       const railwayResponse = await page.request.get(BASE + "/api/places?category=railway");
       assert.equal(railwayResponse.ok(), true, name + ": railway category API failed");
       const railwayPayload = await railwayResponse.json();
