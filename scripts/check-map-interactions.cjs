@@ -10,6 +10,7 @@ const share=read("lib/map-share.ts");
 assert.ok(map.includes("activeMap.flyTo({center:[p.longitude,p.latitude]"),"Global search result clicks must immediately pan and zoom to the selected facility");
 assert.ok(map.includes("pendingSharedPlace.current=p.id;setMultiCats([]);setCategory(p.category_slug)"),"Global search must exit multi-category mode before selecting a single place");
 assert.ok(map.includes("Promise.allSettled(multiCats.map(")&&map.includes("successful.flatMap(result=>result.value)"),"Multi-category map must preserve successful categories on partial fetch failures");
+assert.ok(map.includes('setError(successful.length!==results.length?'),"Successful multi-category retry must clear stale fetch errors");
 assert.match(map,/readSharedMap\(window\.location\.search/,"Map deep links must restore filters");
 assert.match(map,/pendingSharedPlace\.current=state\.placeId/,"Map deep links must restore selected place");
 assert.match(map,/createSharedMapUrl\(/,"Map share must preserve state");
