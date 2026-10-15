@@ -28,14 +28,18 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
         assert.equal(await category.inputValue(), "airport", name + ": category switch failed");
       } else {
         const chip = page.locator('.chips button').filter({ hasText: "空港" }).first();
-        if (await chip.isVisible()) await chip.click();
+        await chip.waitFor({ timeout: 10000 });
+        await chip.click();
+        assert.equal(await chip.getAttribute("aria-pressed"), "true", name + ": desktop category switch failed");
       }
       const map = page.locator(".maplibregl-map").first();
-      if (await map.count()) {
+      await map.waitFor({ timeout: 15000 });
+      {
         const box = await map.boundingBox();
         assert.ok(box && box.width > 100 && box.height > 100, name + ": map dimensions invalid");
         const zoomIn = page.locator(".maplibregl-ctrl-zoom-in").first();
         await zoomIn.waitFor({ timeout: 10000 });
+        assert.equal(await zoomIn.isEnabled(), true, name + ": zoom control disabled");
         await zoomIn.click();
         await page.waitForTimeout(400);
       }
