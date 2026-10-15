@@ -49,7 +49,8 @@ export async function GET(req:NextRequest){
    const {categories:unused,...place}=row;
    void unused;
    return {...place,category_slug:c?.slug||"",category_name:c?.name||"",distance_km:distanceKm(latitude,longitude,Number(row.latitude),Number(row.longitude))};
-  }).filter(row=>Number.isFinite(row.distance_km)&&row.distance_km<=radius).sort((a,b)=>a.distance_km-b.distance_km||a.id-b.id).slice(0,100);
-  return NextResponse.json({places,radius,limited},{headers:{"Cache-Control":"private, no-store"}});
+  }).filter(row=>Number.isFinite(row.distance_km)&&row.distance_km<=radius).sort((a,b)=>a.distance_km-b.distance_km||a.id-b.id);
+  if(places.length>100)limited=true;
+  return NextResponse.json({places:places.slice(0,100),radius,limited},{headers:{"Cache-Control":"private, no-store"}});
  }catch{return NextResponse.json({error:"周辺施設を取得できませんでした。"},{status:503})}
 }
