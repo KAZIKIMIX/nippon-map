@@ -12,9 +12,12 @@ export async function GET(req:NextRequest){
  const params=req.nextUrl.searchParams;
  const latitude=Number(params.get("lat")),longitude=Number(params.get("lon")),radius=Number(params.get("radius")||10);
  const category=params.get("category");
+ const categoryList=params.get("categories");
+ const categories=categoryList===null?[]:categoryList.split(",");
+ const invalidCategories=categoryList!==null&&(categories.length<1||categories.length>8||new Set(categories).size!==categories.length||categories.some(slug=>!allowed.has(slug)));
  const invalidNumeric=["lat","lon","radius"].some(key=>params.has(key)&&!(params.get(key)||"").trim());
- const duplicatedParams=["lat","lon","radius","category"].some(key=>params.getAll(key).length>1);
- if(duplicatedParams||invalidNumeric||!params.has("lat")||!params.has("lon")||!Number.isFinite(latitude)||!Number.isFinite(longitude)||Math.abs(latitude)>90||Math.abs(longitude)>180||!([5,10,30] as number[]).includes(radius)||category&&!allowed.has(category))
+ const duplicatedParams=["lat","lon","radius","category","categories"].some(key=>params.getAll(key).length>1);
+ if(duplicatedParams||invalidNumeric||!params.has("lat")||!params.has("lon")||!Number.isFinite(latitude)||!Number.isFinite(longitude)||Math.abs(latitude)>90||Math.abs(longitude)>180||!([5,10,30] as number[]).includes(radius)||category&&!allowed.has(category)||category!==null&&categoryList!==null||invalidCategories)
   return NextResponse.json({error:"Invalid nearby search parameters"},{status:400});
  const url=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
  if(!url||!key)return NextResponse.json({error:"Database unavailable"},{status:503});
@@ -25,7 +28,7 @@ export async function GET(req:NextRequest){
   const PAGE_SIZE=500,MAX_PAGES=20;
   type NearbyRow={id:number;name:string;name_kana:string|null;prefecture_name:string;municipality_name:string;address:string;latitude:number;longitude:number;official_url:string|null;data_date:string|null;station_routes?:unknown;categories:{slug:string;name:string}|{slug:string;name:string}[]};
   const rows:NearbyRow[]=[];
-  const selectedCategories=category?[category]:[...allowed];
+  const selectedCategories=category?[category]:categoryList!==null?categories:[...allowed];
   const selectColumns="id,name,name_kana,prefecture_name,municipality_name,address,latitude,longitude,official_url,data_date,station_routes:metadata->routes,categories!inner(slug,name)";
   const deadline=AbortSignal.timeout(15000);
   let limited=false;
