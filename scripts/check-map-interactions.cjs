@@ -113,7 +113,7 @@ assert.ok(searchApi.includes("const selectedCategories=mapCategories.map(c=>c.sl
 assert.ok(searchApi.includes("const selectColumns="),"Search must reuse its projection across pages");
 assert.ok(searchApi.includes("const queryNormalized=normalizeKana(safe)"),"Search must normalize ranking query once");
 assert.ok(searchApi.includes("if(batch.length<PAGE_SIZE)break"),"Search must stop pagination after a short page");
-assert.ok(nearbyApi.includes("const selectedCategories=category?[category]:[...allowed]"),"Nearby must reuse category selection");
+assert.ok(nearbyApi.includes("const selectedCategories=category?[category]:categoryList!==null?categories:[...allowed]"),"Nearby must reuse category selection including multi-category mode");
 assert.ok(nearbyApi.includes("const selectColumns="),"Nearby must reuse its projection across pages");
 assert.ok(nearbyApi.includes("if(data.length<PAGE_SIZE)break"),"Nearby must stop pagination after a short page");
 assert.ok(nearbyApi.includes("new Map(rows.map(row=>[row.id,row] as const))"),"Nearby must deduplicate places before sorting");
