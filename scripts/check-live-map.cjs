@@ -14,7 +14,8 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       try {
       const errors = [];
       page.on("pageerror", error => errors.push(error.message));
-      const response = await page.goto(BASE + (BASE.includes("?") ? "&" : "?") + "e2e=1", { waitUntil: "domcontentloaded", timeout: 45000 });
+      const target = new URL(BASE); target.pathname = "/map"; target.searchParams.set("e2e", "1");
+      const response = await page.goto(target.toString(), { waitUntil: "domcontentloaded", timeout: 45000 });
       assert.ok(response && response.ok(), name + ": homepage unavailable");
       await page.locator('input[aria-label="施設名・地域を検索"]').waitFor({ timeout: 30000 });
       const search = page.locator('input[aria-label="施設名・地域を検索"]');
