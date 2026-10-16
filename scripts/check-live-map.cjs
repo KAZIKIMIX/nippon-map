@@ -14,7 +14,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       try {
       const errors = [];
       page.on("pageerror", error => errors.push(error.message));
-      const response = await page.goto(BASE, { waitUntil: "domcontentloaded", timeout: 45000 });
+      const response = await page.goto(BASE + (BASE.includes("?") ? "&" : "?") + "e2e=1", { waitUntil: "domcontentloaded", timeout: 45000 });
       assert.ok(response && response.ok(), name + ": homepage unavailable");
       await page.locator('input[aria-label="施設名・地域を検索"]').waitFor({ timeout: 30000 });
       const search = page.locator('input[aria-label="施設名・地域を検索"]');
@@ -134,6 +134,56 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
         await page.waitForTimeout(700);
         assert.equal(await zoomIn.isEnabled(), true, name + ": zoom control stopped responding");
       }
+      // Inspect the real MapLibre instance and verify pin/cluster rendering and expansion.
+      await page.waitForFunction(() => {
+        const m = window.__nipponMapE2E;
+        return m && m.isStyleLoaded() && m.getSource("places") && m.getLayer("clusters") && m.getLayer("unclustered");
+      }, { timeout: 30000 });
+      await page.waitForFunction(() => {
+        const m = window.__nipponMapE2E;
+        return m && m.querySourceFeatures("places").length > 0;
+      }, { timeout: 45000 });
+      const mapState = await page.evaluate(() => {
+        const m = window.__nipponMapE2E;
+        const features = m.querySourceFeatures("places");
+        return { zoom: m.getZoom(), sourceCount: features.length, clusterCount: features.filter(f => f.properties?.cluster).length, pinCount: features.filter(f => !f.properties?.cluster).length };
+      });
+      assert.ok(mapState.sourceCount > 0, name + ": map source has no pins or clusters");
+      assert.ok(mapState.clusterCount + mapState.pinCount > 0, name + ": map source contains no renderable features");
+      await page.evaluate(async () => {
+        const m = window.__nipponMapE2E;
+        m.stop();
+        m.jumpTo({ center: [137.5, 37.2], zoom: 4.2 });
+        await new Promise(resolve => m.once("idle", resolve));
+      });
+      const cluster = await page.evaluate(() => {
+        const m = window.__nipponMapE2E;
+        const clusters = m.queryRenderedFeatures({ layers: ["clusters"] });
+        if (!clusters.length) return null;
+        const f = clusters[0];
+        const coordinates = f.geometry.coordinates;
+        const point = m.project(coordinates);
+        return { x: point.x, y: point.y, zoom: m.getZoom() };
+      });
+      assert.ok(cluster, name + ": no visible cluster to expand");
+      await page.locator(".maplibregl-canvas").first().click({ position: { x: cluster.x, y: cluster.y }, force: true });
+      await page.waitForFunction(previousZoom => window.__nipponMapE2E.getZoom() > previousZoom + 0.2, cluster.zoom, { timeout: 15000 });
+      await page.evaluate(async () => {
+        const m = window.__nipponMapE2E;
+        m.stop();
+        m.jumpTo({ center: [139.7798, 35.5494], zoom: 14.5 });
+        await new Promise(resolve => m.once("idle", resolve));
+      });
+      const pin = await page.evaluate(() => {
+        const m = window.__nipponMapE2E;
+        const features = m.queryRenderedFeatures({ layers: ["unclustered"] });
+        if (!features.length) return null;
+        const point = m.project(features[0].geometry.coordinates);
+        return { x: point.x, y: point.y, id: Number(features[0].properties.id) };
+      });
+      assert.ok(pin, name + ": no visible pin to select");
+      await page.locator(".maplibregl-canvas").first().click({ position: { x: pin.x, y: pin.y - 8 }, force: true });
+      await page.waitForFunction(id => document.querySelector('aside.detail')?.textContent?.trim().length > 10, pin.id, { timeout: 15000 });
       await page.screenshot({ path: `test-results/${name}-map.png`, fullPage: true });
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 5);
       assert.equal(overflow, false, name + ": horizontal overflow");
