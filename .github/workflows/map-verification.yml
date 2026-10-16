@@ -48,6 +48,8 @@ jobs:
           done
       - name: Desktop and mobile production smoke
         run: node scripts/check-live-map.cjs
+      - name: Shared map desktop and mobile restoration
+        run: node scripts/check-shared-map-live.cjs
       - name: Upload browser verification diagnostics
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
