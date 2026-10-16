@@ -8,12 +8,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Verify backup connection is configured
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Verify backup connection and encryption recipient are configured
         env:
           SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+          BACKUP_GPG_PUBLIC_KEY: ${{ vars.BACKUP_GPG_PUBLIC_KEY }}
+          BACKUP_GPG_FINGERPRINT: ${{ vars.BACKUP_GPG_FINGERPRINT }}
         run: |
           if [ -z "$SUPABASE_DB_URL" ]; then
             echo "::error::Set repository secret SUPABASE_DB_URL to the Supabase Postgres connection string before running this workflow."
+            exit 1
+          fi
+          if [ -z "$BACKUP_GPG_PUBLIC_KEY" ] || [ -z "$BACKUP_GPG_FINGERPRINT" ]; then
+            echo "::error::Configure BACKUP_GPG_PUBLIC_KEY and BACKUP_GPG_FINGERPRINT repository variables. Never upload a private key."
             exit 1
           fi
       - name: Install PostgreSQL 17 client
@@ -22,28 +31,34 @@ jobs:
           sudo curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc
           echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
           sudo apt-get update -qq
-          sudo apt-get install -y -qq postgresql-client-17
-      - name: Export database
+          sudo apt-get install -y -qq postgresql-client-17 gnupg
+      - name: Export, verify and encrypt database
         env:
           SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+          BACKUP_GPG_PUBLIC_KEY: ${{ vars.BACKUP_GPG_PUBLIC_KEY }}
+          BACKUP_GPG_FINGERPRINT: ${{ vars.BACKUP_GPG_FINGERPRINT }}
         run: |
-          mkdir -p backup
-          pg_dump --dbname="$SUPABASE_DB_URL" --format=custom --no-owner --no-acl --schema=public --file=backup/nippon-map-public.dump
-          pg_restore --list backup/nippon-map-public.dump > backup/restore-manifest.txt
-          test -s backup/nippon-map-public.dump
-          test -s backup/restore-manifest.txt
-          sha256sum backup/nippon-map-public.dump > backup/SHA256SUMS
-          echo "Backup archive and restore manifest created; production restore was not attempted."
-      - name: Verify archive integrity and manifest entries
-        run: |
+          set -euo pipefail
+          umask 077
+          plain_dir="${RUNNER_TEMP:?}/nippon-map-db-backup-plaintext"
+          mkdir -p "$plain_dir" backup
+          pg_dump --dbname="$SUPABASE_DB_URL" --format=custom --no-owner --no-acl --schema=public --file="$plain_dir/nippon-map-public.dump"
+          pg_restore --list "$plain_dir/nippon-map-public.dump" > "$plain_dir/restore-manifest.txt"
+          grep -Eq 'TABLE DATA +public +places ' "$plain_dir/restore-manifest.txt"
+          grep -Eq 'TABLE DATA +public +categories ' "$plain_dir/restore-manifest.txt"
+          bash scripts/encrypt-db-backup.sh "$plain_dir/nippon-map-public.dump" backup/nippon-map-public.dump.gpg
           cd backup
+          sha256sum nippon-map-public.dump.gpg > SHA256SUMS
           sha256sum --check SHA256SUMS
-          grep -Eq 'TABLE DATA +public +places ' restore-manifest.txt
-          grep -Eq 'TABLE DATA +public +categories ' restore-manifest.txt
-      - name: Upload private Actions artifact
+      - name: Remove temporary plaintext
+        if: always()
+        run: rm -rf "${RUNNER_TEMP:?}/nippon-map-db-backup-plaintext"
+      - name: Upload encrypted backup artifact
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          name: nippon-map-db-backup
-          path: backup/
+          name: nippon-map-db-backup-encrypted
+          path: |
+            backup/nippon-map-public.dump.gpg
+            backup/SHA256SUMS
           retention-days: 7
           if-no-files-found: error

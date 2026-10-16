@@ -1,19 +1,37 @@
-# Supabase database backup (Free plan)
+# Encrypted Supabase public-schema backup
 
-The repository provides `.github/workflows/manual-db-backup.yml` for an **on-demand** backup of the public schema. It is not scheduled and does not run until credentials are configured.
+The manual workflow `.github/workflows/manual-db-backup.yml` is not a scheduled backup and has not yet been verified against production credentials. Do not treat its existence as a successful production backup.
 
-## Setup
+## Configure once
 
-1. In Supabase Dashboard > Project Settings > Database, copy a PostgreSQL connection string (use a reachable session pooler connection if direct IPv6 is unavailable). The connection must permit `pg_dump` for the intended objects. Do not paste it into source code, chat, or an issue.
-2. In GitHub > repository Settings > Secrets and variables > Actions, create a repository secret named `SUPABASE_DB_URL`.
-3. In GitHub > Actions > **Database backup (manual)** > Run workflow, start a run. Confirm it finishes successfully.
-4. Download the `nippon-map-db-backup` artifact and store a separate encrypted copy in a location outside GitHub. GitHub Actions artifacts expire after **7 days**.
-5. Check `SHA256SUMS`, then use `pg_restore --list nippon-map-public.dump` locally to verify that the archive is readable.
+1. On an operator-controlled computer, create a GnuPG encryption-capable key using `gpg --full-generate-key`. Keep its private key and recovery material outside GitHub. Verify that the private key can decrypt a test message.
+2. Record the full primary fingerprint with `gpg --fingerprint`. Export only the public key with `gpg --armor --export FULL_FINGERPRINT`.
+3. Set repository variables `BACKUP_GPG_PUBLIC_KEY` (armored public key) and `BACKUP_GPG_FINGERPRINT` (full uppercase fingerprint without spaces). Never supply a private key to Actions.
+4. Set repository Actions secret `SUPABASE_DB_URL` to an appropriate Supabase Postgres connection string. Never paste it into issues, logs or chat.
+5. Run **Database backup (manual)** once and verify its result before relying on it.
 
-## Recovery validation
+## Privacy and export
 
-For a real restore test, use a **separate disposable PostgreSQL 17 database**, never production. Review the dump manifest before restoring. Restore only after confirming the target is isolated and empty, then compare table counts and key schema objects.
+This repository is public. GitHub artifacts are downloadable by signed-in users with repository read access; an artifact name containing “private” does not restrict access. The workflow therefore exports plaintext only into a temporary runner directory, encrypts to the pinned recipient public key, removes temporary plaintext even on failure, and uploads only the encrypted dump and its SHA-256 checksum. Missing or mismatched keys stop the job.
 
-**Scope limitation:** the workflow dumps only PostgreSQL `public` schema objects. It does **not** back up Supabase Auth, Storage objects, Edge Functions, project secrets, or other schemas. `pg_restore --list` checks archive readability, not that the data can be fully restored. A successful test restore and external copy are required before calling backups operational.
+The dump contains the complete `public` schema, potentially including non-public submissions and contact data. Keep decryption keys and decrypted files restricted. An encrypted artifact is retained for seven days; download and retain a separate protected copy according to an explicit retention policy.
 
-**Security:** GitHub Actions artifacts may contain sensitive records. Only authorized repository collaborators should be able to download them. Avoid using untrusted pull-request workflows with this secret. Rotate credentials if accidentally disclosed.
+## Verify and restore in isolation
+
+After downloading and extracting `nippon-map-db-backup-encrypted`, on the trusted operator computer:
+
+```sh
+sha256sum --check SHA256SUMS
+gpg --output nippon-map-public.dump --decrypt nippon-map-public.dump.gpg
+pg_restore --list nippon-map-public.dump
+```
+
+Restore only into a disposable PostgreSQL 17 database with required compatible extensions, never production. Validate tables, counts, constraints, representative data and application read paths. Record timestamps, backup hash, restore result and discrepancies. Delete decrypted temporary copies securely under the operator’s storage policy. A checksum and archive listing alone are not a restoration test.
+
+## Scope and current verification
+
+This public-schema dump does not independently protect Auth, Storage objects, Edge Functions, secrets, project configuration or all service roles. It is not a complete Supabase disaster-recovery backup. Full project recovery and production backup scheduling remain separate operational tasks.
+
+`tests/backup-encryption.test.cjs` exercises public-key encryption, fixture decryption, recipient mismatch, missing-key refusal and no-overwrite behavior without production data. A three-park guarded row restoration was separately verified on a temporary table; that does not prove full-database restoration.
+
+References: https://docs.github.com/en/actions/how-tos/manage-workflow-runs/download-workflow-artifacts ; https://www.gnupg.org/documentation/manuals/gnupg/GPG-Examples.html ; https://supabase.com/docs/guides/platform/backups
