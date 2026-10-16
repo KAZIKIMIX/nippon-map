@@ -197,12 +197,18 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       if (options.isMobile) await canvasLocator.tap({ position: { x: cluster.x, y: cluster.y } });
       else await canvasLocator.click({ position: { x: cluster.x, y: cluster.y } });
       await page.waitForFunction(previousZoom => window.__nipponMapE2E.getZoom() > previousZoom + 0.2, cluster.zoom, { timeout: 15000 });
-      await page.evaluate(async () => {
+      // Center an actual station and zoom beyond clusterMaxZoom, including on narrow screens.
+      const pinTarget = railwayPayload.places.reduce((nearest, place) => {
+        const distance = p => (p.longitude - 139.7798) ** 2 + (p.latitude - 35.5494) ** 2;
+        return !nearest || distance(place) < distance(nearest) ? place : nearest;
+      }, null);
+      assert.ok(pinTarget, name + ": railway pin target missing");
+      await page.evaluate(async target => {
         const m = window.__nipponMapE2E;
         m.stop();
-        m.jumpTo({ center: [139.7798, 35.5494], zoom: 14.5 });
+        m.jumpTo({ center: [target.longitude, target.latitude], zoom: 16 });
         await new Promise(resolve => m.once("idle", resolve));
-      });
+      }, pinTarget);
       const pin = await page.evaluate(() => {
         const m = window.__nipponMapE2E;
         const features = m.queryRenderedFeatures({ layers: ["unclustered"] });
@@ -222,7 +228,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       await page.getByRole("button", { name: "施設の詳細を閉じる", exact: true }).click();
       // Exercise region selection using visible controls, then pan the actual canvas.
       await page.getByRole("combobox", { name: "都道府県で絞り込む" }).selectOption("東京都");
-      await page.waitForFunction(() => window.__nipponMapE2E.getZoom() > 6, undefined, { timeout: 30000 });
+      await page.waitForFunction(() => { const m = window.__nipponMapE2E; return m.getZoom() > 6 && m.getZoom() <= 11.1 && !m.isMoving(); }, undefined, { timeout: 30000 });
       await page.getByRole("combobox", { name: "市区町村で絞り込む" }).waitFor();
       const canvasBox = await canvasLocator.boundingBox();
       const centerBeforePan = await page.evaluate(() => window.__nipponMapE2E.getCenter().lng);
