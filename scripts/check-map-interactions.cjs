@@ -122,7 +122,7 @@ assert.ok(nearbyApi.includes("const deadline=AbortSignal.timeout(15000)"),"Nearb
 assert.ok(map.includes("if(value===cat&&!leavingMultiCategory)return"),"Exiting multi-category mode must reset stale map filters even when category is unchanged");
 console.log("Map, guide, search and nearby state contract checks passed");
 
-const nearbyApi=read("app/api/nearby/route.ts");
+
 assert.ok(map.includes('params.set("categories",multiCats.join(","))'),"Multi-category nearby requests must send selected category slugs to the API");
 assert.ok(nearbyApi.includes('const selectedCategories=category?[category]:categoryList!==null?categories:[...allowed]'),"Nearby API must filter selected categories before applying the 100-result limit");
 assert.ok(nearbyApi.includes('new Set(categories).size!==categories.length')&&nearbyApi.includes('categories.length>8'),"Nearby API must reject duplicate or excessive category selections");
