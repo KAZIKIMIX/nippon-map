@@ -17,7 +17,7 @@ export async function GET(req:NextRequest){
  const invalidCategories=categoryList!==null&&(categories.length<1||categories.length>8||new Set(categories).size!==categories.length||categories.some(slug=>!allowed.has(slug)));
  const invalidNumeric=["lat","lon","radius"].some(key=>params.has(key)&&!(params.get(key)||"").trim());
  const duplicatedParams=["lat","lon","radius","category","categories"].some(key=>params.getAll(key).length>1);
- if(duplicatedParams||invalidNumeric||!params.has("lat")||!params.has("lon")||!Number.isFinite(latitude)||!Number.isFinite(longitude)||Math.abs(latitude)>90||Math.abs(longitude)>180||!([5,10,30] as number[]).includes(radius)||category&&!allowed.has(category)||category!==null&&categoryList!==null||invalidCategories)
+ if(duplicatedParams||invalidNumeric||!params.has("lat")||!params.has("lon")||!Number.isFinite(latitude)||!Number.isFinite(longitude)||Math.abs(latitude)>90||Math.abs(longitude)>180||!([5,10,30] as number[]).includes(radius)||category!==null&&!allowed.has(category)||category!==null&&categoryList!==null||invalidCategories)
   return NextResponse.json({error:"Invalid nearby search parameters"},{status:400});
  const url=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
  if(!url||!key)return NextResponse.json({error:"Database unavailable"},{status:503});
