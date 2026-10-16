@@ -129,3 +129,5 @@ assert.ok(nearbyApi.includes('new Set(categories).size!==categories.length')&&ne
 assert.ok(map.includes('m.on("sourcedata",update)')&&map.includes('m.off("sourcedata",update)'),"Map source updates must survive source initialization and clean up listeners");
 
 assert.ok(map.includes('setMapError("地図の読み込みに失敗しました。通信状況を確認してページを再読み込みしてください。")')&&map.includes('if(!m.getSource("places")&&!m.isStyleLoaded())'),"Map initialization errors must be visible rather than silently cleared");
+
+assert.ok(nearby.includes('category!==null&&!allowed.has(category)'),"Nearby API must reject explicitly empty category values");
