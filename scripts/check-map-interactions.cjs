@@ -44,7 +44,7 @@ assert.ok(map.includes('throw new Error("Invalid places response")')&&map.includ
 assert.ok(map.includes("previousPlacesRetry.current!==placesRetry")&&map.includes("forceRefresh?null:placesCache.current.get(qs)"),"Manual retry must bypass cached category data");
 assert.ok(map.includes("if(!d.error&&(Array.isArray(d.places)||Array.isArray(d.summary)))"),"Only valid successful facility payloads may be cached");
 assert.ok(map.includes("d.summary?d.summary.map("), "Cached shelter summaries must restore map features");
-assert.ok(map.includes("rankGlobalSearchResults(globalResults.filter(p=>(!cat||p.category_slug===cat)&&(!prefecture||p.prefecture_name===prefecture)&&(!cityFilter||p.municipality_name===cityFilter)),normalizedQ)"),"Global search must honor selected category and region");
+assert.ok(map.includes("rankGlobalSearchResults(globalResults,normalizedQ)")&&map.includes("const searchRows=useMemo(")&&map.includes("setCategory(p.category_slug)")&&map.includes("setPrefecture(null)"),"Global search must rank results across categories and select the matching facility category");
 assert.ok(map.includes("(normalizedQ?searchRows:shown).filter(p=>"),"Map pins must match filtered search rows");
 assert.ok(map.includes('normalizedQ?searchRows.length+" 件"'),"Map search count must match filtered result rows rather than unfiltered global results");
 const photoApi=read("app/api/place-photo/route.ts");
