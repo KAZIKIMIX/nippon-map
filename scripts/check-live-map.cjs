@@ -15,6 +15,9 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       try {
       const errors = [];
       page.on("pageerror", error => errors.push(error.message));
+      const landingResponse = await page.goto(BASE, { waitUntil: "domcontentloaded", timeout: 45000 });
+      assert.ok(landingResponse?.ok(), name + ": landing page unavailable");
+      assert.ok(await page.locator('a[href^="/map"]').count() > 0, name + ": landing map entry missing");
       const target = new URL(BASE); target.pathname = "/map"; target.searchParams.set("e2e", "1");
       const response = await page.goto(target.toString(), { waitUntil: "domcontentloaded", timeout: 45000 });
       assert.ok(response && response.ok(), name + ": homepage unavailable");
@@ -35,7 +38,17 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       const detail = page.locator('aside.detail[aria-label="選択した施設の詳細"]');
       assert.ok(await detail.isVisible(), name + ": selected facility detail panel is hidden");
       assert.ok((await detail.innerText()).trim().length > 10, name + ": selected facility details are empty");
+      const googleHref = await detail.locator('a[href^="https://www.google.com/maps/search/"]').getAttribute("href");
+      const [latitude, longitude] = new URL(googleHref).searchParams.get("query").split(",").map(Number);
+      const visibleSelectedPoint = await page.evaluate(({ latitude, longitude }) => {
+        const m = window.__nipponMapE2E;
+        const point = m.project([longitude, latitude]);
+        const canvas = m.getCanvas();
+        return point.x >= 0 && point.y >= 0 && point.x <= canvas.clientWidth && point.y <= canvas.clientHeight;
+      }, { latitude, longitude });
+      assert.ok(visibleSelectedPoint, name + ": selected facility is outside the map viewport");
 
+      await page.getByRole("button", { name: "施設の詳細を閉じる", exact: true }).click();
       const category = page.locator('select[aria-label="カテゴリを選ぶ"]');
       if (await category.isVisible()) {
         await category.selectOption("railway");
@@ -137,8 +150,9 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
         const zoomIn = page.locator(".maplibregl-ctrl-zoom-in").first();
         await zoomIn.waitFor({ timeout: 10000 });
         assert.equal(await zoomIn.isEnabled(), true, name + ": zoom control disabled");
+        const previousZoom = await page.evaluate(() => window.__nipponMapE2E.getZoom());
         await zoomIn.click();
-        await page.waitForTimeout(700);
+        await page.waitForFunction(previous => window.__nipponMapE2E.getZoom() > previous + 0.2, previousZoom, { timeout: 15000 });
         assert.equal(await zoomIn.isEnabled(), true, name + ": zoom control stopped responding");
       }
       // Inspect the real MapLibre instance and verify pin/cluster rendering and expansion.
@@ -167,13 +181,21 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
         const m = window.__nipponMapE2E;
         const clusters = m.queryRenderedFeatures({ layers: ["clusters"] });
         if (!clusters.length) return null;
-        const f = clusters[0];
+        const canvas = m.getCanvas();
+        const rect = canvas.getBoundingClientRect();
+        const f = clusters.find(feature => {
+          const point = m.project(feature.geometry.coordinates);
+          return document.elementFromPoint(rect.left + point.x, rect.top + point.y) === canvas;
+        });
+        if (!f) return null;
         const coordinates = f.geometry.coordinates;
         const point = m.project(coordinates);
         return { x: point.x, y: point.y, zoom: m.getZoom() };
       });
       assert.ok(cluster, name + ": no visible cluster to expand");
-      await page.locator(".maplibregl-canvas").first().click({ position: { x: cluster.x, y: cluster.y }, force: true });
+      const canvasLocator = page.locator(".maplibregl-canvas").first();
+      if (options.isMobile) await canvasLocator.tap({ position: { x: cluster.x, y: cluster.y } });
+      else await canvasLocator.click({ position: { x: cluster.x, y: cluster.y } });
       await page.waitForFunction(previousZoom => window.__nipponMapE2E.getZoom() > previousZoom + 0.2, cluster.zoom, { timeout: 15000 });
       await page.evaluate(async () => {
         const m = window.__nipponMapE2E;
@@ -186,11 +208,51 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
         const features = m.queryRenderedFeatures({ layers: ["unclustered"] });
         if (!features.length) return null;
         const point = m.project(features[0].geometry.coordinates);
-        return { x: point.x, y: point.y, id: Number(features[0].properties.id) };
+        const y = point.y - 8;
+        const ids = m.queryRenderedFeatures([point.x, y], { layers: ["unclustered"] }).map(f => Number(f.properties.id));
+        return { x: point.x, y, ids };
       });
       assert.ok(pin, name + ": no visible pin to select");
-      await page.locator(".maplibregl-canvas").first().click({ position: { x: pin.x, y: pin.y - 8 }, force: true });
-      await page.waitForFunction(id => { const detail = document.querySelector('aside.detail'); return detail?.textContent?.trim().length > 10 && document.querySelector('.maplibregl-map'); }, pin.id, { timeout: 15000 });
+      const pinNames = railwayPayload.places.filter(p => pin.ids.includes(p.id)).map(p => p.name);
+      assert.ok(pinNames.length > 0, name + ": rendered pin does not match railway API data");
+      if (options.isMobile) await canvasLocator.tap({ position: { x: pin.x, y: pin.y } });
+      else await canvasLocator.click({ position: { x: pin.x, y: pin.y } });
+      await page.waitForFunction(names => names.includes(document.querySelector("aside.detail h2")?.textContent), pinNames, { timeout: 15000 });
+      console.log(name + ": rendered pin selection and cluster expansion PASS");
+      await page.getByRole("button", { name: "施設の詳細を閉じる", exact: true }).click();
+      // Exercise region selection using visible controls, then pan the actual canvas.
+      await page.getByRole("combobox", { name: "都道府県で絞り込む" }).selectOption("東京都");
+      await page.waitForFunction(() => window.__nipponMapE2E.getZoom() > 6, undefined, { timeout: 30000 });
+      await page.getByRole("combobox", { name: "市区町村で絞り込む" }).waitFor();
+      const canvasBox = await canvasLocator.boundingBox();
+      const centerBeforePan = await page.evaluate(() => window.__nipponMapE2E.getCenter().lng);
+      await page.mouse.move(canvasBox.x + canvasBox.width * .5, canvasBox.y + canvasBox.height * .6);
+      await page.mouse.down();
+      await page.mouse.move(canvasBox.x + canvasBox.width * .65, canvasBox.y + canvasBox.height * .6, { steps: 12 });
+      await page.mouse.up();
+      await page.waitForFunction(previous => Math.abs(window.__nipponMapE2E.getCenter().lng - previous) > .0001, centerBeforePan, { timeout: 10000 });
+      // Simulate one failed search request in this browser only, then retry against production.
+      await page.route("**/api/search?*", route => route.fulfill({ status: 503, contentType: "application/json", body: JSON.stringify({ error: "検証用の一時的な検索エラー" }) }));
+      await search.fill("東京駅");
+      await page.getByRole("button", { name: "再検索する", exact: true }).waitFor({ timeout: 20000 });
+      await page.unroute("**/api/search?*");
+      await page.getByRole("button", { name: "再検索する", exact: true }).click();
+      await results.first().waitFor({ timeout: 20000 });
+      assert.ok((await results.first().getAttribute("aria-label")).includes("東京駅"), name + ": search did not recover after retry");
+      await search.fill("");
+      console.log(name + ": prefecture, map drag, API error and retry PASS");
+      if (!options.isMobile) {
+        await page.getByRole("button", { name: "＋ 複数カテゴリを選択", exact: true }).click();
+        await page.locator(".chips button").filter({ hasText: "空港" }).first().click();
+        await page.waitForFunction(() => {
+          const data = window.__nipponMapE2E.getSource("places").serialize().data;
+          return typeof data === "object" && data.features?.some(f => f.properties.category === "airport") && data.features?.some(f => f.properties.category === "railway");
+        }, undefined, { timeout: 45000 });
+        assert.equal(await page.locator(".chips button").filter({ hasText: "空港" }).first().getAttribute("aria-pressed"), "true");
+        assert.equal(await page.locator(".chips button").filter({ hasText: "鉄道駅" }).first().getAttribute("aria-pressed"), "true");
+        console.log(name + ": multiple category pins PASS");
+      }
+
       await page.screenshot({ path: `test-results/${name}-map.png`, fullPage: true });
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 5);
       assert.equal(overflow, false, name + ": horizontal overflow");
