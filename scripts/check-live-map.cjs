@@ -5,6 +5,7 @@ fs.mkdirSync("test-results", { recursive: true });
 const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
 (async () => {
   const browser = await chromium.launch({ headless: true });
+  const failures = [];
   try {
     for (const [name, options] of [
       ["desktop", { viewport: { width: 1440, height: 900 } }],
@@ -28,6 +29,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       await results.first().click();
       assert.equal(await results.first().getAttribute("aria-pressed"), "true", name + ": selecting search result failed");
       await page.waitForFunction(() => window.__nipponMapE2E?.getZoom() >= 12, undefined, { timeout: 15000 });
+      console.log(name + ": search selection and facility zoom PASS");
       const selectedMapCenter = await page.evaluate(() => { const m = window.__nipponMapE2E; return m ? { lng: m.getCenter().lng, lat: m.getCenter().lat, zoom: m.getZoom() } : null; });
       assert.ok(selectedMapCenter, name + ": map instance unavailable after search selection");
       const detail = page.locator('aside.detail[aria-label="選択した施設の詳細"]');
@@ -56,7 +58,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
         }
         assert.equal(await page.locator('.chips button').filter({ hasText: "鉄道駅" }).first().getAttribute("aria-pressed"), "true", name + ": rapid category switching selected the wrong category");
       }
-      await page.waitForFunction(() => { const loading = document.querySelector(".mapbox [role=status]"); const selected = document.querySelector('select[aria-label="カテゴリを選ぶ"]'); const railwayChip = [...document.querySelectorAll(".chips button")].find(button => button.textContent?.includes("鉄道駅")); return !loading && (selected && getComputedStyle(selected).display !== "none" ? selected.value === "railway" : railwayChip?.getAttribute("aria-pressed") === "true"); }, undefined, { timeout: 45000 });
+      await page.waitForFunction(() => { const loading = [...document.querySelectorAll(".mapbox [role=status]")].some(el => el.textContent?.includes("施設データを読み込み中")); const selected = document.querySelector('select[aria-label="カテゴリを選ぶ"]'); const railwayChip = [...document.querySelectorAll(".chips button")].find(button => button.textContent?.includes("鉄道駅")); return !loading && (selected && getComputedStyle(selected).display !== "none" ? selected.value === "railway" : railwayChip?.getAttribute("aria-pressed") === "true"); }, undefined, { timeout: 45000 });
       assert.equal(await page.locator(".mapbox [role=alert]").count(), 0, name + ": map displays an error after rapid category switching");
       const mapErrorText = await page.locator(".error").allInnerTexts();
       assert.ok(!mapErrorText.some(text => /地図の読み込みに失敗|施設データを取得できません/.test(text)), name + ": map or facility data load error");
@@ -198,11 +200,12 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       } catch (error) {
         await page.screenshot({ path: `test-results/${name}-failure.png`, fullPage: true }).catch(() => {});
         fs.writeFileSync(`test-results/${name}-error.txt`, String(error?.stack || error));
-        throw error;
+        failures.push({ name, error: String(error?.stack || error) });
       } finally {
         await page.close();
       }
     }
+    assert.deepEqual(failures, [], "Desktop/mobile browser verification failures");
   } finally {
     await browser.close();
   }
