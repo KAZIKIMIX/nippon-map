@@ -10,6 +10,9 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
     for (const [name, options] of [
       ["desktop", { viewport: { width: 1440, height: 900 } }],
       ["mobile", { ...devices["iPhone 13"], defaultBrowserType: undefined }],
+      ["mobile-375", { ...devices["iPhone 13"], viewport: { width: 375, height: 812 }, defaultBrowserType: undefined }],
+      ["mobile-430", { ...devices["iPhone 13"], viewport: { width: 430, height: 932 }, defaultBrowserType: undefined }],
+      ["tablet-768", { ...devices["iPhone 13"], viewport: { width: 768, height: 1024 }, defaultBrowserType: undefined }],
     ]) {
       const page = await browser.newPage(options);
       try {
@@ -247,7 +250,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       assert.ok((await results.first().getAttribute("aria-label")).includes("東京駅"), name + ": search did not recover after retry");
       await search.fill("");
       console.log(name + ": prefecture, map drag, API error and retry PASS");
-      if (!options.isMobile) {
+      {
         await page.getByRole("button", { name: "＋ 複数カテゴリを選択", exact: true }).click();
         await page.locator(".chips button").filter({ hasText: "空港" }).first().click();
         await page.waitForFunction(() => {
