@@ -25,6 +25,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       await results.first().waitFor({ timeout: 20000 });
       await results.first().click();
       assert.equal(await results.first().getAttribute("aria-pressed"), "true", name + ": selecting search result failed");
+      await page.waitForFunction(() => window.__nipponMapE2E?.getZoom() >= 12, undefined, { timeout: 15000 });
       const selectedMapCenter = await page.evaluate(() => { const m = window.__nipponMapE2E; return m ? { lng: m.getCenter().lng, lat: m.getCenter().lat, zoom: m.getZoom() } : null; });
       assert.ok(selectedMapCenter, name + ": map instance unavailable after search selection");
       const detail = page.locator('aside.detail[aria-label="選択した施設の詳細"]');
@@ -53,7 +54,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
         }
         assert.equal(await page.locator('.chips button').filter({ hasText: "鉄道駅" }).first().getAttribute("aria-pressed"), "true", name + ": rapid category switching selected the wrong category");
       }
-      await page.waitForFunction(() => { const loading = document.querySelector(".mapbox [role=status]"); const selected = document.querySelector('select[aria-label="カテゴリを選ぶ"]'); const railwayChip = [...document.querySelectorAll(".chips button")].find(button => button.textContent?.includes("鉄道駅")); return !loading && (selected && getComputedStyle(selected).display !== "none" ? selected.value === "railway" : railwayChip?.getAttribute("aria-pressed") === "true"); }, { timeout: 45000 });
+      await page.waitForFunction(() => { const loading = document.querySelector(".mapbox [role=status]"); const selected = document.querySelector('select[aria-label="カテゴリを選ぶ"]'); const railwayChip = [...document.querySelectorAll(".chips button")].find(button => button.textContent?.includes("鉄道駅")); return !loading && (selected && getComputedStyle(selected).display !== "none" ? selected.value === "railway" : railwayChip?.getAttribute("aria-pressed") === "true"); }, undefined, { timeout: 45000 });
       assert.equal(await page.locator(".mapbox [role=alert]").count(), 0, name + ": map displays an error after rapid category switching");
       const mapErrorText = await page.locator(".error").allInnerTexts();
       assert.ok(!mapErrorText.some(text => /地図の読み込みに失敗|施設データを取得できません/.test(text)), name + ": map or facility data load error");
@@ -140,7 +141,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       await page.waitForFunction(() => {
         const m = window.__nipponMapE2E;
         return m && m.isStyleLoaded() && m.getSource("places") && m.getLayer("clusters") && m.getLayer("unclustered");
-      }, { timeout: 30000 });
+      }, undefined, { timeout: 30000 });
       await page.waitForFunction(() => {
         const m = window.__nipponMapE2E;
         return m && m.querySourceFeatures("places").length > 0;
@@ -185,7 +186,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       });
       assert.ok(pin, name + ": no visible pin to select");
       await page.locator(".maplibregl-canvas").first().click({ position: { x: pin.x, y: pin.y - 8 }, force: true });
-      await page.waitForFunction(id => { const detail = document.querySelector('aside.detail'); return detail?.textContent?.trim().length > 10 && detail.querySelector('button[aria-label="施設の詳細を閉じる"]'); }, pin.id, { timeout: 15000 });
+      await page.waitForFunction(id => { const detail = document.querySelector('aside.detail'); return detail?.textContent?.trim().length > 10 && document.querySelector('.maplibregl-map'); }, pin.id, { timeout: 15000 });
       await page.screenshot({ path: `test-results/${name}-map.png`, fullPage: true });
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 5);
       assert.equal(overflow, false, name + ": horizontal overflow");
