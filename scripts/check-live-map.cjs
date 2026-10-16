@@ -19,6 +19,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       assert.ok(response && response.ok(), name + ": homepage unavailable");
       await page.locator('input[aria-label="施設名・地域を検索"]').waitFor({ timeout: 30000 });
       const search = page.locator('input[aria-label="施設名・地域を検索"]');
+      await page.waitForFunction(() => { const input = document.querySelector('input[aria-label="施設名・地域を検索"]'); return input && !input.disabled && window.__nipponMapE2E; }, undefined, { timeout: 30000 });
       await search.fill("羽田");
       await page.waitForTimeout(1800);
       assert.equal(await search.inputValue(), "羽田", name + ": search failed");
@@ -146,7 +147,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       await page.waitForFunction(() => {
         const m = window.__nipponMapE2E;
         return m && m.querySourceFeatures("places").length > 0;
-      }, { timeout: 45000 });
+      }, undefined, { timeout: 45000 });
       const mapState = await page.evaluate(() => {
         const m = window.__nipponMapE2E;
         const features = m.querySourceFeatures("places");
@@ -206,3 +207,4 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
     await browser.close();
   }
 })().catch(e => { console.error(e); process.exitCode = 1; });
+
