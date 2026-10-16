@@ -1,0 +1,23 @@
+const fs=require('node:fs'),ts=require('typescript'),assert=require('node:assert/strict');
+const {NextRequest}=require('next/server');
+let rows=[],calls=[],failAt=null;
+const output=ts.transpileModule(fs.readFileSync('app/api/places/route.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText;
+const moduleUnderTest={exports:{}};
+new Function('exports','module','require',output)(moduleUnderTest.exports,moduleUnderTest,name=>name==='@supabase/supabase-js'?{createClient:()=>({rpc:()=>({range:async(from,to)=>{calls.push([from,to]);return from===failAt?{data:null,error:{message:'private upstream failure'}}:{data:rows.slice(from,to+1),error:null};}})})}:require(name));
+process.env.NEXT_PUBLIC_SUPABASE_URL='https://example.supabase.co';
+process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY='test-public-key';
+const request=()=>new NextRequest('https://nippon-map.vercel.app/api/places?category=park&prefecture='+encodeURIComponent('東京都'));
+const run=()=>moduleUnderTest.exports.GET(request());
+(async()=>{
+ rows=Array.from({length:348},(_,id)=>({id,name:'公園'+id}));
+ let response=await run();assert.equal(response.status,200);assert.equal((await response.json()).places.length,348);
+ assert.deepEqual(calls,[[0,999]],'A small category must not request three unnecessary empty pages');
+ rows=Array.from({length:9046},(_,id)=>({id,name:'駅'+id}));calls=[];
+ response=await run();assert.equal(response.status,200);assert.deepEqual((await response.json()).places.map(p=>p.id),rows.map(p=>p.id),'All pages retain stable order');
+ assert.equal(calls.length,13);assert.deepEqual(calls[0],[0,999]);assert.deepEqual(calls.at(-1),[12000,12999]);
+ failAt=1000;calls=[];response=await run();assert.equal(response.status,503);let body=await response.json();assert.deepEqual(body.places,[]);assert.ok(!JSON.stringify(body).includes('private'));
+ failAt=null;rows=Array.from({length:20000},(_,id)=>({id}));response=await run();assert.equal(response.status,503,'Do not silently truncate at the page cap');
+ rows=[null];response=await run();assert.equal(response.status,503,'Malformed upstream rows remain an error');
+ rows=[];calls=[];response=await run();assert.equal(response.status,200);assert.deepEqual((await response.json()).places,[]);assert.equal(calls.length,1);
+ console.log('Places API tests passed: one-request small categories, 9046-row pagination, ordering, upstream failure, malformed rows and page cap.');
+})().catch(error=>{console.error(error);process.exit(1)});
