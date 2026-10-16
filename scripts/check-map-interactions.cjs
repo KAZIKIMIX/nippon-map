@@ -131,3 +131,10 @@ assert.ok(map.includes('m.on("sourcedata",update)')&&map.includes('m.off("source
 assert.ok(map.includes('setMapError("地図の読み込みに失敗しました。通信状況を確認してページを再読み込みしてください。")')&&map.includes('if(!m.getSource("places")&&!m.isStyleLoaded())'),"Map initialization errors must be visible rather than silently cleared");
 
 assert.ok(nearbyApi.includes('category!==null&&!allowed.has(category)'),"Nearby API must reject explicitly empty category values");
+
+assert.ok(map.includes('if(valid.length){setMultiCats(valid);setCategory(valid[0]);setPrefecture(state.prefecture);setQ(state.query);setCityFilter(state.city||"")'),"Multi-category shared links must restore prefecture, query and city");
+assert.ok(map.includes('multiCats.includes(place.category_slug)&&(!prefecture||place.prefecture_name===prefecture)'),"Shared multi-category place must match selected category and prefecture");
+assert.ok(map.includes('(!cityFilter||place.municipality_name===cityFilter)&&(!normalizedQ||normalizedQ.split(/\\s+/).every(term=>'),"Shared multi-category place must match city and search terms");
+assert.ok(map.includes('if(selected?.id===p.id){const activeMap=map.current')&&map.includes('activeMap.flyTo({center:[p.longitude,p.latitude]'),"Re-selecting search result must recenter map");
+assert.ok(map.includes('const move=()=>{if(map.current!==m)return;m.stop();m.flyTo({center:[selected.longitude,selected.latitude]'),"New search result selection must fly to selected coordinates");
+assert.ok(map.includes('Promise.allSettled(multiCats.map(')&&map.includes('controller.abort()')&&map.includes('if(!alive||controller.signal.aborted)return'),"Rapid category switching must cancel and ignore stale loads");
