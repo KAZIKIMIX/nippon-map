@@ -67,6 +67,61 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       assert.ok(nearbyPayload.places.every(p => ["airport", "railway"].includes(p.category_slug)), name + ": multi-category nearby API returned an unselected category");
       const invalidNearbyResponse = await page.request.get(BASE + "/api/nearby?lat=35.5494&lon=139.7798&radius=5&categories=airport,airport");
       assert.equal(invalidNearbyResponse.status(), 400, name + ": nearby API accepted duplicate categories");
+      // Twelve independent negative API checks: malformed filters must not broaden pin results.
+      const invalidNearbyCases = [
+        [
+                "missing latitude",
+                "/api/nearby?lon=139.7798&radius=5"
+        ],
+        [
+                "missing longitude",
+                "/api/nearby?lat=35.5494&radius=5"
+        ],
+        [
+                "empty latitude",
+                "/api/nearby?lat=&lon=139.7798&radius=5"
+        ],
+        [
+                "non-numeric latitude",
+                "/api/nearby?lat=abc&lon=139.7798&radius=5"
+        ],
+        [
+                "out-of-range latitude",
+                "/api/nearby?lat=91&lon=139.7798&radius=5"
+        ],
+        [
+                "out-of-range longitude",
+                "/api/nearby?lat=35.5494&lon=181&radius=5"
+        ],
+        [
+                "unsupported radius",
+                "/api/nearby?lat=35.5494&lon=139.7798&radius=100"
+        ],
+        [
+                "empty category",
+                "/api/nearby?lat=35.5494&lon=139.7798&radius=5&category="
+        ],
+        [
+                "unknown category",
+                "/api/nearby?lat=35.5494&lon=139.7798&radius=5&category=not-real"
+        ],
+        [
+                "mixed category parameters",
+                "/api/nearby?lat=35.5494&lon=139.7798&radius=5&category=airport&categories=railway"
+        ],
+        [
+                "duplicate latitude parameters",
+                "/api/nearby?lat=35.5494&lat=35.6&lon=139.7798&radius=5"
+        ],
+        [
+                "more than eight categories",
+                "/api/nearby?lat=35.5494&lon=139.7798&radius=5&categories=airport,railway,aquarium,zoo,park,library,toilet,museum,castle"
+        ]
+];
+      for (const [label, path] of invalidNearbyCases) {
+        const res = await page.request.get(BASE + path);
+        assert.equal(res.status(), 400, name + ": nearby API accepted " + label);
+      }
       const map = page.locator(".maplibregl-map").first();
       await map.waitFor({ timeout: 15000 });
       {
