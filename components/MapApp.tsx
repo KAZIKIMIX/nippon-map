@@ -148,7 +148,10 @@ export default function MapApp(){
   catch{setShareFallback(url);setShareMessage("リンクをコピーできませんでした。以下のURLをコピーしてください。")}
  }
  async function shareMap(){
-  const url=createSharedMapUrl(window.location.origin,{category:cat,prefecture,query:q,city:cityFilter,placeId:selected?.id??null});
+  const sharedUrl=new URL(createSharedMapUrl(window.location.origin,{category:cat,prefecture,query:q,city:cityFilter,placeId:selected?.id??null}));
+  // Keep selected categories in shared links; the URL loader restores up to eight.
+  if(multiCats.length)sharedUrl.searchParams.set("categories",multiCats.join(","));
+  const url=sharedUrl.toString();
   if(typeof navigator.share==="function"){
    try{await navigator.share({title:selected?`${selected.name}｜にっぽんマップ`:"にっぽんマップ",text:selected?`${selected.name}を地図でチェック`:"日本の施設・スポットを地図で探そう",url});trackUsage("share_copy",cat);setShareFallback("");setShareMessage("共有しました。");return}
    catch(e){if((e as Error)?.name==="AbortError")return}
