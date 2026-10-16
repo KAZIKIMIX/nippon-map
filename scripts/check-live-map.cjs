@@ -53,6 +53,8 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       }
       await page.waitForFunction(() => { const loading = document.querySelector(".mapbox [role=status]"); const selected = document.querySelector('select[aria-label="カテゴリを選ぶ"]'); const railwayChip = [...document.querySelectorAll(".chips button")].find(button => button.textContent?.includes("鉄道駅")); return !loading && (selected && getComputedStyle(selected).display !== "none" ? selected.value === "railway" : railwayChip?.getAttribute("aria-pressed") === "true"); }, { timeout: 45000 });
       assert.equal(await page.locator(".mapbox [role=alert]").count(), 0, name + ": map displays an error after rapid category switching");
+      const mapErrorText = await page.locator(".error").allInnerTexts();
+      assert.ok(!mapErrorText.some(text => /地図の読み込みに失敗|施設データを取得できません/.test(text)), name + ": map or facility data load error");
       const railwayResponse = await page.request.get(BASE + "/api/places?category=railway");
       assert.equal(railwayResponse.ok(), true, name + ": railway category API failed");
       const railwayPayload = await railwayResponse.json();
@@ -77,6 +79,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
         await page.waitForTimeout(700);
         assert.equal(await zoomIn.isEnabled(), true, name + ": zoom control stopped responding");
       }
+      await page.screenshot({ path: `test-results/${name}-map.png`, fullPage: true });
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 5);
       assert.equal(overflow, false, name + ": horizontal overflow");
       assert.deepEqual(errors, [], name + ": JavaScript errors");
