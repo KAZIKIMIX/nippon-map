@@ -1,0 +1,30 @@
+name: JR East official URL batch research
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/jreast-url-batch.yml'
+permissions:
+  contents: read
+jobs:
+  collect-and-match:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'requests==2.32.3' 'beautifulsoup4==4.12.3'
+      - name: Collect official timetable results and match station records
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          JREAST_DRY_RUN: 'true'
+        run: python scripts/collect-jreast-batch.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jreast-official-match-results
+          path: jreast-batch-results/
+          retention-days: 14
