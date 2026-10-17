@@ -138,3 +138,10 @@ assert.ok(map.includes('(!cityFilter||place.municipality_name===cityFilter)&&(!n
 assert.ok(map.includes('if(selected?.id===p.id){const activeMap=map.current')&&map.includes('activeMap.flyTo({center:[p.longitude,p.latitude]'),"Re-selecting search result must recenter map");
 assert.ok(map.includes('const move=()=>{if(map.current!==m)return;m.stop();m.flyTo({center:[selected.longitude,selected.latitude]'),"New search result selection must fly to selected coordinates");
 assert.ok(map.includes('Promise.allSettled(multiCats.map(')&&map.includes('controller.abort()')&&map.includes('if(!alive||controller.signal.aborted)return'),"Rapid category switching must cancel and ignore stale loads");
+
+assert.ok(map.includes('const resultRows=searchRows.slice(0,resultLimit)'),"Search result limit must apply to ranked rows");
+assert.ok(map.includes('placeIndex.current=new Map((sortByDistance&&nearbyLocation||normalizedQ?searchRows:shown)'),"Search map pin index must reflect current search rows");
+assert.ok(map.includes('setMultiCats([]);setCategory(p.category_slug);setPrefecture(null);setCityFilter("");setSelected(p)'),"Selecting a global search result must reset incompatible filters and select its category");
+assert.ok(map.includes('if(!alive||controller.signal.aborted)return;const successful=results.filter('),"Stale multi-category fetch results must not replace the current selection");
+assert.ok(map.includes('setError(successful.length!==results.length?'),"Partial multi-category failure must remain visible");
+assert.ok(map.includes('m.stop();m.flyTo({center:[selected.longitude,selected.latitude],zoom:Math.max(m.getZoom(),13)'),"Selecting a place must stop previous animations and zoom to at least level 13");
