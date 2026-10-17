@@ -1,0 +1,31 @@
+name: Official URL audit
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/audit-official-urls.cjs'
+      - '.github/workflows/official-url-audit.yml'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Audit published official URLs
+        run: node scripts/audit-official-urls.cjs
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY }}
+          URL_AUDIT_CONCURRENCY: '12'
+          URL_AUDIT_TIMEOUT_MS: '10000'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: official-url-audit
+          path: audit-results/official-urls.json
+          if-no-files-found: warn
