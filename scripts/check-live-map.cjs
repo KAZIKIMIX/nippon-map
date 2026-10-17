@@ -85,6 +85,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       } else {
         await page.locator('.chips button').filter({hasText:"空港"}).first().click();
       }
+      try {
       await page.waitForFunction(() => {
         const map=window.__nipponMapE2E;
         const selected=document.querySelector('select[aria-label="カテゴリを選ぶ"]');
@@ -93,6 +94,10 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
         const loading=[...document.querySelectorAll(".mapbox [role=status]")].some(e=>e.textContent?.includes("施設データを読み込み中"));
         return map&&map.getZoom()>=12&&active&&!loading&&map.getSource("places")&&map.querySourceFeatures("places").some(f=>!f.properties?.cluster&&f.properties?.category==="airport");
       },undefined,{timeout:45000});
+      } catch (error) {
+        const snapshot=await page.evaluate(()=>{const m=window.__nipponMapE2E;const f=m?.querySourceFeatures("places")||[];return {zoom:m?.getZoom(),select:document.querySelector('select[aria-label="カテゴリを選ぶ"]')?.value,pressed:[...document.querySelectorAll(".chips button[aria-pressed=true]")].map(e=>e.textContent?.trim()),categories:[...new Set(f.map(x=>x.properties?.category))],features:f.length,alerts:[...document.querySelectorAll(".mapbox [role=alert]")].map(e=>e.textContent),loading:[...document.querySelectorAll(".mapbox [role=status]")].map(e=>e.textContent)}});
+        throw new Error(name+": high-zoom category timeout "+JSON.stringify(snapshot),{cause:error});
+      }
       const categoryDebug=await page.evaluate(()=>{const m=window.__nipponMapE2E;const features=m?.querySourceFeatures("places")||[];return {zoom:m?.getZoom(),selected:document.querySelector('select[aria-label="カテゴリを選ぶ"]')?.value,pressed:[...document.querySelectorAll(".chips button[aria-pressed=true]")].map(x=>x.textContent?.trim()),featureCount:features.length,categoryCounts:features.reduce((a,f)=>{const k=f.properties?.cluster?"cluster":f.properties?.category||"unknown";a[k]=(a[k]||0)+1;return a},{}),alerts:[...document.querySelectorAll(".mapbox [role=alert]")].map(x=>x.textContent),loading:[...document.querySelectorAll(".mapbox [role=status]")].map(x=>x.textContent)}});
       console.log(name+": high-zoom category diagnostic "+JSON.stringify(categoryDebug));
       assert.equal(await page.locator(".mapbox [role=alert]").count(),0,name+": category switch after zoom raised error");
