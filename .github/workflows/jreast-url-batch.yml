@@ -24,6 +24,10 @@ jobs:
           JREAST_DRY_RUN: 'true'
           JREAST_STATIONS_FILE: research/jreast_missing_snapshot_20261017.json
         run: python scripts/collect-jreast-batch.py
+      - name: Verify all 1007 stations against independently confirmed URL candidates
+        if: always()
+        run: |
+          node scripts/verify-jreast-urls.cjs research/jreast_missing_snapshot_20261017.json jreast-batch-results/official.json jreast-batch-results/jreast
       - uses: actions/upload-artifact@v4
         if: always()
         with:
