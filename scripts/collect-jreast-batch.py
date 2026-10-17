@@ -25,6 +25,10 @@ def db_get(path,params):
   r=session.get(BASE+"/rest/v1/"+path,params=params,headers=h,timeout=30);r.raise_for_status();return r.json()
  except Exception as e: print("DB_GET_ERROR",str(e)[:200]);return []
 def stations():
+ snapshot=os.environ.get("JREAST_STATIONS_FILE")
+ if snapshot and Path(snapshot).exists():
+  data=json.loads(Path(snapshot).read_text())
+  return [{"id":p["id"],"name":p["name"],"prefecture_name":p["prefecture_name"],"metadata":{"routes":p.get("routes",[]),"operators":p.get("operators",[])},"official_url":p.get("official_url")} for p in data]
  cats=db_get("categories",{"select":"id","slug":"eq.railway"})
  if not cats: return []
  result=[]
