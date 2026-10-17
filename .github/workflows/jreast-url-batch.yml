@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/jreast-url-batch.yml'
+      - 'scripts/collect-jreast-batch.py'
 permissions:
   contents: read
 jobs:
@@ -21,6 +22,7 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           JREAST_DRY_RUN: 'true'
+          JREAST_STATIONS_FILE: research/jreast_missing_snapshot_20261017.json
         run: python scripts/collect-jreast-batch.py
       - uses: actions/upload-artifact@v4
         if: always()
