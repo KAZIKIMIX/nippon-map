@@ -78,6 +78,28 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       assert.equal(await page.locator(".mapbox [role=alert]").count(), 0, name + ": map displays an error after rapid category switching");
       const mapErrorText = await page.locator(".error").allInnerTexts();
       assert.ok(!mapErrorText.some(text => /地図の読み込みに失敗|施設データを取得できません/.test(text)), name + ": map or facility data load error");
+      // Regression: changing category at a high zoom must refresh the actual MapLibre source.
+      await page.evaluate(() => window.__nipponMapE2E.jumpTo({center:[139.7798,35.5494],zoom:13}));
+      if (await category.isVisible()) {
+        await category.selectOption("airport");
+      } else {
+        await page.locator('.chips button').filter({hasText:"空港"}).first().click();
+      }
+      await page.waitForFunction(() => {
+        const map=window.__nipponMapE2E;
+        const selected=document.querySelector('select[aria-label="カテゴリを選ぶ"]');
+        const chip=[...document.querySelectorAll('.chips button')].find(b=>b.textContent?.includes("空港"));
+        const active=selected&&getComputedStyle(selected).display!=="none"?selected.value==="airport":chip?.getAttribute("aria-pressed")==="true";
+        const loading=[...document.querySelectorAll(".mapbox [role=status]")].some(e=>e.textContent?.includes("施設データを読み込み中"));
+        return map&&map.getZoom()>=12&&active&&!loading&&map.getSource("places")&&map.querySourceFeatures("places").some(f=>!f.properties?.cluster);
+      },undefined,{timeout:45000});
+      assert.equal(await page.locator(".mapbox [role=alert]").count(),0,name+": category switch after zoom raised error");
+      const afterZoom=await page.evaluate(()=>({zoom:window.__nipponMapE2E.getZoom(),features:window.__nipponMapE2E.querySourceFeatures("places").length}));
+      assert.ok(afterZoom.zoom>=12&&afterZoom.features>0,name+": category switch after zoom lost pins");
+      console.log(name+": high-zoom category change and MapLibre pins PASS");
+      if (await category.isVisible()) await category.selectOption("railway");
+      else await page.locator('.chips button').filter({hasText:"鉄道駅"}).first().click();
+      await page.waitForFunction(() => [...document.querySelectorAll(".mapbox [role=status]")].every(e=>!e.textContent?.includes("施設データを読み込み中")),undefined,{timeout:45000});
       const railwayResponse = await page.request.get(BASE + "/api/places?category=railway");
       assert.equal(railwayResponse.ok(), true, name + ": railway category API failed");
       const railwayPayload = await railwayResponse.json();
