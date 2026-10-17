@@ -1,0 +1,12251 @@
+[
+ {
+  "id": 3563,
+  "name": "槻木駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線",
+   "阿武隈急行線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "阿武隈急行"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 3582,
+  "name": "好摩駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "いわて銀河鉄道線",
+   "花輪線"
+  ],
+  "operators": [
+   "アイジーアールいわて銀河鉄道",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 3714,
+  "name": "上田駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "しなの鉄道線",
+   "別所線",
+   "北陸新幹線"
+  ],
+  "operators": [
+   "しなの鉄道",
+   "上田電鉄",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 3836,
+  "name": "軽井沢駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "しなの鉄道線",
+   "北陸新幹線"
+  ],
+  "operators": [
+   "しなの鉄道",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 3992,
+  "name": "桐生駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "わたらせ渓谷線",
+   "両毛線"
+  ],
+  "operators": [
+   "わたらせ渓谷鐵道",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 4033,
+  "name": "小田原駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "大雄山線",
+   "小田原線",
+   "東海道新幹線",
+   "東海道線",
+   "鉄道線"
+  ],
+  "operators": [
+   "伊豆箱根鉄道",
+   "小田急箱根",
+   "小田急電鉄",
+   "東日本旅客鉄道",
+   "東海旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 4048,
+  "name": "下館駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常総線",
+   "水戸線",
+   "真岡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "真岡鐵道",
+   "関東鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 4093,
+  "name": "橋本駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "横浜線",
+   "相模原線",
+   "相模線"
+  ],
+  "operators": [
+   "京王電鉄",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 4260,
+  "name": "八丁畷駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線",
+   "本線"
+  ],
+  "operators": [
+   "京浜急行電鉄",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 4264,
+  "name": "取手駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線",
+   "常総線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "関東鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 4359,
+  "name": "成田空港駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田空港線",
+   "成田線",
+   "本線"
+  ],
+  "operators": [
+   "京成電鉄",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 4396,
+  "name": "空港第2ビル駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田空港線",
+   "成田線",
+   "本線"
+  ],
+  "operators": [
+   "京成電鉄",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 4426,
+  "name": "西若松駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "会津線",
+   "只見線"
+  ],
+  "operators": [
+   "会津鉄道",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 5111,
+  "name": "藤沢駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "東海道線",
+   "江ノ島線",
+   "江ノ島電鉄線"
+  ],
+  "operators": [
+   "小田急電鉄",
+   "東日本旅客鉄道",
+   "江ノ島電鉄"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 5818,
+  "name": "東川口駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "埼玉高速鉄道線",
+   "武蔵野線"
+  ],
+  "operators": [
+   "埼玉高速鉄道",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 5969,
+  "name": "今泉駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "フラワー長井線",
+   "米坂線"
+  ],
+  "operators": [
+   "山形鉄道",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 6062,
+  "name": "海老名駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "小田原線",
+   "相模線",
+   "相鉄本線"
+  ],
+  "operators": [
+   "小田急電鉄",
+   "東日本旅客鉄道",
+   "相模鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 6123,
+  "name": "登戸駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線",
+   "小田原線"
+  ],
+  "operators": [
+   "小田急電鉄",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 6341,
+  "name": "厚木駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "小田原線",
+   "相模線"
+  ],
+  "operators": [
+   "小田急電鉄",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 6379,
+  "name": "鹿島サッカースタジアム駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "大洗鹿島線",
+   "鹿島線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "鹿島臨海鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 6479,
+  "name": "五井駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線",
+   "小湊鐵道線"
+  ],
+  "operators": [
+   "小湊鐵道",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 6857,
+  "name": "松戸駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "常磐線",
+   "松戸線"
+  ],
+  "operators": [
+   "京成電鉄",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 7574,
+  "name": "直江津駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線",
+   "妙高はねうまライン",
+   "日本海ひすいライン"
+  ],
+  "operators": [
+   "えちごトキめき鉄道",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 7689,
+  "name": "北仙台駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙山線",
+   "南北線"
+  ],
+  "operators": [
+   "仙台市",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 7736,
+  "name": "長町駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "南北線",
+   "東北線"
+  ],
+  "operators": [
+   "仙台市",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 7871,
+  "name": "東飯能駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "八高線",
+   "池袋線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "西武鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 8225,
+  "name": "都賀駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "2号線",
+   "総武線"
+  ],
+  "operators": [
+   "千葉都市モノレール",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 8254,
+  "name": "寄居駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "八高線",
+   "東上本線",
+   "秩父本線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "東武鉄道",
+   "秩父鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 8474,
+  "name": "馬橋駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "常磐線",
+   "流山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "流鉄"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 8540,
+  "name": "長津田駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "こどもの国線",
+   "横浜線",
+   "田園都市線"
+  ],
+  "operators": [
+   "東急電鉄",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 8599,
+  "name": "大井町駅",
+  "prefecture_name": "東京都",
+  "routes": [
+   "大井町線",
+   "東海道線",
+   "臨海副都心線"
+  ],
+  "operators": [
+   "東京臨海高速鉄道",
+   "東急電鉄",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 8847,
+  "name": "辰野駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "中央線",
+   "飯田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "東海旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 8959,
+  "name": "国府津駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "御殿場線",
+   "東海道線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "東海旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9036,
+  "name": "烏山駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "烏山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9069,
+  "name": "淵野辺駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "横浜線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9078,
+  "name": "宝積寺駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線",
+   "烏山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9084,
+  "name": "岩室駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9086,
+  "name": "鴨居駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "横浜線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9087,
+  "name": "妙法寺駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9099,
+  "name": "寺尾駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9121,
+  "name": "京ヶ瀬駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "羽越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9130,
+  "name": "越後曽根駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9133,
+  "name": "中山駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "4号線",
+   "横浜線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "横浜市"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9137,
+  "name": "小塙駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "烏山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9139,
+  "name": "東柏崎駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9144,
+  "name": "巻駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9159,
+  "name": "西中通駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9160,
+  "name": "小島谷駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9168,
+  "name": "仁井田駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "烏山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9172,
+  "name": "桐原駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9183,
+  "name": "北吉田駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9194,
+  "name": "矢部駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "横浜線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9225,
+  "name": "蒲田駅",
+  "prefecture_name": "東京都",
+  "routes": [
+   "東急多摩川線",
+   "東海道線",
+   "池上線"
+  ],
+  "operators": [
+   "東急電鉄",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9233,
+  "name": "西山駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9236,
+  "name": "青山駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9259,
+  "name": "小針駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9260,
+  "name": "新潟大学前駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9267,
+  "name": "関屋駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9273,
+  "name": "大口駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "横浜線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9294,
+  "name": "出雲崎駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9297,
+  "name": "越後赤塚駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9302,
+  "name": "分水駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9311,
+  "name": "東神奈川駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "東海道線",
+   "横浜線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9312,
+  "name": "菊名駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "東横線",
+   "横浜線"
+  ],
+  "operators": [
+   "東急電鉄",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9342,
+  "name": "柏崎駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線",
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9351,
+  "name": "鴻野山駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "烏山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9362,
+  "name": "荒浜駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9376,
+  "name": "鼠ヶ関駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "羽越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9382,
+  "name": "粟生津駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9383,
+  "name": "滝駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "烏山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9384,
+  "name": "十日市場駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "横浜線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9390,
+  "name": "南吉田駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9393,
+  "name": "礼拝駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9425,
+  "name": "下野花岡駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "烏山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9449,
+  "name": "寺泊駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9452,
+  "name": "刈羽駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9469,
+  "name": "小机駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "横浜線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9476,
+  "name": "碇ヶ関駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "奥羽線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9478,
+  "name": "相模原駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "横浜線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9481,
+  "name": "白山駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9485,
+  "name": "大金駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "烏山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9494,
+  "name": "内野西が丘駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9505,
+  "name": "小木ノ城駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9514,
+  "name": "鶴ヶ坂駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "奥羽線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9529,
+  "name": "石地駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9538,
+  "name": "木戸駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9539,
+  "name": "八色駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9540,
+  "name": "土浦駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9541,
+  "name": "十二橋駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "鹿島線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9543,
+  "name": "高崎問屋町駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9544,
+  "name": "川辺沖駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9545,
+  "name": "龍岡城駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9546,
+  "name": "陸中川井駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "山田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9547,
+  "name": "広野駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9551,
+  "name": "鯨波駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9552,
+  "name": "小海駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9554,
+  "name": "野木沢駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9555,
+  "name": "赤塚駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9557,
+  "name": "後閑駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9558,
+  "name": "乙女駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9559,
+  "name": "鴻巣駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "高崎線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9560,
+  "name": "北堀之内駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9561,
+  "name": "磯部駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9562,
+  "name": "逢隈駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9563,
+  "name": "佐和駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9564,
+  "name": "鹿角花輪駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9565,
+  "name": "柿崎駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9567,
+  "name": "磯原駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9568,
+  "name": "小千谷駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9569,
+  "name": "西松井田駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9571,
+  "name": "青笹駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9573,
+  "name": "新治駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9574,
+  "name": "太田部駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9576,
+  "name": "青海川駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9577,
+  "name": "中佐都駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9578,
+  "name": "横川駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9580,
+  "name": "山方宿駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9581,
+  "name": "土沢駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9583,
+  "name": "富岡駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9584,
+  "name": "牛久駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9585,
+  "name": "小佐野駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9586,
+  "name": "松尾八幡平駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9590,
+  "name": "神保原駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "高崎線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9591,
+  "name": "桃内駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9592,
+  "name": "下野宮駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9595,
+  "name": "東館駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9596,
+  "name": "三岡駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9597,
+  "name": "越後川口駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "上越線",
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9598,
+  "name": "佐久平駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "北陸新幹線",
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9600,
+  "name": "安茂里駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9601,
+  "name": "越後広田駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9602,
+  "name": "柳津駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "気仙沼線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9603,
+  "name": "北長岡駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9604,
+  "name": "六日町駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "ほくほく線",
+   "上越線"
+  ],
+  "operators": [
+   "北越急行",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9605,
+  "name": "石岡駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9606,
+  "name": "岡部駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "高崎線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9608,
+  "name": "柏木平駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9609,
+  "name": "荒屋新町駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9610,
+  "name": "上越国際スキー場前駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9612,
+  "name": "延方駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "鹿島線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9614,
+  "name": "宮内駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "上越線",
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9615,
+  "name": "箱石駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "山田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9617,
+  "name": "荒谷前駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9619,
+  "name": "岩原スキー場前駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9620,
+  "name": "鰺ヶ沢駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "五能線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9621,
+  "name": "平倉駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9622,
+  "name": "相馬駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9626,
+  "name": "川東駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9627,
+  "name": "谷田川駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9629,
+  "name": "磐城守山駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9630,
+  "name": "新地駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9632,
+  "name": "上牧駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9634,
+  "name": "竜田駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9636,
+  "name": "山岸駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "山田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9638,
+  "name": "内郷駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9640,
+  "name": "小田林駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9641,
+  "name": "岩沼駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "常磐線",
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9642,
+  "name": "馬流駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9643,
+  "name": "中豊駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9644,
+  "name": "小高駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9645,
+  "name": "花巻駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線",
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9647,
+  "name": "桶川駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "高崎線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9649,
+  "name": "東大館駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9650,
+  "name": "犀潟駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "ほくほく線",
+   "信越線"
+  ],
+  "operators": [
+   "北越急行",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9651,
+  "name": "植田駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9653,
+  "name": "上下浜駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9655,
+  "name": "泉郷駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9656,
+  "name": "松井田駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9657,
+  "name": "遠野駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9659,
+  "name": "福原駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9660,
+  "name": "末広駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9661,
+  "name": "前川駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9662,
+  "name": "大野駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9663,
+  "name": "中込駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9664,
+  "name": "東横田駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "久留里線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9667,
+  "name": "井野駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9670,
+  "name": "豊野駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "北しなの線",
+   "飯山線"
+  ],
+  "operators": [
+   "しなの鉄道",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9671,
+  "name": "臼田駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9672,
+  "name": "田山駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9673,
+  "name": "新前橋駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "上越線",
+   "両毛線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9675,
+  "name": "浪江駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9676,
+  "name": "野辺山駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9677,
+  "name": "草野駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9678,
+  "name": "磐城太田駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9680,
+  "name": "さつき野駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9681,
+  "name": "小木津駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9682,
+  "name": "蟇目駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "山田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9683,
+  "name": "磐城石川駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9684,
+  "name": "押切駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9686,
+  "name": "岩根橋駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9688,
+  "name": "駒ヶ嶺駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9689,
+  "name": "津久田駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9692,
+  "name": "小塩江駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9693,
+  "name": "潮来駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "鹿島線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9695,
+  "name": "南石井駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9696,
+  "name": "高浜駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9697,
+  "name": "北条駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9701,
+  "name": "磐城塙駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9702,
+  "name": "小淵沢駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線",
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9704,
+  "name": "岩手二日町駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9705,
+  "name": "甲斐小泉駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9706,
+  "name": "上尾駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "高崎線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9707,
+  "name": "天王台駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9708,
+  "name": "倉賀野駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "八高線",
+   "高崎線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9709,
+  "name": "祇園駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "久留里線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9710,
+  "name": "松原湖駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9711,
+  "name": "晴山駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9712,
+  "name": "友部駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線",
+   "水戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9713,
+  "name": "北小金駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9715,
+  "name": "岩手上郷駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9718,
+  "name": "行田駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "高崎線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9720,
+  "name": "御岳堂駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "気仙沼線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9721,
+  "name": "五日町駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9722,
+  "name": "袋田駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9724,
+  "name": "小山田駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9725,
+  "name": "兄畑駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9726,
+  "name": "水上駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9729,
+  "name": "上小川駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9737,
+  "name": "今井駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9738,
+  "name": "荻川駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9739,
+  "name": "越後石山駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9740,
+  "name": "神立駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9742,
+  "name": "上越妙高駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "北陸新幹線",
+   "妙高はねうまライン"
+  ],
+  "operators": [
+   "えちごトキめき鉄道",
+   "東日本旅客鉄道",
+   "西日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9744,
+  "name": "陸中大橋駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9745,
+  "name": "塚山駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9747,
+  "name": "大沢駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9748,
+  "name": "松倉駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9749,
+  "name": "東海駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9752,
+  "name": "矢祭山駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9753,
+  "name": "越後中里駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9755,
+  "name": "南柏駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9756,
+  "name": "荒川沖駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9757,
+  "name": "四ツ倉駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9759,
+  "name": "東大更駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9760,
+  "name": "下菅谷駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9762,
+  "name": "青沼駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9763,
+  "name": "区界駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "山田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9765,
+  "name": "双葉駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9766,
+  "name": "東清川駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "久留里線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9767,
+  "name": "信濃川上駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9768,
+  "name": "横田駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "久留里線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9769,
+  "name": "常陸太田駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9770,
+  "name": "東光寺駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9771,
+  "name": "土底浜駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9772,
+  "name": "八千穂駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9774,
+  "name": "大滝温泉駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9776,
+  "name": "田上駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9777,
+  "name": "勝田駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線",
+   "湊線"
+  ],
+  "operators": [
+   "ひたちなか海浜鉄道",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9779,
+  "name": "陸中大里駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9781,
+  "name": "西金駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9782,
+  "name": "亀田駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9786,
+  "name": "龍ケ崎市駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9787,
+  "name": "高岩駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9788,
+  "name": "北鴻巣駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "高崎線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9789,
+  "name": "高萩駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9791,
+  "name": "内原駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9792,
+  "name": "里白石駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9793,
+  "name": "常陸大子駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9795,
+  "name": "湯檜曽駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9796,
+  "name": "十和田南駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9797,
+  "name": "美里駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9799,
+  "name": "清里駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9800,
+  "name": "足ヶ瀬駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9801,
+  "name": "俵田駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "久留里線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9802,
+  "name": "岩村田駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9803,
+  "name": "吹上駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "高崎線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9806,
+  "name": "海尻駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9808,
+  "name": "磐城棚倉駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9809,
+  "name": "末続駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9811,
+  "name": "常陸多賀駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9814,
+  "name": "帯織駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9816,
+  "name": "潟町駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9818,
+  "name": "土深井駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9819,
+  "name": "原ノ町駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9820,
+  "name": "北松戸駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9821,
+  "name": "柴平駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9822,
+  "name": "海瀬駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9823,
+  "name": "和渕駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "気仙沼線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9824,
+  "name": "黒井駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9825,
+  "name": "宮守駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9826,
+  "name": "磐城浅川駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9827,
+  "name": "中菅谷駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9828,
+  "name": "敷島駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9829,
+  "name": "羽生田駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9830,
+  "name": "似内駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9831,
+  "name": "我孫子駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "常磐線",
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9833,
+  "name": "田端駅",
+  "prefecture_name": "東京都",
+  "routes": [
+   "山手線",
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9834,
+  "name": "大甕駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9835,
+  "name": "宮原駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "高崎線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9836,
+  "name": "上盛岡駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "山田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9840,
+  "name": "常陸津田駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9841,
+  "name": "八木原駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9845,
+  "name": "額田駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9847,
+  "name": "洞泉駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9848,
+  "name": "常陸鴻巣駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9850,
+  "name": "上菅谷駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9852,
+  "name": "千徳駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "山田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9854,
+  "name": "静駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9856,
+  "name": "古淵駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "横浜線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9857,
+  "name": "川内駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "山田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9858,
+  "name": "長鳥駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9859,
+  "name": "北中込駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9862,
+  "name": "結城駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9863,
+  "name": "小屋の畑駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9864,
+  "name": "八幡平駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9865,
+  "name": "湯本駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9867,
+  "name": "川中島駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9868,
+  "name": "河合駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9869,
+  "name": "北金ヶ沢駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "五能線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9871,
+  "name": "東小諸駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9872,
+  "name": "北本駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "高崎線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9873,
+  "name": "石打駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9874,
+  "name": "谷河原駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9875,
+  "name": "沢尻駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9876,
+  "name": "野上原駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9877,
+  "name": "勿来駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9878,
+  "name": "保内駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9879,
+  "name": "籠原駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "高崎線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9880,
+  "name": "稲田駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9882,
+  "name": "土合駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9884,
+  "name": "中舟生駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9885,
+  "name": "矢代田駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9886,
+  "name": "北高崎駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9889,
+  "name": "湯瀬温泉駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9892,
+  "name": "北上尾駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "高崎線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9894,
+  "name": "安積永盛駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線",
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9895,
+  "name": "新松戸駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "常磐線",
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9896,
+  "name": "綾織駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9898,
+  "name": "浜吉田駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9901,
+  "name": "加茂駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9902,
+  "name": "茂市駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "山田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9904,
+  "name": "後台駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9909,
+  "name": "上有住駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9911,
+  "name": "香取駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線",
+   "鹿島線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9912,
+  "name": "亘理駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9913,
+  "name": "三条駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9914,
+  "name": "偕楽園駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9915,
+  "name": "越後岩塚駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9916,
+  "name": "松草駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "山田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9918,
+  "name": "大更駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9919,
+  "name": "佐久海ノ口駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9922,
+  "name": "下小川駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9924,
+  "name": "陸前豊里駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "気仙沼線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9925,
+  "name": "茨目駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9926,
+  "name": "十王駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9927,
+  "name": "玉川村駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9928,
+  "name": "岩本駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9929,
+  "name": "坂元駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9931,
+  "name": "近津駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9932,
+  "name": "羽黒下駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9937,
+  "name": "花原市駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "山田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9940,
+  "name": "越後滝谷駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9943,
+  "name": "大津港駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9944,
+  "name": "鹿島駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9946,
+  "name": "のの岳駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "気仙沼線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9950,
+  "name": "夜ノ森駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9951,
+  "name": "岩間駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9952,
+  "name": "平館駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9953,
+  "name": "藤代駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9956,
+  "name": "本庄駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "高崎線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9959,
+  "name": "佐久広瀬駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9961,
+  "name": "山下駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9964,
+  "name": "瓜連駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9965,
+  "name": "笠島駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9967,
+  "name": "来迎寺駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9969,
+  "name": "小出駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "上越線",
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9973,
+  "name": "甲斐大泉駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9974,
+  "name": "腹帯駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "山田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9979,
+  "name": "赤坂田駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9980,
+  "name": "上米内駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "山田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9982,
+  "name": "日立駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9984,
+  "name": "南中郷駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9987,
+  "name": "南酒出駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9989,
+  "name": "磐城石井駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9990,
+  "name": "沼田駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9992,
+  "name": "滑津駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "小海線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9993,
+  "name": "宍戸駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9994,
+  "name": "鱒沢駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "釜石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9996,
+  "name": "土樽駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9998,
+  "name": "安比高原駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 9999,
+  "name": "米山駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10000,
+  "name": "羽鳥駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10002,
+  "name": "久ノ浜駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10004,
+  "name": "ひたち野うしく駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10005,
+  "name": "鹿島神宮駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "鹿島線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10008,
+  "name": "常陸青柳駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10009,
+  "name": "越後堀之内駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10010,
+  "name": "見附駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10011,
+  "name": "群馬八幡駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10013,
+  "name": "古津駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10014,
+  "name": "安田駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "信越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10015,
+  "name": "常陸大宮駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水郡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10016,
+  "name": "横間駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10017,
+  "name": "深谷駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "高崎線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10018,
+  "name": "群馬総社駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10020,
+  "name": "羽黒駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10022,
+  "name": "日立木駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10026,
+  "name": "扇田駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10028,
+  "name": "塩沢駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "上越線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10029,
+  "name": "十二所駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10033,
+  "name": "泉駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10034,
+  "name": "北柏駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10035,
+  "name": "藤野駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10037,
+  "name": "塩山駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10038,
+  "name": "会津本郷駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10039,
+  "name": "野辺地駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "大湊線",
+   "青い森鉄道線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "青い森鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10041,
+  "name": "吹越駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "大湊線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10042,
+  "name": "相武台下駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "相模線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10044,
+  "name": "羽立駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "男鹿線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10045,
+  "name": "社家駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "相模線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10046,
+  "name": "桑折駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10047,
+  "name": "会津西方駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10050,
+  "name": "福田町駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10051,
+  "name": "真鶴駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "東海道線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10052,
+  "name": "藪神駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10054,
+  "name": "上溝駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "相模線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10055,
+  "name": "小野駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10056,
+  "name": "早戸駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10058,
+  "name": "東仙台駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10059,
+  "name": "国見駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10062,
+  "name": "瀬峰駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10064,
+  "name": "葛岡駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10065,
+  "name": "笠間駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10066,
+  "name": "玉戸駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10067,
+  "name": "佐倉駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線",
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10068,
+  "name": "塩釜駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10069,
+  "name": "自治医大駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10070,
+  "name": "赤渕駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "田沢湖線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10071,
+  "name": "石越駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10072,
+  "name": "東結城駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10074,
+  "name": "石和温泉駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10075,
+  "name": "羽後長野駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "田沢湖線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10076,
+  "name": "日和田駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10077,
+  "name": "早川駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "東海道線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10078,
+  "name": "会津若松駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線",
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10080,
+  "name": "利府駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10082,
+  "name": "木下駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10084,
+  "name": "猿橋駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10085,
+  "name": "会津桧原駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10087,
+  "name": "あおば通駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10088,
+  "name": "八日市場駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10089,
+  "name": "杉田駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10090,
+  "name": "黒磯駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10091,
+  "name": "花泉駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10092,
+  "name": "愛子駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10093,
+  "name": "古館駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10096,
+  "name": "松岸駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線",
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10097,
+  "name": "春日居町駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10098,
+  "name": "男鹿駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "男鹿線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10100,
+  "name": "気仙沼駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "大船渡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10101,
+  "name": "成田駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10102,
+  "name": "泉崎駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10103,
+  "name": "信濃境駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10105,
+  "name": "宮山駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "相模線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10106,
+  "name": "下溝駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "相模線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10108,
+  "name": "南酒々井駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10110,
+  "name": "鶯谷駅",
+  "prefecture_name": "東京都",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10112,
+  "name": "川岸駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10113,
+  "name": "大磯駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "東海道線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10114,
+  "name": "白河駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10116,
+  "name": "二本松駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10117,
+  "name": "小金井駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10118,
+  "name": "北白川駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10121,
+  "name": "北大曲駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "田沢湖線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10123,
+  "name": "鏡石駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10124,
+  "name": "古河駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10126,
+  "name": "滝谷駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10127,
+  "name": "猿田駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10129,
+  "name": "岩ノ下駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "大船渡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10130,
+  "name": "伊達駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10131,
+  "name": "穴山駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10132,
+  "name": "南橋本駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "相模線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10137,
+  "name": "岩瀬駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10141,
+  "name": "大森駅",
+  "prefecture_name": "東京都",
+  "routes": [
+   "東海道線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10143,
+  "name": "香川駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "相模線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10144,
+  "name": "矢越駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "大船渡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10145,
+  "name": "山寺駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "仙山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10146,
+  "name": "番田駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "相模線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10147,
+  "name": "岡本駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10148,
+  "name": "会津高田駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10149,
+  "name": "本名駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10150,
+  "name": "下馬駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10151,
+  "name": "館腰駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10154,
+  "name": "北茅ヶ崎駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "相模線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10155,
+  "name": "東我孫子駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10156,
+  "name": "上野原駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10159,
+  "name": "入谷駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "相模線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10160,
+  "name": "四街道駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10162,
+  "name": "有戸駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "大湊線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10163,
+  "name": "下総豊里駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10164,
+  "name": "面白山高原駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "仙山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10166,
+  "name": "竜王駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10167,
+  "name": "有畑駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "大湊線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10170,
+  "name": "奥新川駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10171,
+  "name": "中野栄駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10172,
+  "name": "滑河駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10173,
+  "name": "東照宮駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10174,
+  "name": "万石浦駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "石巻線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10177,
+  "name": "会津越川駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10178,
+  "name": "陸前山王駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10179,
+  "name": "白坂駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10180,
+  "name": "飯倉駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10181,
+  "name": "会津川口駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10182,
+  "name": "矢本駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10183,
+  "name": "日詰駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10184,
+  "name": "会津坂本駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10185,
+  "name": "上中里駅",
+  "prefecture_name": "東京都",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10186,
+  "name": "佳景山駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "石巻線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10187,
+  "name": "田尻駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10188,
+  "name": "本塩釜駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10190,
+  "name": "蛇田駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10193,
+  "name": "赤川駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "大湊線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10194,
+  "name": "越河駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10195,
+  "name": "本宮駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10196,
+  "name": "南福島駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10197,
+  "name": "小岩井駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "田沢湖線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10198,
+  "name": "富士見駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10199,
+  "name": "相模湖駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10201,
+  "name": "東矢本駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10203,
+  "name": "愛宕駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10204,
+  "name": "花巻空港駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10205,
+  "name": "魚沼田中駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10206,
+  "name": "会津中川駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10207,
+  "name": "倉見駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "相模線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10208,
+  "name": "会津塩沢駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10209,
+  "name": "油島駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10210,
+  "name": "寒川駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "相模線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10212,
+  "name": "千厩駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "大船渡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10213,
+  "name": "陸前山下駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10214,
+  "name": "陸前落合駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10215,
+  "name": "大白川駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10216,
+  "name": "大釜駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "田沢湖線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10217,
+  "name": "赤羽駅",
+  "prefecture_name": "東京都",
+  "routes": [
+   "東北線",
+   "赤羽線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10219,
+  "name": "物井駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10220,
+  "name": "梅ヶ沢駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10221,
+  "name": "岩切駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10223,
+  "name": "北戸田駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10224,
+  "name": "氏家駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10225,
+  "name": "茅野駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10227,
+  "name": "大月駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線",
+   "大月線"
+  ],
+  "operators": [
+   "富士山麓電気鉄道",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10228,
+  "name": "東白石駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10229,
+  "name": "北山駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10230,
+  "name": "会津水沼駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10231,
+  "name": "近川駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "大湊線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10234,
+  "name": "川島駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10235,
+  "name": "平塚駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "東海道線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10237,
+  "name": "東千葉駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10239,
+  "name": "栗橋駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "日光線",
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "東武鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10240,
+  "name": "摺沢駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "大船渡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10241,
+  "name": "鹿妻駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10242,
+  "name": "下総神崎駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10243,
+  "name": "折壁駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "大船渡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10244,
+  "name": "酒々井駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10245,
+  "name": "作並駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10246,
+  "name": "紫波中央駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10248,
+  "name": "松山町駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10253,
+  "name": "熊ヶ根駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10254,
+  "name": "手樽駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10255,
+  "name": "小梨駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "大船渡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10257,
+  "name": "前沢駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10258,
+  "name": "会津柳津駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10261,
+  "name": "宮城野原駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10262,
+  "name": "山梨市駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10263,
+  "name": "村崎野駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10264,
+  "name": "久田野駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10265,
+  "name": "会津宮下駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10266,
+  "name": "尾久駅",
+  "prefecture_name": "東京都",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10267,
+  "name": "西塩釜駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10269,
+  "name": "旭駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10270,
+  "name": "刺巻駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "田沢湖線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10272,
+  "name": "入広瀬駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10275,
+  "name": "天王駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "男鹿線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10276,
+  "name": "陸中門崎駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "大船渡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10277,
+  "name": "韮崎駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10278,
+  "name": "松尾駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10284,
+  "name": "名取駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙台空港線",
+   "東北線"
+  ],
+  "operators": [
+   "仙台空港鉄道",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10285,
+  "name": "東金駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "東金線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10286,
+  "name": "片岡駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10287,
+  "name": "飯岡駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10288,
+  "name": "南仙台駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10289,
+  "name": "出戸浜駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "男鹿線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10290,
+  "name": "甲斐大和駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10291,
+  "name": "小見川駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10292,
+  "name": "新田駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10293,
+  "name": "高久駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10294,
+  "name": "御徒町駅",
+  "prefecture_name": "東京都",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10295,
+  "name": "清水原駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10296,
+  "name": "茅ヶ崎駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "東海道線",
+   "相模線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10299,
+  "name": "猊鼻渓駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "大船渡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10300,
+  "name": "柴宿駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "大船渡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10301,
+  "name": "二宮駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "東海道線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10302,
+  "name": "陸前富山駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10303,
+  "name": "十条駅",
+  "prefecture_name": "東京都",
+  "routes": [
+   "赤羽線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10304,
+  "name": "五百川駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10305,
+  "name": "榴ヶ岡駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10306,
+  "name": "四方津駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10308,
+  "name": "山ノ目駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10310,
+  "name": "南浦和駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線",
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10311,
+  "name": "信濃川島駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10312,
+  "name": "水沢駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10314,
+  "name": "成東駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "東金線",
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10316,
+  "name": "根府川駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "東海道線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10317,
+  "name": "苦竹駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10318,
+  "name": "船越駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "男鹿線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10319,
+  "name": "矢吹駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10320,
+  "name": "上条駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10321,
+  "name": "会津坂下駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10322,
+  "name": "横芝駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10323,
+  "name": "初狩駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10326,
+  "name": "塩崎駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10327,
+  "name": "矢板駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10329,
+  "name": "陸前原ノ町駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10330,
+  "name": "雀宮駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10331,
+  "name": "矢幅駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10332,
+  "name": "鹿島台駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10337,
+  "name": "会津蒲生駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10339,
+  "name": "脇本駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "男鹿線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10343,
+  "name": "長坂駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10344,
+  "name": "越後広瀬駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10347,
+  "name": "岩手飯岡駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10350,
+  "name": "日野春駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10355,
+  "name": "郷戸駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10356,
+  "name": "大戸駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10358,
+  "name": "仙北町駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10361,
+  "name": "貝田駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10362,
+  "name": "多賀城駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10363,
+  "name": "久住駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10366,
+  "name": "梁川駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10369,
+  "name": "松島駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10370,
+  "name": "酒折駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10372,
+  "name": "若宮駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10373,
+  "name": "有壁駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10377,
+  "name": "勝沼ぶどう郷駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10378,
+  "name": "湯河原駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "東海道線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10379,
+  "name": "蒲須坂駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10380,
+  "name": "笹川駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10381,
+  "name": "陸前小野駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10383,
+  "name": "原当麻駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "相模線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10384,
+  "name": "野木駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10385,
+  "name": "西那須野駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10386,
+  "name": "春木場駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "田沢湖線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10388,
+  "name": "二田駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "男鹿線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10389,
+  "name": "すずらんの里駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10391,
+  "name": "藤田駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10394,
+  "name": "黒田原駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10395,
+  "name": "下諏訪駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10397,
+  "name": "楯山駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "仙山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10398,
+  "name": "上諏訪駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10400,
+  "name": "平泉駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10401,
+  "name": "真滝駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "大船渡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10402,
+  "name": "新木駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10403,
+  "name": "塔寺駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10404,
+  "name": "陸前赤井駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10406,
+  "name": "笹子駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10407,
+  "name": "国府多賀城駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10408,
+  "name": "陸中松川駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "大船渡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10409,
+  "name": "板橋駅",
+  "prefecture_name": "東京都",
+  "routes": [
+   "赤羽線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10410,
+  "name": "水郷駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10413,
+  "name": "金谷沢駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "大湊線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10415,
+  "name": "陸前高砂駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10417,
+  "name": "会津横田駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10418,
+  "name": "干潟駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10419,
+  "name": "下総橘駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10420,
+  "name": "みどり湖駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10424,
+  "name": "陸前白沢駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10425,
+  "name": "布佐駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10426,
+  "name": "越後須原駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10431,
+  "name": "榎戸駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10432,
+  "name": "陸前稲井駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "石巻線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10434,
+  "name": "只見駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10435,
+  "name": "佐原駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10436,
+  "name": "会津大塩駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10437,
+  "name": "金谷川駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10438,
+  "name": "小林駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10439,
+  "name": "間々田駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10440,
+  "name": "保土ヶ谷駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "東海道線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10442,
+  "name": "羽後四ツ屋駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "田沢湖線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10444,
+  "name": "小鶴新田駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10445,
+  "name": "新鶴駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10447,
+  "name": "新府駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10451,
+  "name": "下北駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "大湊線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10452,
+  "name": "豊原駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10453,
+  "name": "大湊駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "大湊線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10460,
+  "name": "大河原駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10462,
+  "name": "上涌谷駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "石巻線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10464,
+  "name": "日向駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10465,
+  "name": "川崎駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線",
+   "東海道線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10466,
+  "name": "生田駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "田沢湖線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10467,
+  "name": "福俵駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "東金線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10469,
+  "name": "岡谷駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10470,
+  "name": "上二田駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "男鹿線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10471,
+  "name": "門沢橋駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "相模線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10472,
+  "name": "鑓見内駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "田沢湖線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10473,
+  "name": "求名駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "東金線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10474,
+  "name": "鶯野駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "田沢湖線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10475,
+  "name": "新月駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "大船渡線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10477,
+  "name": "松川駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10481,
+  "name": "品井沼駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10484,
+  "name": "高城町駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線",
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10485,
+  "name": "陸前大塚駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10486,
+  "name": "須賀川駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10487,
+  "name": "高瀬駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "仙山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10488,
+  "name": "六原駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10489,
+  "name": "倉橋駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10491,
+  "name": "大和駅",
+  "prefecture_name": "茨城県",
+  "routes": [
+   "水戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10492,
+  "name": "鴨宮駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "東海道線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10493,
+  "name": "椎柴駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10494,
+  "name": "鳥沢駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10497,
+  "name": "金ヶ崎駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10498,
+  "name": "船岡駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10500,
+  "name": "石橋駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10501,
+  "name": "青柳駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10506,
+  "name": "野崎駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10507,
+  "name": "安達駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10509,
+  "name": "北野辺地駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "大湊線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10510,
+  "name": "松島海岸駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10511,
+  "name": "新子安駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "東海道線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10516,
+  "name": "陸奥横浜駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "大湊線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10518,
+  "name": "陸中折居駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10519,
+  "name": "白石駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10520,
+  "name": "浦和駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10521,
+  "name": "根岸駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "只見線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10523,
+  "name": "神代駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "田沢湖線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10524,
+  "name": "陸前浜田駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10526,
+  "name": "東福島駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10527,
+  "name": "東山梨駅",
+  "prefecture_name": "山梨県",
+  "routes": [
+   "中央線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10528,
+  "name": "石鳥谷駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10529,
+  "name": "新利府駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10531,
+  "name": "湖北駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "成田線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10532,
+  "name": "辻堂駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "東海道線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10533,
+  "name": "八街駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "総武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10535,
+  "name": "江見駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10536,
+  "name": "戸田駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10537,
+  "name": "大堀駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10539,
+  "name": "川桁駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10540,
+  "name": "越後金丸駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "米坂線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10542,
+  "name": "佐野駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "両毛線",
+   "佐野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "東武鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10546,
+  "name": "長沢駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10547,
+  "name": "伊佐領駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "米坂線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10551,
+  "name": "相野々駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "北上線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10553,
+  "name": "船橋法典駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10554,
+  "name": "東大宮駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10556,
+  "name": "立ヶ花駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10558,
+  "name": "西川口駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10561,
+  "name": "長浦駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10562,
+  "name": "ほっとゆだ駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "北上線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10564,
+  "name": "久地駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10566,
+  "name": "文挟駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "日光線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10568,
+  "name": "陸中夏井駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10572,
+  "name": "長苗代駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10574,
+  "name": "江釣子駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "北上線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10576,
+  "name": "尾登駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10577,
+  "name": "豊実駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10578,
+  "name": "野沢駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10579,
+  "name": "明覚駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "八高線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10582,
+  "name": "五泉駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10583,
+  "name": "磐梯熱海駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10584,
+  "name": "巌根駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10585,
+  "name": "喜久田駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10586,
+  "name": "安子ヶ島駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10587,
+  "name": "浜金谷駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10589,
+  "name": "吉川駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10592,
+  "name": "津川駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10593,
+  "name": "与野駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線",
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10594,
+  "name": "稲田堤駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10597,
+  "name": "宿河原駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10599,
+  "name": "松久駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "八高線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10601,
+  "name": "羽前小松駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "米坂線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10604,
+  "name": "桑名川駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10605,
+  "name": "武蔵浦和駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線",
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10607,
+  "name": "中郡駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "米坂線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10610,
+  "name": "有備館駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10613,
+  "name": "戸田公園駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10614,
+  "name": "侍浜駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10620,
+  "name": "尻手駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10622,
+  "name": "蓮駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10627,
+  "name": "塚目駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10629,
+  "name": "矢向駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10630,
+  "name": "竹沢駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "八高線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10631,
+  "name": "北浦和駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10633,
+  "name": "堂島駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10637,
+  "name": "大平下駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "両毛線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10640,
+  "name": "大蛇駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10641,
+  "name": "津南駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10643,
+  "name": "越後下関駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "米坂線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10644,
+  "name": "千倉駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10645,
+  "name": "金子駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "八高線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10648,
+  "name": "土市駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10649,
+  "name": "安房勝山駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10650,
+  "name": "東新潟駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "白新線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10651,
+  "name": "大形駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "白新線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10655,
+  "name": "平滝駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10656,
+  "name": "平内駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10658,
+  "name": "安中榛名駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "北陸新幹線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10659,
+  "name": "与野本町駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10660,
+  "name": "武蔵溝ノ口駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10661,
+  "name": "中野島駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10663,
+  "name": "浜野駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10665,
+  "name": "上今井駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10667,
+  "name": "北五泉駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10671,
+  "name": "本八戸駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10672,
+  "name": "黒山駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "白新線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10674,
+  "name": "足利駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "両毛線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10678,
+  "name": "さいたま新都心駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10680,
+  "name": "替佐駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10681,
+  "name": "中山宿駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10683,
+  "name": "東所沢駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10687,
+  "name": "陸中八木駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10688,
+  "name": "藤根駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "北上線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10691,
+  "name": "西大崎駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10694,
+  "name": "南越谷駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10695,
+  "name": "成島駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "米坂線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10697,
+  "name": "羽前沼沢駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "米坂線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10698,
+  "name": "九重駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10700,
+  "name": "北飯山駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10705,
+  "name": "中山平温泉駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10707,
+  "name": "折原駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "八高線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10708,
+  "name": "新三郷駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10709,
+  "name": "関都駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10713,
+  "name": "犬川駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "米坂線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10714,
+  "name": "南与野駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10715,
+  "name": "猪苗代駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10716,
+  "name": "和田浦駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10717,
+  "name": "小国駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "米坂線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10719,
+  "name": "上戸駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10720,
+  "name": "山都駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10722,
+  "name": "毛呂駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "八高線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10724,
+  "name": "下野大沢駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "日光線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10725,
+  "name": "下条駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10726,
+  "name": "日光駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "日光線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10727,
+  "name": "思川駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "両毛線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10729,
+  "name": "森宮野原駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10731,
+  "name": "南米沢駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "米坂線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10732,
+  "name": "鳴子温泉駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10739,
+  "name": "南三原駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10740,
+  "name": "新座駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10741,
+  "name": "小俣駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "両毛線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10742,
+  "name": "赤倉温泉駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10744,
+  "name": "津田山駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10748,
+  "name": "西古川駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10750,
+  "name": "横倉駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10751,
+  "name": "久喜駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "伊勢崎線",
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "東武鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10752,
+  "name": "越後大島駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "米坂線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10753,
+  "name": "萩生駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "米坂線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10757,
+  "name": "東十条駅",
+  "prefecture_name": "東京都",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10759,
+  "name": "ゆだ高原駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "北上線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10761,
+  "name": "馬下駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10762,
+  "name": "山前駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "両毛線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10763,
+  "name": "戸狩野沢温泉駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10764,
+  "name": "姥堂駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10767,
+  "name": "東長沢駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10772,
+  "name": "堺田駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10773,
+  "name": "佐々木駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "白新線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10775,
+  "name": "塩川駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10776,
+  "name": "新関駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10777,
+  "name": "立川目駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "北上線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10779,
+  "name": "会津豊川駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10782,
+  "name": "池月駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10785,
+  "name": "越後水沢駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10786,
+  "name": "信濃白鳥駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10787,
+  "name": "向河原駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10789,
+  "name": "北赤羽駅",
+  "prefecture_name": "東京都",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10792,
+  "name": "袖ヶ浦駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10793,
+  "name": "最上駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10794,
+  "name": "種市駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10796,
+  "name": "鹿沼駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "日光線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10797,
+  "name": "岩舟駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "両毛線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10798,
+  "name": "新白岡駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10799,
+  "name": "武蔵新城駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10800,
+  "name": "柳原駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "北上線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10802,
+  "name": "土呂駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10804,
+  "name": "豊栄駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "白新線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10807,
+  "name": "北朝霞駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10812,
+  "name": "武蔵中原駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10813,
+  "name": "西米沢駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "米坂線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10814,
+  "name": "川崎新町駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10819,
+  "name": "西浦和駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10822,
+  "name": "黒沢駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "北上線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10824,
+  "name": "越生駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "八高線",
+   "越生線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "東武鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10826,
+  "name": "岩宿駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "両毛線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10827,
+  "name": "西大滝駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10829,
+  "name": "伊勢崎駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "両毛線",
+   "伊勢崎線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "東武鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10830,
+  "name": "上桑名川駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10833,
+  "name": "種差海岸駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10835,
+  "name": "市川大野駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10836,
+  "name": "丹荘駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "八高線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10837,
+  "name": "東下条駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10838,
+  "name": "八幡宿駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10842,
+  "name": "小中野駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10843,
+  "name": "川口駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10844,
+  "name": "小川町駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "八高線",
+   "東上本線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "東武鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10845,
+  "name": "国定駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "両毛線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10846,
+  "name": "東長原駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10847,
+  "name": "大久喜駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10848,
+  "name": "鮫駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10850,
+  "name": "東鷲宮駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10854,
+  "name": "荻野駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10855,
+  "name": "越後田沢駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10856,
+  "name": "角の浜駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10857,
+  "name": "階上駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10858,
+  "name": "五十島駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10862,
+  "name": "東浦和駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10864,
+  "name": "魚沼中条駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10865,
+  "name": "鶴田駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "日光線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10867,
+  "name": "陸前谷地駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10868,
+  "name": "猿和田駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10869,
+  "name": "笈川駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10870,
+  "name": "横川目駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "北上線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10871,
+  "name": "北与野駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10872,
+  "name": "中浦和駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10874,
+  "name": "喜多方駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10875,
+  "name": "飯山駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "北陸新幹線",
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10876,
+  "name": "小松川駅",
+  "prefecture_name": "秋田県",
+  "routes": [
+   "北上線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10877,
+  "name": "岩沢駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "北上線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10881,
+  "name": "上境駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10885,
+  "name": "陸奥白浜駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10886,
+  "name": "川渡温泉駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10887,
+  "name": "信濃平駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10888,
+  "name": "越後岩沢駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10889,
+  "name": "群馬藤岡駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "八高線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10890,
+  "name": "内ヶ巻駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10893,
+  "name": "鳴子御殿湯駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10895,
+  "name": "新八柱駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10896,
+  "name": "白銀駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10898,
+  "name": "用土駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "八高線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10899,
+  "name": "東新津駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10900,
+  "name": "三川駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10901,
+  "name": "北浦駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10902,
+  "name": "東松戸駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "北総線",
+   "成田空港線",
+   "武蔵野線"
+  ],
+  "operators": [
+   "京成電鉄",
+   "北総鉄道",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10905,
+  "name": "日出谷駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10906,
+  "name": "竹岡駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10908,
+  "name": "宿戸駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10911,
+  "name": "翁島駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10912,
+  "name": "羽前松岡駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "米坂線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10915,
+  "name": "越後田中駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10916,
+  "name": "今市駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "日光線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10920,
+  "name": "鹿島田駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10922,
+  "name": "有家駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10923,
+  "name": "徳沢駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10924,
+  "name": "三郷駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10925,
+  "name": "越後片貝駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "米坂線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10927,
+  "name": "青堀駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10931,
+  "name": "岩井駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10933,
+  "name": "上野目駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10934,
+  "name": "佐貫町駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10935,
+  "name": "浮間舟渡駅",
+  "prefecture_name": "東京都",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10937,
+  "name": "磐梯町駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10938,
+  "name": "陸奥湊駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10940,
+  "name": "南新庄駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10942,
+  "name": "那古船形駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10944,
+  "name": "十日町駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "ほくほく線",
+   "飯山線"
+  ],
+  "operators": [
+   "北越急行",
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10945,
+  "name": "栃木駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "両毛線",
+   "日光線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "東武鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10946,
+  "name": "富田駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "両毛線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10947,
+  "name": "ゆだ錦秋湖駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "北上線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10949,
+  "name": "立小路駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10951,
+  "name": "館山駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10953,
+  "name": "千歳駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10961,
+  "name": "足滝駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10964,
+  "name": "陸中中野駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10966,
+  "name": "鹿瀬駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10968,
+  "name": "信濃浅野駅",
+  "prefecture_name": "長野県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10969,
+  "name": "越後鹿渡駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "飯山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10972,
+  "name": "西新発田駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "白新線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10975,
+  "name": "白岡駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10976,
+  "name": "北藤岡駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "八高線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10979,
+  "name": "東大崎駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10982,
+  "name": "蕨駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10983,
+  "name": "羽前椿駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "米坂線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10984,
+  "name": "富浦駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10985,
+  "name": "上野尻駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10989,
+  "name": "駒形駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "両毛線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10993,
+  "name": "手ノ子駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "米坂線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10994,
+  "name": "児玉駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "八高線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10997,
+  "name": "太海駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 10998,
+  "name": "姉ヶ崎駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 11000,
+  "name": "咲花駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 11002,
+  "name": "保田駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 11004,
+  "name": "平間駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 11007,
+  "name": "猪苗代湖畔駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 11008,
+  "name": "玉川駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 11011,
+  "name": "大貫駅",
+  "prefecture_name": "千葉県",
+  "routes": [
+   "内房線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 11012,
+  "name": "岩出山駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 11013,
+  "name": "和賀仙人駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "北上線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 11017,
+  "name": "瀬見温泉駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 11022,
+  "name": "金浜駅",
+  "prefecture_name": "青森県",
+  "routes": [
+   "八戸線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 11024,
+  "name": "前橋大島駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "両毛線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 11025,
+  "name": "鵜杉駅",
+  "prefecture_name": "山形県",
+  "routes": [
+   "陸羽東線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 11026,
+  "name": "蓮田駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 11027,
+  "name": "新崎駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "白新線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 11030,
+  "name": "早通駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "白新線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 11032,
+  "name": "広田駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 11033,
+  "name": "前橋駅",
+  "prefecture_name": "群馬県",
+  "routes": [
+   "両毛線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 12198,
+  "name": "石巻あゆみ野駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 12214,
+  "name": "越谷レイクタウン駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 12221,
+  "name": "Jヴィレッジ駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "常磐線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 12256,
+  "name": "小田栄駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "南武線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 12287,
+  "name": "郡山富田駅",
+  "prefecture_name": "福島県",
+  "routes": [
+   "磐越西線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 12309,
+  "name": "東名駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 12334,
+  "name": "東北福祉大前駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙山線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 12361,
+  "name": "野蒜駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "仙石線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 12377,
+  "name": "羽沢横浜国大駅",
+  "prefecture_name": "神奈川県",
+  "routes": [
+   "東海道線",
+   "相鉄新横浜線"
+  ],
+  "operators": [
+   "東日本旅客鉄道",
+   "相模鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 12378,
+  "name": "吉川美南駅",
+  "prefecture_name": "埼玉県",
+  "routes": [
+   "武蔵野線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 12440,
+  "name": "あしかがフラワーパーク駅",
+  "prefecture_name": "栃木県",
+  "routes": [
+   "両毛線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 12489,
+  "name": "太子堂駅",
+  "prefecture_name": "宮城県",
+  "routes": [
+   "東北線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 12512,
+  "name": "北森駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "花輪線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 12535,
+  "name": "前潟駅",
+  "prefecture_name": "岩手県",
+  "routes": [
+   "田沢湖線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ },
+ {
+  "id": 12565,
+  "name": "上所駅",
+  "prefecture_name": "新潟県",
+  "routes": [
+   "越後線"
+  ],
+  "operators": [
+   "東日本旅客鉄道"
+  ],
+  "official_url": null
+ }
+]
