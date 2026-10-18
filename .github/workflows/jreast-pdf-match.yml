@@ -1,0 +1,33 @@
+name: JR East official PDF matching
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  match:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests pypdf
+      - name: Match dated 995-station snapshot against official JR East station PDF
+        run: python scripts/collect-jreast-pdf.py
+      - name: Verify candidate count
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('jreast-batch-results/pdf-candidates.json')
+          rows=json.loads(p.read_text()) if p.exists() else []
+          print('OFFICIAL_PDF_CANDIDATES',len(rows))
+          if not rows: raise SystemExit('No official PDF candidates: fail rather than report success')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jreast-official-pdf-candidates
+          path: jreast-batch-results/
+          retention-days: 14

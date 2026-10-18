@@ -5,13 +5,13 @@ from pathlib import Path
 from pypdf import PdfReader
 PDF="https://www.jreast.co.jp/suica/corporate/suicadata/pdf/ekikarte_targetstations.pdf"
 OUT=Path("jreast-batch-results");OUT.mkdir(exist_ok=True)
-stations=json.loads(Path("research/jreast_missing_snapshot_20261017.json").read_text())
+stations=json.loads(Path("scripts/data/jreast-missing-20261019.json").read_text())
 try:
  r=requests.get(PDF,timeout=40,headers={"User-Agent":"Mozilla/5.0"});r.raise_for_status()
  if not r.content.startswith(b"%PDF"):raise ValueError("Not PDF")
  pages=[p.extract_text(extraction_mode="layout") or "" for p in PdfReader(io.BytesIO(r.content)).pages]
 except Exception as e:
- print("OFFICIAL_PDF_ERROR",str(e));(OUT/"pdf-candidates.json").write_text("[]");sys.exit(0)
+ print("OFFICIAL_PDF_ERROR",str(e));(OUT/"pdf-candidates.json").write_text("[]");sys.exit(2)
 print("OFFICIAL_PDF_PAGES",len(pages))
 def norm(x):return re.sub(r"\s+","",str(x or "")).replace("ヶ","ケ").replace("ヵ","カ").replace("駅","")
 candidates=[]
