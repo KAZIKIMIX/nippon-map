@@ -1,0 +1,31 @@
+name: JR East indexed candidate review
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  collect-indexed-candidates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests beautifulsoup4
+      - name: Collect indexed official URLs (read-only)
+        run: python scripts/collect-jreast-search-index.py
+      - name: Build review table (not verified)
+        run: |
+          python scripts/prepare-jreast-index-review.py \
+            scripts/data/jreast-missing-20261019.json \
+            jreast-batch-results/indexed-candidates.json \
+            jreast-batch-results/index-review.csv
+      - name: Upload review evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jreast-index-review
+          path: jreast-batch-results/
+          if-no-files-found: warn
+          retention-days: 14
