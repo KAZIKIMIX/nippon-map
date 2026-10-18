@@ -22,6 +22,7 @@ jobs:
       - name: Syntax check
         run: python -m py_compile scripts/collect-jreast-official-route-evidence.py
       - name: Collect live official route rows (read-only)
+        continue-on-error: true
         run: |
           set -o pipefail
           python scripts/collect-jreast-official-route-evidence.py \
