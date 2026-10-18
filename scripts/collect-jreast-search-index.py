@@ -7,10 +7,9 @@ from pathlib import Path
 from urllib.parse import quote,unquote,urlparse,parse_qs
 from bs4 import BeautifulSoup
 P=Path("jreast-batch-results");P.mkdir(exist_ok=True)
-allstations=json.loads(Path("research/jreast_missing_snapshot_20261017.json").read_text())
-# Skip registered entries in the original dated snapshot
-registered={3563,4264,9036,9069,3714,3836,9598,9742,10875}
-stations=[x for x in allstations if x["id"] not in registered]
+allstations=json.loads(Path("scripts/data/jreast-missing-20261019.json").read_text())
+# Snapshot may include stations since registered; always recheck live DB before updating.
+stations=allstations
 groups={}
 for s in stations:
  for route in s.get("routes",[]):
