@@ -51,6 +51,28 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       }, { latitude, longitude });
       assert.ok(visibleSelectedPoint, name + ": selected facility is outside the map viewport");
 
+      // Verify a real facility official link opens the expected external URL in a browser tab.
+      let officialLink = detail.getByRole("link", { name: "公式サイトを見る ↗" });
+      if (await officialLink.count() === 0) {
+        const candidates = await results.count();
+        for (let index = 1; index < Math.min(candidates, 12); index++) {
+          await results.nth(index).click();
+          if (await officialLink.count() > 0) break;
+        }
+      }
+      assert.ok(await officialLink.count() > 0, name + ": no official URL found among Haneda search results");
+      const officialHref = await officialLink.getAttribute("href");
+      const officialParsed = new URL(officialHref);
+      assert.ok(["https:", "http:"].includes(officialParsed.protocol) && officialParsed.hostname.includes("."), name + ": invalid official URL");
+      assert.equal(await officialLink.getAttribute("target"), "_blank", name + ": official link should open in new tab");
+      const [officialPopup] = await Promise.all([
+        page.waitForEvent("popup", { timeout: 15000 }),
+        officialLink.click(),
+      ]);
+      await officialPopup.waitForLoadState("domcontentloaded", { timeout: 20000 }).catch(() => {});
+      assert.equal(new URL(officialPopup.url()).origin, officialParsed.origin, name + ": official link opened unexpected origin");
+      await officialPopup.close();
+      console.log(name + ": official URL and browser popup navigation PASS");
       await page.getByRole("button", { name: "施設の詳細を閉じる", exact: true }).click();
       const category = page.locator('select[aria-label="カテゴリを選ぶ"]');
       if (await category.isVisible()) {
