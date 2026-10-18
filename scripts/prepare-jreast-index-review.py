@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 def normalize(s):
-    return re.sub(r"\s+", "", str(s or "")).replace("駅", "").replace("ヶ", "ケ")
+    return re.sub(r"\s+", "", str(s or "")).replace("ヶ", "ケ")
 
 def main():
     stations = json.loads(Path(sys.argv[1]).read_text())
@@ -26,7 +26,9 @@ def main():
             snippet = item.get("snippet", "")
             if not re.fullmatch(r"https://timetables\.jreast\.co\.jp/timetable/list\d+\.html", url):
                 continue
-            if not re.search(r"(?<![\\w一-龥ぁ-んァ-ヶ])" + re.escape(normalize(station["name"])) + r"(?![\\w一-龥ぁ-んァ-ヶ])", normalize(snippet)):\n                continue\n            if station["prefecture_name"] not in snippet:
+            if not re.search(r"(?<![\\w一-龥ぁ-んァ-ヶ])" + re.escape(normalize(station["name"])) + r"(?![\\w一-龥ぁ-んァ-ヶ])", normalize(snippet)):
+                continue
+            if station["prefecture_name"] not in snippet:
                 continue
             key = (station["id"], url)
             if key in seen:
