@@ -22,6 +22,7 @@ jobs:
         run: python -m py_compile scripts/collect-jreast-official-route-evidence.py
       - name: Collect live official route rows (read-only)
         run: |
+          set -o pipefail
           python scripts/collect-jreast-official-route-evidence.py \
             scripts/data/jreast-missing-20261019.json \
             jreast-batch-results/official-route-evidence.csv \
