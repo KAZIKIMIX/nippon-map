@@ -16,6 +16,7 @@ function classify(raw){
   const u=new URL(raw);
   if(u.protocol!=='https:'||!allowed.includes(u.hostname)||generic.has(u.pathname)||u.username||u.password)return null;
   if(u.searchParams.has('StationCd')&&u.pathname==='/estation/station/info.aspx')return 'verified_individual';
+  if(u.hostname==='timetables.jreast.co.jp'&&/^\/cgi-bin\/st_search\.cgi$/i.test(u.pathname))return 'verified_route_list';
   if(u.hostname==='timetables.jreast.co.jp'&&/\/(?:timetable|station|tt)\b|\/cgi-bin\/tt\.cgi/i.test(u.pathname))return 'verified_timetable';
   if(u.pathname.toLowerCase().endsWith('.pdf'))return 'verified_pdf';
   if(/\/route\/|\/rosen\/|\/line\/|\/map\//i.test(u.pathname))return 'verified_route_list';
@@ -31,7 +32,7 @@ function evidenceOK(c,s){
  if(typeof c.evidence!=='string'||c.evidence.trim().length<12)return null;
  if(typeof c.source_url!=='string'||!classify(c.source_url))return null;
  if(u==='verified_pdf'&&!c.pdf_station_text_verified)return null;
- if(u==='verified_route_list'&&!c.list_station_text_verified)return null;
+ if(u==='verified_route_list'&&(!c.list_station_text_verified||c.station_row_verified!==true||c.route_verified!==true))return null;
  return u;
 }
 const verified=[],review=[];
