@@ -14,17 +14,27 @@ sess=requests.Session()
 sess.headers["User-Agent"]="Mozilla/5.0 (compatible; NipponMapResearch/1.0)"
 matches={}
 failed=[]
+http_statuses={}
+parsed_rows=0
+consecutive_blocked=0
 for code in range(1,101):
     url=f"https://timetables.jreast.co.jp/cgi-bin/st_search.cgi?rosen={code}"
     try:
         resp=sess.get(url,timeout=12)
+        http_statuses[str(resp.status_code)]=http_statuses.get(str(resp.status_code),0)+1
         if resp.status_code!=200:
             failed.append((code,resp.status_code))
+            consecutive_blocked += 1 if resp.status_code in (403,429) else 0
+            if consecutive_blocked>=3:
+                print('STOP: three consecutive 403/429 responses; official source deferred',flush=True)
+                break
             continue
+        consecutive_blocked=0
         soup=BeautifulSoup(resp.content,"html.parser")
         for tr in soup.select("tr"):
             cells=[c.get_text(" ",strip=True) for c in tr.select("td")]
             if len(cells)<3: continue
+            parsed_rows+=1
             official_name=re.sub(r"[（(].*$","",cells[0]).strip()
             prefecture=cells[1].strip()
             route_text=cells[2]
@@ -42,4 +52,4 @@ with out.open("w",newline="",encoding="utf-8") as f:
     writer=csv.DictWriter(f,fieldnames=fields)
     writer.writeheader()
     writer.writerows(matches.values())
-print(json.dumps(dict(official_route_matches=len(matches),unique_station_ids=len({x[0] for x in matches}),failed_pages=failed[:30],output=str(out)),ensure_ascii=False))
+print(json.dumps(dict(official_route_matches=len(matches),unique_station_ids=len({x[0] for x in matches}),http_statuses=http_statuses,parsed_rows=parsed_rows,failed_count=len(failed),failed_pages=failed[:30],output=str(out)),ensure_ascii=False))
