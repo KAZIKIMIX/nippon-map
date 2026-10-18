@@ -20,8 +20,7 @@ jobs:
       - run: pip install requests beautifulsoup4
       - name: Collect official station directory (dry run)
         env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          JREAST_STATIONS_FILE: scripts/data/jreast-missing-20261019.json
           JREAST_ROUTE_IDS: ${{ inputs.route_ids }}
           JREAST_DRY_RUN: 'true'
         run: python scripts/collect-jreast-batch.py
