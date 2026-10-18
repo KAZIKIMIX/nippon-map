@@ -26,7 +26,7 @@ def main():
             snippet = item.get("snippet", "")
             if not re.fullmatch(r"https://timetables\.jreast\.co\.jp/timetable/list\d+\.html", url):
                 continue
-            if normalize(station["name"]) not in normalize(snippet):
+            if not re.search(r"(?<![\\w一-龥ぁ-んァ-ヶ])" + re.escape(normalize(station["name"])) + r"(?![\\w一-龥ぁ-んァ-ヶ])", normalize(snippet)):\n                continue\n            if station["prefecture_name"] not in snippet:
                 continue
             key = (station["id"], url)
             if key in seen:
