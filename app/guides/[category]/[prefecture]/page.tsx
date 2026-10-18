@@ -23,6 +23,8 @@ export async function generateMetadata({params}:Props):Promise<Metadata>{
 export default async function PrefectureGuide({params}:Props){
  const {category,name,places,guide}=await resolve(params);
  const mapQuery=new URLSearchParams({category,prefecture:name});
+ const siblingRegions=(await getGuidePlaces(category)).reduce((acc,place)=>{if(place.prefecture_name&&place.prefecture_name!==name)acc.set(place.prefecture_name,(acc.get(place.prefecture_name)||0)+1);return acc;},new Map<string,number>());
+ const nearbyRegions=[...siblingRegions].sort((a,b)=>b[1]-a[1]).slice(0,6);
  const missingAddresses=places.filter(place=>!place.address?.trim()).length;
  const missingOfficialUrls=places.filter(place=>!safeOfficialUrl(place.official_url)).length;
  const base="https://nippon-map.vercel.app";
@@ -36,7 +38,7 @@ export default async function PrefectureGuide({params}:Props){
  <section className={styles.directory}><h2>掲載施設（{places.length.toLocaleString()}件）</h2><p>データ登録状況：住所登録済み {(places.length-missingAddresses).toLocaleString()}件 / 公式サイトURL登録済み {(places.length-missingOfficialUrls).toLocaleString()}件。未登録項目は地図上の位置や施設の公式情報で確認してください。</p><GuidePlaceFinder places={places} category={category} prefecture={name}/></section>
  <section className={styles.tips}><h2>訪問前に確認したいこと</h2><ul>{guide.tips.map(tip=><li key={tip}>{tip}</li>)}</ul></section>
  <p className={styles.note}>掲載範囲と情報の更新時点は施設ごとに異なります。営業状況や利用条件は各施設の公式情報でご確認ください。</p>
- <nav aria-label="関連する地域とガイド"><p><a href={"/guides/"+category}>← {guide.name}の都道府県一覧に戻る</a></p><p>{(Object.keys(guideCategories) as (keyof typeof guideCategories)[]).filter(other=>other!==category).map(other=><a key={other} href={"/guides/"+other} style={{display:"inline-block",marginRight:18,marginBottom:10}}>{guideCategories[other].name}の地域一覧を見る →</a>)}</p></nav>
+ <nav aria-label="関連する地域とガイド"><h2>同じカテゴリのほかの地域</h2><ul>{nearbyRegions.map(([region,count])=><li key={region}><a href={"/guides/"+category+"/"+encodeURIComponent(region)}>{region}の{guide.name}一覧（{count.toLocaleString()}件） →</a></li>)}</ul><p><a href={"/guides/"+category}>← {guide.name}の都道府県一覧に戻る</a></p><p>{(Object.keys(guideCategories) as (keyof typeof guideCategories)[]).filter(other=>other!==category).map(other=><a key={other} href={"/guides/"+other} style={{display:"inline-block",marginRight:18,marginBottom:10}}>{guideCategories[other].name}の地域一覧を見る →</a>)}</p></nav>
  </main><footer className={styles.footer}><a href="/">にっぽんマップ</a></footer></div>;
 }
 
