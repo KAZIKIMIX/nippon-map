@@ -11,20 +11,49 @@ API：POST /api/usage
 - place_open：施設詳細が開いた回数。共有リンクからの復元を含む。同じ施設を閉じて再度開くと増える。
 - share_copy：クリップボードへのコピーが成功した回数。投稿・送信が完了した回数ではない。
 操作を結び付けるIDはないため、個人単位のファネル・再訪率・ユニークユーザー数は計算できない。
-停止設定・DNT/GPC・ネットワーク失敗・広告ブロッカー等で取りこぼす。ボットや運営の確認操作を自動除外しない。比率は傾向比較に使い、人数やコンバージョン率と呼ばない。
+停止設定・DNT/GPC・ネットワーク失敗・広告ブロッカー等で取りこぼす。ボットを自動除外しない。開発者モードの自己申告区分で開発・検証操作を集計から除外できるが、未設定の運営操作は通常モードに混入する。比率は傾向比較に使い、人数やコンバージョン率と呼ばない。
 流入元は参照元の大まかな分類。ブラウザの参照元制限で直接/その他に分類されることがある。
 告知リンクには utm_source=x または utm_source=instagram を利用可能。任意のUTM文字列は保存しない。
 日付は日本時間のみ保存。イベント行IDはDB内部用で利用者識別には使わない。
 
 ## 閲覧権限
-一般利用者には許可した3列のINSERTだけを許可。SELECT/UPDATE/DELETEは許可しない。
-本文は512バイトまで、イベント・カテゴリ・流入元は許可リスト。追加フィールドは拒否。同一オリジンを検証。
+一般利用者には許可したイベント・カテゴリ・流入元・開発者区分の4列のINSERTだけを許可。SELECT/UPDATE/DELETEは許可しない。
+本文は512バイトまで、イベント・カテゴリ・流入元は許可リスト、開発者区分は真偽値のみ。追加フィールドは拒否。同一オリジンを検証。
 公開APIへの偽装イベントを完全に排除する仕組みはない。急な増加は告知効果と断定せず、配信ログや実際のクリックと照合する。
 DB公開キーで書き込み可能な設計であるため、OriginチェックはAPIレベルの限定的な対策。異常増加時はINSERT権限を撤回して計測を停止し、改めて専用認証の書き込み経路を検討する。
 
+## 開発者区分の扱い（2026-10-18以降）
+- is_developer = true：開発・検証モードを有効化したブラウザのイベント
+- is_developer = false：通常モードのイベント（運営者の未設定ブラウザが含まれる可能性あり）
+- is_developer is null：導入前の記録で区分不明。通常モードの集計に含めない
+- 開発者モードは /privacy で設定し、同じブラウザの localStorage に保存する。本人認証ではない
+- 計測停止・DNT/GPCを優先し、開発者区分も送信しない
+- この区分だけではユニーク訪問者数や再訪率は測定できない
+
+## 通常モードのみの7日間集計SQL
+```sql
+select event_day,event_name,category_slug,source,count(*) as operation_count
+from public.map_usage_events
+where is_developer = false
+  and event_day >= (now() at time zone 'Asia/Tokyo')::date - 6
+group by event_day,event_name,category_slug,source,is_developer
+order by event_day desc,event_name,operation_count desc;
+```
+
+## 通常モードの人気カテゴリSQL
+```sql
+select category_slug,
+ count(*) filter (where event_name='category_select') as category_selects,
+ count(*) filter (where event_name='place_open') as place_opens
+from public.map_usage_events
+where is_developer = false and category_slug is not null
+group by category_slug
+order by place_opens desc,category_selects desc;
+```
+
 ## 週次集計SQL
 ```sql
-select event_day, event_name, category_slug, source, count(*) as operation_count
+select event_day, event_name, category_slug, source, is_developer, count(*) as operation_count
 from public.map_usage_events
 where event_day >= (now() at time zone 'Asia/Tokyo')::date - 6
 group by event_day,event_name,category_slug,source
