@@ -18,7 +18,7 @@ jobs:
       - name: Build review table (not verified)
         run: |
           python scripts/prepare-jreast-index-review.py \
-            research/jreast_missing_snapshot_20261017.json \
+            scripts/data/jreast-missing-20261019.json \
             jreast-batch-results/indexed-candidates.json \
             jreast-batch-results/index-review.csv
       - name: Upload review evidence
