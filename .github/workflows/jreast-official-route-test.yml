@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - 'scripts/collect-jreast-official-route-evidence.py'
+      - 'scripts/collect-jreast-facility-candidates.py'
       - '.github/workflows/jreast-official-route-test.yml'
   workflow_dispatch:
 permissions:
