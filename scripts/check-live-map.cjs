@@ -13,7 +13,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       ["mobile-375", { ...devices["iPhone 13"], viewport: { width: 375, height: 812 }, defaultBrowserType: undefined }],
       ["mobile-430", { ...devices["iPhone 13"], viewport: { width: 430, height: 932 }, defaultBrowserType: undefined }],
       ["tablet-768", { ...devices["iPhone 13"], viewport: { width: 768, height: 1024 }, defaultBrowserType: undefined }],
-    ]) {
+    ].filter(([name]) => process.env.DESKTOP_ONLY !== "1" || name === "desktop")) {
       const page = await browser.newPage(options);
       try {
       const errors = [];
@@ -51,6 +51,28 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       }, { latitude, longitude });
       assert.ok(visibleSelectedPoint, name + ": selected facility is outside the map viewport");
 
+      // Verify a real facility official link opens the expected external URL in a browser tab.
+      let officialLink = detail.getByRole("link", { name: "公式サイトを見る ↗" });
+      if (await officialLink.count() === 0) {
+        const candidates = await results.count();
+        for (let index = 1; index < Math.min(candidates, 12); index++) {
+          await results.nth(index).click();
+          if (await officialLink.count() > 0) break;
+        }
+      }
+      assert.ok(await officialLink.count() > 0, name + ": no official URL found among Haneda search results");
+      const officialHref = await officialLink.getAttribute("href");
+      const officialParsed = new URL(officialHref);
+      assert.ok(["https:", "http:"].includes(officialParsed.protocol) && officialParsed.hostname.includes("."), name + ": invalid official URL");
+      assert.equal(await officialLink.getAttribute("target"), "_blank", name + ": official link should open in new tab");
+      const [officialPopup] = await Promise.all([
+        page.waitForEvent("popup", { timeout: 15000 }),
+        officialLink.click(),
+      ]);
+      await officialPopup.waitForLoadState("domcontentloaded", { timeout: 20000 }).catch(() => {});
+      assert.equal(new URL(officialPopup.url()).origin, officialParsed.origin, name + ": official link opened unexpected origin");
+      await officialPopup.close();
+      console.log(name + ": official URL and browser popup navigation PASS");
       await page.getByRole("button", { name: "施設の詳細を閉じる", exact: true }).click();
       const category = page.locator('select[aria-label="カテゴリを選ぶ"]');
       if (await category.isVisible()) {
@@ -63,13 +85,16 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
         assert.equal(await chip.getAttribute("aria-pressed"), "true", name + ": desktop category switch failed");
       }
       // Rapid category changes must settle on the final selection without stale errors.
-      const categoryChoices = ["airport", "aquarium", "railway"];
+      const categoryChoices = name === "desktop"
+        ? ["airport", "aquarium", "railway", "park", "toilet", "library", "airport", "railway", "aquarium", "airport", "railway"]
+        : ["airport", "aquarium", "railway"];
+      const categoryLabels = { airport: "空港", aquarium: "水族館", railway: "鉄道駅", park: "公園", toilet: "公衆トイレ", library: "図書館" };
       if (await category.isVisible()) {
         for (const slug of categoryChoices) await category.selectOption(slug);
         assert.equal(await category.inputValue(), "railway", name + ": rapid category switching selected the wrong category");
       } else {
-        for (const slug of ["空港", "水族館", "鉄道駅"]) {
-          const chip = page.locator('.chips button').filter({ hasText: slug }).first();
+        for (const slug of categoryChoices) {
+          const chip = page.locator('.chips button').filter({ hasText: categoryLabels[slug] }).first();
           await chip.click();
         }
         assert.equal(await page.locator('.chips button').filter({ hasText: "鉄道駅" }).first().getAttribute("aria-pressed"), "true", name + ": rapid category switching selected the wrong category");
