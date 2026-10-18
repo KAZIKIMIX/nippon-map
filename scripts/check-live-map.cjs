@@ -63,13 +63,16 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
         assert.equal(await chip.getAttribute("aria-pressed"), "true", name + ": desktop category switch failed");
       }
       // Rapid category changes must settle on the final selection without stale errors.
-      const categoryChoices = ["airport", "aquarium", "railway"];
+      const categoryChoices = name === "desktop"
+        ? ["airport", "aquarium", "railway", "park", "toilet", "library", "airport", "railway", "aquarium", "airport", "railway"]
+        : ["airport", "aquarium", "railway"];
+      const categoryLabels = { airport: "空港", aquarium: "水族館", railway: "鉄道駅", park: "公園", toilet: "公衆トイレ", library: "図書館" };
       if (await category.isVisible()) {
         for (const slug of categoryChoices) await category.selectOption(slug);
         assert.equal(await category.inputValue(), "railway", name + ": rapid category switching selected the wrong category");
       } else {
-        for (const slug of ["空港", "水族館", "鉄道駅"]) {
-          const chip = page.locator('.chips button').filter({ hasText: slug }).first();
+        for (const slug of categoryChoices) {
+          const chip = page.locator('.chips button').filter({ hasText: categoryLabels[slug] }).first();
           await chip.click();
         }
         assert.equal(await page.locator('.chips button').filter({ hasText: "鉄道駅" }).first().getAttribute("aria-pressed"), "true", name + ": rapid category switching selected the wrong category");
