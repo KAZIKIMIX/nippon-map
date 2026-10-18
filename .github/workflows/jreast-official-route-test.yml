@@ -27,6 +27,15 @@ jobs:
             scripts/data/jreast-missing-20261019.json \
             jreast-batch-results/official-route-evidence.csv \
             2>&1 | tee jreast-official-route-test.log
+      - name: Syntax check alternative collector
+        run: python -m py_compile scripts/collect-jreast-facility-candidates.py
+      - name: Test alternative official facility listing (read-only)
+        run: |
+          set -o pipefail
+          python scripts/collect-jreast-facility-candidates.py \
+            scripts/data/jreast-missing-20261019.json \
+            jreast-batch-results/facility-candidates.csv \
+            2>&1 | tee jreast-facility-test.log
       - name: Upload logs and CSV for review
         if: always()
         uses: actions/upload-artifact@v4
@@ -35,5 +44,7 @@ jobs:
           path: |
             jreast-batch-results/official-route-evidence.csv
             jreast-official-route-test.log
+            jreast-batch-results/facility-candidates.csv
+            jreast-facility-test.log
           if-no-files-found: warn
           retention-days: 14
