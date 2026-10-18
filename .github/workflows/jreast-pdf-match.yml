@@ -1,5 +1,9 @@
 name: JR East official PDF matching
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/jreast-pdf-match.yml'
   workflow_dispatch:
 permissions:
   contents: read
