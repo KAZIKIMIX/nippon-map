@@ -13,7 +13,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       ["mobile-375", { ...devices["iPhone 13"], viewport: { width: 375, height: 812 }, defaultBrowserType: undefined }],
       ["mobile-430", { ...devices["iPhone 13"], viewport: { width: 430, height: 932 }, defaultBrowserType: undefined }],
       ["tablet-768", { ...devices["iPhone 13"], viewport: { width: 768, height: 1024 }, defaultBrowserType: undefined }],
-    ]) {
+    ].filter(([name]) => process.env.DESKTOP_ONLY !== "1" || name === "desktop")) {
       const page = await browser.newPage(options);
       try {
       const errors = [];
