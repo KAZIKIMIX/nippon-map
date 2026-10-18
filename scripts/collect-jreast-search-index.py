@@ -8,9 +8,8 @@ from urllib.parse import quote,unquote,urlparse,parse_qs
 from bs4 import BeautifulSoup
 P=Path("jreast-batch-results");P.mkdir(exist_ok=True)
 allstations=json.loads(Path("scripts/data/jreast-missing-20261019.json").read_text())
-# Skip registered entries in the original dated snapshot
-registered=set()  # Current DB state must be checked before any registration
-stations=[x for x in allstations if x["id"] not in registered]
+# Snapshot may include stations since registered; always recheck live DB before updating.
+stations=allstations
 groups={}
 for s in stations:
  for route in s.get("routes",[]):
