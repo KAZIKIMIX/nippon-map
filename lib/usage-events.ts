@@ -2,15 +2,16 @@ export const usageEvents = ["page_view","category_select","place_open","share_co
 export const usageCategories = ["library","aquarium","zoo","roadside-station","airport","shelter","world-heritage","national-park","railway","museum","park","toilet","castle","lighthouse","hot-spring","botanical-garden","campsite","observation-deck","theme-park","factory-tour","horse-racing","velodrome","sightseeing"] as const;
 export const usageSources = ["direct","x","instagram","search","other"] as const;
 export type UsageEvent = typeof usageEvents[number];
-export type UsagePayload = {event: UsageEvent; category: string|null; source: typeof usageSources[number]};
+export type UsagePayload = {event: UsageEvent; category: string|null; source: typeof usageSources[number]; developer:boolean};
 export function parseUsagePayload(value: unknown): UsagePayload|null {
  if(!value || typeof value!=="object" || Array.isArray(value))return null;
  const v=value as Record<string,unknown>;
- if(Object.keys(v).some(k=>!["event","category","source"].includes(k)))return null;
+ if(Object.keys(v).some(k=>!["event","category","source","developer"].includes(k)))return null;
+ if(typeof v.developer!=="boolean")return null;
  if(!usageEvents.includes(v.event as UsageEvent)||!usageSources.includes(v.source as UsagePayload["source"]))return null;
  if(v.category!==null&&!usageCategories.includes(v.category as typeof usageCategories[number]))return null;
  if((v.event==="category_select"||v.event==="place_open")&&v.category===null)return null;
- return {event:v.event as UsageEvent,category:v.category as string|null,source:v.source as UsagePayload["source"]};
+ return {event:v.event as UsageEvent,category:v.category as string|null,source:v.source as UsagePayload["source"],developer:v.developer as boolean};
 }
 export function classifyUsageSource(referrer: string, origin: string, campaign: string|null): UsagePayload["source"] {
  if(campaign==="x"||campaign==="instagram")return campaign;
