@@ -41,13 +41,20 @@ def stations():
  return result
 def official_listing():
  results=[];seen=set()
- # Route IDs must be discovered from the official route search; never synthesize station IDs.
- # Bounded directory search by kana initial; returned pages explicitly list station, prefecture and routes.
- for kana in "あかさたなはまやらわ":
-  url="https://timetables.jreast.co.jp/cgi-bin/st_search.cgi?ekimei="+requests.utils.quote(kana)+"&mode=0"
+ # Route-based directory queries cover all official routes more reliably than ten kana initials.
+ # Only observed rows with a real station-specific link are eligible for matching.
+ route_ids=os.environ.get("JREAST_ROUTE_IDS")
+ if route_ids:
+  ids=[int(x.strip()) for x in route_ids.split(",") if x.strip().isdigit()]
+ else:
+  ids=list(range(1,121))
+ consecutive_empty=0
+ for route_id in ids:
+  url=f"https://timetables.jreast.co.jp/cgi-bin/st_search.cgi?rosen={route_id}"
   r=fetch(url)
   if not r:continue
   soup=BeautifulSoup(r.content,"html.parser")
+  found=0
   for tr in soup.select("tr"):
    cells=tr.find_all(["td","th"],recursive=False)
    if len(cells)<3:continue
@@ -58,11 +65,15 @@ def official_listing():
    link=cells[0].find("a",href=True)
    station_url=urljoin(r.url,link["href"]) if link else None
    if station_url and urlparse(station_url).hostname!="timetables.jreast.co.jp":station_url=None
-   record={"name":name,"prefecture_name":pref,"routes_text":routes,"source_url":r.url,"url":station_url or r.url,"has_station_link":bool(station_url)}
+   record={"name":name,"prefecture_name":pref,"routes_text":routes,"source_url":r.url,"url":station_url or r.url,"has_station_link":bool(station_url),"route_id":route_id}
    k=(name,pref,record["url"])
    if k not in seen:seen.add(k);results.append(record)
+   found+=1
+  consecutive_empty=consecutive_empty+1 if found==0 else 0
+  print("ROUTE",route_id,"ROWS",found)
   time.sleep(0.6)
  return results
+
 def main():
  missing=stations()
  print("MISSING",len(missing))
