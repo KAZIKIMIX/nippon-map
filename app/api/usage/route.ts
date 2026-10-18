@@ -19,7 +19,7 @@ export async function POST(req:NextRequest) {
  if(!url||!key)return NextResponse.json({error:"Usage unavailable"},{status:503,headers});
  try{
   const db=createClient(url,key,{auth:{persistSession:false,autoRefreshToken:false}});
-  const {error}=await db.from("map_usage_events").insert({event_name:payload.event,category_slug:payload.category,source:payload.source});
+  const {error}=await db.from("map_usage_events").insert({event_name:payload.event,category_slug:payload.category,source:payload.source,is_developer:payload.developer});
   if(error)return NextResponse.json({error:"Usage unavailable"},{status:503,headers});
   return new NextResponse(null,{status:204,headers});
  }catch{return NextResponse.json({error:"Usage unavailable"},{status:503,headers});}
