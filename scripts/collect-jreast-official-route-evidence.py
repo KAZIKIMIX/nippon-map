@@ -53,3 +53,6 @@ with out.open("w",newline="",encoding="utf-8") as f:
     writer.writeheader()
     writer.writerows(matches.values())
 print(json.dumps(dict(official_route_matches=len(matches),unique_station_ids=len({x[0] for x in matches}),http_statuses=http_statuses,parsed_rows=parsed_rows,failed_count=len(failed),failed_pages=failed[:30],output=str(out)),ensure_ascii=False))
+if parsed_rows == 0:
+    print("ERROR: no official route rows parsed; candidate CSV is not verified", file=sys.stderr)
+    sys.exit(2)
