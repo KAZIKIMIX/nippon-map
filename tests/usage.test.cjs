@@ -5,10 +5,10 @@ function compile(path,customRequire=require){
  const module={exports:{}};new Function('exports','module','require',output)(module.exports,module,customRequire);return module.exports;
 }
 const events=compile('lib/usage-events.ts');
-assert.deepEqual(events.parseUsagePayload({event:'category_select',category:'library',source:'direct'}),{event:'category_select',category:'library',source:'direct'});
+assert.deepEqual(events.parseUsagePayload({event:'category_select',category:'library',source:'direct',developer:false}),{event:'category_select',category:'library',source:'direct',developer:false});
 const categories=compile('lib/map-categories.ts').mapCategories;
 assert.deepEqual(new Set(events.usageCategories),new Set(categories.map(c=>c.slug)), 'Every published category must be measurable');
-assert.deepEqual(events.parseUsagePayload({event:'place_open',category:'aquarium',source:'x'}),{event:'place_open',category:'aquarium',source:'x'});
+assert.deepEqual(events.parseUsagePayload({event:'place_open',category:'aquarium',source:'x',developer:true}),{event:'place_open',category:'aquarium',source:'x',developer:true});
 for(const value of [{event:'place_open',category:null,source:'x'},{event:'page_view',category:null,source:'direct',query:'private'},{event:'page_view',category:null,source:'invalid'}])assert.equal(events.parseUsagePayload(value),null);
 assert.equal(events.classifyUsageSource('https://google.com.evil.test/','https://nippon-map.vercel.app',null),'other');
 assert.equal(events.classifyUsageSource('https://www.google.co.jp/search?q=private','https://nippon-map.vercel.app',null),'search');
@@ -18,9 +18,9 @@ const route=compile('app/api/usage/route.ts',name=>name==='../../../lib/usage-ev
 process.env.NEXT_PUBLIC_SUPABASE_URL='https://example.supabase.co';process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY='test-public-key';
 function request(body,headers={}){return new NextRequest('https://nippon-map.vercel.app/api/usage',{method:'POST',headers:{origin:'https://nippon-map.vercel.app','content-type':'application/json',...headers},body:typeof body==='string'?body:JSON.stringify(body)});}
 (async()=>{
- const valid={event:'page_view',category:null,source:'direct'};
+ const valid={event:'page_view',category:null,source:'direct',developer:false};
  assert.equal((await route.POST(request(valid))).status,204);
- assert.deepEqual(inserted,[{event_name:'page_view',category_slug:null,source:'direct'}]);
+ assert.deepEqual(inserted,[{event_name:'page_view',category_slug:null,source:'direct',is_developer:false}]);
  assert.equal((await route.POST(request({...valid,query:'private'}))).status,400);
  assert.equal((await route.POST(request(valid,{origin:'https://other.example'}))).status,403);
  assert.equal((await route.POST(request('x'.repeat(513)))).status,413);
@@ -28,16 +28,18 @@ function request(body,headers={}){return new NextRequest('https://nippon-map.ver
  assert.equal((await route.POST(request(valid,{'sec-gpc':'1'}))).status,204);
  assert.equal(inserted.length,1);
  fail=true;const unavailable=await route.POST(request(valid));assert.equal(unavailable.status,503);assert.equal((await unavailable.json()).error,'Usage unavailable');
- let disabled=null,sent=[];
+ let disabled=null,sent=[];const store=new Map();
  global.window={location:{origin:'https://nippon-map.vercel.app',search:'?q=private&place=2527&utm_source=x'}};
  global.document={referrer:'https://google.com/search?q=private'};
  Object.defineProperty(global,'navigator',{value:{doNotTrack:'1'},configurable:true,writable:true});
- global.localStorage={getItem:()=>disabled,setItem:(_key,value)=>{disabled=value;},removeItem:()=>{disabled=null;}};
+ global.localStorage={getItem:key=>store.get(key)||null,setItem:(key,value)=>{store.set(key,value);},removeItem:key=>{store.delete(key);}};
  global.fetch=async (_url,options)=>{sent.push(JSON.parse(options.body));};
  const client=compile('lib/usage-client.ts',name=>name==='./usage-events'?events:require(name));
  client.trackUsage('page_view');assert.equal(sent.length,0);
  global.navigator.doNotTrack='0';client.setUsageDisabled(true);client.trackUsage('page_view');assert.equal(sent.length,0);
- client.setUsageDisabled(false);client.trackUsage('place_open','aquarium');assert.deepEqual(sent,[{event:'place_open',category:'aquarium',source:'x'}]);
- global.navigator.globalPrivacyControl=true;client.trackUsage('page_view');assert.equal(sent.length,1);
+ client.setUsageDisabled(false);client.trackUsage('place_open','aquarium');assert.deepEqual(sent,[{event:'place_open',category:'aquarium',source:'x',developer:false}]);
+ client.setDeveloperMode(true);assert.equal(client.developerModeEnabled(),true);client.trackUsage('page_view');assert.deepEqual(sent[1],{event:'page_view',category:null,source:'x',developer:true});
+ client.setDeveloperMode(false);assert.equal(client.developerModeEnabled(),false);
+ global.navigator.globalPrivacyControl=true;client.trackUsage('page_view');assert.equal(sent.length,2);
  console.log('Usage tests passed: validation, private-field rejection, origin/body checks, failure handling, DNT/GPC and opt-out.');
 })().catch(error=>{console.error(error);process.exit(1);});
