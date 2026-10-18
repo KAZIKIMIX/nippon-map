@@ -1,6 +1,14 @@
 "use client";
 import {classifyUsageSource,type UsageEvent} from "./usage-events";
 const key="nippon-map-usage-disabled";
+const developerKey="nippon-map-developer-mode";
+export function developerModeEnabled(): boolean {
+ if(typeof window==="undefined")return false;
+ try{return localStorage.getItem(developerKey)==="1";}catch{return false;}
+}
+export function setDeveloperMode(enabled:boolean):boolean {
+ try{if(enabled)localStorage.setItem(developerKey,"1");else localStorage.removeItem(developerKey);return true;}catch{return false;}
+}
 let memoryDisabled=false;
 export function usageIsDisabled(): boolean {
  if(typeof window==="undefined")return true;
@@ -16,5 +24,5 @@ export function trackUsage(event: UsageEvent, category: string|null=null): void 
  if(usageIsDisabled())return;
  const campaign=new URLSearchParams(window.location.search).get("utm_source");
  const source=classifyUsageSource(document.referrer,window.location.origin,campaign);
- void fetch("/api/usage",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({event,category,source}),keepalive:true,credentials:"omit"}).catch(()=>{});
+ void fetch("/api/usage",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({event,category,source,developer:developerModeEnabled()}),keepalive:true,credentials:"omit"}).catch(()=>{});
 }
