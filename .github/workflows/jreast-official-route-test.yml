@@ -1,0 +1,60 @@
+name: JR East official route evidence test
+on:
+  pull_request:
+    paths:
+      - 'scripts/collect-jreast-official-route-evidence.py'
+      - 'scripts/collect-jreast-facility-candidates.py'
+      - 'scripts/probe-jreast-official-sources.py'
+      - '.github/workflows/jreast-official-route-test.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-official-route-listings:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install parser dependencies
+        run: python -m pip install requests beautifulsoup4
+      - name: Syntax check
+        run: python -m py_compile scripts/collect-jreast-official-route-evidence.py
+      - name: Collect live official route rows (read-only)
+        if: ${{ github.event_name == 'workflow_dispatch' && vars.JREAST_ALLOW_BLOCKED_PROBES == 'true' }}
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python scripts/collect-jreast-official-route-evidence.py \
+            scripts/data/jreast-missing-20261019.json \
+            jreast-batch-results/official-route-evidence.csv \
+            2>&1 | tee jreast-official-route-test.log
+      - name: Syntax check alternative collector
+        run: python -m py_compile scripts/collect-jreast-facility-candidates.py
+      - name: Test alternative official facility listing (read-only)
+        if: ${{ github.event_name == 'workflow_dispatch' && vars.JREAST_ALLOW_BLOCKED_PROBES == 'true' }}
+        run: |
+          set -o pipefail
+          python scripts/collect-jreast-facility-candidates.py \
+            scripts/data/jreast-missing-20261019.json \
+            jreast-batch-results/facility-candidates.csv \
+            2>&1 | tee jreast-facility-test.log
+      - name: Probe independent official sources
+        if: ${{ github.event_name == 'workflow_dispatch' && vars.JREAST_ALLOW_BLOCKED_PROBES == 'true' }}
+        run: |
+          python scripts/probe-jreast-official-sources.py jreast-batch-results/official-source-probe.csv
+      - name: Upload logs and CSV for review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jreast-official-route-evidence
+          path: |
+            jreast-batch-results/official-route-evidence.csv
+            jreast-official-route-test.log
+            jreast-batch-results/facility-candidates.csv
+            jreast-facility-test.log
+            jreast-batch-results/official-source-probe.csv
+          if-no-files-found: warn
+          retention-days: 14

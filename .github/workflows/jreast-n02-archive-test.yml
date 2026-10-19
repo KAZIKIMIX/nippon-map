@@ -1,0 +1,78 @@
+name: MLIT N02 station identity test
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/jreast-n02-archive-test.yml'
+      - 'scripts/match-jreast-n02.py'
+      - 'scripts/data/jreast-missing-current-n02-20261019.json'
+      - 'scripts/data/jreast-missing-current-n02-20261019-927.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  match-stations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate matcher syntax
+        run: python -m py_compile scripts/match-jreast-n02.py
+      - name: Install HTML parser
+        run: python -m pip install requests beautifulsoup4
+      - name: Inspect official N02 download page (read-only)
+        run: |
+          python - <<'PY'
+          import requests
+          from bs4 import BeautifulSoup
+          url='https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N02-2025.html'
+          r=requests.get(url,timeout=25)
+          print('HTTP_STATUS',r.status_code,'CONTENT_TYPE',r.headers.get('Content-Type'))
+          r.raise_for_status()
+          soup=BeautifulSoup(r.text,'html.parser')
+          links=[(a.get_text(' ',strip=True),a.get('href','')) for a in soup.select('a[href]') if 'N02' in a.get('href','') or 'download' in a.get('href','').lower()]
+          print('CANDIDATE_LINKS',links[:30])
+          print('N02_25_MENTIONED', 'N02-25_GML.zip' in r.text)
+          for el in soup.find_all(string=lambda t: bool(t and 'N02-25_GML.zip' in t))[:10]:
+            parent=el.parent
+            print('ZIP_CONTEXT',str(parent.find_parent('tr'))[:6000] if parent and parent.find_parent('tr') else str(el)[:300])
+          for script in soup.select('script[src]'):
+            print('SCRIPT_SRC',script.get('src'))
+          PY
+      - name: Download verified official N02 archive (read-only)
+        run: |
+          curl --fail --location --retry 1 --max-time 90 \
+            --output /tmp/N02-25_GML.zip \
+            https://nlftp.mlit.go.jp/ksj/gml/data/N02/N02-25/N02-25_GML.zip
+          test -s /tmp/N02-25_GML.zip
+          unzip -t /tmp/N02-25_GML.zip | tail -3
+          unzip -Z1 /tmp/N02-25_GML.zip | head -35
+      - name: Match 939 Supabase stations against N02 GeoJSON (read-only)
+        run: |
+          unzip -p /tmp/N02-25_GML.zip N02-25_GML/UTF-8/N02-25_Station.geojson > /tmp/N02-25_Station.geojson
+          python scripts/match-jreast-n02.py \
+            --stations scripts/data/jreast-missing-current-n02-20261019-927.json \
+            --n02 /tmp/N02-25_Station.geojson \
+            --output /tmp/jreast-n02-match.csv
+          python - <<'PY'
+          import csv,collections
+          rows=list(csv.DictReader(open('/tmp/jreast-n02-match.csv',encoding='utf-8')))
+          assert len(rows)==927,len(rows)
+          for pref in ['新潟県','福島県','岩手県','宮城県']:
+            print('PREF_SUMMARY',pref,dict(collections.Counter(x['status'] for x in rows if x['prefecture_name']==pref)))
+          print('OVERALL',dict(collections.Counter(x['status'] for x in rows)))
+          print('AMBIGUITY_CLASSIFICATION',dict(collections.Counter(x['ambiguity_type'] for x in rows if x['status']=='ambiguous')))
+          for x in rows:
+            if x['status']=='ambiguous':
+              print('AMBIGUOUS_STATION',x['id'],x['name'],x['prefecture_name'],x['ambiguity_type'],x['close_candidate_count'])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jreast-n02-readonly-match
+          path: /tmp/jreast-n02-match.csv
+          if-no-files-found: ignore
+      - name: Note verification boundary
+        run: echo 'This workflow only tests archive access; it does not update Supabase or validate official station URLs.'
