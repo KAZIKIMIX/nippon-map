@@ -18,13 +18,21 @@ jobs:
           python-version: '3.11'
       - name: Validate matcher syntax
         run: python -m py_compile scripts/match-jreast-n02.py
-      - name: Fetch official N02 archive (read-only)
+      - name: Install HTML parser
+        run: python -m pip install requests beautifulsoup4
+      - name: Inspect official N02 download page (read-only)
         run: |
-          curl --fail --location --retry 1 --max-time 90 \
-            --output /tmp/N02-25_GML.zip \
-            https://nlftp.mlit.go.jp/ksj/gml/data/N02/N02-2025/N02-25_GML.zip
-          test -s /tmp/N02-25_GML.zip
-          unzip -t /tmp/N02-25_GML.zip | tail -3
-          unzip -Z1 /tmp/N02-25_GML.zip | head -30
+          python - <<'PY'
+          import requests
+          from bs4 import BeautifulSoup
+          url='https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N02-2025.html'
+          r=requests.get(url,timeout=25)
+          print('HTTP_STATUS',r.status_code,'CONTENT_TYPE',r.headers.get('Content-Type'))
+          r.raise_for_status()
+          soup=BeautifulSoup(r.text,'html.parser')
+          links=[(a.get_text(' ',strip=True),a.get('href','')) for a in soup.select('a[href]') if 'N02' in a.get('href','') or 'download' in a.get('href','').lower()]
+          print('CANDIDATE_LINKS',links[:30])
+          print('N02_25_MENTIONED', 'N02-25_GML.zip' in r.text)
+          PY
       - name: Note verification boundary
         run: echo 'This workflow only tests archive access; it does not update Supabase or validate official station URLs.'
