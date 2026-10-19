@@ -23,6 +23,7 @@ jobs:
       - name: Syntax check
         run: python -m py_compile scripts/collect-jreast-official-route-evidence.py
       - name: Collect live official route rows (read-only)
+        if: ${{ github.event_name == 'workflow_dispatch' && vars.JREAST_ALLOW_BLOCKED_PROBES == 'true' }}
         continue-on-error: true
         run: |
           set -o pipefail
@@ -33,6 +34,7 @@ jobs:
       - name: Syntax check alternative collector
         run: python -m py_compile scripts/collect-jreast-facility-candidates.py
       - name: Test alternative official facility listing (read-only)
+        if: ${{ github.event_name == 'workflow_dispatch' && vars.JREAST_ALLOW_BLOCKED_PROBES == 'true' }}
         run: |
           set -o pipefail
           python scripts/collect-jreast-facility-candidates.py \
@@ -40,7 +42,7 @@ jobs:
             jreast-batch-results/facility-candidates.csv \
             2>&1 | tee jreast-facility-test.log
       - name: Probe independent official sources
-        if: always()
+        if: ${{ github.event_name == 'workflow_dispatch' && vars.JREAST_ALLOW_BLOCKED_PROBES == 'true' }}
         run: |
           python scripts/probe-jreast-official-sources.py jreast-batch-results/official-source-probe.csv
       - name: Upload logs and CSV for review
