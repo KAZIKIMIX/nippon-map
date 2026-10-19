@@ -62,6 +62,10 @@ jobs:
           for pref in ['新潟県','福島県','岩手県','宮城県']:
             print('PREF_SUMMARY',pref,dict(collections.Counter(x['status'] for x in rows if x['prefecture_name']==pref)))
           print('OVERALL',dict(collections.Counter(x['status'] for x in rows)))
+          print('AMBIGUITY_CLASSIFICATION',dict(collections.Counter(x['ambiguity_type'] for x in rows if x['status']=='ambiguous')))
+          for x in rows:
+            if x['status']=='ambiguous':
+              print('AMBIGUOUS_STATION',x['id'],x['name'],x['prefecture_name'],x['ambiguity_type'],x['close_candidate_count'])
           PY
       - uses: actions/upload-artifact@v4
         if: always()
