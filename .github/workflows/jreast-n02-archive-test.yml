@@ -39,5 +39,13 @@ jobs:
           for script in soup.select('script[src]'):
             print('SCRIPT_SRC',script.get('src'))
           PY
+      - name: Download verified official N02 archive (read-only)
+        run: |
+          curl --fail --location --retry 1 --max-time 90 \
+            --output /tmp/N02-25_GML.zip \
+            https://nlftp.mlit.go.jp/ksj/gml/data/N02/N02-25/N02-25_GML.zip
+          test -s /tmp/N02-25_GML.zip
+          unzip -t /tmp/N02-25_GML.zip | tail -3
+          unzip -Z1 /tmp/N02-25_GML.zip | head -35
       - name: Note verification boundary
         run: echo 'This workflow only tests archive access; it does not update Supabase or validate official station URLs.'
