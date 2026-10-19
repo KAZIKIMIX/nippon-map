@@ -1,5 +1,9 @@
 name: MLIT N02 station identity test
 on:
+  pull_request:
+    paths:
+      - '.github/workflows/jreast-n02-archive-test.yml'
+      - 'scripts/match-jreast-n02.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -19,6 +23,7 @@ jobs:
           curl --fail --location --retry 1 --max-time 90 \
             --output /tmp/N02-25_GML.zip \
             https://nlftp.mlit.go.jp/ksj/gml/data/N02/N02-2025/N02-25_GML.zip
+          test -s /tmp/N02-25_GML.zip
           unzip -t /tmp/N02-25_GML.zip | tail -3
           unzip -Z1 /tmp/N02-25_GML.zip | head -30
       - name: Note verification boundary
