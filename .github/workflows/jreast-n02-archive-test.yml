@@ -4,6 +4,7 @@ on:
     paths:
       - '.github/workflows/jreast-n02-archive-test.yml'
       - 'scripts/match-jreast-n02.py'
+      - 'scripts/data/jreast-missing-current-n02-20261019.json'
   workflow_dispatch:
 permissions:
   contents: read
@@ -47,5 +48,26 @@ jobs:
           test -s /tmp/N02-25_GML.zip
           unzip -t /tmp/N02-25_GML.zip | tail -3
           unzip -Z1 /tmp/N02-25_GML.zip | head -35
+      - name: Match 939 Supabase stations against N02 GeoJSON (read-only)
+        run: |
+          unzip -p /tmp/N02-25_GML.zip N02-25_GML/UTF-8/N02-25_Station.geojson > /tmp/N02-25_Station.geojson
+          python scripts/match-jreast-n02.py \
+            --stations scripts/data/jreast-missing-current-n02-20261019.json \
+            --n02 /tmp/N02-25_Station.geojson \
+            --output /tmp/jreast-n02-match.csv
+          python - <<'PY'
+          import csv,collections
+          rows=list(csv.DictReader(open('/tmp/jreast-n02-match.csv',encoding='utf-8')))
+          assert len(rows)==939,len(rows)
+          for pref in ['新潟県','福島県','岩手県','宮城県']:
+            print('PREF_SUMMARY',pref,dict(collections.Counter(x['status'] for x in rows if x['prefecture_name']==pref)))
+          print('OVERALL',dict(collections.Counter(x['status'] for x in rows)))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jreast-n02-readonly-match
+          path: /tmp/jreast-n02-match.csv
+          if-no-files-found: ignore
       - name: Note verification boundary
         run: echo 'This workflow only tests archive access; it does not update Supabase or validate official station URLs.'
