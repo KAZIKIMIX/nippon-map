@@ -1,0 +1,25 @@
+name: MLIT N02 station identity test
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  match-stations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate matcher syntax
+        run: python -m py_compile scripts/match-jreast-n02.py
+      - name: Fetch official N02 archive (read-only)
+        run: |
+          curl --fail --location --retry 1 --max-time 90 \
+            --output /tmp/N02-25_GML.zip \
+            https://nlftp.mlit.go.jp/ksj/gml/data/N02/N02-2025/N02-25_GML.zip
+          unzip -t /tmp/N02-25_GML.zip | tail -3
+          unzip -Z1 /tmp/N02-25_GML.zip | head -30
+      - name: Note verification boundary
+        run: echo 'This workflow only tests archive access; it does not update Supabase or validate official station URLs.'
