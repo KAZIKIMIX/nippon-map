@@ -4,6 +4,7 @@ on:
     paths:
       - 'scripts/collect-jreast-official-route-evidence.py'
       - 'scripts/collect-jreast-facility-candidates.py'
+      - 'scripts/probe-jreast-official-sources.py'
       - '.github/workflows/jreast-official-route-test.yml'
   workflow_dispatch:
 permissions:
@@ -38,6 +39,10 @@ jobs:
             scripts/data/jreast-missing-20261019.json \
             jreast-batch-results/facility-candidates.csv \
             2>&1 | tee jreast-facility-test.log
+      - name: Probe independent official sources
+        if: always()
+        run: |
+          python scripts/probe-jreast-official-sources.py jreast-batch-results/official-source-probe.csv
       - name: Upload logs and CSV for review
         if: always()
         uses: actions/upload-artifact@v4
@@ -48,5 +53,6 @@ jobs:
             jreast-official-route-test.log
             jreast-batch-results/facility-candidates.csv
             jreast-facility-test.log
+            jreast-batch-results/official-source-probe.csv
           if-no-files-found: warn
           retention-days: 14
