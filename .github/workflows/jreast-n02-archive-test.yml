@@ -33,6 +33,9 @@ jobs:
           links=[(a.get_text(' ',strip=True),a.get('href','')) for a in soup.select('a[href]') if 'N02' in a.get('href','') or 'download' in a.get('href','').lower()]
           print('CANDIDATE_LINKS',links[:30])
           print('N02_25_MENTIONED', 'N02-25_GML.zip' in r.text)
+          for el in soup.find_all(string=lambda t: bool(t and 'N02-25_GML.zip' in t))[:10]:
+            parent=el.parent
+            print('ZIP_CONTEXT',str(parent.parent)[:1400] if parent and parent.parent else str(el)[:300])
           PY
       - name: Note verification boundary
         run: echo 'This workflow only tests archive access; it does not update Supabase or validate official station URLs.'
