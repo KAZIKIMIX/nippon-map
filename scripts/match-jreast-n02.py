@@ -3,6 +3,11 @@
 import argparse,csv,json,math,re
 from collections import defaultdict
 from pathlib import Path
+import importlib.util
+_alias_spec=importlib.util.spec_from_file_location('jreast_route_aliases',Path(__file__).with_name('jreast-route-aliases.py'))
+_alias_module=importlib.util.module_from_spec(_alias_spec)
+_alias_spec.loader.exec_module(_alias_module)
+route_matches=_alias_module.route_matches
 def norm(s):
     return re.sub(r'[\s　]+','',str(s or '').removesuffix('駅')).replace('ヶ','ケ').replace('ヵ','カ')
 def points(g):
@@ -42,7 +47,7 @@ for station in stations:
         route=str(prop.get('N02_003',''))
         routes=station.get('routes',[])
         if not isinstance(routes,list):routes=str(routes).split('|')
-        route_match=any(norm(route)==norm(r) or norm(route).replace('本線','線')==norm(r) for r in routes)
+        route_match=route_matches(routes,route)
         candidates.append((d,route_match,route,prop.get('N02_005c',''),prop.get('N02_005g','')))
     candidates.sort()
     close=[x for x in candidates if x[0]<=500 and x[1]]
