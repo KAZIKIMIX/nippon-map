@@ -1,0 +1,807 @@
+{
+  "status": "100 DB missing-URL candidates extracted; official URL validation still pending",
+  "rows": [
+    {
+      "id": 4609,
+      "name": "二日市駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "鹿児島線"
+      ]
+    },
+    {
+      "id": 4611,
+      "name": "広原駅",
+      "prefecture_name": "宮崎県",
+      "routes": [
+        "吉都線"
+      ]
+    },
+    {
+      "id": 4702,
+      "name": "谷頭駅",
+      "prefecture_name": "宮崎県",
+      "routes": [
+        "吉都線"
+      ]
+    },
+    {
+      "id": 4776,
+      "name": "引治駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "久大線"
+      ]
+    },
+    {
+      "id": 4784,
+      "name": "船尾駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "後藤寺線"
+      ]
+    },
+    {
+      "id": 4809,
+      "name": "豊後中村駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "久大線"
+      ]
+    },
+    {
+      "id": 4825,
+      "name": "福工大前駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "鹿児島線"
+      ]
+    },
+    {
+      "id": 4846,
+      "name": "田代駅",
+      "prefecture_name": "佐賀県",
+      "routes": [
+        "鹿児島線"
+      ]
+    },
+    {
+      "id": 4874,
+      "name": "福間駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "鹿児島線"
+      ]
+    },
+    {
+      "id": 4880,
+      "name": "筑前大分駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "篠栗線"
+      ]
+    },
+    {
+      "id": 4936,
+      "name": "筑後草野駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "久大線"
+      ]
+    },
+    {
+      "id": 4978,
+      "name": "古国府駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "久大線"
+      ]
+    },
+    {
+      "id": 5008,
+      "name": "肥前旭駅",
+      "prefecture_name": "佐賀県",
+      "routes": [
+        "鹿児島線"
+      ]
+    },
+    {
+      "id": 5079,
+      "name": "東都農駅",
+      "prefecture_name": "宮崎県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5087,
+      "name": "大入駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "筑肥線"
+      ]
+    },
+    {
+      "id": 5123,
+      "name": "豊後清川駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "豊肥線"
+      ]
+    },
+    {
+      "id": 5132,
+      "name": "肥前久保駅",
+      "prefecture_name": "佐賀県",
+      "routes": [
+        "筑肥線"
+      ]
+    },
+    {
+      "id": 5142,
+      "name": "本城駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "筑豊線"
+      ]
+    },
+    {
+      "id": 5156,
+      "name": "東別府駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5161,
+      "name": "植村駅",
+      "prefecture_name": "鹿児島県",
+      "routes": [
+        "肥薩線"
+      ]
+    },
+    {
+      "id": 5164,
+      "name": "日代駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5166,
+      "name": "筑前岩屋駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "日田彦山線"
+      ]
+    },
+    {
+      "id": 5170,
+      "name": "日向大束駅",
+      "prefecture_name": "宮崎県",
+      "routes": [
+        "日南線"
+      ]
+    },
+    {
+      "id": 5176,
+      "name": "平成駅",
+      "prefecture_name": "熊本県",
+      "routes": [
+        "豊肥線"
+      ]
+    },
+    {
+      "id": 5180,
+      "name": "志布志駅",
+      "prefecture_name": "鹿児島県",
+      "routes": [
+        "日南線"
+      ]
+    },
+    {
+      "id": 5181,
+      "name": "肥前長田駅",
+      "prefecture_name": "長崎県",
+      "routes": [
+        "長崎線"
+      ]
+    },
+    {
+      "id": 5184,
+      "name": "肥前麓駅",
+      "prefecture_name": "佐賀県",
+      "routes": [
+        "長崎線"
+      ]
+    },
+    {
+      "id": 5195,
+      "name": "久保田駅",
+      "prefecture_name": "佐賀県",
+      "routes": [
+        "唐津線",
+        "長崎線"
+      ]
+    },
+    {
+      "id": 5196,
+      "name": "日向沓掛駅",
+      "prefecture_name": "宮崎県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5197,
+      "name": "肥前白石駅",
+      "prefecture_name": "佐賀県",
+      "routes": [
+        "長崎線"
+      ]
+    },
+    {
+      "id": 5208,
+      "name": "豊前桝田駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "日田彦山線"
+      ]
+    },
+    {
+      "id": 5211,
+      "name": "津久見駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5216,
+      "name": "豊前長洲駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5222,
+      "name": "肥前鹿島駅",
+      "prefecture_name": "佐賀県",
+      "routes": [
+        "長崎線"
+      ]
+    },
+    {
+      "id": 5223,
+      "name": "佐里駅",
+      "prefecture_name": "佐賀県",
+      "routes": [
+        "筑肥線"
+      ]
+    },
+    {
+      "id": 5227,
+      "name": "筑前深江駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "筑肥線"
+      ]
+    },
+    {
+      "id": 5232,
+      "name": "駒鳴駅",
+      "prefecture_name": "佐賀県",
+      "routes": [
+        "筑肥線"
+      ]
+    },
+    {
+      "id": 5234,
+      "name": "佐土原駅",
+      "prefecture_name": "宮崎県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5236,
+      "name": "肥前古賀駅",
+      "prefecture_name": "長崎県",
+      "routes": [
+        "長崎線"
+      ]
+    },
+    {
+      "id": 5237,
+      "name": "市ノ川駅",
+      "prefecture_name": "熊本県",
+      "routes": [
+        "豊肥線"
+      ]
+    },
+    {
+      "id": 5238,
+      "name": "那良口駅",
+      "prefecture_name": "熊本県",
+      "routes": [
+        "肥薩線"
+      ]
+    },
+    {
+      "id": 5239,
+      "name": "肥前大浦駅",
+      "prefecture_name": "佐賀県",
+      "routes": [
+        "長崎線"
+      ]
+    },
+    {
+      "id": 5240,
+      "name": "石原町駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "日田彦山線"
+      ]
+    },
+    {
+      "id": 5242,
+      "name": "肥前竜王駅",
+      "prefecture_name": "佐賀県",
+      "routes": [
+        "長崎線"
+      ]
+    },
+    {
+      "id": 5245,
+      "name": "新水前寺駅",
+      "prefecture_name": "熊本県",
+      "routes": [
+        "豊肥線"
+      ]
+    },
+    {
+      "id": 5248,
+      "name": "谷之口駅",
+      "prefecture_name": "宮崎県",
+      "routes": [
+        "日南線"
+      ]
+    },
+    {
+      "id": 5258,
+      "name": "渡駅",
+      "prefecture_name": "熊本県",
+      "routes": [
+        "肥薩線"
+      ]
+    },
+    {
+      "id": 5260,
+      "name": "大行司駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "日田彦山線"
+      ]
+    },
+    {
+      "id": 5263,
+      "name": "白石駅",
+      "prefecture_name": "熊本県",
+      "routes": [
+        "肥薩線"
+      ]
+    },
+    {
+      "id": 5267,
+      "name": "採銅所駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "日田彦山線"
+      ]
+    },
+    {
+      "id": 5271,
+      "name": "鹿家駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "筑肥線"
+      ]
+    },
+    {
+      "id": 5277,
+      "name": "下ノ江駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5284,
+      "name": "天道駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "筑豊線"
+      ]
+    },
+    {
+      "id": 5288,
+      "name": "財光寺駅",
+      "prefecture_name": "宮崎県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5290,
+      "name": "栗野駅",
+      "prefecture_name": "鹿児島県",
+      "routes": [
+        "肥薩線"
+      ]
+    },
+    {
+      "id": 5293,
+      "name": "国分駅",
+      "prefecture_name": "鹿児島県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5302,
+      "name": "帖佐駅",
+      "prefecture_name": "鹿児島県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5304,
+      "name": "志井公園駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "日田彦山線"
+      ]
+    },
+    {
+      "id": 5310,
+      "name": "段駅",
+      "prefecture_name": "熊本県",
+      "routes": [
+        "肥薩線"
+      ]
+    },
+    {
+      "id": 5315,
+      "name": "東水巻駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "筑豊線"
+      ]
+    },
+    {
+      "id": 5321,
+      "name": "志井駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "日田彦山線"
+      ]
+    },
+    {
+      "id": 5324,
+      "name": "表木山駅",
+      "prefecture_name": "鹿児島県",
+      "routes": [
+        "肥薩線"
+      ]
+    },
+    {
+      "id": 5325,
+      "name": "筑前前原駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "筑肥線"
+      ]
+    },
+    {
+      "id": 5326,
+      "name": "日当山駅",
+      "prefecture_name": "鹿児島県",
+      "routes": [
+        "肥薩線"
+      ]
+    },
+    {
+      "id": 5327,
+      "name": "築城駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5334,
+      "name": "日向新富駅",
+      "prefecture_name": "宮崎県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5337,
+      "name": "福島高松駅",
+      "prefecture_name": "宮崎県",
+      "routes": [
+        "日南線"
+      ]
+    },
+    {
+      "id": 5344,
+      "name": "本川内駅",
+      "prefecture_name": "長崎県",
+      "routes": [
+        "長崎線"
+      ]
+    },
+    {
+      "id": 5346,
+      "name": "臼杵駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5353,
+      "name": "日向市駅",
+      "prefecture_name": "宮崎県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5356,
+      "name": "立石駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5357,
+      "name": "宝珠山駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "日田彦山線"
+      ]
+    },
+    {
+      "id": 5365,
+      "name": "城野駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "日田彦山線",
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5373,
+      "name": "玉来駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "豊肥線"
+      ]
+    },
+    {
+      "id": 5376,
+      "name": "肥前長野駅",
+      "prefecture_name": "佐賀県",
+      "routes": [
+        "筑肥線"
+      ]
+    },
+    {
+      "id": 5378,
+      "name": "浦上駅",
+      "prefecture_name": "長崎県",
+      "routes": [
+        "長崎線"
+      ]
+    },
+    {
+      "id": 5380,
+      "name": "新入駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "筑豊線"
+      ]
+    },
+    {
+      "id": 5382,
+      "name": "安部山公園駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5383,
+      "name": "今津駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5384,
+      "name": "別府大学駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5385,
+      "name": "新田原駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5387,
+      "name": "大鶴駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "日田彦山線"
+      ]
+    },
+    {
+      "id": 5390,
+      "name": "豊後豊岡駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5391,
+      "name": "豊前川崎駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "日田彦山線"
+      ]
+    },
+    {
+      "id": 5398,
+      "name": "豊前松江駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5399,
+      "name": "佐賀駅",
+      "prefecture_name": "佐賀県",
+      "routes": [
+        "長崎線"
+      ]
+    },
+    {
+      "id": 5402,
+      "name": "重富駅",
+      "prefecture_name": "鹿児島県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5405,
+      "name": "一本松駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "日田彦山線"
+      ]
+    },
+    {
+      "id": 5408,
+      "name": "彦山駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "日田彦山線"
+      ]
+    },
+    {
+      "id": 5410,
+      "name": "現川駅",
+      "prefecture_name": "長崎県",
+      "routes": [
+        "長崎線"
+      ]
+    },
+    {
+      "id": 5412,
+      "name": "藤ノ木駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "筑豊線"
+      ]
+    },
+    {
+      "id": 5414,
+      "name": "日向長井駅",
+      "prefecture_name": "宮崎県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5422,
+      "name": "小内海駅",
+      "prefecture_name": "宮崎県",
+      "routes": [
+        "日南線"
+      ]
+    },
+    {
+      "id": 5433,
+      "name": "別府駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5436,
+      "name": "宇島駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "日豊線"
+      ]
+    },
+    {
+      "id": 5439,
+      "name": "犬飼駅",
+      "prefecture_name": "大分県",
+      "routes": [
+        "豊肥線"
+      ]
+    },
+    {
+      "id": 5446,
+      "name": "人吉駅",
+      "prefecture_name": "熊本県",
+      "routes": [
+        "肥薩線"
+      ]
+    },
+    {
+      "id": 5448,
+      "name": "小竹駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "筑豊線"
+      ]
+    },
+    {
+      "id": 5450,
+      "name": "筑前山家駅",
+      "prefecture_name": "福岡県",
+      "routes": [
+        "筑豊線"
+      ]
+    },
+    {
+      "id": 5454,
+      "name": "坂本駅",
+      "prefecture_name": "熊本県",
+      "routes": [
+        "肥薩線"
+      ]
+    }
+  ]
+}
