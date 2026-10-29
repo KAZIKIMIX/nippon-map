@@ -15,10 +15,18 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       ["tablet-768", { ...devices["iPhone 13"], viewport: { width: 768, height: 1024 }, defaultBrowserType: undefined }],
     ].filter(([name]) => process.env.DESKTOP_ONLY !== "1" || name === "desktop")) {
       const page = await browser.newPage(options);
+      await page.addInitScript(()=>localStorage.setItem("nippon-map-developer-mode","1"));
+      const usagePayloads=[];
+      // Inspect real client events without adding synthetic events to the production database.
+      await page.route("**/api/usage",async route=>{
+        usagePayloads.push(route.request().postDataJSON());
+        await route.fulfill({status:204});
+      });
       try {
       const errors = [];
       page.on("pageerror", error => errors.push(error.message));
-      const landingResponse = await page.goto(BASE, { waitUntil: "domcontentloaded", timeout: 45000 });
+      const landingUrl=new URL(BASE);landingUrl.searchParams.set("utm_source","x");
+      const landingResponse = await page.goto(landingUrl.toString(), { waitUntil: "domcontentloaded", timeout: 45000 });
       assert.ok(landingResponse?.ok(), name + ": landing page unavailable");
       assert.ok(await page.locator('a[href^="/map"]').count() > 0, name + ": landing map entry missing");
       const target = new URL(BASE); target.pathname = "/map"; target.searchParams.set("e2e", "1");
@@ -27,6 +35,10 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       await page.locator('input[aria-label="施設名・地域を検索"]').waitFor({ timeout: 30000 });
       const search = page.locator('input[aria-label="施設名・地域を検索"]');
       await page.waitForFunction(() => { const input = document.querySelector('input[aria-label="施設名・地域を検索"]'); return input && !input.disabled && window.__nipponMapE2E; }, undefined, { timeout: 30000 });
+      await page.waitForFunction(()=>sessionStorage.getItem("nippon-map-usage-source")==="x",undefined,{timeout:10000});
+      assert.ok(usagePayloads.length>0,name+": client usage payload missing");
+      assert.ok(usagePayloads.every(p=>p.source==="x"&&p.developer===true),name+": retained source or developer flag lost");
+      console.log(name+": X attribution across landing-to-map navigation and isolated developer events PASS");
       await search.fill("羽田");
       await page.waitForTimeout(1800);
       assert.equal(await search.inputValue(), "羽田", name + ": search failed");
@@ -139,7 +151,7 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       assert.ok(Array.isArray(railwayPayload.places) && railwayPayload.places.length > 0, name + ": railway category returned no pins");
       assert.ok(railwayPayload.places.every(p => Number.isFinite(p.latitude) && Number.isFinite(p.longitude)), name + ": railway category returned invalid pin coordinates");
       const nearbyResponse = await page.request.get(BASE + "/api/nearby?lat=35.5494&lon=139.7798&radius=5&categories=airport,railway");
-      assert.equal(nearbyResponse.ok(), true, name + ": multi-category nearby API failed");
+      assert.equal(nearbyResponse.ok(), true, name + ": multi-category nearby API failed (HTTP "+nearbyResponse.status()+")");
       const nearbyPayload = await nearbyResponse.json();
       assert.ok(Array.isArray(nearbyPayload.places), name + ": multi-category nearby API returned invalid data");
       assert.ok(nearbyPayload.places.every(p => ["airport", "railway"].includes(p.category_slug)), name + ": multi-category nearby API returned an unselected category");

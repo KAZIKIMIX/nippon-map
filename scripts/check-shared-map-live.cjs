@@ -13,6 +13,8 @@ const BASE=process.env.BASE_URL||"https://nippon-map.vercel.app";
   await api.close();
   for(const [name,viewport] of [["desktop",{width:1440,height:900}],["mobile",{width:375,height:812}]]){
    const page=await browser.newPage({viewport});
+      await page.addInitScript(()=>localStorage.setItem("nippon-map-developer-mode","1"));
+    await page.route("**/api/usage",route=>route.fulfill({status:204}));
    try{
     const url=new URL("/map",BASE);
     url.searchParams.set("category","airport");
