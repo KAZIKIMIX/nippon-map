@@ -85,3 +85,5 @@
 
 /* Keep the existing multiple-category controls available on narrow screens. */
 @media(max-width:900px){.left>.multiCategoryControls,.left>.multiCategoryStatus{display:block;margin:8px 0}.multiCategoryControls>button{min-height:44px;width:100%}}
+
+.detail h2{text-wrap:balance}
