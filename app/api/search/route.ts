@@ -1,6 +1,6 @@
 import {createClient} from "@supabase/supabase-js";
 import {mapCategories} from "../../../lib/map-categories";
-import {canonicalPlaceSearch} from "../../../lib/search-results";
+import {canonicalPlaceSearch,normalizeSearchText,placeSearchVariants} from "../../../lib/search-results";
 import {NextRequest,NextResponse} from "next/server";
 export const dynamic="force-dynamic";
 export async function GET(req:NextRequest){
@@ -13,11 +13,11 @@ export async function GET(req:NextRequest){
  if(!url||!key)return NextResponse.json({places:[],error:"検索サービスを利用できません。時間をおいて再度お試しください。",has_more:false,partial:false,limit:100},{status:503});
  const safe=canonicalPlaceSearch(q).replace(/[%,()_"\\]/g,"").replace(/\s+/g," ").trim();
  if(!safe)return NextResponse.json({places:[],has_more:false,partial:false,limit:100});
- const normalizeKana=(v:string)=>v.normalize("NFKC").replace(/[\u3041-\u3096]/g,ch=>String.fromCharCode(ch.charCodeAt(0)+96)).toLocaleLowerCase("ja");
+ const normalizeKana=normalizeSearchText;
  const terms=safe.split(" ").filter(Boolean);
  if(terms.length>5)return NextResponse.json({places:[],error:"検索語は5語以内にしてください。",has_more:false,partial:false,limit:100},{status:400});
  const toHiragana=(v:string)=>v.normalize("NFKC").replace(/[\u30A1-\u30F6]/g,ch=>String.fromCharCode(ch.charCodeAt(0)-96));
- const variants=[...new Set(terms.flatMap(term=>[term,normalizeKana(term),toHiragana(term)]))].filter(Boolean);
+ const variants=[...new Set(terms.flatMap(term=>placeSearchVariants(term).flatMap(value=>[value,normalizeKana(value),toHiragana(value)])))].filter(Boolean);
  try{
   const db=createClient(url,key);
   const columns=["name","name_kana","prefecture_name","municipality_name","address"];
