@@ -10,7 +10,9 @@ type Props={params:Promise<{category:string}>};
 export async function generateMetadata({params}:Props):Promise<Metadata>{
  const {category}=await params;if(!isGuideCategory(category))return {};
  const guide=guideCategories[category];
- return {title:guide.name+"の地域別一覧と地図｜にっぽんマップ",description:guide.intro,alternates:{canonical:"/guides/"+category},robots:{index:true,follow:true},openGraph:{title:guide.name+"を地域から探す｜にっぽんマップ",description:guide.intro,url:"/guides/"+category,images:[{url:"/social/launch-20261009.png",width:1200,height:630}]},twitter:{card:"summary_large_image",title:guide.name+"を地域から探す｜にっぽんマップ",description:guide.intro,images:["/social/launch-20261009.png"]}};
+ const title="全国の"+guide.name+"一覧｜都道府県別の住所・公式サイト・地図｜にっぽんマップ";
+ const description="全国の掲載中の"+guide.name+"を都道府県別に探せます。施設名・住所・公式サイトを確認し、地図で位置を比較できます。掲載データは全施設の網羅を保証するものではありません。";
+ return {title,description,alternates:{canonical:"/guides/"+category},robots:{index:true,follow:true},openGraph:{title,description,url:"/guides/"+category,images:[{url:"/social/launch-20261009.png",width:1200,height:630}]},twitter:{card:"summary_large_image",title,description,images:["/social/launch-20261009.png"]}};
 }
 export default async function GuidePage({params}:Props){
  const {category}=await params;if(!isGuideCategory(category))notFound();
