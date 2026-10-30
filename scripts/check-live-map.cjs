@@ -29,6 +29,9 @@ const BASE = process.env.BASE_URL || "https://nippon-map.vercel.app";
       const landingResponse = await page.goto(landingUrl.toString(), { waitUntil: "domcontentloaded", timeout: 45000 });
       assert.ok(landingResponse?.ok(), name + ": landing page unavailable");
       assert.ok(await page.locator('a[href^="/map"]').count() > 0, name + ": landing map entry missing");
+      // Let the landing client commit attribution before leaving the page.
+      await page.waitForFunction(()=>sessionStorage.getItem("nippon-map-usage-source")==="x",undefined,{timeout:15000});
+      assert.ok(usagePayloads.some(p=>p.event==="page_view"&&p.source==="x"&&p.developer===true),name+": landing attribution event missing");
       const target = new URL(BASE); target.pathname = "/map"; target.searchParams.set("e2e", "1");
       const response = await page.goto(target.toString(), { waitUntil: "domcontentloaded", timeout: 45000 });
       assert.ok(response && response.ok(), name + ": homepage unavailable");
