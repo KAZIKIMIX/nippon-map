@@ -14,4 +14,11 @@ assert.equal(api.exports.normalizeSearchText('ﾘｽ'),api.exports.normalizeSear
 assert.equal(api.exports.normalizeSearchText('津島やすらぎの里'),api.exports.normalizeSearchText('津島熱田温泉'));
 assert.equal(api.exports.canonicalPlaceSearch('津島ﾔｽﾗｷﾞﾉ里'),'津島熱田温泉');
 assert.equal(api.exports.canonicalPlaceSearch('別のやすらぎの里'),'別のやすらぎの里');
+for(const [official,stored] of [['江曽島','江曾島'],['下祇園','下祗園']]){
+ assert.equal(api.exports.normalizeSearchText(official),api.exports.normalizeSearchText(stored));
+ assert.deepEqual(new Set(api.exports.placeSearchVariants(stored)),new Set([official,stored]));
+ const exact={id:90,name:stored+'駅'},other={id:91,name:'別の駅'};
+ assert.equal(api.exports.rankGlobalSearchResults([other,exact],official)[0],exact);
+}
+assert.equal(api.exports.canonicalPlaceSearch('曽根 祇園'),'曽根 祇園','Do not rewrite unrelated names');
 console.log('Global search result tests passed: cross-category/region retention, ranking, deduplication, reading matches and kana category suggestions.');
