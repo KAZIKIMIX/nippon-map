@@ -1,0 +1,1 @@
+import MapApp from "../../components/ReviewBeforeMapApp";export default function Before(){return <div className="reviewBefore"><style>{".reviewBefore .detail h2{text-wrap:wrap;word-break:normal;overflow-wrap:normal}"}</style><MapApp/></div>}

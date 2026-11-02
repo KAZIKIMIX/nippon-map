@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://nippon-map.vercel.app"),
   applicationName: "にっぽんマップ",
   alternates: { canonical: "/" },
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: false },
   openGraph: {
     type: "website", locale: "ja_JP", url: "/", siteName: "にっぽんマップ",
     title: "にっぽんマップ｜日本の施設・スポットを地図で探す",
