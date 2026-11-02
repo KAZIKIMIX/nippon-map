@@ -6,7 +6,7 @@ export function legacyMapPath(params:LandingParams):string|null {
  if(!mapCategories.some(c=>c.slug===category)&&map!=="1")return null;
  const query=new URLSearchParams();
  for(const [key,value] of Object.entries(params)) {
-  if(!["category","prefecture","q","place","utm_source","utm_medium","utm_campaign"].includes(key))continue;
+  if(!["category","prefecture","city","q","place","utm_source","utm_medium","utm_campaign"].includes(key))continue;
   const first=Array.isArray(value)?value[0]:value;
   if(first)query.set(key,first.slice(0,200));
  }
