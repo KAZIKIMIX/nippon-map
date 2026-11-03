@@ -13,7 +13,8 @@ assert.deepEqual(readSharedMap(new URL(createSharedMapUrl('https://example.com',
 assert.deepEqual(readSharedMap('?category=aquarium&place=2489',categories),{category:'aquarium',prefecture:null,query:'',city:'',placeId:2489});
 const invalid=readSharedMap('?category=invalid&prefecture=東京都&city=港区&place=2489&q=品川',categories);
 assert.equal(invalid.category,null);assert.equal(invalid.prefecture,null);assert.equal(invalid.placeId,null);assert.equal(invalid.city,'');assert.equal(invalid.query,'品川');
-assert.equal(readSharedMap('?q='+encodeURIComponent('あ'.repeat(120)),categories).query.length,100);
+assert.equal(readSharedMap('?q='+encodeURIComponent('あ'.repeat(120)),categories).query.length,80);
 const url=new URL(createSharedMapUrl('https://example.com',{...global,query:' A&B #東京 '}));
 assert.equal(url.searchParams.get('q'),'A&B #東京');assert.equal(url.hash,'');
 console.log('Map sharing regression passed: global search, scoped search, place links, invalid scope, encoding and length.');
+

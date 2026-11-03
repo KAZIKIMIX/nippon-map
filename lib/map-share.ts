@@ -7,11 +7,11 @@ export function readSharedMap(search: string, categories: readonly string[]): Sh
  const rawPrefecture = params.get("prefecture");
  const rawId = params.get("place");
  const id = rawId && /^[1-9]\d{0,14}$/.test(rawId) ? Number(rawId) : null;
- return {category, prefecture: category && rawPrefecture && prefectures.has(rawPrefecture) ? rawPrefecture : null, query: (params.get("q") || "").slice(0,100), placeId: category && id && Number.isSafeInteger(id) ? id : null, city: category ? (params.get("city") || "").slice(0,100) : ""};
+ return {category, prefecture: category && rawPrefecture && prefectures.has(rawPrefecture) ? rawPrefecture : null, query: (params.get("q") || "").normalize("NFKC").slice(0,80), placeId: category && id && Number.isSafeInteger(id) ? id : null, city: category ? (params.get("city") || "").slice(0,100) : ""};
 }
 export function createSharedMapUrl(origin: string, state: SharedMapState): string {
  const url = new URL("/map", origin);
- if (state.query.trim()) url.searchParams.set("q", state.query.trim().slice(0,100));
+ if (state.query.trim()) url.searchParams.set("q", state.query.trim().normalize("NFKC").slice(0,80));
  if (state.category) {
   url.searchParams.set("category", state.category);
   if (state.prefecture && prefectures.has(state.prefecture)) url.searchParams.set("prefecture", state.prefecture);
@@ -20,3 +20,4 @@ export function createSharedMapUrl(origin: string, state: SharedMapState): strin
  }
  return url.toString();
 }
+
