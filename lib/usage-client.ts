@@ -42,9 +42,4 @@ export function setUsageDisabled(disabled: boolean): boolean {
  if(disabled)clearSource();
  try{if(disabled)localStorage.setItem(key,"1");else localStorage.removeItem(key);return true;}catch{return false;}
 }
-export function trackUsage(event: UsageEvent, category: string|null=null): void {
- if(usageIsDisabled()){clearSource();return;}
- const source=retainedSource();
- const developer=developerModeEnabled()||navigator.webdriver===true;
- void fetch("/api/usage",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({event,category,source,developer}),keepalive:true,credentials:"omit"}).catch(()=>{});
-}
+export function trackUsage(_event:UsageEvent,_category:string|null=null):void { return; }
