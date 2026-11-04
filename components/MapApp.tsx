@@ -122,7 +122,7 @@ export default function MapApp(){
   if(!loaded||!pendingSharedPlace.current||!cat)return;
   if(loadedPlacesScope.current!==`${cat}:${prefecture||""}`)return;
   const place=places.find(p=>p.id===pendingSharedPlace.current);
-  if(place&&place.category_slug===cat&&(!cityFilter||place.municipality_name===cityFilter)&&(!normalizedQ||[place.name,place.prefecture_name,place.municipality_name,place.address].some(value=>normalizeSearch(value||"").includes(normalizeSearch(normalizedQ)))))setSelected(place);
+  if(place&&place.category_slug===cat&&(!cityFilter||place.municipality_name===cityFilter)&&(!normalizedQ||normalizedQ.split(/\s+/).every(term=>[place.name,place.name_kana,place.prefecture_name,place.municipality_name,place.address].some(value=>normalizeSearch(value||"").includes(term)))))setSelected(place);
   if(place&&place.category_slug===cat)pendingSharedPlace.current=null;
  },[loaded,places,cat,prefecture,cityFilter,normalizedQ]);
  useEffect(()=>{if(!loaded||!multiCats.length||!pendingSharedPlace.current)return;const place=places.find(p=>p.id===pendingSharedPlace.current);if(place&&multiCats.includes(place.category_slug)&&(!prefecture||place.prefecture_name===prefecture)&&(!cityFilter||place.municipality_name===cityFilter)&&(!normalizedQ||normalizedQ.split(/\s+/).every(term=>[place.name,place.name_kana,place.prefecture_name,place.municipality_name,place.address].some(value=>normalizeSearch(value||"").includes(term))))){setSelected(place);pendingSharedPlace.current=null}},[loaded,places,multiCats,prefecture,cityFilter,normalizedQ]);
