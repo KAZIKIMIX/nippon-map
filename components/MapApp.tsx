@@ -6,7 +6,7 @@ import { getPlacePhoto } from "../lib/place-photos";
 import {readSharedMap,createSharedMapUrl} from "../lib/map-share";
 import {presentPlaceAddress} from "../lib/place-address";
 import {trackUsage} from "../lib/usage-client";
-import {safeOfficialUrl} from "../lib/guide-categories";
+import {safeOfficialUrl,prefectureOrder} from "../lib/guide-categories";
 import {normalizeSearchText,rankGlobalSearchResults,matchesCategorySearch} from "../lib/search-results";
 import {mapCategories as cats} from "../lib/map-categories";
 import maplibregl,{Map as MLMap} from "maplibre-gl";
@@ -48,7 +48,7 @@ export default function MapApp(){
  const dialogPreviousFocus=useRef<HTMLElement|null>(null);
 
  const [cityFilter,setCityFilter]=useState("");
- const [prefectureOptions,setPrefectureOptions]=useState<string[]>([]);
+ const prefectureOptions=prefectureOrder;
  const [nearbyStatus,setNearbyStatus]=useState("");
  const [nearbyLocation,setNearbyLocation]=useState<{latitude:number;longitude:number}|null>(null);
  const [sortByDistance,setSortByDistance]=useState(false);
@@ -108,7 +108,6 @@ export default function MapApp(){
   const requested=new URLSearchParams(window.location.search).get("categories");const valid=requested?.split(",").filter((slug,i,all)=>slug!=="shelter"&&cats.some(c=>c.slug===slug)&&all.indexOf(slug)===i).slice(0,8)||[];if(valid.length){setMultiCats(valid);setCategory(valid[0]);setPrefecture(state.prefecture);setQ(state.query);setCityFilter(state.city||"");setSharedStateReady(true);return}
   setCategory(state.category);setPrefecture(state.prefecture);setQ(state.query);setCityFilter(state.city||"");setSharedStateReady(true);
  },[]);
- useEffect(()=>{fetch("/api/places?category=roadside-station&summary=1").then(r=>r.json()).then(d=>{if(Array.isArray(d.summary))setPrefectureOptions(d.summary.map((x:{prefecture_name:string})=>x.prefecture_name).filter(Boolean).sort((a:string,b:string)=>a.localeCompare(b,"ja")))}).catch(()=>{})},[]);
  const cityOptions=useMemo(()=>[...new Set(places.map(p=>p.municipality_name).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"ja")),[places]);
  useEffect(()=>{if(!prefecture||cityFilter||!places.length||!map.current)return;const bounds=new maplibregl.LngLatBounds();let n=0;places.forEach(p=>{if(Number.isFinite(p.longitude)&&Number.isFinite(p.latitude)){bounds.extend([p.longitude,p.latitude]);n++}});if(n){const m=map.current;m.stop();m.fitBounds(bounds,{padding:55,maxZoom:11,duration:850})}},[prefecture,places]);
  useEffect(()=>{if(!cityFilter||!map.current)return;const bounds=new maplibregl.LngLatBounds();let n=0;places.forEach(p=>{if(p.municipality_name===cityFilter&&Number.isFinite(p.longitude)&&Number.isFinite(p.latitude)){bounds.extend([p.longitude,p.latitude]);n++}});if(n){const m=map.current;m.stop();m.fitBounds(bounds,{padding:60,maxZoom:13,duration:850})}},[cityFilter,places]);
