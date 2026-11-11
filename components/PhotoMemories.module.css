@@ -1,0 +1,47 @@
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  color: #253d50;
+}
+
+.card {
+  margin: 24px 0;
+  padding: 20px;
+  border: 1px solid #e2d9cc;
+  border-radius: 16px;
+  background: #fffaf3;
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+  max-width: 480px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.form label {
+  display: grid;
+  gap: 4px;
+}
+
+.form input, .form select, .page button {
+  padding: 8px;
+}
+
+.album {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.album img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}

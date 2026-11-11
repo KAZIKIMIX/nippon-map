@@ -20,3 +20,10 @@
 
 /* Keep narrow screens usable without overflowing the map or controls. */
 .wrap{min-width:0;overflow-wrap:anywhere}.mapScroll{min-width:0}.mapScroll svg{max-width:100%}.zoomControls button{min-height:44px}.quickHeading input{min-height:44px}@media(max-width:640px){.wrap{margin:14px 0 20px}.quickHeading input{font-size:16px}.prefGrid a,.prefGrid .noCoverage{min-width:0;overflow-wrap:anywhere}.selectedPanel a{min-height:44px;display:flex;align-items:center;justify-content:center}}
+
+.memoryMap .legendAvailable,
+.memoryMap .mapScroll .enabled path,
+.memoryMap .mapScroll .active path {
+  fill: #287f70;
+  background: #287f70;
+}
