@@ -16,9 +16,10 @@ function MemoryPhoto({photo, place}: {photo: Blob; place: string}) {
   return url ? <img src={url} alt={place + "の思い出写真"}/> : null;
 }
 
-export default function PhotoMemories({initialPrefecture, initialPlace}: {
+export default function PhotoMemories({initialPrefecture, initialPlace, cloudHref}: {
   initialPrefecture: string;
   initialPlace: string;
+  cloudHref?: string;
 }) {
   const [memories, setMemories] = useState<PhotoMemory[] | null>(null);
   const [region, setRegion] = useState("");
@@ -99,6 +100,7 @@ export default function PhotoMemories({initialPrefecture, initialPlace}: {
 
   return <main className={styles.page}>
     <a href="/map">← 施設を探す地図へ</a>
+    {cloudHref && <p><a href={cloudHref}>クラウドの思い出を開く</a></p>}
     <h1>思い出マップ</h1>
     <p>撮った写真を登録して、自分の日本地図を色づけよう。</p>
     <p>試作版の写真と記録は、このブラウザ内に保存されます。</p>
